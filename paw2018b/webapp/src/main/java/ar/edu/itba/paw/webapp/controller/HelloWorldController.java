@@ -29,4 +29,12 @@ public class HelloWorldController {
 		mav.addObject("greeting", "MARS");
 		return mav;
 	}	
+	
+	@RequestMapping("home")
+	public ModelAndView helloHome() {
+		final ModelAndView mav = new ModelAndView("home");
+		return mav;
+	}
+	
+	
 }
