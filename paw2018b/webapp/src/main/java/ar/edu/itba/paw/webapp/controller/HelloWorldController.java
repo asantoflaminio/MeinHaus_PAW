@@ -36,5 +36,11 @@ public class HelloWorldController {
 		return mav;
 	}
 	
+	@RequestMapping("details")
+	public ModelAndView helloDetails() {
+		final ModelAndView mav = new ModelAndView("details");
+		return mav;
+	}
+	
 	
 }
