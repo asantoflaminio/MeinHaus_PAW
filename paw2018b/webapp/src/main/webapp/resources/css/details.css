@@ -15,15 +15,16 @@ body {
     background-size:100% auto;
 }
 
+/* Navbar style */
 nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: visible;
-    background-color: #FFFFFF;
     height: 50px;
     width: 100%;
     min-width: 100%;
+    background-color:white
 }
 
 #logo {
@@ -32,15 +33,25 @@ nav {
     float: left;
 }
 
-
 .navbar_item {
     float: right;
     display: block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 13px;
     text-decoration: none;
     font-family: monaco, monospace;
+}
+
+.navbar_item:-moz-focus-inner { 
+  border: 0; 
+}
+
+.navbar_item:hover {
+    background-color: #4d4d4d;
+    outline: none;
+    color: white;
+    text-decoration: none;
 }
 
 #settings {
@@ -48,11 +59,69 @@ nav {
     float: right;
 }
 
-/* Change the link color to #333 on hover */
 .navbar_item:hover {
     background-color: #4d4d4d;
      outline: none;
 }
+
+/*dropdown box*/
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    float: right;
+    z-index: 1;
+
+}
+
+.form-control-borderless {
+    border: none;
+}
+
+#card .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.dropdown-content {
+    font-family: monaco, sans-serif;
+    display: none;
+    position: absolute;
+    top:50px;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    left: auto;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: #000;
+}
+
+.dropdown-content a:hover {
+    outline: none;
+    background-color: #ddd;
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* Closing style */
 
 h1 {
     font: bold 1.9em monaco, sans-serif !important;
@@ -74,75 +143,95 @@ footer p {
     margin: 5px;
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    color: #000;
+
+/* Sign in style */
+.form_login {
+	padding: 20px;
+	display: block;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-    outline: none;
-    background-color: #ddd;
-    color: black;
-    text-decoration: none;
+.form_login input{
+	width:190px;
+	height:30px;
+	padding:15px;
+	font-family: monaco, sans-serif;
+	font-size: 14px;	
 }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
+.email {
+	padding: 0px 10px 7px 10px;
 }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    font-family: monaco, sans-serif;
-    display: none;
-    position: absolute;
-    top:50px;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    right: 0;
-    left: auto;
+.password {
+	padding: 0px 10px 0px 10px;
 }
 
-/*dropdown box*/
+.check_box{
+	padding: 10px 10px 0px 10px;
+	font-family: monaco, sans-serif;
+	font-size: 13px;
+}	
 
-.dropbtn {
-    background-color: #4CAF50;
+.check_box label {
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+
+.check_box input {
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  margin: 0 5px 0 10px;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  *overflow: hidden;
+}
+
+.sign_b {
+	margin: 15px 10px 5px 10px;
+	align-items: center;
+    display: flex;
+}
+
+.sign_b button {
+	width:60%;
+	height:40px;
+    background-color: #FD8907;
     color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
+    font-family: monaco, sans-serif;
+	font-size: 14px;
+	margin: 0 auto;
 }
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    float: right;
-    z-index: 1;
-
+.line_separator{
+	padding: 3px 0px 3px 0px;
+	border-bottom:1px solid #ADA59C;
 }
+
+.password_label{
+	align-items: center;
+    display: flex;
+	width:100%;
+}
+
+.password_label label{
+	position:relative;
+	font-family: monaco, sans-serif;
+	font-size: 11px;
+	padding: 5px 10px 0px 10px;
+	text-align: center;
+	margin:0 auto;
+}
+
+/* Closing style */
 
 div.polaroid {
   margin-top: 15px;
   float: left;
   margin-left: 15%;
   width: 35%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
-}
-
-div.polaroid_des {
-  margin-top: 15px;
-  float: left;
-  margin-left: 15%;
-  width: 70%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
@@ -217,6 +306,16 @@ div.container3 {
     max-height: 200px;
 }
 
+div.polaroid_des {
+  margin-top: 15px;
+  float: left;
+  margin-left: 15%;
+  width: 70%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
 input[type=text], select {
     width: 100%;
     padding: 12px 20px;
@@ -226,18 +325,15 @@ input[type=text], select {
     border-radius: 4px;
     box-sizing: border-box;
 }
-
-div.fillers {
+ div.fillers {
   text-align: left;
   padding: 5px 10px;
 }
-
-label {
+ label {
     display: inline-block;
     margin-bottom: .0rem;
 }
-
-div.polaroid_overview {
+ div.polaroid_overview {
   float: left;
   margin-top: 15px;
   margin-left: 15%;
@@ -246,20 +342,17 @@ div.polaroid_overview {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
 }
-
-.polaroid_title {
+ .polaroid_title {
 	font-family: monaco, monospace !important;
     font-size: 22px;
     font-weight: bold;
 }
-
-
-div.container4 {
+ div.container4 {
   text-align: left;
   padding: 10px 20px;
 }
 
-.button {
+.fillers .button {
     background-color: #FD8907;
     border: none;
     color: white;
@@ -272,5 +365,3 @@ div.container4 {
     margin: 4px 2px;
     cursor: pointer;
 }
-
-
