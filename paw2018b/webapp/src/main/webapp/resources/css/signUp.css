@@ -1,0 +1,299 @@
+@charset "UTF-8";
+
+html{
+    position:relative; 
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: monaco, monospace !important;
+    margin-bottom:100px;
+    background-size:100% auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    background-color: #FFFFFF;
+    height: 50px;
+    width: 100%;
+    min-width: 100%;
+}
+
+#logo {
+    height: 50px;
+    width: 150px;
+    float: left;
+}
+
+
+.navbar_item {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 13px;
+    text-decoration: none;
+    font-family: monaco, monospace;
+}
+
+#settings {
+    width: 50px;
+    float: right;
+}
+
+/* Change the link color to #333 on hover */
+.navbar_item:hover {
+    background-color: #4d4d4d;
+     outline: none;
+}
+
+h1 {
+    font: bold 1.9em monaco, sans-serif !important;
+}
+#footer {
+    clear: both;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height:auto;
+    margin-top: 550px;
+    background-color: #ddd;
+}
+
+footer p {
+    font: 0.7em monaco, sans-serif;
+    color: #777;
+    text-align: center;
+    margin: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: #000;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    outline: none;
+    background-color: #ddd;
+    color: black;
+    text-decoration: none;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    font-family: monaco, sans-serif;
+    display: none;
+    position: absolute;
+    top:50px;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    left: auto;
+}
+
+/*dropdown box*/
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    float: right;
+    z-index: 1;
+
+}
+
+.mainRegistration{
+    width: 100vw;
+    height: 100vh;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.registration{
+    width: 85vw;
+    height: 80vh;
+    display: inline-block;
+    border-width: 1px;
+    border-color: black;
+    border-style:solid;
+    border-left-style: none;
+    border-top-style: none;
+}
+
+.title{
+    width: 98%;
+    height: 10%;
+    text-align: left;
+    font-size: 1.5vw;
+}
+
+.titleText{
+    margin-left: 2vw;
+    font-family: monaco, monospace !important;
+}
+
+
+.titleLine{
+    border-color: black;
+    border-width: 1px;
+}
+
+.content{
+    width: 90%;
+    height: 80%;
+    margin: 0 auto;
+    margin-top: 2%;
+    display: flex;
+}
+
+.leftContent{
+    width: 50%;
+    height: 100%;
+    border-right-color: black;
+    border-right-style: solid;
+    border-right-width: 2px;
+    text-align: left;
+}
+
+.rightContent{
+    width: 50%;
+    height: 100%;
+}
+
+.titleInfo{
+    text-align: center;
+}
+
+input[type=text], select {
+    width: 90%;
+    height: 7.5%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid;
+    border-color:#727272;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 80%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+label{
+    margin-left: 2%;
+}
+
+.userOption{
+    width: 100%;
+    height: 20%;
+    margin-top: 5%;
+    font-size: 100%;
+}
+
+.options{
+    width: 100%;
+    height: 10%;
+    display: flex; 
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-top: 5%;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
