@@ -138,6 +138,16 @@ div.polaroid {
   margin-bottom: 25px;
 }
 
+div.polaroid_des {
+  margin-top: 15px;
+  float: left;
+  margin-left: 15%;
+  width: 70%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
 div.polaroid_price {
   float: right;
   margin-top: 15px;
@@ -206,3 +216,61 @@ div.container3 {
     max-width: 120px; 
     max-height: 200px;
 }
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+div.fillers {
+  text-align: left;
+  padding: 5px 10px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .0rem;
+}
+
+div.polaroid_overview {
+  float: left;
+  margin-top: 15px;
+  margin-left: 15%;
+  width: 35%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+.polaroid_title {
+	font-family: monaco, monospace !important;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+div.container4 {
+  text-align: left;
+  padding: 10px 20px;
+}
+
+.button {
+    background-color: #FD8907;
+    border: none;
+    color: white;
+    width:100%;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
