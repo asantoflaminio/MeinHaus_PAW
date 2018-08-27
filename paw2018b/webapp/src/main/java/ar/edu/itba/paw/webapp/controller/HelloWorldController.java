@@ -42,5 +42,12 @@ public class HelloWorldController {
 		return mav;
 	}
 	
+	@RequestMapping("signUp")
+	public ModelAndView helloSignUp() {
+		final ModelAndView mav = new ModelAndView("signUp");
+		return mav;
+	}
+	
+	
 	
 }

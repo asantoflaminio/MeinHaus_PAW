@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div>
-                <a class="navbar_item" href="">Sign up</a>
+                <a class="navbar_item" href="./signUp">Sign up</a>
             </div>
         </nav>
         
