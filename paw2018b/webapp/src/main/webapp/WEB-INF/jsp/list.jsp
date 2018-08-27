@@ -97,25 +97,42 @@
 			</ul>
     	</div>
     	
-	    <div class="polaroid">
-			<div class="container">
-			<div id="filters-title">
-				<h3>FILTERS</h3>
-			</div>
-				<div id="filters-list">
-			  		<div class="filters-list-item">LOCATION <img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" class="arrow-up-filters"></img></div>
-			  		<div class="filters-list-item">PRICE<img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" class="arrow-up-filters"></img></div>
-			  		<div class="filters-list-item filters-list-item-last">BEDROOMS<img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" class="arrow-up-filters"></img></div>
+    	<div>
+    		<aside>    		
+			    <div class="polaroid">
+					<div class="container">
+					<div id="filters-title">
+						<h3>FILTERS</h3>
+					</div>
+						<div id="filters-list">
+					  		<div class="filters-list-item">LOCATION <img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" class="arrow-up-filters"></img></div>
+					  		<div class="filters-list-item">PRICE<img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" class="arrow-up-filters"></img></div>
+					  		<div class="filters-list-item filters-list-item-last">BEDROOMS<img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" class="arrow-up-filters"></img></div>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
+			</aside>
 
-        <section>
-	        <div></div>
-	        <div></div>
-	        <div></div> 	
-	        <div></div> 	
-        </section>
+	        <section>
+			    <div class="polaroid-property">
+			    	<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
+					<div class="property-container">
+						<div>
+						</div>
+					</div>
+				</div>	
+				
+				<div class="polaroid-property">
+			    	<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa2.jpg" />" alt="5 Terre">
+					<div class="property-container">
+						<div>
+						</div>
+					</div>	
+				</div>	
+				
+	        </section>
+        </div>
+        
         <footer>
           <div id="footer">
               <p>Copyright &copy; 2018, MeinHaus. All rights reserved.</p>
