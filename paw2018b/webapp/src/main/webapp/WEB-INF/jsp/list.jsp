@@ -15,16 +15,19 @@
         <c:url value="/resources/css/navbar.css" />
         ">
         <link rel="stylesheet" type="text/css" href="
+        <c:url value="/resources/css/polaroid.css" />
+        ">
+        <link rel="stylesheet" type="text/css" href="
         <c:url value="/resources/css/footer.css" />
         ">
+        <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
     
-    <body>
-        
+    <body>       
         <nav>
             <img src="
             <c:url value="/resources/pics/Logo4.png" />
@@ -66,10 +69,47 @@
             </div>
         </nav>
         
-    	<div class="c1"></div>
-    	<div class="c2"></div>
-        <div class="c3"></div>
-        <aside></aside>
+        <div class="breadcrumb">
+	        <ul class="breadcrumb-list">
+			  <li><a href="#">Home</a></li>
+			  <li><a href="#">Rent</a></li>
+			  <li><a href="#">NY</a></li>
+			  <li>Brooklyn</li>
+			</ul>
+		</div>
+        
+		<div class="wrap">
+		   <div class="search">
+		      <input type="text" class="searchTerm" placeholder="Search by address, neighborhood or ZIP code">
+		      <button type="submit" class="searchButton">
+		        <img src="<c:url value="/resources/pics/search_icon.png" />" alt="Search" id="search-img"></img>
+		     </button>
+		   </div>
+		</div>
+		
+		
+		
+    	<div class="filters">
+    		<ul id="applied-filters-list">
+			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" alt="Delete" class="delete-img">For rent</li>
+			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" alt="Delete" class="delete-img">Brooklyn</li>
+			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" alt="Delete" class="delete-img">2 bedrooms</li>
+			</ul>
+    	</div>
+    	
+	    <div class="polaroid">
+			<div class="container">
+			<div id="filters-title">
+				<h3>FILTERS</h3>
+			</div>
+				<div id="filters-list">
+			  		<div class="filters-list-item">LOCATION <img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" class="arrow-up-filters"></img></div>
+			  		<div class="filters-list-item">PRICE<img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" class="arrow-up-filters"></img></div>
+			  		<div class="filters-list-item filters-list-item-last">BEDROOMS<img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" class="arrow-up-filters"></img></div>
+				</div>
+			</div>
+		</div>
+
         <section>
 	        <div></div>
 	        <div></div>

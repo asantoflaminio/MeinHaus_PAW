@@ -171,8 +171,8 @@
         </section>
         
         <section>
-            <div class="fotter">
-                <h1>FOTTER</h1>
+            <div class="footer">
+                <h1>FOOTER</h1>
             </div>
         </section>
         
