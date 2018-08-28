@@ -126,21 +126,125 @@
 
 	        <section>
 			    <div class="polaroid-property">
-			    	<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
+			    	<div class="img-with-tag">
+			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
+			    		<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
+						<h2 class="price-tag">$10.000</h2>
+					</div>
 					<div class="property-container">
-						<div>
+						<div class="property-title-container">
+							<h3 class="property-title">Av. Cabildo 300, Colegiales</h3>
+							<h4 class="property-date">published 3 days ago</h4>
 						</div>
+						<div class="property-characteristics">
+							<div class="column-1">
+								<h4><strong>2</strong> bedrooms</h4>
+								<h4><strong>3</strong> bathrooms</h4>
+								<h4>Garage</h4>
+								<h4>Swimming pool</h4>
+							</div>
+							<div class="column-2">
+								<h4>Pets allowed</h4>
+								<h4><strong>300</strong> sq. meters</h4>
+								<h4>For rent</h4>
+								<h4>Colegiales</h4>
+							</div>
+						</div>
+						<div class="more-info">
+							<a class="more-info-title" href="#">MORE INFO ></a>
+						</div>	
 					</div>
 				</div>	
 				
 				<div class="polaroid-property">
-			    	<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa2.jpg" />" alt="5 Terre">
-					<div class="property-container">
-						<div>
+			    	<div class="img-with-tag">
+			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa2.jpg" />" alt="5 Terre">
+			    		<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
+						<h2 class="price-tag">$15.000</h2>
+					</div>					<div class="property-container">
+						<div class="property-title-container">
+							<h3 class="property-title">Av. Cabildo 300, Colegiales</h3>
+							<h4 class="property-date">published 3 days ago</h4>
 						</div>
-					</div>	
+						<div class="property-characteristics">
+							<div class="column-1">
+								<h4><strong>2</strong> bedrooms</h4>
+								<h4><strong>3</strong> bathrooms</h4>
+								<h4>Garage</h4>
+								<h4>Swimming pool</h4>
+							</div>
+							<div class="column-2">
+								<h4>Pets allowed</h4>
+								<h4><strong>300</strong> sq. meters</h4>
+								<h4>For rent</h4>
+								<h4>Colegiales</h4>
+							</div>
+						</div>
+						<div class="more-info">
+							<a class="more-info-title" href="#">MORE INFO ></a>
+						</div>	
+					</div>
 				</div>	
 				
+				<div class="polaroid-property">
+			    	<div class="img-with-tag">
+			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa3.jpg" />" alt="5 Terre">
+			    		<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
+						<h2 class="price-tag">$12.000</h2>
+					</div>					<div class="property-container">
+						<div class="property-title-container">
+							<h3 class="property-title">Av. Cabildo 300, Colegiales</h3>
+							<h4 class="property-date">published 3 days ago</h4>
+						</div>
+						<div class="property-characteristics">
+							<div class="column-1">
+								<h4><strong>2</strong> bedrooms</h4>
+								<h4><strong>3</strong> bathrooms</h4>
+								<h4>Garage</h4>
+								<h4>Swimming pool</h4>
+							</div>
+							<div class="column-2">
+								<h4>Pets allowed</h4>
+								<h4><strong>300</strong> sq. meters</h4>
+								<h4>For rent</h4>
+								<h4>Colegiales</h4>
+							</div>
+						</div>
+						<div class="more-info">
+							<a class="more-info-title" href="#">MORE INFO ></a>
+						</div>	
+					</div>
+				</div>	
+				
+				<div class="polaroid-property">
+			    	<div class="img-with-tag">
+			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa4.jpg" />" alt="5 Terre">
+			    		<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
+						<h2 class="price-tag">$8.000</h2>
+					</div>					<div class="property-container">
+						<div class="property-title-container">
+							<h3 class="property-title">Av. Cabildo 300, Colegiales</h3>
+							<h4 class="property-date">published 3 days ago</h4>
+						</div>
+						<div class="property-characteristics">
+							<div class="column-1">
+								<h4><strong>2</strong> bedrooms</h4>
+								<h4><strong>3</strong> bathrooms</h4>
+								<h4>Garage</h4>
+								<h4>Swimming pool</h4>
+							</div>
+							<div class="column-2">
+								<h4>Pets allowed</h4>
+								<h4><strong>300</strong> sq. meters</h4>
+								<h4>For rent</h4>
+								<h4>Colegiales</h4>
+							</div>
+						</div>
+						<div class="more-info">
+							<a class="more-info-title" href="#">MORE INFO ></a>
+						</div>	
+					</div>	
+				</div>	
 	        </section>
         </div>
         
