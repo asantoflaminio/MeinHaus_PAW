@@ -37,7 +37,7 @@ section {
 }
 
 h1 {
-    font-family: bold 1.9em 'Rubik', sans-serif !important;
+    font: bold 2em 'Rubik', sans-serif !important;
 }
 
 
@@ -57,7 +57,7 @@ h1 {
 .styled-select select {
   	background: transparent;
   	border: none;
-   	font-size: 14px;
+   	font-size: 15px;
    	height: 29px;
    	padding: 5px; /* If you add too much padding here, the options won't show in IE */
    	width: 268px;
@@ -83,6 +83,11 @@ option {
     background-color: #FD8907;
     border-color: #FD8907;
     margin-left: 10px;
+    font-size: 17px !important;
+}
+
+input {
+	font-size: 17px !important;
 }
 
 #card{
