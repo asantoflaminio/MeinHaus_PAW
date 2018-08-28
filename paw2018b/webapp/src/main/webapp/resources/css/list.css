@@ -253,7 +253,7 @@ div.polaroid-property {
 	background-color: white;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	display: flex;
-	
+	min-width: 700px;
 }
 
 .img-with-tag {
@@ -277,6 +277,14 @@ div.polaroid-property {
 	right: 8px;
 	height: 30px;
 	width: 30px;
+}
+
+.next-image {
+	height: 25px;
+	width: 25px;
+	top: 95px;
+	right: 5px;
+	position: absolute;
 }
 
 .polaroid-property-img{

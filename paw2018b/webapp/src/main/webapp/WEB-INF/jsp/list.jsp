@@ -129,6 +129,7 @@
 			    	<div class="img-with-tag">
 			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
 			    		<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
+			    		<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
 						<h2 class="price-tag">$10.000</h2>
 					</div>
 					<div class="property-container">
@@ -160,6 +161,7 @@
 			    	<div class="img-with-tag">
 			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa2.jpg" />" alt="5 Terre">
 			    		<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
+			    		<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
 						<h2 class="price-tag">$15.000</h2>
 					</div>					<div class="property-container">
 						<div class="property-title-container">
@@ -190,6 +192,7 @@
 			    	<div class="img-with-tag">
 			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa3.jpg" />" alt="5 Terre">
 			    		<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
+						<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
 						<h2 class="price-tag">$12.000</h2>
 					</div>					<div class="property-container">
 						<div class="property-title-container">
@@ -220,6 +223,7 @@
 			    	<div class="img-with-tag">
 			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa4.jpg" />" alt="5 Terre">
 			    		<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
+			    		<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
 						<h2 class="price-tag">$8.000</h2>
 					</div>					<div class="property-container">
 						<div class="property-title-container">
