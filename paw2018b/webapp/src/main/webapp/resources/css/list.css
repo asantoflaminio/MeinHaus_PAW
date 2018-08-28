@@ -100,11 +100,60 @@ ul.breadcrumb-list li a:hover {
 	margin-left: 15px;
 	width: 500px;
 	height: 40px;
-	margin-bottom: 50px;
+	margin-bottom: 20px;
 }
 
 /* End of style */
 
+
+/* Results style */
+
+#results-container {
+	height: 50px;
+}
+
+.results {
+	display: inline-block;
+	width: 50%;
+}
+
+#res {
+	float: left;
+}
+
+#res-title {
+	float: left;
+	margin-left: 15px;
+}
+
+#order {
+	float: right;
+	font-size: 14px !important;
+}
+
+#order-title {
+	display: inline-block;
+	float: right;
+	font-size: 14px !important;
+	margin-top: 25px !important;
+}
+
+#order-select {
+	display: inline-block;
+	float: right;
+	margin-left: 8px;
+	margin-right: 10px;
+	margin-top: 23px;
+	
+  	border: 1px solid #FD8907;
+  	border-radius: 5px;
+
+  	color: #555;
+  	font-family: inherit;
+  	font-size: inherit;
+}
+
+/* End of style */
 
 /* Applied filters style */
 
@@ -193,7 +242,7 @@ div.polaroid {
 /* End of style */
 
 
-/* Properties list style */
+/* Properties polaroid list style */
 
 div.polaroid-property {
   margin-top: 7px;
@@ -219,6 +268,12 @@ div.polaroid-property {
 
 section {
 	margin-left: 19%;
+}
+
+@media screen and ( max-width: 935px ){
+    section {
+        margin-left: 180px;
+    }
 }
 
 /* End of style */

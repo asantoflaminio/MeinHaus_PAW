@@ -15,9 +15,6 @@
         <c:url value="/resources/css/navbar.css" />
         ">
         <link rel="stylesheet" type="text/css" href="
-        <c:url value="/resources/css/polaroid.css" />
-        ">
-        <link rel="stylesheet" type="text/css" href="
         <c:url value="/resources/css/footer.css" />
         ">
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
@@ -87,8 +84,22 @@
 		   </div>
 		</div>
 		
-		
-		
+		<div id="results-container">
+			<div class="results" id="res">
+				<h3 id="res-title">Results for:</h3>
+			</div>
+			
+			<div class="results" id="order">
+				<select id="order-select">
+					<option value="Lowest price">Lowest price</option>
+					<option value="Highest price">Highest price</option>
+					<option value="Newest">Newest</option>
+					<option value="Oldest">Oldest</option>
+				</select>				
+				<h3 id="order-title">Order by:</h3>
+			</div>
+		</div>
+
     	<div class="filters">
     		<ul id="applied-filters-list">
 			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" alt="Delete" class="delete-img">For rent</li>
