@@ -18,9 +18,9 @@
     
     <body>       
         <nav>
-            <img src="
-            <c:url value="/resources/pics/Logo4.png" />
-            " alt="Home" id="logo">
+        	<a href="./home">
+           		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
+            </a>
             <div class="dropdown">
                 <img src="
                 <c:url value="/resources/pics/Settings.png" />

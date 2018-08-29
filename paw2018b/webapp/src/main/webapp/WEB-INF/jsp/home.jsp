@@ -27,9 +27,9 @@
     <body>
         
         <nav>
-            <img src="
-            <c:url value="/resources/pics/Logo4.png" />
-            " alt="Home" id="logo">
+        	<a href="./home">
+           		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
+            </a>
             <div class="dropdown">
                 <img src="
                 <c:url value="/resources/pics/Settings.png" />
@@ -68,14 +68,14 @@
         </nav>
         
         <header>
-            <div class="header" style="background-image:url(<c:url value='/resources/pics/background.jpg'/>)">
+            <div class="header" style="background-image:url(<c:url value='/resources/pics/background5.png'/>)">
                 <div class="title">
                     <h1>Discover your next home</h1>
                 </div>
                 <div class="search_list">
                     <ul class="rounded">
 					  <li><a id="first_item">Buy</a></li>
-					  <li><a>Rent</a></li>
+					  <li><a href="./list" id="temporal">Rent</a></li>
 					</ul>
                 </div>
                 <div id="icons">
@@ -108,7 +108,7 @@
         
         <section class="newest_homes">
             <div>
-                <h3>Newest Homes</h3>
+                <h3>NEWEST HOMES</h3>
             </div>
             <div>
                 <ul>
@@ -162,7 +162,7 @@
                     </li>
                     <li class="polaroid">
                         <img src="
-                        <c:url value="/resources/pics/background.jpg" />
+                        <c:url value="/resources/pics/background5.png" />
                         ">	</img> 
                         <div class="line_separator"></div>
                        <div class="description_box">

@@ -6,6 +6,7 @@ html {
 
 body {
     font-family: 'Rubik', sans-serif !important;
+    background-color: #eee !important;
 }
 
 /* Header style */
@@ -38,6 +39,7 @@ h1 {
 .search_list{
 	width: 20%;
   	margin: 0 auto;
+  	margin-top: 60px;
 }
 
 .search_list ul {
@@ -111,15 +113,19 @@ input {
 
 .newest_homes {
 	margin: 0;
+	margin-top: 50px;
 	padding: 0;
 	height:600px;
-	background-color: #F5F5F5;
+	background-color: #eee;
 }
 
 .newest_homes h3 {
     font-family: 'Rubik', sans-serif !important;
-	font-size: 35px;
+    color: #666;
+	font-size: 25px;
 	padding: 30px;
+	text-align: left;
+	margin-left: 50px;
 }
 
 .newest_homes li {
@@ -127,7 +133,6 @@ input {
 	width:300px;
 	height:350px;
 	border-radius: 1px;
-	border: 3px solid #bfbfbf;
 	padding: 5px;
 	margin: 5px 3px 15px 3px;
 }
@@ -199,3 +204,8 @@ input {
 	background-color: #999999;
 }
 /* Closing style */
+
+#temporal {
+	color: white;
+	text-decoration: none;
+}
