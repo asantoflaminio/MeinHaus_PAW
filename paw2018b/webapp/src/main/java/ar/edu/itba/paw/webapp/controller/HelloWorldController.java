@@ -54,4 +54,10 @@ public class HelloWorldController {
 		return mav;
 	}
 	
+	@RequestMapping("publish")
+	public ModelAndView helloPublish() {
+		final ModelAndView mav = new ModelAndView("publish");
+		return mav;
+	}
+	
 }
