@@ -72,12 +72,11 @@
                 <div class="title">
                     <h1>Discover your next home</h1>
                 </div>
-                <div class="styled-select black rounded">
-                    <select>
-                        <option value="Buy">Buy</option>
-                        <option value="Rent">Rent</option>
-                        <option value="Rent">Sell</option>
-                    </select>
+                <div class="search_list">
+                    <ul class="rounded">
+					  <li><a id="first_item">Buy</a></li>
+					  <li><a>Rent</a></li>
+					</ul>
                 </div>
                 <div id="icons">
                     <div class="container">
@@ -113,69 +112,87 @@
             </div>
             <div>
                 <ul>
-                    <li>
+                    <li class="polaroid">
                         <img src="
                         <c:url value="/resources/pics/casa1.jpg" />
                         ">	</img> 
                         <div class="line_separator"></div>
-                        <div class="description_box"><label>description</label></div>
+                        <div class="description_box">
+                        	<label class="price">USD 150.000</label>
+					  		<label  class="expenses">$ 7.900 Expensas</label>
+					  		<label>O'Higgins 2852</label>
+					  		<label>Belgrano, Capital Federal</label>
+                        </div>
                     </li>
-                    <li>
+                    <li class="polaroid">
                         <img src="
-                        <c:url value="/resources/pics/casa1.jpg" />
+                        <c:url value="/resources/pics/casa2.jpg" />
                         ">	</img> 
                         <div class="line_separator"></div>
-                        <div class="description_box"><label>description</label></div>
+                        <div class="description_box">
+                        	<label class="price">USD 150.000</label>
+					  		<label  class="expenses">$ 7.900 Expensas</label>
+					  		<label>O'Higgins 2852</label>
+					  		<label>Belgrano, Capital Federal</label>
+                        </div>
                     </li>
-                    <li>
+                    <li class="polaroid">
                         <img src="
-                        <c:url value="/resources/pics/casa1.jpg" />
+                        <c:url value="/resources/pics/casa3.jpg" />
                         ">	</img> 
                         <div class="line_separator"></div>
-                        <div class="description_box"><label>description</label></div>
+                        <div class="description_box">
+                        	<label class="price">USD 150.000</label>
+					  		<label  class="expenses">$ 7.900 Expensas</label>
+					  		<label>O'Higgins 2852</label>
+					  		<label>Belgrano, Capital Federal</label>
+                        </div>
                     </li>
-                    <li>
+                    <li class="polaroid">
                         <img src="
-                        <c:url value="/resources/pics/casa1.jpg" />
+                        <c:url value="/resources/pics/casa4.jpg" />
                         ">	</img> 
                         <div class="line_separator"></div>
-                        <div class="description_box"><label>description</label></div>
+                        <div class="description_box">
+                        	<label class="price">USD 150.000</label>
+					  		<label  class="expenses">$ 7.900 Expensas</label>
+					  		<label>O'Higgins 2852</label>
+					  		<label>Belgrano, Capital Federal</label>
+                        </div>
                     </li>
-                    <li>
+                    <li class="polaroid">
                         <img src="
-                        <c:url value="/resources/pics/casa1.jpg" />
+                        <c:url value="/resources/pics/background.jpg" />
                         ">	</img> 
                         <div class="line_separator"></div>
-                        <div class="description_box"><label>description</label></div>
+                       <div class="description_box">
+                        	<label class="price">USD 150.000</label>
+					  		<label  class="expenses">$ 7.900 Expensas</label>
+					  		<label>O'Higgins 2852</label>
+					  		<label>Belgrano, Capital Federal</label>
+                        </div>
                     </li>
-                    <li>
+                    <li class="polaroid">
                         <img src="
                         <c:url value="/resources/pics/casa1.jpg" />
                         ">	</img> 
                         <div class="line_separator"></div>
-                        <div class="description_box"><label>description</label></div>
+                        <div class="description_box">
+                        	<label class="price">USD 150.000</label>
+					  		<label  class="expenses">$ 7.900 Expensas</label>
+					  		<label>O'Higgins 2852</label>
+					  		<label>Belgrano, Capital Federal</label>
+                        </div>
                     </li>
                 </ul>
             </div>
         </section>
         
-        <section>
-            <div class="section_info">
-                <h1>SECTION 2</h1>
-            </div>
-        </section>
-        
-        <section>
-            <div class="section_info">
-                <h1>SECTION 3</h1>
-            </div>
-        </section>
-        
-        <section>
-            <div class="footer">
-                <h1>FOOTER</h1>
-            </div>
-        </section>
+        <footer>
+          <div id="footer">
+              <p>Copyright &copy; 2018, MeinHaus. All rights reserved.</p>
+          </div>
+        </footer>
         
     </body>
 </html>

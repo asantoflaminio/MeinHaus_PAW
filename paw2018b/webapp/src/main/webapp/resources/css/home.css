@@ -2,22 +2,16 @@
 
 html {
     position:relative; 
-    min-height: 100%;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
     font-family: 'Rubik', sans-serif !important;
-    margin-bottom:100px;
 }
 
 /* Header style */
 .header {
     width: 100%;
-    height: 600px;
+    height: 580px;
     background-size:100% auto;
 }
 
@@ -33,7 +27,6 @@ body {
 
 section {
     text-align: center;  
-    padding-bottom: 60px;
 }
 
 h1 {
@@ -41,42 +34,52 @@ h1 {
 }
 
 
-/* Select style */
-.styled-select {
-   	background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-   	height: 29px;
-   	overflow: hidden;
-   	width: 240px;
-    margin-top: 80px;
-    margin-left: 40%;
-    padding-bottom: 5px;
+/* List style */
+
+.search_list{
+	width: 20%;
+  	margin: 0 auto;
+}
+.search_list ul {
+	text-align: center;  
+	width:100%;
+	border: 1px solid #7C7C7C;
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+	overflow: hidden;
 }
 
-.black { background-color: #FD8907; }
-
-.styled-select select {
-  	background: transparent;
-  	border: none;
-   	font-size: 15px;
-   	height: 29px;
-   	padding: 5px; /* If you add too much padding here, the options won't show in IE */
-   	width: 268px;
+.search_list ul li {
+	float: left;
+	width: 50%;
+	color: white; 
+	font-weight: 600;
 }
+.search_list ul li a {
+	border: 1px solid rgb(206, 205, 185, .6);
+	display: block;
+	padding: 3px;
+	width: 100%;
+	font-size: 17px !important;
+	background-color:rgb(214, 214, 214, 0.8);
+}
+
+#first_item {
+	border-right:1px solid #7C7C7C;
+}
+
+.search_list ul li a:hover{
+	background-color:rgb(253, 137, 7, .9);
+}
+
+/* Closing style*/
 
 .rounded {
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
 }
-
-select {
-    color: white;
-}
-
-option {
-    color: black;
-}
-/* Closing style */
 
 /* Search style */
 #searchbutton {
@@ -103,10 +106,6 @@ input {
 
 /* Closing style */
 
-section {
-    margin:10px 10px 10px 10px;
- 	height:400px;
-}
 
 /* Newest_homes style */
 
@@ -114,11 +113,12 @@ section {
 	margin: 0;
 	padding: 0;
 	height:600px;
+	background-color: #F5F5F5;
 }
 
-.newest_homes h3{
+.newest_homes h3 {
     font-family: 'Rubik', sans-serif !important;
-	font-size: 40px;
+	font-size: 35px;
 	padding: 30px;
 }
 
@@ -129,8 +129,14 @@ section {
 	border-radius: 1px;
 	border: 3px solid #bfbfbf;
 	padding: 5px;
-	margin: 5px;
+	margin: 5px 3px 15px 3px;
 }
+
+.polaroid {
+  	background-color: white;
+  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 
 .newest_homes ul {
  	overflow: auto;
@@ -148,18 +154,55 @@ section {
 .newest_homes .description_box{
 	width:100%;
 	height:160px;
-	background-color:white;
+	
 	margin-bottom:5px;
+	padding: 5px;
+}
+
+.newest_homes .description_box label{
+	font-size: 17px;
+	width:90%;
+	float:left;
+	text-align:left;
+	
+}
+
+.newest_homes .description_box .price{
+	font-size: 23px !important;
+	
+}
+
+.newest_homes .description_box .expenses{
+	font-size: 20px !important;
+	
+}
+
+.newest_homes ::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.newest_homes ::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.newest_homes ::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
 }
 /* Closing style */
 
 /* Footer style */
 .footer{
+	margin: 0;
+	padding: 0;
+	height:100px;
 	background-color: #999999;
 }
 /* Closing style */
-
-.section_info{
-	height:400px;
-	background-color: #fff0e6;
-}

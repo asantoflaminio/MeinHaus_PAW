@@ -30,7 +30,7 @@ nav {
 }
 
 .navbar_item:-moz-focus-inner { 
-  border: 0; 
+  	border: 0; 
 }
 
 .navbar_item:hover {
@@ -139,20 +139,20 @@ nav {
 }   
 
 .check_box label {
-  display: block;
-  padding-left: 15px;
-  text-indent: -15px;
+  	display: block;
+  	padding-left: 15px;
+  	text-indent: -15px;
 }
 
 .check_box input {
-  width: 15px;
-  height: 15px;
-  padding: 0;
-  margin: 0 5px 0 10px;
-  vertical-align: bottom;
-  position: relative;
-  top: -1px;
-  *overflow: hidden;
+  	width: 15px;
+  	height: 15px;
+  	padding: 0;
+  	margin: 0 5px 0 10px;
+  	vertical-align: bottom;
+  	position: relative;
+  	top: -1px;
+  	*overflow: hidden;
 }
 
 .sign_b {
