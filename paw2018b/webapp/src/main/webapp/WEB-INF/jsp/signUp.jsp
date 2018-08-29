@@ -4,9 +4,11 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Registration</title>
+        <title>Sign Up</title>
+        <link rel="shortcut icon" href="<c:url value="/resources/pics/favicon.ico" />">
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/signUp.css" />">
-        <script src="js/jquery-3.3.1.js"></script>  
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/navbar.css" />">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/footer.css" />">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
@@ -16,55 +18,103 @@
 
     </head>
 
-    <body background="<c:url value="/resources/pics/background2.jpg" />">
+    <body>
         <nav>
-          <img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
-                <div class="dropdown" >
-                  <img src="<c:url value="/resources/pics/Settings.png" />" alt="Settings" id="settings" class="navbar_item">
-                  <div id="myDropdown" class="dropdown-content" > 
-                    <a href="./help.html">Log In</a>
-                    <a href="./help.html">Register</a>
-                    <a href="./help.html">Publish</a>
-                  </div>
+            <img src="
+            <c:url value="/resources/pics/Logo4.png" />
+            " alt="Home" id="logo">
+            <div class="dropdown">
+                <img src="
+                <c:url value="/resources/pics/Settings.png" />
+                " alt="Settings" id="settings" class="navbar_item">
+                <div id="myDropdown" class="dropdown-content"> 
+                    <a href="./help.html">Profile</a>
+                    <a href="./help.html">Log Out</a>
                 </div>
-        </nav>
-
-        <div class="mainRegistration">
-        	<div class="registration">
-        		<div class="title">
-        			<h1 class="titleText">Registration</h1>
-        			<hr class="titleLine">
-        		</div>
-                <div class="content">
-                    <div class="leftContent">
-                        <h1 class="titleInfo">Obligatory</h1>
-                        <label>First Name</label>
-                        <input type="text" placeholder="First name...">
-                        <label>Last name</label>
-                        <input type="text" placeholder="Last name...">
-                        <label>E-mail account</label>
-                        <input type="text" placeholder="example@eg.com">
-                        <label>Cellphone</label>
-                        <input type="text" placeholder="(XXX)XXX-XXXX">
-                        <div class="userOption">
-                            <h1>Account type:</h1>
-                                <div class="options">
-                                    <label class="container">
-                                      <input type="checkbox">
-                                      <span class="checkmark"></span>
-                                    </label>
-
-                                    <label class="container">
-                                      <input type="checkbox">
-                                      <span class="checkmark"></span>
-                                    </label>
-                                </div>
+            </div>
+            <div class="dropdown">
+                <a class="navbar_item" href="#">Sign in</a>
+                <div class="dropdown-content">
+                    <form class="form_login">
+                        <div class="email">
+                            <input class="form-control form-control-lg form-control-borderless" type="email" placeholder="Email" required>
                         </div>
-                    </div>
-                    <div class="rightContent">
-                        <h1 class="titleInfo">Optional</h1>
-                    </div>
+                        <div class="password">
+                            <input class="form-control form-control-lg form-control-borderless" type="password" placeholder="Password" required>
+                        </div>
+                        <div class="check_box">
+                            <label><input type="checkbox" />Remember me</label>
+                        </div>
+                        <div class="sign_b">
+                            <button class="btn" type="submit">Sign in</button>
+                        </div>
+                        <div class="line_separator"></div>
+                        <div class="password_label">
+                            <label> Forgot password? Click Here!</label>
+                        </div>
+                    </form>
                 </div>
-        	</div>
-        </div>
+            </div>
+            <div>
+                <a class="navbar_item" href="./signUp">Sign up</a>
+            </div>
+        </nav>
+        
+	    <div class="polaroid">
+			<div class="signup-container">
+				<div id="signup-title">
+					<h3>SIGN UP</h3>
+				</div>
+					<div class="signup-list">
+						<div class="signup-list-item">
+                        	<label>FIRST NAME*</label>
+                        	<input class="sign-up-input" type="text" placeholder="First name">
+                        </div>
+						<div class="signup-list-item">
+                        	<label>LAST NAME*</label>
+                        	<input class="sign-up-input" type="text" placeholder="Last name">
+                        </div>
+						<div class="signup-list-item">
+                        	<label>ACCOUNT TYPE*</label>
+                        	<div class="acc-type-box">
+                        		<input class="signup-radio-1" type="radio" name="acc-type" value="Buyer">Buyer<br>
+                        		<input class="signup-radio-2" type="radio" name="acc-type" value="Seller">Seller<br>
+                        	</div>   	
+                        </div>						
+                        <div class="signup-list-item">
+                        	<label>E-MAIL*</label>
+                        	<input class="sign-up-input" type="text" placeholder="example@eg.com">
+                        </div>
+                        <div class="signup-list-item">
+                        	<label>PASSWORD*</label>
+                        	<input class="sign-up-input" type="password" placeholder="Password">
+                        </div>
+						<div class="signup-list-item">
+                        	<label>PHONE NUMBER</label>
+                        	<input class="sign-up-input" type="text" placeholder="(XXX)XXX-XXXX">
+                        </div>
+                        <input class="signup-submit" type="submit" value="SIGN UP">
+					</div>
+			</div>
+		</div>
+		
+		<div class="polaroid-member">
+			<div class="signup-container">
+				<div id="signup-title">
+					<h3>ALREADY A MEMBER? SING IN!</h3>
+				</div>
+					<div class="signup-list">
+						<div class="signup-list-item">
+                        	<label>E-MAIL*</label>
+                        	<input class="sign-up-input" type="text" placeholder="example@eg.com">
+                        </div>
+                        <div class="signup-list-item signup-list-item-last">
+                        	<label>PASSWORD*</label>
+                        	<input class="sign-up-input" type="password" placeholder="Password">
+                        </div>
+                    <input class="signup-submit" type="submit" value="SIGN IN">  
+					</div>
+			</div>
+		</div>
+
     </body>

@@ -89,7 +89,7 @@
                                         </div>
                                         <!--end of col-->
                                         <div class="col">
-                                            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Neighbourhood">
+                                            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search by address, neighborhood or ZIP code">
                                         </div>
                                         <!--end of col-->
                                         <div  class="col-auto">

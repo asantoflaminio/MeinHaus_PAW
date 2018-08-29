@@ -5,18 +5,10 @@
     <head>
         <meta charset="UTF-8">
         <title>MeinHaus</title>
-        <link rel="shortcut icon" href="
-        <c:url value="/resources/pics/favicon.ico" />
-        ">
-        <link rel="stylesheet" type="text/css" href="
-        <c:url value="/resources/css/list.css" />
-        ">
-        <link rel="stylesheet" type="text/css" href="
-        <c:url value="/resources/css/navbar.css" />
-        ">
-        <link rel="stylesheet" type="text/css" href="
-        <c:url value="/resources/css/footer.css" />
-        ">
+        <link rel="shortcut icon" href="<c:url value="/resources/pics/favicon.ico" />">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/list.css" />">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/navbar.css" />">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/footer.css" />">
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
