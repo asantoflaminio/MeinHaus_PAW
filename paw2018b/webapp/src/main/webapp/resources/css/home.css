@@ -33,13 +33,13 @@ h1 {
     font: bold 2em 'Rubik', sans-serif !important;
 }
 
-
 /* List style */
 
 .search_list{
 	width: 20%;
   	margin: 0 auto;
 }
+
 .search_list ul {
 	text-align: center;  
 	width:100%;
@@ -137,7 +137,6 @@ input {
   	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-
 .newest_homes ul {
  	overflow: auto;
  	white-space: nowrap;
@@ -164,34 +163,28 @@ input {
 	width:90%;
 	float:left;
 	text-align:left;
-	
 }
 
 .newest_homes .description_box .price{
 	font-size: 23px !important;
-	
 }
 
 .newest_homes .description_box .expenses{
 	font-size: 20px !important;
-	
 }
 
-.newest_homes ::-webkit-scrollbar-track
-{
+.newest_homes ::-webkit-scrollbar-track{
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	border-radius: 10px;
 	background-color: #F5F5F5;
 }
 
-.newest_homes ::-webkit-scrollbar
-{
+.newest_homes ::-webkit-scrollbar{
 	width: 12px;
 	background-color: #F5F5F5;
 }
 
-.newest_homes ::-webkit-scrollbar-thumb
-{
+.newest_homes ::-webkit-scrollbar-thumb{
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #555;
