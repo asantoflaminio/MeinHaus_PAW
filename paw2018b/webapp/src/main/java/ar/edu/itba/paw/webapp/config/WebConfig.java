@@ -1,8 +1,11 @@
 package ar.edu.itba.paw.webapp.config;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -29,5 +32,17 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		
 		
 		return viewResolver;
+	}
+	
+	//Creo q hay que cambiar lo de abajo para que sea la base de datos nuestra
+	
+	@Bean
+	public DataSource dataSource() {
+		final SimpleDriverDataSource ds = new SimpleDriverDataSource();
+		ds.setDriverClass(org.postgresql.Driver.class);
+		ds.setUrl("jdbc:postgresql://localhost/paw");
+		ds.setUsername("root");
+		ds.setPassword("root");
+		return ds;
 	}
 }

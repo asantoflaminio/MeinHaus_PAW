@@ -2,5 +2,13 @@
 <workingSetManager>
 <workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1535146417805_0" label="Java Main Sources" name="main"/>
 <workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1535146417820_1" label="Java Test Sources" name="test"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1535639755682_3" label="paw2018b" name="paw2018b">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/webapp" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/interfaces" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/persistence" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/models" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/paw2018b" type="4"/>
+</workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1535146420479_2" label="Window Working Set" name="Aggregate for window 1535146420479"/>
 </workingSetManager>

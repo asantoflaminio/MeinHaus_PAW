@@ -65,14 +65,15 @@
 				<div id="signup-title">
 					<h3>SIGN UP</h3>
 				</div>
+				 <form name="signUpForm" method="post" action="signUpServlet">
 					<div class="signup-list">
 						<div class="signup-list-item">
                         	<label>FIRST NAME*</label>
-                        	<input class="sign-up-input" type="text" placeholder="First name">
+                        	<input class="sign-up-input" type="text" placeholder="First name" name="firstName">
                         </div>
 						<div class="signup-list-item">
                         	<label>LAST NAME*</label>
-                        	<input class="sign-up-input" type="text" placeholder="Last name">
+                        	<input class="sign-up-input" type="text" placeholder="Last name" name="lastName">
                         </div>
 						<div class="signup-list-item">
                         	<label>ACCOUNT TYPE*</label>
@@ -83,17 +84,17 @@
                         </div>						
                         <div class="signup-list-item">
                         	<label>E-MAIL*</label>
-                        	<input class="sign-up-input" type="text" placeholder="example@eg.com">
+                        	<input class="sign-up-input" type="text" placeholder="example@eg.com" name="email">
                         </div>
                         <div class="signup-list-item">
                         	<label>PASSWORD*</label>
-                        	<input class="sign-up-input" type="password" placeholder="Password">
+                        	<input class="sign-up-input" type="password" placeholder="Password" name="password">
                         </div>
 						<div class="signup-list-item">
                         	<label>PHONE NUMBER</label>
-                        	<input class="sign-up-input" type="text" placeholder="(XXX)XXX-XXXX">
+                        	<input class="sign-up-input" type="text" placeholder="(XXX)XXX-XXXX" name="phoneNumber">
                         </div>
-                        <input class="signup-submit" type="submit" value="SIGN UP">
+                        	<input class="signup-submit" type="submit" value="SIGN UP">
 					</div>
 			</div>
 		</div>
