@@ -55,7 +55,7 @@ div.container3 {
 
 
 
-input[type=text], select {
+textarea {
     width: 100%;
     padding: 12px 20px;
     margin-bottom: 8px;
@@ -65,6 +65,7 @@ input[type=text], select {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
  div.fillers {
   text-align: left;
   padding: 5px 10px;

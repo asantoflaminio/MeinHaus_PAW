@@ -9,7 +9,7 @@
         <c:url value="/resources/pics/favicon.ico" />
         ">
         <link rel="stylesheet" type="text/css" href="
-        <c:url value="/resources/css/publish.css" />
+        <c:url value="/resources/css/publish2.css" />
         ">
         <link rel="stylesheet" type="text/css" href="
         <c:url value="/resources/css/navbar.css" />
@@ -68,28 +68,12 @@
 		
 		<div class="polaroid_agency">
 		  <div class="container3">
-			<p class="publish">Step 1</p>
+			<p class="publish">Step 2</p>
 		     <form action="/action_page.php">
 		     	<div class="fillers">
-				     <label for="title">Title</label>
-		    		 <input type="text" id="title" name="title" placeholder="Property type and main features">
-		    		 
-		    		 <label for="address">Address</label>
-		    		 <input type="text" id="address" name="address" placeholder="Property address...">
-		    		 
-		    		 <label class="container">For sale
-					  <input type="radio" checked="checked" name="radio">
-					  <span class="checkmark"></span>
-					</label>
-					<label class="container">For rent
-					  <input type="radio" name="radio">
-					  <span class="checkmark"></span>
-					</label>
-		    		 
-		    		 <label for="price">Price</label>
-		    		 <input type="text" id="price" name="price" placeholder="Price in US dollars...">
-		    		 
-		    		 <a class="button" href="./publish2">Next</a>
+				     <label for="description">Description</label>		    		 
+		    		 <textarea cols="30" rows="8" placeholder="Property description..."></textarea>
+		    		 <a class="button" href="./publish3">Next</a>
 	    		 </div>
 	    		 
 	    	</form>
