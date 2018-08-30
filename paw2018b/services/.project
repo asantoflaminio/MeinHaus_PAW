@@ -5,6 +5,7 @@
   <projects>
     <project>interfaces</project>
     <project>models</project>
+    <project>persistence</project>
   </projects>
   <buildSpec>
     <buildCommand>

@@ -37,7 +37,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	//Creo q hay que cambiar lo de abajo para que sea la base de datos nuestra
 	
 	@Bean
-	public DataSource dataSource() {
+	public static DataSource dataSource() {
 		final SimpleDriverDataSource ds = new SimpleDriverDataSource();
 		ds.setDriverClass(org.postgresql.Driver.class);
 		ds.setUrl("jdbc:postgresql://localhost/paw");

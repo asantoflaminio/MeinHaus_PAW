@@ -50,6 +50,7 @@
   <classpathentry kind="src" path="/interfaces"/>
   <classpathentry kind="src" path="/models"/>
   <classpathentry kind="src" path="/services"/>
+  <classpathentry kind="src" path="/persistence"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-jdbc/4.2.5.RELEASE/spring-jdbc-4.2.5.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-jdbc/4.2.5.RELEASE/spring-jdbc-4.2.5.RELEASE-sources.jar">
     <attributes>
       <attribute value="jar:file:/home/b0ltii/.m2/repository/org/springframework/spring-jdbc/4.2.5.RELEASE/spring-jdbc-4.2.5.RELEASE-javadoc.jar!/" name="javadoc_location"/>

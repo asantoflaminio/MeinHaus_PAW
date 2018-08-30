@@ -7,11 +7,14 @@ import javax.servlet.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import ar.edu.itba.paw.services.UserServiceImpl;
+
 @Controller
 @RequestMapping("/hello/")
 public class SignUpController extends HttpServlet {
  
 	private static final long serialVersionUID = 1L;
+	private UserServiceImpl us = new UserServiceImpl();
 
 	@RequestMapping("signUpServlet")
     public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
@@ -25,8 +28,10 @@ public class SignUpController extends HttpServlet {
     	System.out.println("email:" + email);
     	System.out.println("password:" + password);
     	System.out.println("phoneNumber:" + phoneNumber);
-    	//create user
     	
+    	us.create(firstName,lastName,email,password,phoneNumber);
+    	
+    	System.out.println("Success!!");
     	response.sendRedirect("home.html");
     }
    

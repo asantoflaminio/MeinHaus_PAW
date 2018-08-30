@@ -2,10 +2,19 @@ package ar.edu.itba.paw.services;
 
 import org.springframework.stereotype.Service;
 
+import ar.edu.itba.paw.UserDao;
+import ar.edu.itba.paw.UserService;
 import ar.edu.itba.paw.models.User;
 
 @Service
-public class UserServiceImpl{
+public class UserServiceImpl implements UserService{
+	
+	private UserDao userDaoInt;
 
+	public User create(String firstName, String lastName,String email,
+			String password, String phoneNumber) {
+		return userDaoInt.create(firstName, lastName, email,
+				password, phoneNumber);
+	}
 
 }
