@@ -89,7 +89,7 @@
                                         </div>
                                         <!--end of col-->
                                         <div class="col">
-                                            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search by address, neighborhood or ZIP code">
+                                            <input class="form-control form-control-lg" type="search" placeholder="Search by address, neighborhood or ZIP code">
                                         </div>
                                         <!--end of col-->
                                         <div  class="col-auto">
@@ -108,7 +108,7 @@
         
         <section class="newest_homes">
             <div>
-                <h3>NEWEST HOMES</h3>
+                <h3>Newest homes</h3>
             </div>
             <div>
                 <ul>
@@ -162,7 +162,7 @@
                     </li>
                     <li class="polaroid">
                         <img src="
-                        <c:url value="/resources/pics/background5.png" />
+                        <c:url value="/resources/pics/casa2.jpg" />
                         ">	</img> 
                         <div class="line_separator"></div>
                        <div class="description_box">
@@ -187,6 +187,37 @@
                 </ul>
             </div>
         </section>
+        
+        <section class="contact-info">
+        	<div class="contact-info-column">
+        		<h4>POPULAR NEIGHBORHOODS</h4>
+        		<ul>
+        			<li>Belgrano</li>
+        			<li>Palermo</li>
+        			<li>Recoleta</li>
+        			<li>Caballito</li>
+        		</ul>
+        	</div>
+        	<div class="contact-info-column">
+        	    <h4>SEARCH BY</h4>
+        	    <ul>
+        			<li>Neighborhood</li>
+        			<li>Price</li>
+        			<li>Number of rooms</li>
+        			<li>Pets allowed</li>
+        		</ul>
+        	</div>
+        	<div class="contact-info-column">
+          		<h4>CONTACT US</h4>
+        		<ul>
+        			<li>Help</li>
+        			<li>FAQs</li>
+        			<li>Contact Us</li>
+        			<li>Support</li>
+        		</ul>
+           	</div>
+        </section>
+        
         
         <footer>
           <div id="footer">
