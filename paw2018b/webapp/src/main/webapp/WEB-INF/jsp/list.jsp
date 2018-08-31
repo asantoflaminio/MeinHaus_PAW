@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/navbar.css" />">
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/footer.css" />">
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+        <script src="<c:url value="/resources/js/list.js" />"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -115,18 +116,13 @@
 					</div>
 				</div>
 			</aside>
-			
-			<form action="./listServlet" method="post">
+
 	        <section>
 			    <div class="polaroid-property">
 			    	<div class="img-with-tag">
 			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
-			    		<button class="hidden-favorite-icon" type="submit" name="fav1" >
-			    			<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
-			    		</button>
-			    		<button class="hidden-next-img" type="submit" name="arrow1" >
-			    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-			    		</button>
+			    		<img class="favorite-icon" onclick="alert_list()" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
+			    		<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
 						<h2 class="price-tag">$10.000</h2>
 					</div>
 					<div class="property-container">
@@ -157,15 +153,10 @@
 				<div class="polaroid-property">
 			    	<div class="img-with-tag">
 			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa2.jpg" />" alt="5 Terre">
-			    		<button class="hidden-favorite-icon" type="submit" name="fav2" >
-			    			<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
-			    		</button>
-			    		<button class="hidden-next-img" type="submit" name="arrow2" >
-			    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-			    		</button>
+			    		<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
+			    		<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
 						<h2 class="price-tag">$15.000</h2>
-					</div>					
-					<div class="property-container">
+					</div>					<div class="property-container">
 						<div class="property-title-container">
 							<h3 class="property-title">Av. Cabildo 300, Colegiales</h3>
 							<h4 class="property-date">published 3 days ago</h4>
@@ -193,15 +184,10 @@
 				<div class="polaroid-property">
 			    	<div class="img-with-tag">
 			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa3.jpg" />" alt="5 Terre">
-			    		<button class="hidden-favorite-icon" type="submit" name="fav3" >
-			    			<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
-			    		</button>
-			    		<button class="hidden-next-img" type="submit" name="arrow3" >
-			    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-			    		</button>
+			    		<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
+						<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
 						<h2 class="price-tag">$12.000</h2>
-					</div>					
-					<div class="property-container">
+					</div>					<div class="property-container">
 						<div class="property-title-container">
 							<h3 class="property-title">Av. Cabildo 300, Colegiales</h3>
 							<h4 class="property-date">published 3 days ago</h4>
@@ -229,12 +215,8 @@
 				<div class="polaroid-property">
 			    	<div class="img-with-tag">
 			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa4.jpg" />" alt="5 Terre">
-			    		<button class="hidden-favorite-icon" type="submit" name="fav4" >
-			    			<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
-			    		</button>
-			    		<button class="hidden-next-img" type="submit" name="arrow4" >
-			    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-			    		</button>
+			    		<img class="favorite-icon" src="<c:url value="/resources/pics/heart.png" />" alt="Fave">
+			    		<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
 						<h2 class="price-tag">$8.000</h2>
 					</div>					<div class="property-container">
 						<div class="property-title-container">
@@ -261,7 +243,6 @@
 					</div>	
 				</div>	
 	        </section>
-	        </form>
         </div>
         
         <footer>
