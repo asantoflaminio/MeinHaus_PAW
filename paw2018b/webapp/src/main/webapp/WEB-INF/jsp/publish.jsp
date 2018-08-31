@@ -68,28 +68,24 @@
 		
 		<div class="polaroid_agency">
 		  <div class="container3">
-			<p class="publish">Step 1</p>
+			<h3 id="titl" >STEP 1</h3>
 		     <form action="/action_page.php">
 		     	<div class="fillers">
-				     <label for="title">Title</label>
+				     <label for="title">TITLE</label>
 		    		 <input type="text" id="title" name="title" placeholder="Property type and main features">
 		    		 
-		    		 <label for="address">Address</label>
+		    		 <label for="address">ADDRESS</label>
 		    		 <input type="text" id="address" name="address" placeholder="Property address...">
+		    		 <label>OPERATION TYPE</label>
+		    		 <div class="op-type-box">
+                        		<input class="radio-1" type="radio" name="op-type" value="FSale">For sale<br>
+                        		<input class="radio-2" type="radio" name="op-type" value="FRent">For rent<br>
+                     </div>   
 		    		 
-		    		 <label class="container">For sale
-					  <input type="radio" checked="checked" name="radio">
-					  <span class="checkmark"></span>
-					</label>
-					<label class="container">For rent
-					  <input type="radio" name="radio">
-					  <span class="checkmark"></span>
-					</label>
-		    		 
-		    		 <label for="price">Price</label>
+		    		 <label for="price">PRICE</label>
 		    		 <input type="text" id="price" name="price" placeholder="Price in US dollars...">
 		    		 
-		    		 <a class="button" href="./publish2">Next</a>
+		    		 <a class="button" href="./publish2">NEXT</a>
 	    		 </div>
 	    		 
 	    	</form>

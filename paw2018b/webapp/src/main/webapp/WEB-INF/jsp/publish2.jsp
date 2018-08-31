@@ -68,13 +68,19 @@
 		
 		<div class="polaroid_agency">
 		  <div class="container3">
-			<p class="publish">Step 2</p>
+			<h3 id="titl">STEP 2</h3>
 		     <form action="/action_page.php">
 		     	<div class="fillers">
-				     <label for="description">Description</label>		    		 
+				     <label for="description">DESCRIPTION</label>		    		 
 		    		 <textarea cols="30" rows="8" placeholder="Property description..."></textarea>
-		    		 <a class="button" href="./publish3">Next</a>
+		    		 <label for="PROPERTY TYPE">PROPERTY TYPE</label>	
+		    		 <div class="prop-type-box">
+	                        		<input class="radio-1" type="radio" name="prop-type" value="Apt">Apartment<br>
+	                        		<input class="radio-2" type="radio" name="prop-type" value="House">House<br>
+	                 </div>   
+		    		 <a class="button" href="./publish3">NEXT</a>
 	    		 </div>
+	    		 
 	    		 
 	    	</form>
 		  </div>
