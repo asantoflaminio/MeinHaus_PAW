@@ -35,6 +35,22 @@
       <attribute value="jar:file:/home/b0ltii/.m2/repository/org/postgresql/postgresql/9.3-1102-jdbc41/postgresql-9.3-1102-jdbc41-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-context/4.2.5.RELEASE/spring-context-4.2.5.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-context/4.2.5.RELEASE/spring-context-4.2.5.RELEASE-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/b0ltii/.m2/repository/org/springframework/spring-context/4.2.5.RELEASE/spring-context-4.2.5.RELEASE-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/b0ltii/.m2/repository/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" sourcepath="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-expression/4.2.5.RELEASE/spring-expression-4.2.5.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-expression/4.2.5.RELEASE/spring-expression-4.2.5.RELEASE-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/b0ltii/.m2/repository/org/springframework/spring-expression/4.2.5.RELEASE/spring-expression-4.2.5.RELEASE-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
   <classpathentry kind="src" path="/interfaces"/>
   <classpathentry kind="src" path="/models"/>
 </classpath>

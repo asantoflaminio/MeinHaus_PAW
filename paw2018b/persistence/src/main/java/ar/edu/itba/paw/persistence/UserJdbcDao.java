@@ -1,4 +1,4 @@
-package ar.edu.itba.paw.dao;
+package ar.edu.itba.paw.persistence;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,12 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Repository;
 
 import ar.edu.itba.paw.UserDao;
 import ar.edu.itba.paw.models.User;
 
-
-//@Repository
+@Repository
 public class UserJdbcDao implements UserDao{
 
 	private final JdbcTemplate jdbcTemplate;
@@ -44,10 +44,10 @@ public class UserJdbcDao implements UserDao{
 				.usingColumns("firstName","lastName","email","password","phoneNumber");
 
 		jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS users ("
-			+ "firstName varchar(20)"
-			+ "lastName varchar(20)"
-			+ "email SERIAL PRIMERY KEY"
-			+ "password varchar(20)"
+			+ "firstName varchar(20),"
+			+ "lastName varchar(20),"
+			+ "email varchar(20) PRIMARY KEY,"
+			+ "password varchar(20),"
 			+ "phoneNumber varchar(20)"
 			+")");
 	}
@@ -58,14 +58,14 @@ public class UserJdbcDao implements UserDao{
 
 	public User create(String firstName, String lastName,String email,
 			String password, String phoneNumber) {
-		final Map<String, String> args = new HashMap<String, String>();
+		final Map<String, Object> args = new HashMap<String, Object>();
     	
 		args.put("firstName", firstName);
 		args.put("lastName", lastName);
 		args.put("email", email);
 		args.put("password", password);
 		args.put("phoneNumber", phoneNumber);
-		final Number userId = jdbcInsert.executeAndReturnKey(args);
+		jdbcInsert.execute(args);
 		return new User(firstName, lastName, email, password, phoneNumber);
 	}
 	

@@ -6,7 +6,6 @@
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
   <classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar" sourcepath="M2_REPO/junit/junit/3.8.1/junit-3.8.1-sources.jar"/>
   <classpathentry kind="src" path="/interfaces"/>
-  <classpathentry kind="src" path="/models"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-context/4.2.5.RELEASE/spring-context-4.2.5.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-context/4.2.5.RELEASE/spring-context-4.2.5.RELEASE-sources.jar">
     <attributes>
       <attribute value="jar:file:/home/b0ltii/.m2/repository/org/springframework/spring-context/4.2.5.RELEASE/spring-context-4.2.5.RELEASE-javadoc.jar!/" name="javadoc_location"/>
@@ -38,6 +37,7 @@
       <attribute value="jar:file:/home/b0ltii/.m2/repository/org/springframework/spring-expression/4.2.5.RELEASE/spring-expression-4.2.5.RELEASE-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
+  <classpathentry kind="src" path="/models"/>
   <classpathentry kind="src" path="/persistence"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-jdbc/4.2.5.RELEASE/spring-jdbc-4.2.5.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-jdbc/4.2.5.RELEASE/spring-jdbc-4.2.5.RELEASE-sources.jar">
     <attributes>
