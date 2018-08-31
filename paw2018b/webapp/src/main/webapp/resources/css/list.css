@@ -274,20 +274,44 @@ div.polaroid-property {
 }
 
 .favorite-icon {
-	position: absolute;
-	top: 12px;
-	right: 8px;
 	height: 30px;
 	width: 30px;
+}
+
+.hidden-favorite-icon {
+	position: absolute;
+	top: 12px;
+	right: 5px;
+	width: 40px;
+	background-color: transparent;
+	box-shadow: none;
+	border: none;
+}
+
+.hidden-favorite-icon:focus {
+	outline: none;
 }
 
 .next-image {
 	height: 25px;
 	width: 25px;
+
+}
+
+.hidden-next-img {
+	height: 30px;
+	width: 35px;
+	background-color: transparent;
+	box-shadow: none;
+	border: none;
 	top: 95px;
-	right: 5px;
+	right: 4px;
 	position: absolute;
 }
+
+.hidden-next-img:focus {
+	outline:none;
+} 
 
 .polaroid-property-img{
 	display: block;
