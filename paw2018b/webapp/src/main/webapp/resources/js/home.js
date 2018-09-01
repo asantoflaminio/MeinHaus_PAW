@@ -1,4 +1,11 @@
-/* Give color to Buy or Rent buttons */
+/* Gives color to Buy or Rent buttons */
+$(document).ready(function() {
+	$('#myul li').bind("click", function(e){
+        var ul = $(this).parent();
+        var index = ul.children().index(this);
+        color(index);
+    });
+});
 
 function color(index) {
 	var ullist = document.getElementById("myul");
@@ -16,26 +23,18 @@ function color(index) {
 	}
 }
 
-$(document).ready(function() {
-	$('#myul li').bind("click", function(e){
-        var ul = $(this).parent();
-        var index = ul.children().index(this);
-        color(index);
-    });
-});
 
-/* Search and show (if it's necessary) the message error */
+
+/* Searches and shows (if it's necessary) the message error */
 function search() {
 	var input_search = document.getElementById("input_search");
-	
 	var ullist = document.getElementById("myul");
 	var listlength = 2;
 	var j = 0;
 	
 	for (i = 0; i < listlength; i++) { 
-		if(ullist.children[i].classList.contains("selected")){
+		if(ullist.children[i].classList.contains("selected"))
 			j++;
-		}
 	}
 	
 	if (j == 0) {
