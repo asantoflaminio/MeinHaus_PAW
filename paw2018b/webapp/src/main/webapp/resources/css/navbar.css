@@ -41,9 +41,10 @@ nav {
     text-decoration: none;
 }
 
-#settings {
+#user_icon {
     width: 45px;
-    float: right;
+    height: 45px;
+   	display:none;
 }
 
 .navbar_item:hover {
@@ -65,7 +66,6 @@ nav {
     display: inline-block;
     float: right;
     z-index: 1;
-
 }
 
 .form-control-borderless {
@@ -133,8 +133,15 @@ nav {
     padding: 0px 10px 0px 10px;
 }
 
+.msg_error{
+	color:red;
+	font-size: 12px;
+	padding: 7px 0px 0px 10px;
+	visibility:hidden;
+}
+
 .check_box{
-    padding: 10px 10px 0px 10px;
+    padding: 0px 10px 0px 10px;
     font-family: 'Rubik', sans-serif !important;
     font-size: 13px;
 }   

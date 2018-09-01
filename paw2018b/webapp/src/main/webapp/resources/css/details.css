@@ -118,15 +118,18 @@ input[type=text], select {
     border-radius: 4px;
     box-sizing: border-box;
 }
- div.fillers {
+
+div.fillers {
   text-align: left;
   padding: 5px 10px;
 }
- label {
+ 
+label {
     display: inline-block;
     margin-bottom: .0rem;
 }
- div.polaroid_overview {
+
+div.polaroid_overview {
   float: left;
   margin-top: 15px;
   margin-left: 15%;
@@ -135,12 +138,14 @@ input[type=text], select {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
 }
- .polaroid_title {
+
+.polaroid_title {
     font-family: 'Rubik', sans-serif !important;
     font-size: 22px;
     font-weight: bold;
 }
- div.container4 {
+
+div.container4 {
   text-align: left;
   padding: 10px 20px;
 }

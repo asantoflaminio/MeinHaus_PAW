@@ -18,6 +18,7 @@
         <c:url value="/resources/css/footer.css" />
         ">
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+        <script src="<c:url value="/resources/js/navbar.js" />"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -30,30 +31,33 @@
         	<a href="./home">
            		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
             </a>
-            <div class="dropdown">
-                <img src="
-                <c:url value="/resources/pics/Settings.png" />
-                " alt="Settings" id="settings" class="navbar_item">
+            <div class="dropdown" id="user_icon">
+	                <img src="
+	                <c:url value="/resources/pics/user.png" />
+	                " alt="user" class="navbar_item">
                 <div id="myDropdown" class="dropdown-content"> 
-                    <a href="./help.html">Profile</a>
-                    <a href="./help.html">Log Out</a>
+                    <a href="#">Profile</a>
+                    <a href="#">Log Out</a>
                 </div>
             </div>
-            <div class="dropdown">
+            <div class="dropdown" id="sign_in">
                 <a class="navbar_item" href="#">Sign in</a>
                 <div class="dropdown-content">
                     <form class="form_login">
                         <div class="email">
-                            <input class="form-control form-control-lg form-control-borderless" type="email" placeholder="Email" required>
+                            <input oninvalid="this.setCustomValidity('Please, enter a valid email address')" class="form-control form-control-lg form-control-borderless" type="email" placeholder="Email" required>
                         </div>
                         <div class="password">
-                            <input class="form-control form-control-lg form-control-borderless" type="password" placeholder="Password" required>
+                            <input oninvalid="this.setCustomValidity('Please, complete this input')" class="form-control form-control-lg form-control-borderless" type="password" placeholder="Password" required>
+                        </div>
+                        <div class="msg_error">
+                        	<label></label>
                         </div>
                         <div class="check_box">
-                            <label><input type="checkbox" />Remember me</label>
+                            <label><input type="checkbox"/>Remember me</label>
                         </div>
                         <div class="sign_b">
-                            <button class="btn" type="submit">Sign in</button>
+                            <button class="btn" onclick="check_input();">Sign in</button>
                         </div>
                         <div class="line_separator"></div>
                         <div class="password_label">
@@ -63,7 +67,7 @@
                 </div>
             </div>
             <div>
-                <a class="navbar_item" href="./signUp">Sign up</a>
+                <a class="navbar_item" id="sign_up" href="./signUp">Sign up</a>
             </div>
         </nav>
         
@@ -92,8 +96,8 @@
                                             <input class="form-control form-control-lg" type="search" placeholder="Search by address, neighborhood or ZIP code">
                                         </div>
                                         <!--end of col-->
-                                        <div  class="col-auto">
-                                            <button id="searchbutton" class="btn btn-lg btn-success" type="submit" >Search</button>
+                                        <div class="col-auto">
+                                            <button id="searchbutton" class="btn btn-lg btn-success" type="submit" href="./list" >Search</button>
                                         </div>
                                         <!--end of col-->
                                     </div>

@@ -17,34 +17,37 @@
     </head>
     
     <body>       
-        <nav>
+       <nav>
         	<a href="./home">
            		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
             </a>
-            <div class="dropdown">
-                <img src="
-                <c:url value="/resources/pics/Settings.png" />
-                " alt="Settings" id="settings" class="navbar_item">
+            <div class="dropdown" id="user_icon">
+	                <img src="
+	                <c:url value="/resources/pics/user.png" />
+	                " alt="user" class="navbar_item">
                 <div id="myDropdown" class="dropdown-content"> 
                     <a href="./help.html">Profile</a>
                     <a href="./help.html">Log Out</a>
                 </div>
             </div>
-            <div class="dropdown">
+            <div class="dropdown" id="sign_in">
                 <a class="navbar_item" href="#">Sign in</a>
                 <div class="dropdown-content">
                     <form class="form_login">
                         <div class="email">
-                            <input class="form-control form-control-lg form-control-borderless" type="email" placeholder="Email" required>
+                            <input oninvalid="this.setCustomValidity('Please, enter a valid email address')" class="form-control form-control-lg form-control-borderless" type="email" placeholder="Email" required>
                         </div>
                         <div class="password">
-                            <input class="form-control form-control-lg form-control-borderless" type="password" placeholder="Password" required>
+                            <input oninvalid="this.setCustomValidity('Please, complete this input')" class="form-control form-control-lg form-control-borderless" type="password" placeholder="Password" required>
+                        </div>
+                        <div class="msg_error">
+                        	<label></label>
                         </div>
                         <div class="check_box">
-                            <label><input type="checkbox" />Remember me</label>
+                            <label><input type="checkbox"/>Remember me</label>
                         </div>
                         <div class="sign_b">
-                            <button class="btn" type="submit">Sign in</button>
+                            <button class="btn" onclick="check_input();">Sign in</button>
                         </div>
                         <div class="line_separator"></div>
                         <div class="password_label">
@@ -54,9 +57,10 @@
                 </div>
             </div>
             <div>
-                <a class="navbar_item" href="./signUp">Sign up</a>
+                <a class="navbar_item" id="sign_up" href="./signUp">Sign up</a>
             </div>
         </nav>
+        
         
         <div class="breadcrumb">
 	        <ul class="breadcrumb-list">
@@ -144,7 +148,7 @@
 							</div>
 						</div>
 						<div class="more-info">
-							<a class="more-info-title" href="#">MORE INFO ></a>
+							<a class="more-info-title" href="./details">MORE INFO ></a>
 						</div>	
 					</div>
 				</div>	
@@ -175,7 +179,7 @@
 							</div>
 						</div>
 						<div class="more-info">
-							<a class="more-info-title" href="#">MORE INFO ></a>
+							<a class="more-info-title" href="./details">MORE INFO ></a>
 						</div>	
 					</div>
 				</div>	
@@ -206,7 +210,7 @@
 							</div>
 						</div>
 						<div class="more-info">
-							<a class="more-info-title" href="#">MORE INFO ></a>
+							<a class="more-info-title" href="./details">MORE INFO ></a>
 						</div>	
 					</div>
 				</div>	
@@ -237,7 +241,7 @@
 							</div>
 						</div>
 						<div class="more-info">
-							<a class="more-info-title" href="#">MORE INFO ></a>
+							<a class="more-info-title" href="./details.jsp">MORE INFO ></a>
 						</div>	
 					</div>	
 				</div>	
