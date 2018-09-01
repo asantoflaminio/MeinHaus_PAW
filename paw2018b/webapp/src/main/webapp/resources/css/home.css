@@ -57,7 +57,7 @@ h1 {
 	width: 50%;
 	color: white; 
 	font-weight: 550;
-	background-color: rgb(200, 200, 200, 0.8);
+	background-color: rgb(200, 200, 200);
 }
 .search_list ul li a {
 	border: 1px solid rgb(206, 205, 185, .6);
@@ -69,8 +69,12 @@ h1 {
 	text-decoration: none;
 }
 
-#first_item {
+.first_item {
 	border-right:1px solid #7C7C7C;
+}
+
+#myul li a:hover {
+	background-color: #fd8907;
 }
 
 /* Closing style*/

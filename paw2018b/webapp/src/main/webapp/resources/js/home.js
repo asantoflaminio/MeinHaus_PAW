@@ -4,9 +4,9 @@ function color(index){
 	
 	for (i = 0; i < 2; i++) { 
 		if(i==index){
-			ullist.children[i].style.backgroundColor = "#fd8907";
+			ullist.children[i].style.backgroundColor = "#f7c083";
 		}else{
-			ullist.children[i].style.backgroundColor = 'rgb(' + 200 + ',' + 200 + ',' + 200 + ',' + .8 + ')';
+			ullist.children[i].style.backgroundColor = 'rgb(' + 200 + ',' + 200 + ',' + 200 + ')';
 		}
 	}
 }

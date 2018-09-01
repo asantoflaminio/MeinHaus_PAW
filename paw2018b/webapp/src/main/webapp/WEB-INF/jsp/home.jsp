@@ -77,7 +77,7 @@
                 </div>
                 <div class="search_list">
                     <ul class="rounded" id="myul">
-					  <li id="buy"><a href="#" id="first_item">Buy</a></li>
+					  <li class="first_item" id="buy"><a href="#">Buy</a></li>
 					  <li id="rent"><a href="#">Rent</a></li>
 					</ul>
                 </div>
@@ -96,8 +96,6 @@
                                         </div>
                                         <!--end of col-->
                                         <div class="col-auto">
-                                        <form autocomplete="off">
-                                        	<div class="autocomplete">
                                             <button id="searchbutton" class="btn btn-lg btn-success rounded" type="submit"><a href="./list"> Search </a></button>
                                         </div>
                                         <!--end of col-->
