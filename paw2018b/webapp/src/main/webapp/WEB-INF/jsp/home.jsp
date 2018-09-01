@@ -18,7 +18,6 @@
         <c:url value="/resources/css/footer.css" />
         ">
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
-        <script src="<c:url value="/resources/js/home.js" />"></script>
         <script src="<c:url value="/resources/js/navbar.js" />"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -99,7 +98,9 @@
                                         </div>
                                         <!--end of col-->
                                         <div class="col-auto">
-                                            <button id="searchbutton" class="btn btn-lg btn-success" type="submit" href="./list" >Search</button>
+                                        <form autocomplete="off">
+                                        	<div class="autocomplete">
+                                            <button id="searchbutton" class="btn btn-lg btn-success rounded" type="submit"><a href="./list"> Search </a></button>
                                         </div>
                                         <!--end of col-->
                                     </div>

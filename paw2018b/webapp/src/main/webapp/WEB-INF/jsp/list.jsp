@@ -98,9 +98,9 @@
 
     	<div class="filters">
     		<ul id="applied-filters-list">
-			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" alt="Delete" class="delete-img">For rent</li>
-			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" alt="Delete" class="delete-img">Brooklyn</li>
-			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" alt="Delete" class="delete-img">2 bedrooms</li>
+			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/>For rent</li>
+			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/>Brooklyn</li>
+			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/>2 bedrooms</li>
 			</ul>
     	</div>
     	
@@ -112,9 +112,51 @@
 						<h3>FILTERS</h3>
 					</div>
 						<div id="filters-list">
-					  		<div class="filters-list-item">LOCATION <img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" class="arrow-up-filters"></img></div>
-					  		<div class="filters-list-item">PRICE<img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" class="arrow-up-filters"></img></div>
-					  		<div class="filters-list-item filters-list-item-last">BEDROOMS<img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" class="arrow-up-filters"></img></div>
+					  		<div class="filters-list-item">LOCATION <img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
+					  			<div class="expandible">
+					  				<div class="check_box">
+                            			<label><input type="checkbox"/>Belgrano</label>
+                        			</div>
+					  				<div class="check_box">
+                            			<label><input type="checkbox"/>Caballito</label>
+                        			</div>
+					  				<div class="check_box">
+                            			<label><input type="checkbox"/>Palermo</label>
+                        			</div>
+                        			<div class="check_box">
+                            			<label><input type="checkbox"/>Recoleta</label>
+                        			</div>
+					  			</div>
+					  		<div class="filters-list-item">PRICE<img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
+					  			<div class="expandible">
+					  				<div class="check_box">
+                            			<label><input type="checkbox"/>Up to USD 50.000</label>
+                        			</div>
+					  				<div class="check_box">
+                            			<label><input type="checkbox"/>Up to USD 150.000</label>
+                        			</div>
+					  				<div class="check_box">
+                            			<label><input type="checkbox"/>Up to USD 350.000</label>
+                        			</div>
+                        			<div class="check_box">
+                            			<label><input type="checkbox"/>Up to USD 750.000</label>
+                        			</div>
+					  			</div>
+					  		<div class="filters-list-item">BEDROOMS<img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
+								<div class="expandible filters-list-item-last">
+					  				<div class="check_box">
+                            			<label><input type="checkbox"/>1 bedroom</label>
+                        			</div>
+					  				<div class="check_box">
+                            			<label><input type="checkbox"/>2 bedrooms</label>
+                        			</div>
+					  				<div class="check_box">
+                            			<label><input type="checkbox"/>3 bedrooms</label>
+                        			</div>
+                        			<div class="check_box">
+                            			<label><input type="checkbox"/>4 bedrooms</label>
+                        			</div>
+					  			</div>
 						</div>
 					</div>
 				</div>

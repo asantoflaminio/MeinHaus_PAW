@@ -209,7 +209,7 @@ h3 {
 #filters-title {
 	width: 100%;
 	height: auto;
-	border-bottom: 1px solid #ccc; 
+	border-bottom: 2px solid #ccc; 
 }
 
 .filters-list-item {
@@ -217,10 +217,24 @@ h3 {
 	color: #777;
 	padding: 10px 10px 10px 10px;
 	border-bottom: 1px solid #ccc;
+	
 }
 
 .filters-list-item-last {
 	border-bottom: none;
+}
+
+.expandible {
+	padding: 10px 10px 10px 10px;
+	height: 120px;
+	color: #777;
+	width: 100%;
+	display:none;
+	border-bottom: 1px solid #ccc;
+}
+
+.check_box {
+	width:100%;
 }
 
 .arrow-up-filters {
