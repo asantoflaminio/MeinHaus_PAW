@@ -115,8 +115,7 @@
 		    		 <input type="text" id="email" name="email" placeholder="Your email...">
 		    		 
 		    		 <label for="message">Message</label>
-		    		 <input type="text" id="message" name="message" placeholder="Write a message...">
-		    		 
+		    		 <textarea id="message" name="message" cols="34" rows="6" placeholder="Write a message..."></textarea>
 		    		 <button class="button">Contact Agent</button>
 	    		 </div>
 	    	</form>

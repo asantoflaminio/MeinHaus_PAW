@@ -119,6 +119,18 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 8px;
+    margin-top: 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
 div.fillers {
   text-align: left;
   padding: 5px 10px;
