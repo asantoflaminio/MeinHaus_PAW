@@ -50,21 +50,6 @@ input[type=text], select {
 	padding-bottom: 5px;
 }
 
-.radio-1 {
-	margin-right: 5px;
-	margin-left: 7px;
-	margin-top: 5px;
-	margin-bottom: 7px;
-	
-}
-
-.radio-2 {
-	margin-right: 5px;
-	margin-left: 20px;
-	margin-top: 5px;
-	margin-bottom: 7px;
-}
-
 
 div.polaroid_agency {
 
@@ -92,9 +77,6 @@ div.container3 {
     max-width: 120px; 
     max-height: 200px;
 }
-
-
-
 
 
  div.fillers {
