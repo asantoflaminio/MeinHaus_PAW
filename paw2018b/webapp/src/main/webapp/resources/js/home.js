@@ -4,7 +4,7 @@ function color(index){
 	
 	for (i = 0; i < 2; i++) { 
 		if(i==index){
-			ullist.children[i].style.backgroundColor = "#f7c083";
+			ullist.children[i].style.backgroundColor = "#ffb86b";
 		}else{
 			ullist.children[i].style.backgroundColor = 'rgb(' + 200 + ',' + 200 + ',' + 200 + ')';
 		}
