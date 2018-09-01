@@ -73,11 +73,6 @@ h1 {
 	border-right:1px solid #7C7C7C;
 }
 
-.search_list ul li:hover{
-	background-color:rgb(253, 137, 7, .9);
-}
-
-
 /* Closing style*/
 
 .rounded {
@@ -93,7 +88,6 @@ h1 {
     border-color: #FD8907;
     margin-left: 10px;
     font-size: 17px !important;
-   
 }
 
 #searchbutton a{
@@ -131,10 +125,6 @@ div.card-body.row.no-gutters.align-items-center {
 
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #aaa !important;
-}
-
-input.form-control.form-control-lg {
-	/*border-color: #FD8907;*/
 }
 
 /* Closing style */
