@@ -18,8 +18,10 @@
         <c:url value="/resources/css/footer.css" />
         ">
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
@@ -71,7 +73,23 @@
         
              
          <div class="polaroid">
-		  <img class="polaroid_img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre" style="width:100%">
+          
+          <div class="w3-content w3-display-container" style="max-width:800px">
+			  <img class="mySlides" src="<c:url value="/resources/pics/casa1.jpg" />" style="width:100%">
+			  <img class="mySlides" src="<c:url value="/resources/pics/casa2.jpg" />" style="width:100%">
+			  <img class="mySlides" src="<c:url value="/resources/pics/casa3.jpg" />" style="width:100%">
+			  <img class="mySlides" src="<c:url value="/resources/pics/casa4.jpg" />" style="width:100%">
+			  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+			    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+			    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+			    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+			    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+			    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+			    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
+			  </div>
+			</div>
+          
+		  <!-- <img class="polaroid_img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre" style="width:100%">  -->
 		  <div class="container">
 		    <p class="direction">2538 La Condesa Dr, Los Angeles, CA</p>
 		  </div>
@@ -128,5 +146,6 @@
               <p>Copyright &copy; 2018, MeinHaus. All rights reserved.</p>
           </div>
         </footer>
+        <script src="<c:url value="/resources/js/details.js" />"></script>
     </body>
 </html>
