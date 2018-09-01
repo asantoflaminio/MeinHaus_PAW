@@ -87,6 +87,15 @@ h1 {
 
 /* Search style */
 
+#msg_error_search{
+	width:100%;
+	color:red;
+	font-size:12px;
+	padding-top:5px;
+	padding-left:10px;
+	display: none;
+}
+
 #searchbutton {
     background-color: #FD8907;
     border-color: #FD8907;

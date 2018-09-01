@@ -92,13 +92,16 @@
                                         </div>
                                         <!--end of col-->
                                         <div class="col">
-                                            <input class="form-control form-control-lg" type="search" placeholder="Search by address, neighborhood or ZIP code">
+                                            <input class="form-control form-control-lg" type="search" id="input_search" placeholder="Search by address, neighborhood or ZIP code">
                                         </div>
                                         <!--end of col-->
                                         <div class="col-auto">
-                                            <button id="searchbutton" class="btn btn-lg btn-success rounded" type="submit"><a href="./list"> Search </a></button>
+                                            <button id="searchbutton" class="btn btn-lg btn-success rounded" type="submit" onclick="search();"><a id="link" href="#"> Search </a></button>
                                         </div>
                                         <!--end of col-->
+                                    	<div id="msg_error_search">
+                                        	<label>Hola</label>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
