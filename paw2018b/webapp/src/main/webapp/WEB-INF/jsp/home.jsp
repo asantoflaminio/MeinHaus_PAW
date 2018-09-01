@@ -18,9 +18,11 @@
         <c:url value="/resources/css/footer.css" />
         ">
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+        <script src="<c:url value="/resources/js/home.js" />"></script>
         <script src="<c:url value="/resources/js/navbar.js" />"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
@@ -78,8 +80,8 @@
                 </div>
                 <div class="search_list">
                     <ul class="rounded">
-					  <li><a id="first_item">Buy</a></li>
-					  <li><a href="./list" id="temporal">Rent</a></li>
+					  <li id="buy"><a href="#" id="first_item">Buy</a></li>
+					  <li id="rent"><a href="#">Rent</a></li>
 					</ul>
                 </div>
                 <div id="icons">
@@ -117,9 +119,25 @@
             <div>
                 <ul>
                     <li class="polaroid">
-                        <img src="
-                        <c:url value="/resources/pics/casa1.jpg" />
-                        ">	</img> 
+                        <a href="./details">
+	                        <img src="
+	                        <c:url value="/resources/pics/casa1.jpg" />
+	                        "/>
+                        </a> 
+                        <div class="line_separator"></div>
+                        <div class="description_box">
+                        	<label class="price">USD 190.000</label>
+					  		<label  class="expenses">$ 7.900 Expensas</label>
+					  		<label>O'Higgins 2852</label>
+					  		<label>Belgrano, Capital Federal</label>
+                        </div>
+                    </li>
+                    <li class="polaroid">
+                        <a href="./details">
+	                        <img src="
+	                        <c:url value="/resources/pics/casa2.jpg" />
+	                        ">	</img> 
+	                    </a>
                         <div class="line_separator"></div>
                         <div class="description_box">
                         	<label class="price">USD 150.000</label>
@@ -129,9 +147,11 @@
                         </div>
                     </li>
                     <li class="polaroid">
-                        <img src="
-                        <c:url value="/resources/pics/casa2.jpg" />
-                        ">	</img> 
+                    	<a href="./details">
+	                        <img src="
+	                        <c:url value="/resources/pics/casa3.jpg" />
+	                        ">	</img>
+	                    </a> 
                         <div class="line_separator"></div>
                         <div class="description_box">
                         	<label class="price">USD 150.000</label>
@@ -141,9 +161,11 @@
                         </div>
                     </li>
                     <li class="polaroid">
-                        <img src="
-                        <c:url value="/resources/pics/casa3.jpg" />
-                        ">	</img> 
+                    	<a href="./details">
+	                        <img src="
+	                        <c:url value="/resources/pics/casa4.jpg" />
+	                        ">	</img>
+	                    </a> 
                         <div class="line_separator"></div>
                         <div class="description_box">
                         	<label class="price">USD 150.000</label>
@@ -153,11 +175,13 @@
                         </div>
                     </li>
                     <li class="polaroid">
-                        <img src="
-                        <c:url value="/resources/pics/casa4.jpg" />
-                        ">	</img> 
+	                    <a href="./details">
+	                        <img src="
+	                        <c:url value="/resources/pics/casa2.jpg" />
+	                        ">	</img> 
+                        </a>
                         <div class="line_separator"></div>
-                        <div class="description_box">
+                       	<div class="description_box">
                         	<label class="price">USD 150.000</label>
 					  		<label  class="expenses">$ 7.900 Expensas</label>
 					  		<label>O'Higgins 2852</label>
@@ -165,21 +189,11 @@
                         </div>
                     </li>
                     <li class="polaroid">
-                        <img src="
-                        <c:url value="/resources/pics/casa2.jpg" />
-                        ">	</img> 
-                        <div class="line_separator"></div>
-                       <div class="description_box">
-                        	<label class="price">USD 150.000</label>
-					  		<label  class="expenses">$ 7.900 Expensas</label>
-					  		<label>O'Higgins 2852</label>
-					  		<label>Belgrano, Capital Federal</label>
-                        </div>
-                    </li>
-                    <li class="polaroid">
-                        <img src="
-                        <c:url value="/resources/pics/casa1.jpg" />
-                        ">	</img> 
+	                    <a href="./details">
+	                        <img src="
+	                        <c:url value="/resources/pics/casa1.jpg" />
+	                        ">	</img> 
+                        </a>
                         <div class="line_separator"></div>
                         <div class="description_box">
                         	<label class="price">USD 150.000</label>

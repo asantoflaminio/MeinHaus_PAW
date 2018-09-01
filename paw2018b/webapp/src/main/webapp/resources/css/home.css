@@ -57,6 +57,7 @@ h1 {
 	width: 50%;
 	color: white; 
 	font-weight: 550;
+	background-color: rgb(200, 200, 200, 0.8);
 }
 .search_list ul li a {
 	border: 1px solid rgb(206, 205, 185, .6);
@@ -64,16 +65,18 @@ h1 {
 	padding: 3px;
 	width: 100%;
 	font-size: 17px !important;
-	background-color: rgb(200, 200, 200, 0.8);
+	color: white;
+	text-decoration: none;
 }
 
 #first_item {
 	border-right:1px solid #7C7C7C;
 }
 
-.search_list ul li a:hover{
+.search_list ul li:hover{
 	background-color:rgb(253, 137, 7, .9);
 }
+
 
 /* Closing style*/
 
@@ -273,8 +276,3 @@ input.form-control.form-control-lg {
 }
 
 /* Closing style */
-
-#temporal {
-	color: white;
-	text-decoration: none;
-}
