@@ -75,6 +75,7 @@
 			<h3 id="titl" >STEP 1</h3>
 		     <form action="/action_page.php">
 		     	<div class="fillers">
+		     		<form name="publishForm" method="post" action="publishServlet">
 				     <label for="title">TITLE</label>
 		    		 <input type="text" id="title" name="title" placeholder="Property type and main features">
 		    		 
@@ -82,8 +83,8 @@
 		    		 <input type="text" id="address" name="address" placeholder="Property address...">
 		    		 <label>OPERATION TYPE</label>
 		    		 <div class="op-type-box">
-                        		<input class="radio-1" type="radio" name="op-type" value="FSale">For sale<br>
-                        		<input class="radio-2" type="radio" name="op-type" value="FRent">For rent<br>
+                        		<input class="radio-1" name="operation" type="radio" name="op-type" value="FSale">For sale<br>
+                        		<input class="radio-2" name="operation" type="radio" name="op-type" value="FRent">For rent<br>
                      </div>   
 		    		 
 		    		 <label for="price">PRICE</label>

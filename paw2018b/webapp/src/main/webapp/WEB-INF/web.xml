@@ -41,7 +41,7 @@
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	<!--asdasd
+	<!--
  	<servlet>
   		<servlet-name>SignUp</servlet-name>
   		<servlet-class>SignUpServletController</servlet-class>
@@ -49,6 +49,14 @@
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/hello/signUp</url-pattern>
+	</servlet-mapping>
+ 	<servlet>
+  		<servlet-name>Publish</servlet-name>
+  		<servlet-class>PublishServletController</servlet-class>
+ 	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/hello/publish</url-pattern>
 	</servlet-mapping>-->
 
 </web-app>

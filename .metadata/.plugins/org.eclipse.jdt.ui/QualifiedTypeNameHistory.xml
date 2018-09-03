@@ -19,6 +19,10 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="ar.edu.itba.paw.models.Publication"/>
+<fullyQualifiedTypeName name="ar.edu.itba.paw.PublicationDao"/>
+<fullyQualifiedTypeName name="ar.edu.itba.paw.PublicationService"/>
+<fullyQualifiedTypeName name="ar.edu.itba.paw.services.PublicationServiceImp"/>
 </qualifiedTypeNameHistroy>

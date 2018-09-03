@@ -1873,3 +1873,451 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact ar.edu.itba.p
 2018-08-31 10:55:16,946 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp2/MeinHaus_PAW/paw2018b/persistence/src/main/resources
 2018-08-31 10:55:16,946 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-08-31 10:55:16,946 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp2/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:15:17,109 [Worker-2: Loading available Gradle versions] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-09-03 10:21:12,851 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: ar.edu.itba.paw:paw2018b:1.0-SNAPSHOT @ /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/pom.xml.
+2018-09-03 10:21:14,360 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ar.edu.itba.paw:webapp:1.0-SNAPSHOT @ /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/pom.xml.
+2018-09-03 10:21:14,450 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 10:21:14,451 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:21:14,452 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/services: ar.edu.itba.paw:services:1.0-SNAPSHOT with classifier  to /services/target/classes
+2018-09-03 10:21:14,452 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/persistence: ar.edu.itba.paw:persistence:1.0-SNAPSHOT with classifier  to /persistence/target/classes
+2018-09-03 10:21:14,526 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT @ /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/pom.xml.
+2018-09-03 10:21:14,530 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:21:14,565 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ar.edu.itba.paw:services:1.0-SNAPSHOT @ /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/pom.xml.
+2018-09-03 10:21:14,590 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 10:21:14,591 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:21:14,591 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/persistence: ar.edu.itba.paw:persistence:1.0-SNAPSHOT with classifier  to /persistence/target/classes
+2018-09-03 10:21:14,666 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ar.edu.itba.paw:models:1.0-SNAPSHOT @ /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/pom.xml.
+2018-09-03 10:21:14,697 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ar.edu.itba.paw:persistence:1.0-SNAPSHOT @ /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/pom.xml.
+2018-09-03 10:21:14,700 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 10:21:14,722 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:21:17,294 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /models/src/main/java
+2018-09-03 10:21:17,294 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /models/src/test/java
+2018-09-03 10:21:17,379 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /interfaces/src/main/java
+2018-09-03 10:21:17,380 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /interfaces/src/test/java
+2018-09-03 10:21:17,515 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /persistence/src/main/java
+2018-09-03 10:21:17,515 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /persistence/src/test/java
+2018-09-03 10:21:17,623 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /services/src/main/java
+2018-09-03 10:21:17,624 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /services/src/test/java
+2018-09-03 10:21:17,688 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /webapp/src/main/java
+2018-09-03 10:21:17,689 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /webapp/src/test/java
+2018-09-03 10:21:17,814 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 6 project(s) in 6 sec
+2018-09-03 10:21:20,373 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:21:20,374 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/main/resources
+2018-09-03 10:21:20,376 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:21:20,376 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/test/resources
+2018-09-03 10:21:20,474 [Worker-8: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:21:20,479 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:21:20,479 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/main/resources
+2018-09-03 10:21:20,480 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:21:20,480 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/test/resources
+2018-09-03 10:21:20,963 [Worker-8: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 10:21:20,964 [Worker-8: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:21:20,971 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:21:20,971 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:21:20,973 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:21:20,973 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:21:21,223 [Worker-8: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 10:21:21,224 [Worker-8: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:21:21,225 [Worker-8: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/persistence: ar.edu.itba.paw:persistence:1.0-SNAPSHOT with classifier  to /persistence/target/classes
+2018-09-03 10:21:21,228 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:21:21,229 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:21:21,231 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:21:21,231 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:21:21,631 [Worker-8: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 10:21:21,632 [Worker-8: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:21:21,632 [Worker-8: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/services: ar.edu.itba.paw:services:1.0-SNAPSHOT with classifier  to /services/target/classes
+2018-09-03 10:21:21,632 [Worker-8: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/persistence: ar.edu.itba.paw:persistence:1.0-SNAPSHOT with classifier  to /persistence/target/classes
+2018-09-03 10:21:21,655 [Worker-8: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 10:21:21,657 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 10:21:21,659 [Worker-8: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 10:21:21,659 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 10:25:08,792 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:25:08,792 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/main/resources
+2018-09-03 10:25:08,795 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:25:08,795 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/test/resources
+2018-09-03 10:25:08,817 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:25:08,820 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:25:08,821 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/main/resources
+2018-09-03 10:25:08,823 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:25:08,823 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/test/resources
+2018-09-03 10:25:08,847 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 10:25:08,847 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:25:08,852 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:25:08,852 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:25:08,854 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:25:08,854 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:25:08,880 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 10:25:08,881 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:25:08,881 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/persistence: ar.edu.itba.paw:persistence:1.0-SNAPSHOT with classifier  to /persistence/target/classes
+2018-09-03 10:25:08,901 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:25:08,901 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:25:08,902 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:25:08,902 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:25:08,960 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 10:25:08,960 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:25:08,960 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/services: ar.edu.itba.paw:services:1.0-SNAPSHOT with classifier  to /services/target/classes
+2018-09-03 10:25:08,960 [Worker-4: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/persistence: ar.edu.itba.paw:persistence:1.0-SNAPSHOT with classifier  to /persistence/target/classes
+2018-09-03 10:25:08,964 [Worker-4: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 10:25:08,965 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 10:25:08,967 [Worker-4: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 10:25:08,967 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 10:25:28,692 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:25:28,692 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:25:28,693 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:25:28,693 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:28:18,921 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:28:18,921 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:28:18,922 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:28:18,923 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:35:53,040 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:35:53,041 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/main/resources
+2018-09-03 10:35:53,042 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:35:53,042 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/test/resources
+2018-09-03 10:37:32,972 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:37:32,972 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/main/resources
+2018-09-03 10:37:32,974 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:37:32,974 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/test/resources
+2018-09-03 10:38:26,948 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:38:26,948 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/main/resources
+2018-09-03 10:38:26,949 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:38:26,949 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/test/resources
+2018-09-03 10:38:56,322 [Worker-21: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:38:56,326 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:38:56,326 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/main/resources
+2018-09-03 10:38:56,328 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:38:56,329 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/test/resources
+2018-09-03 10:39:34,075 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:39:34,075 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/main/resources
+2018-09-03 10:39:34,076 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:39:34,076 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/test/resources
+2018-09-03 10:39:46,826 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:39:46,826 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/main/resources
+2018-09-03 10:39:46,827 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:39:46,827 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/test/resources
+2018-09-03 10:40:05,700 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:40:05,701 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/main/resources
+2018-09-03 10:40:05,702 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:40:05,702 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/test/resources
+2018-09-03 10:40:49,259 [Worker-12: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 10:40:49,260 [Worker-12: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:40:49,260 [Worker-12: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/persistence: ar.edu.itba.paw:persistence:1.0-SNAPSHOT with classifier  to /persistence/target/classes
+2018-09-03 10:40:49,263 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:40:49,263 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:40:49,265 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:40:49,265 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:41:54,703 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:41:54,703 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/main/resources
+2018-09-03 10:41:54,705 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:41:54,705 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/test/resources
+2018-09-03 10:41:54,762 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:41:54,762 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:41:54,763 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:41:54,763 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:42:05,362 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:42:05,362 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/main/resources
+2018-09-03 10:42:05,364 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:42:05,364 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/test/resources
+2018-09-03 10:42:05,513 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:42:05,513 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:42:05,514 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:42:05,514 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:42:28,622 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:42:28,622 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:42:28,624 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:42:28,624 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:43:26,982 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:43:26,982 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/main/resources
+2018-09-03 10:43:26,983 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:43:26,983 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/test/resources
+2018-09-03 10:43:47,886 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:43:47,886 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/main/resources
+2018-09-03 10:43:47,887 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:43:47,887 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/test/resources
+2018-09-03 10:44:49,767 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:44:49,767 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:44:49,768 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:44:49,768 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:45:05,591 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:45:05,591 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:45:05,592 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:45:05,592 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:45:17,150 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:45:17,150 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:45:17,152 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:45:17,152 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:45:30,718 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:45:30,718 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:45:30,719 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:45:30,719 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:45:33,669 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:45:33,669 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:45:33,669 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:45:33,670 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:45:33,708 [Worker-20: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 10:45:33,709 [Worker-20: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:45:33,709 [Worker-20: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/services: ar.edu.itba.paw:services:1.0-SNAPSHOT with classifier  to /services/target/classes
+2018-09-03 10:45:33,709 [Worker-20: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/persistence: ar.edu.itba.paw:persistence:1.0-SNAPSHOT with classifier  to /persistence/target/classes
+2018-09-03 10:45:33,712 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 10:45:33,713 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 10:45:33,714 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 10:45:33,714 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 10:45:34,780 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:45:34,780 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:45:34,781 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:45:34,781 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:46:19,771 [Worker-22: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 10:46:19,771 [Worker-22: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 10:46:19,776 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:46:19,776 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:46:19,777 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:46:19,778 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:48:26,624 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:48:26,624 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:48:26,624 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:48:26,625 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:48:31,662 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:48:31,662 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:48:31,662 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:48:31,663 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:49:33,617 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:49:33,618 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:49:33,618 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:49:33,618 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:50:43,787 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:50:43,788 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:50:43,789 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:50:43,789 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:50:45,829 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:50:45,829 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:50:45,830 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:50:45,830 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:50:54,961 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:50:54,961 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:50:54,962 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:50:54,962 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:52:57,980 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:52:57,981 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:52:57,981 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:52:57,982 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:52:59,147 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:52:59,147 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:52:59,149 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:52:59,149 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:52:59,265 [Worker-22: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 10:52:59,266 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 10:52:59,266 [Worker-22: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 10:52:59,268 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 10:53:14,662 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:53:14,662 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:53:14,663 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:53:14,663 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:53:15,705 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:53:15,705 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:53:15,706 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:53:15,706 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:53:23,325 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:53:23,325 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:53:23,326 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:53:23,326 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:53:39,144 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:53:39,144 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:53:39,145 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:53:39,145 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:53:46,490 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:53:46,490 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 10:53:46,491 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:53:46,491 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 10:54:21,012 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:54:21,013 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:54:21,016 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:54:21,016 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:54:38,569 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:54:38,569 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:54:38,569 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:54:38,569 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 10:56:22,210 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:56:22,210 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 10:56:22,211 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 10:56:22,211 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 11:06:58,891 [Worker-19: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:06:58,892 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:06:58,893 [Worker-19: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:06:58,893 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:08:10,394 [Worker-12: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:08:10,394 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:08:10,395 [Worker-12: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:08:10,395 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:08:13,204 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:08:13,206 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:08:13,207 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:08:13,207 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:08:41,733 [Worker-19: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:08:41,733 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:08:41,734 [Worker-19: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:08:41,735 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:10:47,921 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:10:47,921 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:10:47,922 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:10:47,922 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:10:54,048 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:10:54,049 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:10:54,049 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:10:54,050 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:12:47,919 [Worker-19: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:12:47,920 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:12:47,920 [Worker-19: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:12:47,921 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:15:18,858 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:15:18,859 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:15:18,861 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:15:18,862 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:17:26,873 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:17:26,874 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:17:26,874 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:17:26,874 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:17:30,061 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:17:30,062 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:17:30,063 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:17:30,063 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:19:48,454 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:19:48,455 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:19:48,457 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:19:48,458 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:20:01,686 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:20:01,687 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:20:01,695 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:20:01,700 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:25:26,788 [Worker-24: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:25:26,788 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:25:26,790 [Worker-24: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:25:26,791 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:25:47,097 [Worker-12: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:25:47,097 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:25:47,098 [Worker-12: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:25:47,098 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:25:58,560 [Worker-25: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:25:58,562 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:25:58,564 [Worker-25: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:25:58,565 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:26:05,968 [Worker-25: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:26:05,969 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:26:05,970 [Worker-25: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:26:05,971 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:26:12,649 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:26:12,650 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:26:12,650 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:26:12,650 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:26:33,463 [Worker-12: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:26:33,464 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:26:33,465 [Worker-12: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:26:33,466 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:27:04,895 [Worker-2: Loading available Gradle versions] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-09-03 11:27:08,696 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:27:08,697 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/main/resources
+2018-09-03 11:27:08,701 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:27:08,702 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/test/resources
+2018-09-03 11:27:08,824 [Worker-9: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 11:27:08,828 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:27:08,828 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/main/resources
+2018-09-03 11:27:08,829 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:27:08,829 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/test/resources
+2018-09-03 11:27:09,113 [Worker-9: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 11:27:09,113 [Worker-9: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 11:27:09,124 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:27:09,124 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 11:27:09,127 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:27:09,128 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 11:27:09,228 [Worker-9: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 11:27:09,229 [Worker-9: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 11:27:09,229 [Worker-9: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/persistence: ar.edu.itba.paw:persistence:1.0-SNAPSHOT with classifier  to /persistence/target/classes
+2018-09-03 11:27:09,232 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:27:09,233 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 11:27:09,234 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:27:09,234 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 11:27:09,347 [Worker-9: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 11:27:09,347 [Worker-9: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 11:27:09,348 [Worker-9: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/services: ar.edu.itba.paw:services:1.0-SNAPSHOT with classifier  to /services/target/classes
+2018-09-03 11:27:09,348 [Worker-9: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/persistence: ar.edu.itba.paw:persistence:1.0-SNAPSHOT with classifier  to /persistence/target/classes
+2018-09-03 11:27:09,354 [Worker-9: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:27:09,358 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:27:09,359 [Worker-9: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:27:09,360 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:28:41,136 [Worker-8: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:28:41,137 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:28:41,138 [Worker-8: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:28:41,138 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:33:41,630 [Worker-11: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:33:41,631 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:33:41,632 [Worker-11: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:33:41,632 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:34:32,968 [Worker-19: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:34:32,969 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:34:32,972 [Worker-19: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:34:32,973 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:35:17,516 [Worker-21: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:35:17,517 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:35:17,518 [Worker-21: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:35:17,518 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:35:32,352 [Worker-11: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:35:32,354 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:35:32,357 [Worker-11: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:35:32,358 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:35:44,496 [Worker-21: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:35:44,498 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:35:44,501 [Worker-21: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:35:44,502 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:36:01,974 [Worker-11: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:36:01,975 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:36:01,978 [Worker-11: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:36:01,980 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:36:05,492 [Worker-8: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:36:05,493 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:36:05,496 [Worker-8: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:36:05,498 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:38:31,233 [Worker-6: Loading available Gradle versions] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-09-03 11:38:36,356 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:38:36,357 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/main/resources
+2018-09-03 11:38:36,359 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:38:36,359 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/models/src/test/resources
+2018-09-03 11:38:36,508 [Worker-6: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 11:38:36,526 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:38:36,526 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/main/resources
+2018-09-03 11:38:36,527 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:38:36,527 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/interfaces/src/test/resources
+2018-09-03 11:38:36,806 [Worker-6: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 11:38:36,806 [Worker-6: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 11:38:36,810 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:38:36,810 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/main/resources
+2018-09-03 11:38:36,812 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:38:36,812 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/persistence/src/test/resources
+2018-09-03 11:38:36,948 [Worker-6: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 11:38:36,949 [Worker-6: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 11:38:36,949 [Worker-6: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/persistence: ar.edu.itba.paw:persistence:1.0-SNAPSHOT with classifier  to /persistence/target/classes
+2018-09-03 11:38:36,961 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:38:36,961 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/main/resources
+2018-09-03 11:38:36,962 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-09-03 11:38:36,962 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/services/src/test/resources
+2018-09-03 11:38:37,114 [Worker-6: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/interfaces: ar.edu.itba.paw:interfaces:1.0-SNAPSHOT with classifier  to /interfaces/target/classes
+2018-09-03 11:38:37,114 [Worker-6: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/models: ar.edu.itba.paw:models:1.0-SNAPSHOT with classifier  to /models/target/classes
+2018-09-03 11:38:37,114 [Worker-6: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/services: ar.edu.itba.paw:services:1.0-SNAPSHOT with classifier  to /services/target/classes
+2018-09-03 11:38:37,114 [Worker-6: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/persistence: ar.edu.itba.paw:persistence:1.0-SNAPSHOT with classifier  to /persistence/target/classes
+2018-09-03 11:38:37,122 [Worker-6: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:38:37,155 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:38:37,157 [Worker-6: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:38:37,157 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:40:12,521 [Worker-16: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:40:12,523 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:40:12,524 [Worker-16: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:40:12,525 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:43:09,132 [Worker-13: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:43:09,133 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:43:09,134 [Worker-13: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:43:09,134 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:47:19,710 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:47:19,712 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:47:19,717 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:47:19,718 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
+2018-09-03 11:58:27,438 [Worker-19: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:58:27,438 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/main/resources
+2018-09-03 11:58:27,439 [Worker-19: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-09-03 11:58:27,440 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/b0ltii/Escritorio/paw-tp3/MeinHaus_PAW/paw2018b/webapp/src/test/resources
