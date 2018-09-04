@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/navbar.css" />">
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/footer.css" />">
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+        <link rel="shortcut icon" href="<c:url value="/resources/pics/favicon.ico" />">
         <script src="<c:url value="/resources/js/list.js" />"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
