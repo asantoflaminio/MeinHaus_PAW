@@ -9,7 +9,7 @@ body {
 	height: 100%;
 	width: 100%;
 	background-color: #eee !important;
-	font-family: 'Rubik', monospace !important;
+	font-family: 'Rubik', sans-serif !important;
 }
 
 /* Breadcrumb style */
@@ -66,10 +66,12 @@ ul.breadcrumb-list li a:hover {
   width: 100%;
   border: 3px solid #FD8907;
   padding: 5px;
+  font-size: 15px !important;
   height: 40px;
   border-radius: 5px;
   outline: none;
   color: #999;
+  
 }
 
 .searchTerm:focus{

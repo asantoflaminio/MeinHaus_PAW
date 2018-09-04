@@ -44,7 +44,7 @@ input[type=text], select {
     color: #999;
 }
 
-input[type=password] {
+.signup-list-item input[type=password] {
     width: 95%;
     height: 30px;
     padding: 12px 20px;

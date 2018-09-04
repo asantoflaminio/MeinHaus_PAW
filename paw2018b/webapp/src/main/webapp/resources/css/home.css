@@ -112,6 +112,10 @@ input {
 	font-size: 17px !important;
 }
 
+#input_search {
+	font-size: 16px !important;
+}
+
 #card{
     width: 600px;
     display: table;
