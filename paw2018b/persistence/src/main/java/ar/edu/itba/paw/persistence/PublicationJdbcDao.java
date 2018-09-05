@@ -41,12 +41,12 @@ public class PublicationJdbcDao implements PublicationDao{
 				.withTableName("publications")
 				.usingColumns("title","address","operation","price");
 
-		/*jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS publications ("
+		jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS publications ("
 			+ "title varchar(30),"
 			+ "address varchar(30) PRIMARY KEY,"
 			+ "operation varchar(30),"
 			+ "price varchar(30)"
-			+ ")");*/
+			+ ")");
 	}
 
 	public Publication create(String title, String address,String operation, Integer price) {
