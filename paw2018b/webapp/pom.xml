@@ -14,6 +14,7 @@
 	<packaging>war</packaging>
 	<name>webapp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -54,9 +55,15 @@
 			<artifactId>postgresql</artifactId>
 			<version>${org.postgresql.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
 	</dependencies>
-	<build>
-		<finalName>lalala</finalName>
-	</build>
+	
 
 </project>
