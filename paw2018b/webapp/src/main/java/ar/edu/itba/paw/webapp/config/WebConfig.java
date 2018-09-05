@@ -1,10 +1,14 @@
 package ar.edu.itba.paw.webapp.config;
 
+import java.nio.charset.StandardCharsets;
+
 import javax.sql.DataSource;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -44,5 +48,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		ds.setUsername("postgres");
 		ds.setPassword("Bvma141511");
 		return ds;
+	}
+	
+	@Bean
+	public MessageSource messageSource() {
+		final ReloadableResourceBundleMessageSource messageSource = 
+				new ReloadableResourceBundleMessageSource();messageSource.setBasename("classpath:i18n/messages");
+		messageSource.setDefaultEncoding(StandardCharsets.UTF_8.displayName());
+		messageSource.setCacheSeconds(5);
+		return messageSource;
 	}
 }
