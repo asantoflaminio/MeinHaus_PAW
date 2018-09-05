@@ -72,13 +72,15 @@
         </nav>
         
              
-         <div class="polaroid">
-          
+         <div class="polaroid">       
           <div class="w3-content w3-display-container" style="max-width:800px">
-			  <img class="mySlides" src="<c:url value="/resources/pics/casa1.jpg" />" style="width:100%">
-			  <img class="mySlides" src="<c:url value="/resources/pics/casa2.jpg" />" style="width:100%">
-			  <img class="mySlides" src="<c:url value="/resources/pics/casa3.jpg" />" style="width:100%">
-			  <img class="mySlides" src="<c:url value="/resources/pics/casa4.jpg" />" style="width:100%">
+           	<div class="size_div">
+           		  <img class="mySlides" src="<c:url value="/resources/pics/casa1.jpg" />" >
+				  <img class="mySlides" src="<c:url value="/resources/pics/casa2.jpg" />" >
+				  <img class="mySlides" src="<c:url value="/resources/pics/casa3.jpg" />" >
+				  <img class="mySlides" src="<c:url value="/resources/pics/casa4.jpg" />" >
+           	</div>
+			  
 			  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
 			    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
 			    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
@@ -89,9 +91,8 @@
 			  </div>
 			</div>
           
-		  <!-- <img class="polaroid_img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre" style="width:100%">  -->
 		  <div class="container">
-		    <p class="direction">2538 La Condesa Dr, Los Angeles, CA</p>
+		    <p class="direction"> Street Name, Los Angeles, CA</p>
 		  </div>
 		</div>
 		

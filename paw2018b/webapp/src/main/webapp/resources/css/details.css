@@ -28,6 +28,17 @@ div.polaroid {
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
+  max-height: 100%;
+}
+
+.size_div{
+	height: 280px;
+	width: 100%;
+}
+
+.mySlides{
+    height: 100%;
+    width: 100%;
 }
 
 div.polaroid_price {
