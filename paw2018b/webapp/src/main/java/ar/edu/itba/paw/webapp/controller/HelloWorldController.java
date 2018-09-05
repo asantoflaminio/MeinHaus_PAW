@@ -1,13 +1,23 @@
 package ar.edu.itba.paw.webapp.controller;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import ar.edu.itba.paw.services.UserServiceImpl;
+import ar.edu.itba.webapp.form.signUpForm;
 
 @Controller
 @RequestMapping("/hello/")
 public class HelloWorldController {
-	
+	@Autowired
+	private UserServiceImpl us;
 	
 	@RequestMapping("world")
 	public ModelAndView helloWorld() {
@@ -36,7 +46,7 @@ public class HelloWorldController {
 	}
 	
 	@RequestMapping("signUp")
-	public ModelAndView helloSignUp() {
+	public ModelAndView helloSignUp(@ModelAttribute("signUpForm") final signUpForm form) {
 		final ModelAndView mav = new ModelAndView("signUp");
 		return mav;
 	}
@@ -69,6 +79,20 @@ public class HelloWorldController {
 	public ModelAndView helloPublish4() {
 		final ModelAndView mav = new ModelAndView("publish4");
 		return mav;
+	}
+	
+	@RequestMapping (value = "signUp", method = RequestMethod.POST )
+	public ModelAndView create(@Valid @ModelAttribute("signUpForm") final signUpForm form, final BindingResult errors) {
+		if (errors.hasErrors()) {
+			return helloSignUp(form);
+		}
+		us.create(form.getFirstName(),
+					form.getLastName(),
+					form.getEmail(),
+					form.getPassword(),
+					form.getPhoneNumber());
+		System.out.println("Success!!");
+		return new ModelAndView("redirect:/hello/home");
 	}
 	
 }

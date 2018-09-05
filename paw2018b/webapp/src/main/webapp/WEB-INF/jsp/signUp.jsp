@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,15 +70,18 @@
 				<div id="signup-title">
 					<h3>SIGN UP</h3>
 				</div>
-				 <form name="signUpForm" method="post" action="signUpServlet">
+				<c:url value="/hello/signUp" var="postPath"/>
+				 <form:form modelAttribute="signUpForm" action="${postPath}" method="post">
 					<div class="signup-list">
 						<div class="signup-list-item">
-                        	<label>FIRST NAME*</label>
-                        	<input class="sign-up-input" type="text" placeholder="First name" name="firstName">
+                        	<form:label path="firstName">FIRST NAME*</form:label>
+                        	<form:input class="sign-up-input" path="firstName" type="text" placeholder="First name" name="firstName"/>
+                        	<form:errors path="firstName" cssClass="error" element="p"/>
                         </div>
 						<div class="signup-list-item">
-                        	<label>LAST NAME*</label>
-                        	<input class="sign-up-input" type="text" placeholder="Last name" name="lastName">
+                        	<form:label path="lastName">LAST NAME*</form:label>
+                        	<form:input class="sign-up-input" path="lastName" type="text" placeholder="Last name" name="lastName"/>
+                        	<form:errors path="lastName" cssClass="error" element="p"/>
                         </div>
 						<div class="signup-list-item">
                         	<label>ACCOUNT TYPE*</label>
@@ -87,19 +91,23 @@
                         	</div>   	
                         </div>						
                         <div class="signup-list-item">
-                        	<label>E-MAIL*</label>
-                        	<input class="sign-up-input" type="text" placeholder="example@eg.com" name="email">
+                        	<form:label path="email">E-MAIL*</form:label>
+                        	<form:input class="sign-up-input" path="email" type="text" placeholder="example@eg.com" name="email"/>
+                        	<form:errors path="email" cssClass="error" element="p"/>
                         </div>
                         <div class="signup-list-item">
-                        	<label>PASSWORD*</label>
-                        	<input class="sign-up-input" type="password" placeholder="Password" name="password">
+                        	<form:label path="password">PASSWORD*</form:label>
+                        	<form:input class="sign-up-input" path="password" type="password" placeholder="Password" name="password"/>
+                        	<form:errors path="password" cssClass="error" element="p"/>
                         </div>
 						<div class="signup-list-item">
-                        	<label>PHONE NUMBER</label>
-                        	<input class="sign-up-input" type="text" placeholder="(XXX)XXX-XXXX" name="phoneNumber">
+                        	<form:label path="phoneNumber">PHONE NUMBER</form:label>
+                        	<form:input class="sign-up-input" path="phoneNumber" type="text" placeholder="(XXX)XXX-XXXX" name="phoneNumber"/>
+                        	<form:errors path="phoneNumber" cssClass="error" element="p"/>
                         </div>
                         	<input class="signup-submit" type="submit" value="SIGN UP">
 					</div>
+                </form:form>
 			</div>
 		</div>
 		

@@ -14,28 +14,6 @@ import ar.edu.itba.paw.services.UserServiceImpl;
 @RequestMapping("/hello/")
 public class SignUpController extends HttpServlet {
  
-	private static final long serialVersionUID = 1L;
-	@Autowired
-	private UserServiceImpl us;
-
-	@RequestMapping("signUpServlet")
-    public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-    	String firstName = request.getParameter("firstName");
-    	String lastName = request.getParameter("lastName");
-    	String email = request.getParameter("email");
-    	String password = request.getParameter("password");
-    	String phoneNumber = request.getParameter("phoneNumber");
-    	System.out.println("First name:" + firstName);
-    	System.out.println("Last name:" + lastName);
-    	System.out.println("email:" + email);
-    	System.out.println("password:" + password);
-    	System.out.println("phoneNumber:" + phoneNumber);
-    	
-    	us.create(firstName,lastName,email,password,phoneNumber);
-    	
-    	System.out.println("Success!!");
-    	response.sendRedirect("home.html");
-    }
    
 
 }
