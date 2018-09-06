@@ -3,8 +3,8 @@ package ar.edu.itba.paw.persistence;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import javax.sql.DataSource;
 
@@ -24,36 +24,42 @@ public class UserJdbcDao implements UserDao{
 	private final SimpleJdbcInsert jdbcInsert;
 	
 	private final static RowMapper<User> ROW_MAPPER = new RowMapper<User>(){
-
+		
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 			return new User(rs.getString("firstName"), 
 							rs.getString("lastName"),
 							rs.getString("email"),
 							rs.getString("password"),
-							rs.getString("phoneNUmber"));
+							rs.getString("phoneNUmber"),
+							rs.getInt("userid"));
 		}
 		
 	};
 
 	@Autowired
-	public UserJdbcDao(final DataSource dateSource){
-		jdbcTemplate = new JdbcTemplate(dateSource);
+	public UserJdbcDao(final DataSource dataSource){
+		jdbcTemplate = new JdbcTemplate(dataSource);
 		
 		jdbcInsert = new SimpleJdbcInsert(jdbcTemplate)
 				.withTableName("users")
+				.usingGeneratedKeyColumns("userid")
 				.usingColumns("firstName","lastName","email","password","phoneNumber");
 
 		jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS users ("
+			+ "userid SERIAL PRIMARY KEY,"
 			+ "firstName varchar(30),"
 			+ "lastName varchar(30),"
-			+ "email varchar(30) PRIMARY KEY,"
+			+ "email varchar(30) UNIQUE NOT NULL,"
 			+ "password varchar(30),"
 			+ "phoneNumber varchar(30)"
 			+")");
 	}
 
-	public Optional<User> findById(final long id) {
-		return jdbcTemplate.query("SELECT * FROM users WHERE userid = ?",ROW_MAPPER,id).stream().findFirst(); 
+	public User findById(final long id) {
+		final List<User> list = jdbcTemplate.query("SELECT * FROM users WHERE userid = ?",ROW_MAPPER,id);
+		if(list.isEmpty())
+			return null;
+		return list.get(0);
 	}
 
 	public User create(String firstName, String lastName,String email,
@@ -65,8 +71,10 @@ public class UserJdbcDao implements UserDao{
 		args.put("email", email);
 		args.put("password", password);
 		args.put("phoneNumber", phoneNumber);
-		jdbcInsert.execute(args);
-		return new User(firstName, lastName, email, password, phoneNumber);
+
+		final Number userId = jdbcInsert.executeAndReturnKey(args);
+		
+		return new User(firstName, lastName, email, password, phoneNumber, userId.longValue());
 	}
 	
 

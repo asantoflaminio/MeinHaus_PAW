@@ -98,7 +98,10 @@
 		
 		<div class="polaroid_price">
 		  <div class="container2">
-		    <p class="price_text">For sale: $4,575,000</p>
+		    <div class="price_text">
+		    	<p id="rent_sale">FOR SALE</p> 
+		    	<p id="price_tag">$4,575,000</p>
+		  	</div>
 		  </div>
 		</div>
 		

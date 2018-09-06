@@ -21,7 +21,7 @@ h1 {
 }
 
 div.polaroid {
-  margin-top: 15px;
+  margin-top: 40px;
   float: left;
   margin-left: 15%;
   width: 35%;
@@ -29,6 +29,8 @@ div.polaroid {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
   max-height: 100%;
+  min-width:  450px; 
+  min-height: 200px; 
 }
 
 .size_div{
@@ -43,12 +45,14 @@ div.polaroid {
 
 div.polaroid_price {
   float: right;
-  margin-top: 15px;
+  margin-top: 40px;
   margin-right: 15%;
   width: 30%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
+  min-width: 380px;
+  min-height: 70px;
 }
 
 div.container {
@@ -69,7 +73,7 @@ div.container2 {
     height: auto; 
     width: auto; 
     max-width: 300px; 
-    max-height: 300px;
+    max-height: 300px;    
 }
 
 .direction {
@@ -78,8 +82,26 @@ div.container2 {
 }
 
 .price_text {
-    font-family: 'Rubik', sans-serif !important;
-    font-size: 26px;
+    margin: 3px 0 3px 0;
+}
+
+#rent_sale {
+	font-family: 'Rubik', sans-serif !important;
+    font-size: 18px;
+    color: #999;
+    margin-bottom: 3px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+#price_tag {
+	font-family: 'Rubik', sans-serif !important;
+    font-size: 25px;
+    color: #555;
+    margin-bottom: 2px;
+    text-align: left;
+    margin-left: 20px;
+    
 }
 
 
@@ -91,6 +113,7 @@ div.polaroid_agency {
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
+  min-width: 380px;
 }
 
 div.container3 {
@@ -117,7 +140,7 @@ div.polaroid_des {
   width: 70%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
+  margin-bottom: 50px;
 }
 
 input[type=text], select {
@@ -160,6 +183,8 @@ div.polaroid_overview {
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
+  min-width:  450px; 
+  
 }
 
 .polaroid_title {
@@ -199,4 +224,9 @@ div.container4 {
 	height:13px;
 	width:13px;
 	padding:0;
+}
+
+#message {
+	max-height: 150px;
+	min-height: 60px;
 }
