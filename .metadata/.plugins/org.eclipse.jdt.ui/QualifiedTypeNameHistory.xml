@@ -43,4 +43,5 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
 <fullyQualifiedTypeName name="ar.edu.itba.paw.models.Publication"/>
+<fullyQualifiedTypeName name="ar.edu.itba.webapp.form.SecondPublicationForm"/>
 </qualifiedTypeNameHistroy>

@@ -20,6 +20,7 @@ import ar.edu.itba.paw.models.Publication;
 import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
 import ar.edu.itba.webapp.form.FirstPublicationForm;
+import ar.edu.itba.webapp.form.SecondPublicationForm;
 import ar.edu.itba.webapp.form.signUpForm;
 
 @Controller
@@ -85,11 +86,19 @@ public class HelloWorldController {
 	}
 	
 	@RequestMapping(value = "publish2")
-	public ModelAndView helloPublish2(@ModelAttribute("publication") final String pub) {
+	public ModelAndView helloPublish2(@ModelAttribute("secondPublicationForm") final SecondPublicationForm form, @ModelAttribute("publication") final String pub) {
 		System.out.println("Entre a la funcion");
 		final ModelAndView mav = new ModelAndView("publish2");
 		System.out.println("My title is: " + pub);
 		return mav;
+	}
+	
+	@RequestMapping(value = "publish2" ,method = RequestMethod.POST)
+	public ModelAndView publish2(@Valid @ModelAttribute("secondPublicationForm") final SecondPublicationForm form, final BindingResult errors, RedirectAttributes atributos) {
+		if (errors.hasErrors()) {
+			return helloPublish2(form,null);
+		}
+		return new ModelAndView("redirect:/hello/publish3");
 	}
 	
 	@RequestMapping("publish3")

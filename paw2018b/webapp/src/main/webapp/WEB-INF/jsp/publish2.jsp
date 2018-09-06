@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -73,20 +75,21 @@
 		<div class="polaroid_agency">
 		  <div class="container3">
 			<h3 id="titl">STEP 2</h3>
-		     <form action="/action_page.php">
+		    <c:url value="/hello/publish2" var="postPath"/>
+			<form:form modelAttribute="secondPublicationForm" action="${postPath}" method="get">
 		     	<div class="fillers">
-				     <label for="description">DESCRIPTION</label>		    		 
-		    		 <textarea cols="30" rows="8" placeholder="Property description..."></textarea>
-		    		 <label for="PROPERTY TYPE">PROPERTY TYPE</label>	
+				     <form:label for="description" path="description"><spring:message code="publish2.description"/></form:label>
+				     <spring:message code="publish2.placeholderDescription" var="description"/>		    		 
+		    		 <textarea cols="30" rows="8" placeholder="${description}"></textarea>
+		    		 <label for="PROPERTY TYPE"><spring:message code="publish2.propertyType"/></label>	
 		    		 <div class="prop-type-box">
-	                        		<input class="radio-1" type="radio" name="prop-type" value="Apt">Apartment<br>
-	                        		<input class="radio-2" type="radio" name="prop-type" value="House">House<br>
+                        		<input class="radio-1" name="operation" type="radio" name="op-type" value="FSale"><spring:message code="publish2.apartment"/><br>
+                        		<input class="radio-2" name="operation" type="radio" name="op-type" value="FRent"><spring:message code="publish2.house"/><br>
 	                 </div>   
-		    		 <a class="button" href="./publish3">NEXT</a>
+		    		 <spring:message code="publish2.submitPublish" var="submitValue"/>
+		    		 <input class="signup-submit" type="submit" value=${submitValue}>
 	    		 </div>
-	    		 
-	    		 
-	    	</form>
+	    	</form:form>
 		  </div>
 		</div>
          <footer>

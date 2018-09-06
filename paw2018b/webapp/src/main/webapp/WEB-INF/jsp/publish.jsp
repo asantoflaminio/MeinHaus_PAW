@@ -74,29 +74,33 @@
 		
 		<div class="polaroid_agency">
 		  <div class="container3">
-			<h3 id="titl" >STEP 1</h3>
+			<h3 id="titl" ><spring:message code="publish.step"/></h3>
 		     <c:url value="/hello/publish" var="postPath"/>
 			<form:form modelAttribute="firstPublicationForm" action="${postPath}" method="post">
 		     	<div class="fillers">
-				     <form:label for="title" path="title">TITLE</form:label>
-		    		 <form:input type="text" id="title" name="title" path="title" placeholder="Property type and main features"/>
+				     <form:label for="title" path="title"><spring:message code="publish.title"/></form:label>
+				     <spring:message code="publish.placeholderTitle" var="title"/>
+		    		 <form:input type="text" id="title" name="title" path="title" placeholder="${title}"/>
 		    		 <form:errors path="title" cssClass="error" element="p"/>
 		    		 
-		    		 <form:label for="address" path="address">ADDRESS</form:label>
-		    		 <form:input type="text" id="address" name="address" path="address" placeholder="Property address..."/>
+		    		 <form:label for="address" path="address"><spring:message code="publish.address"/></form:label>
+		    		 <spring:message code="publish.placeholderAddress" var="address"/>
+		    		 <form:input type="text" id="address" name="address" path="address" placeholder="${address}"/>
 		    		 <form:errors path="address" cssClass="error" element="p"/>
 		    		  
-		    		 <label>OPERATION TYPE</label>
+		    		 <label><spring:message code="publish.operationType"/></label>
 		    		 <div class="op-type-box">
-                        		<input class="radio-1" name="operation" type="radio" name="op-type" value="FSale">For sale<br>
-                        		<input class="radio-2" name="operation" type="radio" name="op-type" value="FRent">For rent<br>
+                        		<input class="radio-1" name="operation" type="radio" name="op-type" value="FSale"><spring:message code="publish.forSale"/><br>
+                        		<input class="radio-2" name="operation" type="radio" name="op-type" value="FRent"><spring:message code="publish.forRent"/><br>
                      </div>   
 		    		 
-		    		 <form:label for="price" path="price">PRICE</form:label>
-		    		 <form:input type="text" id="price" path="price" name="price" placeholder="Price in US dollars..."/>
+		    		 <form:label for="price" path="price"><spring:message code="publish.price"/></form:label>
+		    		 <spring:message code="publish.placeholderPrice" var="price"/>
+		    		 <form:input type="text" id="price" path="price" name="price" placeholder="${address}"/>
 		    		 <form:errors path="price" cssClass="error" element="p"/>
-		    		 		    		 
-		    		 <input class="signup-submit" type="submit" value="NEXT">
+		    		 
+		    		 <spring:message code="publish.submitPublish" var="submitValue"/>
+		    		 <input class="signup-submit" type="submit" value=${submitValue}>
 	    		 </div>
 	    	</form:form>
 		  </div>
