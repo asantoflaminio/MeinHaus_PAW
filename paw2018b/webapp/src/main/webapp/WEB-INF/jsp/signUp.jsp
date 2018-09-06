@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,44 +69,50 @@
 	    <div class="polaroid">
 			<div class="signup-container">
 				<div id="signup-title">
-					<h3>SIGN UP</h3>
+					<h3><spring:message code="signUp.title"/></h3>
 				</div>
 				<c:url value="/hello/signUp" var="postPath"/>
 				 <form:form modelAttribute="signUpForm" action="${postPath}" method="post">
 					<div class="signup-list">
 						<div class="signup-list-item">
-                        	<form:label path="firstName">FIRST NAME*</form:label>
-                        	<form:input class="sign-up-input" path="firstName" type="text" placeholder="First name" name="firstName"/>
+                        	<form:label path="firstName"><spring:message code="signUp.firstName"/></form:label>
+                        	<spring:message code="signUp.placeholderFirstName" var="firstName"/>
+                        	<form:input class="sign-up-input" path="firstName" type="text" placeholder="${firstName}" name="firstName"/>
                         	<form:errors path="firstName" cssClass="error" element="p"/>
                         </div>
 						<div class="signup-list-item">
-                        	<form:label path="lastName">LAST NAME*</form:label>
-                        	<form:input class="sign-up-input" path="lastName" type="text" placeholder="Last name" name="lastName"/>
+                        	<form:label path="lastName"><spring:message code="signUp.lastName"/></form:label>
+                        	<spring:message code="signUp.placeholderLastName" var="lastName"/>
+                        	<form:input class="sign-up-input" path="lastName" type="text" placeholder="${lastName}" name="lastName"/>
                         	<form:errors path="lastName" cssClass="error" element="p"/>
                         </div>
 						<div class="signup-list-item">
-                        	<label>ACCOUNT TYPE*</label>
+                        	<label><spring:message code="signUp.account"/></label>
                         	<div class="acc-type-box">
-                        		<input class="signup-radio-1" type="radio" name="acc-type" value="Buyer">Buyer<br>
-                        		<input class="signup-radio-2" type="radio" name="acc-type" value="Seller">Seller<br>
+                        		<input class="signup-radio-1" type="radio" name="acc-type" value="Buyer"><spring:message code="signUp.buyer"/><br>
+                        		<input class="signup-radio-2" type="radio" name="acc-type" value="Seller"><spring:message code="signUp.seller"/><br>
                         	</div>   	
                         </div>						
                         <div class="signup-list-item">
-                        	<form:label path="email">E-MAIL*</form:label>
-                        	<form:input class="sign-up-input" path="email" type="text" placeholder="example@eg.com" name="email"/>
+                        	<form:label path="email"><spring:message code="signUp.email"/></form:label>
+                        	<spring:message code="signUp.placeholderEmail" var="email"/>
+                        	<form:input class="sign-up-input" path="email" type="text" placeholder="${email}" name="email"/>
                         	<form:errors path="email" cssClass="error" element="p"/>
                         </div>
                         <div class="signup-list-item">
-                        	<form:label path="password">PASSWORD*</form:label>
-                        	<form:input class="sign-up-input" path="password" type="password" placeholder="Password" name="password"/>
+                        	<form:label path="password"><spring:message code="signUp.password"/></form:label>
+                        	<spring:message code="signUp.placeholderPassword" var="password"/>
+                        	<form:input class="sign-up-input" path="password" type="password" placeholder="${password}" name="password"/>
                         	<form:errors path="password" cssClass="error" element="p"/>
                         </div>
 						<div class="signup-list-item">
-                        	<form:label path="phoneNumber">PHONE NUMBER</form:label>
-                        	<form:input class="sign-up-input" path="phoneNumber" type="text" placeholder="(XXX)XXX-XXXX" name="phoneNumber"/>
+                        	<form:label path="phoneNumber"><spring:message code="signUp.phoneNumber"/></form:label>
+                        	<spring:message code="signUp.placeholderPhoneNumber" var="phoneNumber"/>
+                        	<form:input class="sign-up-input" path="phoneNumber" type="text" placeholder="${phoneNumber}" name="phoneNumber"/>
                         	<form:errors path="phoneNumber" cssClass="error" element="p"/>
                         </div>
-                        	<input class="signup-submit" type="submit" value="SIGN UP">
+                        	<spring:message code="signUp.submitSignUp" var="signUpValue"/>
+                        	<input class="signup-submit" type="submit" value="${signUpValue}">
 					</div>
                 </form:form>
 			</div>
@@ -114,18 +121,19 @@
 		<div class="polaroid-member">
 			<div class="signup-container">
 				<div id="signup-title">
-					<h3>ALREADY A MEMBER? SING IN!</h3>
+					<h3><spring:message code="signUp.signInTitle"/></h3>
 				</div>
 					<div class="signup-list">
 						<div class="signup-list-item">
-                        	<label>E-MAIL*</label>
-                        	<input class="sign-up-input" type="text" placeholder="example@eg.com">
+                        	<label><spring:message code="signUp.email"/></label>
+                        	<input class="sign-up-input" type="text" placeholder="${email}">
                         </div>
                         <div class="signup-list-item signup-list-item-last">
-                        	<label>PASSWORD*</label>
-                        	<input class="sign-up-input" type="password" placeholder="Password">
+                        	<label><spring:message code="signUp.password"/></label>
+                        	<input class="sign-up-input" type="password" placeholder="${password}">
                         </div>
-                    <input class="signup-submit" type="submit" value="SIGN IN">  
+                    <spring:message code="signUp.submitSignIn" var="signInValue"/>
+                    <input class="signup-submit" type="submit" value="${signInValue}">  
 					</div>
 			</div>
 		</div>
