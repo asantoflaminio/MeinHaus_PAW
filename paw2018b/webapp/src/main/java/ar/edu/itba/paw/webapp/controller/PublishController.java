@@ -15,31 +15,7 @@ import ar.edu.itba.paw.services.PublicationServiceImp;
 public class PublishController extends HttpServlet {
  
 	private static final long serialVersionUID = 1L;
-	@Autowired
-	private PublicationServiceImp psi;
 
-	@RequestMapping("publishServlet")
-    public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-    	String title = request.getParameter("title");
-    	String address = request.getParameter("address");
-    	String operation = request.getParameter("operation");
-    	Integer price = Integer.parseInt(request.getParameter("price"));
-    	
-    	if ("For sale".equals(operation))
-    		operation = "For sale";
-    	else
-    		operation = "For rent";
-    	
-    	System.out.println("title:" + title);
-    	System.out.println("address:" + address);
-    	System.out.println("operation:" + operation);
-    	System.out.println("price:" + price);
-    	
-    	psi.create(title,address,operation,price);
-    	
-    	System.out.println("Success!!");
-    	response.sendRedirect("home.html");
     }
    
 
-}

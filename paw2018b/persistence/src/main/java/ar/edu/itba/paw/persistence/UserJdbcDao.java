@@ -43,13 +43,13 @@ public class UserJdbcDao implements UserDao{
 				.withTableName("users")
 				.usingColumns("firstName","lastName","email","password","phoneNumber");
 
-		/*jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS users ("
+		jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS users ("
 			+ "firstName varchar(30),"
 			+ "lastName varchar(30),"
 			+ "email varchar(30) PRIMARY KEY,"
 			+ "password varchar(30),"
 			+ "phoneNumber varchar(30)"
-			+")");*/
+			+")");
 	}
 
 	public Optional<User> findById(final long id) {

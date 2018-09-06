@@ -5,9 +5,9 @@ public class Publication {
 	private String title;
 	private String address;
 	private String operation;
-	private Integer price;
+	private String price;
 	
-	public Publication(String title, String address, String operation, Integer price) {
+	public Publication(String title, String address, String operation, String price) {
 		this.title = title;
 		this.address = address;
 		this.operation = operation;
@@ -32,10 +32,10 @@ public class Publication {
 	public void setOperation(String operation) {
 		this.operation = operation;
 	}
-	public Integer getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public void setPrice(Integer price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 

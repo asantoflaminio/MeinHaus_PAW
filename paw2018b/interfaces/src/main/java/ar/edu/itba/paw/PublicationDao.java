@@ -7,6 +7,6 @@ import ar.edu.itba.paw.models.Publication;
 @Service
 public interface PublicationDao {
 	
-	public Publication create(String title, String address,String operation, Integer price);
+	public Publication create(String title, String address,String operation, String price);
 
 }

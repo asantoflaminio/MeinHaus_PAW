@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -73,27 +75,30 @@
 		<div class="polaroid_agency">
 		  <div class="container3">
 			<h3 id="titl" >STEP 1</h3>
-		     <form action="/action_page.php">
+		     <c:url value="/hello/publish" var="postPath"/>
+			<form:form modelAttribute="firstPublicationForm" action="${postPath}" method="post">
 		     	<div class="fillers">
-		     		<form name="publishForm" method="post" action="publishServlet">
-				     <label for="title">TITLE</label>
-		    		 <input type="text" id="title" name="title" placeholder="Property type and main features">
+				     <form:label for="title" path="title">TITLE</form:label>
+		    		 <form:input type="text" id="title" name="title" path="title" placeholder="Property type and main features"/>
+		    		 <form:errors path="title" cssClass="error" element="p"/>
 		    		 
-		    		 <label for="address">ADDRESS</label>
-		    		 <input type="text" id="address" name="address" placeholder="Property address...">
+		    		 <form:label for="address" path="address">ADDRESS</form:label>
+		    		 <form:input type="text" id="address" name="address" path="address" placeholder="Property address..."/>
+		    		 <form:errors path="address" cssClass="error" element="p"/>
+		    		  
 		    		 <label>OPERATION TYPE</label>
 		    		 <div class="op-type-box">
                         		<input class="radio-1" name="operation" type="radio" name="op-type" value="FSale">For sale<br>
                         		<input class="radio-2" name="operation" type="radio" name="op-type" value="FRent">For rent<br>
                      </div>   
 		    		 
-		    		 <label for="price">PRICE</label>
-		    		 <input type="text" id="price" name="price" placeholder="Price in US dollars...">
-		    		 
-		    		 <a class="button" href="./publish2">NEXT</a>
+		    		 <form:label for="price" path="price">PRICE</form:label>
+		    		 <form:input type="text" id="price" path="price" name="price" placeholder="Price in US dollars..."/>
+		    		 <form:errors path="price" cssClass="error" element="p"/>
+		    		 		    		 
+		    		 <input class="signup-submit" type="submit" value="NEXT">
 	    		 </div>
-	    		 
-	    	</form>
+	    	</form:form>
 		  </div>
 		</div>
          <footer>
