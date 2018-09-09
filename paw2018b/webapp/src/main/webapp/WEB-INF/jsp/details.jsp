@@ -1,4 +1,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+
+<%
+    String address=request.getParameter("address");
+	
+	String connectionUrl = "jdbc:postgresql://localhost/postgres";
+	String dbName = "postgres";
+	String userId = "postgres";
+	String password = "123456";
+	
+	
+	
+	Connection connection = null;
+	Statement statement = null;
+	ResultSet resultSet = null;
+
+%>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -90,17 +110,27 @@
 			    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
 			  </div>
 			</div>
+			
+			<%
+				try{ 
+					connection = DriverManager.getConnection(connectionUrl, userId, password);
+					statement=connection.createStatement();
+					String sql ="SELECT * FROM publications where address = \'" + request.getParameter("address") +"\'";
+					System.out.println("ok la address es " + request.getParameter("address") );
+					resultSet = statement.executeQuery(sql);
+				while(resultSet.next()){
+				%>
           
 		  <div class="container">
-		    <p class="direction"> Street Name, Los Angeles, CA</p>
+		    <p class="direction"> <%=resultSet.getString("address")%></p>
 		  </div>
 		</div>
 		
 		<div class="polaroid_price">
 		  <div class="container2">
 		    <div class="price_text">
-		    	<p id="rent_sale">FOR SALE</p> 
-		    	<p id="price_tag">$4,575,000</p>
+		    	<p id="rent_sale" style="text-transform: uppercase"><%=resultSet.getString("operation")%></p> 
+		    	<p id="price_tag"><%=resultSet.getString("price")%></p>
 		  	</div>
 		  </div>
 		</div>
@@ -139,11 +169,19 @@
 		
 		<div class="polaroid_des">
 		  <div class="container">
-		  	<p class="polaroid_title">Description</p>
+		  	<p class="polaroid_title"><%=resultSet.getString("title") %></p>
 		    <p class="agency_text">Newly built Cape Cod style home with the perfect floor plan and the finest of custom finishes throughout! Boasting an incredible dream-like backyard with stone décor pool, spa, waterfall, outdoor dining that is covered by lit trellis, along with a separate pool house cabana that is equipped with a fireplace and TV. The home offers 5 bedrooms, 7 baths and a separate office. Located on a quiet cul-de-sac in an ideal Brentwood location next to exceptional hiking trails, yet a short distance to schools, shopping and restaurants. The formal living room and dining area create an elegant setting for large gatherings. The Chef's dream kitchen offers top of the line appliances, Carrera marble counters, butler 's pantry with wine cooler, enormous main walk-in pantry and breakfast area with bay window viewing the backyard, huge center island that comfortably sits 6 people. The upstairs master suite offers a luxurious bathroom with relaxing soaking tub, marble shower and huge walk in closet.</p>
 		  </div>
 		</div>
          <footer>
+         
+        		<% 
+				}
+				
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+				%>
 
           <div id="footer">
               <p>Copyright &copy; 2018, MeinHaus. All rights reserved.</p>

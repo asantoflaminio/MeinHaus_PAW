@@ -222,7 +222,7 @@ ResultSet resultSet = null;
 						</div>
 						<h4 class="address"><%=resultSet.getString("address") %></h4>
 						<div class="more-info">
-							<a class="more-info-title" href="./details">MORE INFO ></a>
+							<a class="more-info-title" href="details?address=<%=resultSet.getString("address")%>">MORE INFO ></a>
 						</div>	
 					</div>
 				</div>	
