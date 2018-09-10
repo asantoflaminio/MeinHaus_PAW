@@ -130,7 +130,7 @@
 		  <div class="container2">
 		    <div class="price_text">
 		    	<p id="rent_sale" style="text-transform: uppercase"><%=resultSet.getString("operation")%></p> 
-		    	<p id="price_tag"><%=resultSet.getString("price")%></p>
+		    	<p id="price_tag"><%="$" + resultSet.getString("price")%></p>
 		  	</div>
 		  </div>
 		</div>

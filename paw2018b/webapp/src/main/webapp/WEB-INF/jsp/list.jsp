@@ -9,8 +9,8 @@
 
 String address=request.getParameter("input");
 String operation=request.getParameter("operation");
-System.out.println("ok operation es " + operation);
-System.out.println("ok address es " + address);
+
+
 
 String connectionUrl = "jdbc:postgresql://localhost/postgres";
 String dbName = "postgres";
@@ -99,7 +99,7 @@ ResultSet resultSet = null;
         
 		<div class="wrap">
 		   <div class="search">
-		      <input type="text" class="searchTerm" placeholder="Search by address, neighborhood or ZIP code">
+		      <input type="text" class="searchTerm" placeholder=<%=address%>>
 		      <button type="submit" class="searchButton">
 		        <img src="<c:url value="/resources/pics/search_icon.png" />" alt="Search" id="search-img"></img>
 		     </button>
@@ -124,9 +124,17 @@ ResultSet resultSet = null;
 
     	<div class="filters">
     		<ul id="applied-filters-list">
-			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/>For rent</li>
-			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/>Brooklyn</li>
-			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/>2 bedrooms</li>
+			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><%=operation%></li>
+			  <%
+			  if(!address.equals("")){
+			  %> 
+			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><%=address%></li>
+			  <% 
+			  }
+			  %>
+			 
+			  
+			  <!-- <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/>2 bedrooms</li> -->
 			</ul>
     	</div>
     	
@@ -197,8 +205,8 @@ ResultSet resultSet = null;
 					connection = DriverManager.getConnection(connectionUrl, userId, password);
 					statement=connection.createStatement();
 					
-					String sql ="SELECT * FROM publications WHERE operation = \'" + operation + "\'";
-				
+					String sql ="SELECT * FROM publications WHERE operation = \'" + operation + "\' AND address LIKE '%" + address.toUpperCase() +"%'";
+					System.out.println("sql quedo " + sql);
 					resultSet = statement.executeQuery(sql);
 				while(resultSet.next()){
 				%>
@@ -208,7 +216,7 @@ ResultSet resultSet = null;
 			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
 			    		<img class="favorite-icon" onclick="fav(this);" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
 			    		<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-						<h2 class="price-tag"><%=resultSet.getString("price") %></h2>
+						<h2 class="price-tag"><%="$" + resultSet.getString("price") %></h2>
 					</div>
 					<div class="property-container">
 						<div class="property-title-container">
