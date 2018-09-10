@@ -78,8 +78,8 @@
                 </div>
                 <div class="search_list">
                     <ul class="rounded" id="myul">
-					  <li class="first_item" id="buy"><a href="#">Buy</a></li>
-					  <li id="rent"><a href="#">Rent</a></li>
+					  <li onclick="operation_sel('FOR SALE');" class="first_item" id="buy"><a href="#">Buy</a></li>
+					  <li onclick="operation_sel('FOR RENT');" id="rent"><a href="#">Rent</a></li>
 					</ul>
                 </div>
                 <div id="icons">
@@ -97,7 +97,7 @@
 	                                   	</div>
                                         <!--end of col-->
                                         <div class="col-auto">
-                                            <button id="searchbutton" class="btn btn-lg btn-success rounded" type="submit" onclick="search();"><a id="link" href="#"> Search </a></button>
+                                            <button id="searchbutton" class="btn btn-lg btn-success rounded" type="submit" onclick="search();"><a id="link"> Search </a></button>
                                         </div>
                                         <!--end of col-->
                                     	<div id="msg_error_search">

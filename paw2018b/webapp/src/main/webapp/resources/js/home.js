@@ -1,4 +1,8 @@
 /* Gives color to Buy or Rent buttons */
+
+//String operation;
+var operation = "FOR RENT";
+
 $(document).ready(function() {
 	$('#myul li').bind("click", function(e){
         var ul = $(this).parent();
@@ -23,7 +27,10 @@ function color(index) {
 	}
 }
 
-
+function operation_sel(op){
+	console.log("I got: " + op.valueOf());
+	operation = op;
+}
 
 /* Searches and shows (if it's necessary) the message error */
 function search() {
@@ -41,8 +48,14 @@ function search() {
 		var msg = document.getElementById('msg_error_search');
 		msg.innerHTML = 'Please, choose between Buy or Rent before clicking Search';
 		msg.style.display = "block";
+	} else if(/[^a-zA-Z]/.test(input_search.value)){
+		var msg = document.getElementById('msg_error_search');
+		msg.innerHTML = 'Wrong format'; //Tal vez habria que permitir otras cosas en el formato pero chequear ojo con sql injection
+		msg.style.display = "block";
 	} else {
-		document.getElementById("link").href="./list";
+
+		document.getElementById("link").href="./list?input=" + input_search.value + "&operation=" + operation;
+		document.getElementById("link").click();
 	}
 }
 

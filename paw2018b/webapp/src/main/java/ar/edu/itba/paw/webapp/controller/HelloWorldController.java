@@ -52,15 +52,25 @@ public class HelloWorldController {
 		return mav;
 	}
 	
-	@RequestMapping("details")
+	/*@RequestMapping("details")
 	public ModelAndView helloDetails() {
 		final ModelAndView mav = new ModelAndView("details");
 		return mav;
+	}*/
+	
+	@RequestMapping("details")
+	public ModelAndView helloDetails(HttpServletRequest request) {
+	    final ModelAndView mav = new ModelAndView("details");
+	    mav.addObject("address", request.getParameter("address"));
+	    return mav;
 	}
 	
+	
 	@RequestMapping("list")
-	public ModelAndView helloList() {
+	public ModelAndView helloList(HttpServletRequest request) {
 		final ModelAndView mav = new ModelAndView("list");
+		mav.addObject("input", request.getParameter("input"));
+		mav.addObject("operation", request.getParameter("operation"));
 		return mav;
 	}
 	

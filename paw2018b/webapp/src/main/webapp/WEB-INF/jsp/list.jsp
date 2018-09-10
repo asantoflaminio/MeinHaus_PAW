@@ -5,7 +5,12 @@
 <%@page import="java.sql.Connection"%>
 
 <%
-String id = request.getParameter("address");
+//String id = request.getParameter("address");
+
+String address=request.getParameter("input");
+String operation=request.getParameter("operation");
+System.out.println("ok operation es " + operation);
+System.out.println("ok address es " + address);
 
 String connectionUrl = "jdbc:postgresql://localhost/postgres";
 String dbName = "postgres";
@@ -191,7 +196,8 @@ ResultSet resultSet = null;
 				try{ 
 					connection = DriverManager.getConnection(connectionUrl, userId, password);
 					statement=connection.createStatement();
-					String sql ="SELECT * FROM publications";
+					
+					String sql ="SELECT * FROM publications WHERE operation = \'" + operation + "\'";
 				
 					resultSet = statement.executeQuery(sql);
 				while(resultSet.next()){
