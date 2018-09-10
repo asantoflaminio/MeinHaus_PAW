@@ -14,8 +14,12 @@ public class PublicationServiceImp implements PublicationService{
 	@Autowired
 	private PublicationDao publicationDao;
 	
-	public Publication create(String title, String address, String operation, String price) {
-		return publicationDao.create(title, address, operation, price);
+	public Publication create(String title, String address, String operation, String price,
+			   String description, String propertyType, String bedrooms,
+			   String bathrooms, String floorSize, String parking) {
+		return publicationDao.create(title, address, operation, price,
+				   description, propertyType, bedrooms,
+				   bathrooms, floorSize, parking);
 	}
 
 }

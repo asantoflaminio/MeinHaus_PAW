@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -26,60 +27,61 @@
     </head>
     
     <body>
-        
         <nav>
         	<a href="./home">
            		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
             </a>
-            <div class="dropdown" id="user_icon">
+            <div class="dropdown">
 	                <img src="
 	                <c:url value="/resources/pics/user.png" />
-	                " alt="user" class="navbar_item">
+	                " alt="user" id="user_icon" class="navbar_item">
                 <div id="myDropdown" class="dropdown-content"> 
-                    <a href="#">Profile</a>
-                    <a href="#">Log Out</a>
+                    <a href="./help.html"><spring:message code="nav.profile"/></a>
+                    <a href="./help.html"><spring:message code="nav.logOut"/></a>
                 </div>
             </div>
             <div class="dropdown" id="sign_in">
-                <a class="navbar_item" href="#">Sign in</a>
+                <a class="navbar_item" href="#"><spring:message code="nav.signIn"/></a>
                 <div class="dropdown-content">
                     <form class="form_login">
                         <div class="email">
-                            <input oninvalid="this.setCustomValidity('Please, enter a valid email address')" class="form-control form-control-lg form-control-borderless" type="email" placeholder="Email" required>
+                        	<spring:message code="nav.placeholderEmail" var="navEmail"/>
+                            <input oninvalid="this.setCustomValidity('Please, enter a valid email address')" class="form-control form-control-lg form-control-borderless" type="email" placeholder="${navEmail}" required>
                         </div>
                         <div class="password">
-                            <input oninvalid="this.setCustomValidity('Please, complete this input')" class="form-control form-control-lg form-control-borderless" type="password" placeholder="Password" required>
+                        	<spring:message code="nav.placeholderPassword" var="navPassword"/>
+                            <input oninvalid="this.setCustomValidity('Please, complete this input')" class="form-control form-control-lg form-control-borderless" type="password" placeholder="${navPassword}" required>
                         </div>
                         <div class="msg_error">
                         	<label></label>
                         </div>
                         <div class="check_box">
-                            <label><input type="checkbox"/>Remember me</label>
+                            <label><input type="checkbox"/><spring:message code="nav.rememberMe"/></label>
                         </div>
                         <div class="sign_b">
-                            <button class="btn" onclick="check_input();">Sign in</button>
+                            <button class="btn" onclick="check_input();"><spring:message code="nav.buttonSignIn"/></button>
                         </div>
                         <div class="line_separator"></div>
                         <div class="password_label">
-                            <label> Forgot password? Click Here!</label>
+                            <label><spring:message code="nav.forgotPassword"/></label>
                         </div>
                     </form>
                 </div>
             </div>
             <div>
-                <a class="navbar_item" id="sign_up" href="./signUp">Sign up</a>
+                <a class="navbar_item" id="sign_up" href="./signUp"><spring:message code="nav.signUp"/></a>
             </div>
         </nav>
         
         <header>
             <div class="header" style="background-image:url(<c:url value='/resources/pics/background5.png'/>)">
                 <div class="title">
-                    <h1>Discover your next home</h1>
+                    <h1><spring:message code="home.title"/></h1>
                 </div>
                 <div class="search_list">
                     <ul class="rounded" id="myul">
-					  <li onclick="operation_sel('FOR SALE');" class="first_item" id="buy"><a href="#">Buy</a></li>
-					  <li onclick="operation_sel('FOR RENT');" id="rent"><a href="#">Rent</a></li>
+					  <li onclick="operation_sel('FOR SALE');" class="first_item" id="buy"><a href="#"><spring:message code="home.buy"/></a></li>
+					  <li onclick="operation_sel('FOR RENT');" id="rent"><a href="#"><spring:message code="home.rent"/></a></li>
 					</ul>
                 </div>
                 <div id="icons">
@@ -93,11 +95,12 @@
                                         </div>
                                         <!--end of col-->
                                         <div class="col">
-	                                    	<input class="form-control form-control-lg" type="search" id="input_search" placeholder="Search by address, neighborhood or ZIP code">
+                                        	<spring:message code="home.placeholderSearch" var="search"/>
+	                                    	<input class="form-control form-control-lg" type="search" id="input_search" placeholder="${search}">
 	                                   	</div>
                                         <!--end of col-->
                                         <div class="col-auto">
-                                            <button id="searchbutton" class="btn btn-lg btn-success rounded" type="submit" onclick="search();"><a id="link"> Search </a></button>
+                                            <button id="searchbutton" class="btn btn-lg btn-success rounded" type="submit" onclick="search();"><a id="link"><spring:message code="home.search"/></a></button>
                                         </div>
                                         <!--end of col-->
                                     	<div id="msg_error_search">
@@ -115,7 +118,7 @@
         
         <section class="newest_homes">
             <div>
-                <h3>Newest homes</h3>
+                <h3><spring:message code="home.newestTitle"/></h3>
             </div>
             <div>
                 <ul>
@@ -209,7 +212,7 @@
         
         <section class="contact-info">
         	<div class="contact-info-column">
-        		<h4>POPULAR NEIGHBORHOODS</h4>
+        		<h4><spring:message code="home.popular"/></h4>
         		<ul>
         			<li>Belgrano</li>
         			<li>Palermo</li>
@@ -218,21 +221,21 @@
         		</ul>
         	</div>
         	<div class="contact-info-column">
-        	    <h4>SEARCH BY</h4>
+        	    <h4><spring:message code="home.searchBy"/></h4>
         	    <ul>
-        			<li>Neighborhood</li>
-        			<li>Price</li>
-        			<li>Number of rooms</li>
-        			<li>Pets allowed</li>
+        			<li><spring:message code="home.neighborhood"/></li>
+        			<li><spring:message code="home.price"/></li>
+        			<li><spring:message code="home.numberOfRooms"/></li>
+        			<li><spring:message code="home.pets"/></li>
         		</ul>
         	</div>
         	<div class="contact-info-column">
-          		<h4>CONTACT US</h4>
+          		<h4><spring:message code="home.contactUs"/></h4>
         		<ul>
-        			<li>Help</li>
-        			<li>FAQs</li>
-        			<li>Contact Us</li>
-        			<li>Support</li>
+        			<li><spring:message code="home.help"/></li>
+        			<li><spring:message code="home.FAQs"/></li>
+        			<li><spring:message code="home.contact"/></li>
+        			<li><spring:message code="home.support"/></li>
         		</ul>
            	</div>
         </section>

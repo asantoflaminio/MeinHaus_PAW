@@ -36,38 +36,40 @@
 	                <c:url value="/resources/pics/user.png" />
 	                " alt="user" id="user_icon" class="navbar_item">
                 <div id="myDropdown" class="dropdown-content"> 
-                    <a href="./help.html">Profile</a>
-                    <a href="./help.html">Log Out</a>
+                    <a href="./help.html"><spring:message code="nav.profile"/></a>
+                    <a href="./help.html"><spring:message code="nav.logOut"/></a>
                 </div>
             </div>
             <div class="dropdown" id="sign_in">
-                <a class="navbar_item" href="#">Sign in</a>
+                <a class="navbar_item" href="#"><spring:message code="nav.signIn"/></a>
                 <div class="dropdown-content">
                     <form class="form_login">
                         <div class="email">
-                            <input oninvalid="this.setCustomValidity('Please, enter a valid email address')" class="form-control form-control-lg form-control-borderless" type="email" placeholder="Email" required>
+                        	<spring:message code="nav.placeholderEmail" var="navEmail"/>
+                            <input oninvalid="this.setCustomValidity('Please, enter a valid email address')" class="form-control form-control-lg form-control-borderless" type="email" placeholder="${navEmail}" required>
                         </div>
                         <div class="password">
-                            <input oninvalid="this.setCustomValidity('Please, complete this input')" class="form-control form-control-lg form-control-borderless" type="password" placeholder="Password" required>
+                        	<spring:message code="nav.placeholderPassword" var="navPassword"/>
+                            <input oninvalid="this.setCustomValidity('Please, complete this input')" class="form-control form-control-lg form-control-borderless" type="password" placeholder="${navPassword}" required>
                         </div>
                         <div class="msg_error">
                         	<label></label>
                         </div>
                         <div class="check_box">
-                            <label><input type="checkbox"/>Remember me</label>
+                            <label><input type="checkbox"/><spring:message code="nav.rememberMe"/></label>
                         </div>
                         <div class="sign_b">
-                            <button class="btn" onclick="check_input();">Sign in</button>
+                            <button class="btn" onclick="check_input();"><spring:message code="nav.buttonSignIn"/></button>
                         </div>
                         <div class="line_separator"></div>
                         <div class="password_label">
-                            <label> Forgot password? Click Here!</label>
+                            <label><spring:message code="nav.forgotPassword"/></label>
                         </div>
                     </form>
                 </div>
             </div>
             <div>
-                <a class="navbar_item" id="sign_up" href="./signUp">Sign up</a>
+                <a class="navbar_item" id="sign_up" href="./signUp"><spring:message code="nav.signUp"/></a>
             </div>
         </nav>
         
@@ -90,7 +92,7 @@
 		    		  
 		    		 <label><spring:message code="publish.operationType"/></label>
 		    		 <div class="op-type-box">
-                        		<input class="radio-1" name="operation" type="radio" name="op-type" value="FSale"><spring:message code="publish.forSale"/><br>
+                        		<input class="radio-1" checked="checked" name="operation" type="radio" name="op-type" value="FSale"><spring:message code="publish.forSale"/><br>
                         		<input class="radio-2" name="operation" type="radio" name="op-type" value="FRent"><spring:message code="publish.forRent"/><br>
                      </div>   
 		    		 

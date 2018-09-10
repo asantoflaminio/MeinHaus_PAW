@@ -6,12 +6,28 @@ public class Publication {
 	private String address;
 	private String operation;
 	private String price;
+	private String description;
+	private String propertyType;
+	private String bedrooms;
+	private String bathrooms;
+	private String floorSize;
+	private String parking;
 	
-	public Publication(String title, String address, String operation, String price) {
+	
+	
+	public Publication(String title, String address, String operation, String price,
+					   String description, String propertyType, String bedrooms,
+					   String bathrooms, String floorSize, String parking) {
 		this.title = title;
 		this.address = address;
 		this.operation = operation;
 		this.price = price;
+		this.setDescription(description);
+		this.setPropertyType(propertyType);
+		this.setBedrooms(bedrooms);
+		this.setBathrooms(bathrooms);
+		this.setFloorSize(floorSize);
+		this.setParking(parking);
 	}
 	
 	public String getTitle() {
@@ -37,6 +53,54 @@ public class Publication {
 	}
 	public void setPrice(String price) {
 		this.price = price;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getPropertyType() {
+		return propertyType;
+	}
+
+	public void setPropertyType(String propertyType) {
+		this.propertyType = propertyType;
+	}
+
+	public String getBedrooms() {
+		return bedrooms;
+	}
+
+	public void setBedrooms(String bedrooms) {
+		this.bedrooms = bedrooms;
+	}
+
+	public String getBathrooms() {
+		return bathrooms;
+	}
+
+	public void setBathrooms(String bathrooms) {
+		this.bathrooms = bathrooms;
+	}
+
+	public String getFloorSize() {
+		return floorSize;
+	}
+
+	public void setFloorSize(String floorSize) {
+		this.floorSize = floorSize;
+	}
+
+	public String getParking() {
+		return parking;
+	}
+
+	public void setParking(String parking) {
+		this.parking = parking;
 	}
 
 }

@@ -13,8 +13,6 @@ public class FirstPublicationForm {
 	@Pattern(regexp = "[a-zA-Z0-9 ]+")
 	private String address;
 	
-	private boolean Operation;
-	
 	@Size(min = 3, max = 20)
 	@Pattern(regexp = "[0-9]+")
 	private String price;
@@ -31,12 +29,7 @@ public class FirstPublicationForm {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public boolean isOperation() {
-		return Operation;
-	}
-	public void setOperation(boolean operation) {
-		Operation = operation;
-	}
+
 	public String getPrice() {
 		return price;
 	}

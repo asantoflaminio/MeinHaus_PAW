@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
@@ -21,6 +22,7 @@ import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
 import ar.edu.itba.webapp.form.FirstPublicationForm;
 import ar.edu.itba.webapp.form.SecondPublicationForm;
+import ar.edu.itba.webapp.form.ThirdPublicationForm;
 import ar.edu.itba.webapp.form.signUpForm;
 
 @Controller
@@ -74,47 +76,50 @@ public class HelloWorldController {
 		return mav;
 	}
 	
-	@RequestMapping("publish")
+	@RequestMapping(value = "publish")
 	public ModelAndView helloPublish(@ModelAttribute("firstPublicationForm") final FirstPublicationForm form) {
 		final ModelAndView mav = new ModelAndView("publish");
+		System.out.println("sss");
 		return mav;
 	}
 	
 	@RequestMapping(value = "publish" ,method = RequestMethod.POST)
-	public ModelAndView publish(@Valid @ModelAttribute("firstPublicationForm") final FirstPublicationForm form, final BindingResult errors, RedirectAttributes atributos) {
+	public ModelAndView publish(@Valid @ModelAttribute("firstPublicationForm") final FirstPublicationForm form, final BindingResult errors, @RequestParam("operation") String operation) {
+		System.out.println("asd");
 		if (errors.hasErrors()) {
 			return helloPublish(form);
 		}
-		ps.create(form.getTitle(), 
-				  form.getAddress(), 
-				  String.valueOf(form.isOperation()),
-				  form.getPrice());
-		Publication pub = new Publication(form.getTitle(), form.getAddress(),"false",form.getPrice());
-		atributos.addAttribute("publication", form.getTitle());
 		
 		return new ModelAndView("redirect:/hello/publish2");
 	}
 	
 	@RequestMapping(value = "publish2")
-	public ModelAndView helloPublish2(@ModelAttribute("secondPublicationForm") final SecondPublicationForm form, @ModelAttribute("publication") final String pub) {
-		System.out.println("Entre a la funcion");
+	public ModelAndView helloPublish2(@ModelAttribute("secondPublicationForm") final SecondPublicationForm form) {
 		final ModelAndView mav = new ModelAndView("publish2");
-		System.out.println("My title is: " + pub);
 		return mav;
 	}
 	
 	@RequestMapping(value = "publish2" ,method = RequestMethod.POST)
-	public ModelAndView publish2(@Valid @ModelAttribute("secondPublicationForm") final SecondPublicationForm form, final BindingResult errors, RedirectAttributes atributos) {
+	public ModelAndView publish2(@Valid @ModelAttribute("secondPublicationForm") final SecondPublicationForm form, @RequestParam("op-type") String operation, final BindingResult errors) {
 		if (errors.hasErrors()) {
-			return helloPublish2(form,null);
+			return helloPublish2(form);
 		}
 		return new ModelAndView("redirect:/hello/publish3");
 	}
 	
-	@RequestMapping("publish3")
-	public ModelAndView helloPublish3() {
+	@RequestMapping(value = "publish3")
+	public ModelAndView helloPublish3(@ModelAttribute("thirdPublicationForm") final ThirdPublicationForm form) {
 		final ModelAndView mav = new ModelAndView("publish3");
 		return mav;
+	}
+	
+	@RequestMapping(value = "publish3" ,method = RequestMethod.POST)
+	public ModelAndView publish3(@Valid @ModelAttribute("thirdPublicationForm") final ThirdPublicationForm form, final BindingResult errors) {
+		if (errors.hasErrors()) {
+			return helloPublish3(form);
+		}
+
+		return new ModelAndView("redirect:/hello/publish4");
 	}
 	
 	@RequestMapping("publish4")

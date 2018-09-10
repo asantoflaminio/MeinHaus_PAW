@@ -28,7 +28,13 @@ public class PublicationJdbcDao implements PublicationDao{
 			return new Publication(rs.getString("title"), 
 							rs.getString("address"),
 							rs.getString("operation"),
-							rs.getString("price"));
+							rs.getString("price"),
+							rs.getString("description"),
+							rs.getString("propertyType"),
+							rs.getString("bedrooms"),
+							rs.getString("bathrooms"),
+							rs.getString("flooSize"),
+							rs.getString("parking"));
 		}
 		
 	};
@@ -45,19 +51,35 @@ public class PublicationJdbcDao implements PublicationDao{
 			+ "title varchar(30),"
 			+ "address varchar(30) PRIMARY KEY,"
 			+ "operation varchar(30),"
-			+ "price varchar(30)"
+			+ "price varchar(30),"
+			+ "description varchar(60),"
+			+ "propertyType varchar(30),"
+			+ "bedrooms varchar(3),"
+			+ "bathrooms varchar(3),"
+			+ "flooSize varchar(3),"
+			+ "parking varchar(3)"
 			+ ")");
 	}
 
-	public Publication create(String title, String address,String operation, String price) {
+	public Publication create(String title, String address, String operation, String price,
+			   String description, String propertyType, String bedrooms,
+			   String bathrooms, String floorSize, String parking) {
 		final Map<String, Object> args = new HashMap<String, Object>();
     	
 		args.put("title", title);
 		args.put("address", address);
 		args.put("operation", operation);
 		args.put("price", price);
+		args.put("description", price);
+		args.put("propertyType", price);
+		args.put("bedrooms", price);
+		args.put("bathrooms", price);
+		args.put("flooSize", price);
+		args.put("parking", price);
 		jdbcInsert.execute(args);
-		return new Publication(title, address, operation, price);
+		return new Publication(title, address, operation, price,
+				   description, propertyType, bedrooms,
+				   bathrooms, floorSize, parking);
 	}
 	
 

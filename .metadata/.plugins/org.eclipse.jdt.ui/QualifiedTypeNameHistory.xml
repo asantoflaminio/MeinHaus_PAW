@@ -44,4 +44,6 @@
 <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
 <fullyQualifiedTypeName name="ar.edu.itba.paw.models.Publication"/>
 <fullyQualifiedTypeName name="ar.edu.itba.webapp.form.SecondPublicationForm"/>
+<fullyQualifiedTypeName name="ar.edu.itba.webapp.form.ThirdPublicationForm"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 </qualifiedTypeNameHistroy>
