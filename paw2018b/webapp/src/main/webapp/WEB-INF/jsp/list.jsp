@@ -91,17 +91,17 @@ ResultSet resultSet = null;
         <div class="breadcrumb">
 	        <ul class="breadcrumb-list">
 			  <li><a href="#">Home</a></li>
-			  <li><a href="#">Rent</a></li>
-			  <li><a href="#">NY</a></li>
-			  <li>Brooklyn</li>
+			  <li><a href="#"><%=operation.substring(0, 1).toUpperCase()+ operation.substring(1).toLowerCase()%></a></li>
+			  <li><a href="#"><%=address.substring(0, 1).toUpperCase()+ address.substring(1).toLowerCase()%></a></li>
+			  <!-- <li>Brooklyn</li> -->
 			</ul>
 		</div>
         
 		<div class="wrap">
 		   <div class="search">
-		      <input type="text" class="searchTerm" placeholder=<%=address%>>
-		      <button type="submit" class="searchButton">
-		        <img src="<c:url value="/resources/pics/search_icon.png" />" alt="Search" id="search-img"></img>
+		      <input id="search_input" type="text" class="searchTerm" placeholder=<%=address%>>
+		      <button  href="#" type="submit" class="searchButton">
+		        <img src="<c:url value="/resources/pics/search_icon.png" />" onclick="search('<%=operation%>')" alt="Search" id="search-img"></img>
 		     </button>
 		   </div>
 		</div>
