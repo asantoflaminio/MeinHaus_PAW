@@ -12,12 +12,13 @@ public class Publication {
 	private String bathrooms;
 	private String floorSize;
 	private String parking;
+	private long publicationid;
 	
 	
 	
 	public Publication(String title, String address, String operation, String price,
 					   String description, String propertyType, String bedrooms,
-					   String bathrooms, String floorSize, String parking) {
+					   String bathrooms, String floorSize, String parking, long publicationid) {
 		this.title = title;
 		this.address = address;
 		this.operation = operation;
@@ -28,6 +29,7 @@ public class Publication {
 		this.setBathrooms(bathrooms);
 		this.setFloorSize(floorSize);
 		this.setParking(parking);
+		this.setPublicationid(publicationid);
 	}
 	
 	public String getTitle() {
@@ -101,6 +103,14 @@ public class Publication {
 
 	public void setParking(String parking) {
 		this.parking = parking;
+	}
+
+	public long getPublicationid() {
+		return publicationid;
+	}
+
+	public void setPublicationid(long publicationid) {
+		this.publicationid = publicationid;
 	}
 
 }

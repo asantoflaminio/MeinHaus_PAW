@@ -3,6 +3,7 @@ package ar.edu.itba.paw.persistence;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Repository;
 
 import ar.edu.itba.paw.PublicationDao;
 import ar.edu.itba.paw.models.Publication;
+import ar.edu.itba.paw.models.User;
 
 @Repository
 public class PublicationJdbcDao implements PublicationDao{
@@ -34,7 +36,8 @@ public class PublicationJdbcDao implements PublicationDao{
 							rs.getString("bedrooms"),
 							rs.getString("bathrooms"),
 							rs.getString("flooSize"),
-							rs.getString("parking"));
+							rs.getString("parking"),
+							rs.getInt("publicationid"));
 		}
 		
 	};
@@ -45,11 +48,13 @@ public class PublicationJdbcDao implements PublicationDao{
 		
 		jdbcInsert = new SimpleJdbcInsert(jdbcTemplate)
 				.withTableName("publications")
+				.usingGeneratedKeyColumns("publicationid")
 				.usingColumns("title","address","operation","price");
 
 		jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS publications ("
+			+ "publicationid SERIAL PRIMARY KEY,"
 			+ "title varchar(30),"
-			+ "address varchar(30) PRIMARY KEY,"
+			+ "address varchar(30) UNIQUE NOT NULL,"
 			+ "operation varchar(30),"
 			+ "price varchar(30),"
 			+ "description varchar(60),"
@@ -76,10 +81,17 @@ public class PublicationJdbcDao implements PublicationDao{
 		args.put("bathrooms", price);
 		args.put("flooSize", price);
 		args.put("parking", price);
-		jdbcInsert.execute(args);
+		final Number publicationid = jdbcInsert.executeAndReturnKey(args);
 		return new Publication(title, address, operation, price,
 				   description, propertyType, bedrooms,
-				   bathrooms, floorSize, parking);
+				   bathrooms, floorSize, parking, publicationid.longValue());
+	}
+
+	public Publication findById(long id) {
+		final List<Publication> list = jdbcTemplate.query("SELECT * FROM publications WHERE publicationid = ?",ROW_MAPPER,id);
+		if(list.isEmpty())
+			return null;
+		return list.get(0);
 	}
 	
 

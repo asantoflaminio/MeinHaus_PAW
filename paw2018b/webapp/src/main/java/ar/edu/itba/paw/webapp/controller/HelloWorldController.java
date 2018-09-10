@@ -62,6 +62,8 @@ public class HelloWorldController {
 	
 	@RequestMapping("details")
 	public ModelAndView helloDetails(HttpServletRequest request) {
+		final Publication pub = ps.findById(2);
+		System.out.println("Mi title es: " + pub.getTitle() + " y mi direccion es: " + pub.getAddress());
 	    final ModelAndView mav = new ModelAndView("details");
 	    mav.addObject("address", request.getParameter("address"));
 	    return mav;
@@ -89,7 +91,7 @@ public class HelloWorldController {
 		if (errors.hasErrors()) {
 			return helloPublish(form);
 		}
-		
+		ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), null, null, null, null, null, null);
 		return new ModelAndView("redirect:/hello/publish2");
 	}
 	
@@ -136,7 +138,6 @@ public class HelloWorldController {
 	
 	@RequestMapping (value = "signUp", method = RequestMethod.POST )
 	public ModelAndView create(@Valid @ModelAttribute("signUpForm") final signUpForm form, final BindingResult errors) {
-		System.out.println("Me llamaron a mua");
 		if (errors.hasErrors()) {
 			return helloSignUp(form);
 		}
@@ -145,7 +146,6 @@ public class HelloWorldController {
 					form.getEmail(),
 					form.getPassword(),
 					form.getPhoneNumber());
-		System.out.println("Success!!");
 		return new ModelAndView("redirect:/hello/home");
 	}
 	

@@ -21,5 +21,9 @@ public class PublicationServiceImp implements PublicationService{
 				   description, propertyType, bedrooms,
 				   bathrooms, floorSize, parking);
 	}
+	
+	public Publication findById(final long publicationid) {
+		return publicationDao.findById(publicationid);
+	}
 
 }
