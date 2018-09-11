@@ -18,9 +18,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import ar.edu.itba.paw.models.Publication;
+import ar.edu.itba.paw.models.User;
 import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
 import ar.edu.itba.webapp.form.FirstPublicationForm;
+import ar.edu.itba.webapp.form.MessageForm;
 import ar.edu.itba.webapp.form.SecondPublicationForm;
 import ar.edu.itba.webapp.form.ThirdPublicationForm;
 import ar.edu.itba.webapp.form.signUpForm;
@@ -61,11 +63,20 @@ public class HelloWorldController {
 	}*/
 	
 	@RequestMapping("details")
-	public ModelAndView helloDetails(HttpServletRequest request) {
+	public ModelAndView helloDetails(HttpServletRequest request, @Valid @ModelAttribute("MessageForm") final MessageForm form) {
 		final Publication pub = ps.findById(2);
-		System.out.println("Mi title es: " + pub.getTitle() + " y mi direccion es: " + pub.getAddress());
+		final User user = us.findById(1);// se debe importar para el phoneNumber y otras cosas
 	    final ModelAndView mav = new ModelAndView("details");
-	    mav.addObject("address", request.getParameter("address"));
+	    //Ojo recordar que todo input q viene de la base de datos debe ser escapado en la zona de la view, sino error de seguridad
+	    mav.addObject("address", pub.getAddress());
+	    mav.addObject("title", pub.getTitle());
+	    mav.addObject("price", "$" + pub.getPrice());
+	    mav.addObject("description", pub.getDescription());
+	    mav.addObject("bedrooms", pub.getBedrooms());
+	    mav.addObject("bathrooms", pub.getBathrooms());
+	    mav.addObject("parking", pub.getParking());
+	    mav.addObject("phoneNumber",user.getPhoneNumber());
+	    
 	    return mav;
 	}
 	

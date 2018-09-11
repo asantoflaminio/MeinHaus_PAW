@@ -19,5 +19,9 @@ public class UserServiceImpl implements UserService{
 		return userDaoInt.create(firstName, lastName, email,
 				password, phoneNumber);
 	}
+	
+	public User findById(final long userid) {
+		return userDaoInt.findById(userid);
+	}
 
 }

@@ -79,9 +79,9 @@
 		    <c:url value="/hello/publish2" var="postPath"/>
 			<form:form modelAttribute="secondPublicationForm" action="${postPath}" method="post">
 		     	<div class="fillers">
-				     <form:label for="description" path="description"><spring:message code="publish2.description"/></form:label>
-				     <spring:message code="publish2.placeholderDescription" var="description"/>		    		 
-		    		 <textarea cols="30" rows="8" placeholder="${description}"></textarea>
+				     <form:label for="description" path="description"><spring:message code="publish2.description"/></form:label><br>
+				     <spring:message code="publish2.placeholderDescription" var="description"/>    		 
+		    		 <form:input path="description" placeholder="${description}"/><br>
 		    		 <label for="PROPERTY TYPE"><spring:message code="publish2.propertyType"/></label>	
 		    		 <div class="prop-type-box">
                         		<input class="radio-1" checked="checked" name="operation" type="radio" name="op-type" value="FSale"><spring:message code="publish2.apartment"/><br>

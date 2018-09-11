@@ -1,24 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%
-    String address=request.getParameter("address");
-	
-	String connectionUrl = "jdbc:postgresql://localhost/postgres";
-	String dbName = "postgres";
-	String userId = "postgres";
-	String password = "Bvma141511";
-	
-	
-	
-	Connection connection = null;
-	Statement statement = null;
-	ResultSet resultSet = null;
-
-%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -112,27 +94,16 @@
 			    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
 			  </div>
 			</div>
-			
-			<%
-				try{ 
-					connection = DriverManager.getConnection(connectionUrl, userId, password);
-					statement=connection.createStatement();
-					String sql ="SELECT * FROM publications where address = \'" + request.getParameter("address") +"\'";
-					System.out.println("ok la address es " + request.getParameter("address") );
-					resultSet = statement.executeQuery(sql);
-				while(resultSet.next()){
-				%>
-          
 		  <div class="container">
-		    <p class="direction"> <%=resultSet.getString("address")%></p>
+		    <p class="direction"><c:out value="${address}"/></p>
 		  </div>
 		</div>
 		
 		<div class="polaroid_price">
 		  <div class="container2">
 		    <div class="price_text">
-		    	<p id="rent_sale" style="text-transform: uppercase"><%=resultSet.getString("operation")%></p> 
-		    	<p id="price_tag"><%="$" + resultSet.getString("price")%></p>
+		    	<p id="rent_sale" style="text-transform: uppercase"><spring:message code="details.price"/></p> 
+		    	<p id="price_tag"><c:out value="${price}"/></p>
 		  	</div>
 		  </div>
 		</div>
@@ -140,50 +111,47 @@
 		<div class="polaroid_agency">
 		  <div class="container3">
 		     <img class="polaroid_img_agency" src="<c:url value="/resources/pics/richmond.png" />" alt="5 Terre" style="width:100%">
-		     <p class="agency_text">Contact the agent!</p>
-		     <p class="agency_text">(310) 255-5454</p>
-		     <form action="/action_page.php">
+		     <p class="agency_text"><spring:message code="details.contact"/></p>
+		     <p class="agency_text"><c:out value="${phoneNumber}"/></p>
+		     <c:url value="/hello/details" var="postPath"/>
+			<form:form modelAttribute="MessageForm" action="${postPath}" method="post">
 		     	<div class="fillers">
-				     <label for="name">Name</label>
-		    		 <input type="text" id="name" name="name" placeholder="Your name...">
+				     <form:label path="name"><spring:message code="details.name"/></form:label>
+				     <spring:message code="details.placeholderName" var="detailsName"/>
+		    		 <form:input type="text" path="name" id="name" name="name" placeholder="${detailsName}" />
 		    		 
-		    		 <label for="email">Email</label>
-		    		 <input type="text" id="email" name="email" placeholder="Your email...">
+		    		 <form:label for="email" path="email"><spring:message code="details.email"/></form:label>
+		    		 <spring:message code="details.placeholderEmail" var="detailsEmail"/>
+		    		 <form:input type="text" path="email" id="email" name="email" placeholder="${detailsEmail}"/>
 		    		 
-		    		 <label for="message">Message</label>
-		    		 <textarea id="message" name="message" cols="34" rows="6" placeholder="Write a message..."></textarea>
-		    		 <button class="button">Contact Agent</button>
+		    		 <form:label path="message" for="message"><spring:message code="details.message"/></form:label>
+		    		 <spring:message code="details.placeholderMessage" var="detailsMessage"/>
+		    		 <form:input id="message" path="message" placeholder="${detailsMessage}"/>
+		    		 
+		    		 <spring:message code="details.contactButton" var="submitValue"/>
+		    		 <input class="button" type="submit" value=${submitValue}>
 	    		 </div>
-	    	</form>
+	    	</form:form>
 		  </div>
 		</div>
 		
 		<div class="polaroid_overview">
 		  <div class="container4">
-		     <p class="polaroid_title">Overview</p>
-		     <p class="agency_text">Bedrooms: 5</p>
-		     <p class="agency_text">Bathrooms: 7</p>
-		     <p class="agency_text">Floor size: 388 m2</p>
-		     <p class="agency_text">Parking: 2 vehicles</p>
-		     <p class="agency_text">Days on MeinHaus: 4 days</p> 
+		     <p class="polaroid_title"><spring:message code="details.overview"/></p>
+		     <p class="agency_text"><spring:message code="details.bedrooms"/><c:out value="${bedrooms}"/></p>
+		     <p class="agency_text"><spring:message code="details.bathrooms"/><c:out value="${bathrooms}"/></p>
+		     <p class="agency_text"><spring:message code="details.floorSize"/><c:out value="${floorSize}"/> m2</p>
+		     <p class="agency_text"><spring:message code="details.parking"/><c:out value="${parking}"/><spring:message code="details.vehicles"/></p>
 		  </div>
 		</div>
 		
 		<div class="polaroid_des">
 		  <div class="container">
-		  	<p class="polaroid_title"><%=resultSet.getString("title") %></p>
-		    <p class="agency_text">Newly built Cape Cod style home with the perfect floor plan and the finest of custom finishes throughout! Boasting an incredible dream-like backyard with stone décor pool, spa, waterfall, outdoor dining that is covered by lit trellis, along with a separate pool house cabana that is equipped with a fireplace and TV. The home offers 5 bedrooms, 7 baths and a separate office. Located on a quiet cul-de-sac in an ideal Brentwood location next to exceptional hiking trails, yet a short distance to schools, shopping and restaurants. The formal living room and dining area create an elegant setting for large gatherings. The Chef's dream kitchen offers top of the line appliances, Carrera marble counters, butler 's pantry with wine cooler, enormous main walk-in pantry and breakfast area with bay window viewing the backyard, huge center island that comfortably sits 6 people. The upstairs master suite offers a luxurious bathroom with relaxing soaking tub, marble shower and huge walk in closet.</p>
+		  	<p class="polaroid_title"><c:out value="${title}"/></p>
+		    <p class="agency_text"><c:out value="${description}"/></p>
 		  </div>
 		</div>
          <footer>
-         
-        		<% 
-				}
-				
-				} catch (Exception e) {
-				e.printStackTrace();
-				}
-				%>
 
           <div id="footer">
               <p>Copyright &copy; 2018, MeinHaus. All rights reserved.</p>
