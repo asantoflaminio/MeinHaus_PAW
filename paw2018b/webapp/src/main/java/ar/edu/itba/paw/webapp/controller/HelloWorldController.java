@@ -65,7 +65,7 @@ public class HelloWorldController {
 	@RequestMapping("details")
 	public ModelAndView helloDetails(HttpServletRequest request, @Valid @ModelAttribute("MessageForm") final MessageForm form) {
 		final Publication pub = ps.findById(2);
-		final User user = us.findById(1);// se debe importar para el phoneNumber y otras cosas
+		final User user = us.findById(1);// Deshardcodear esto
 	    final ModelAndView mav = new ModelAndView("details");
 	    //Ojo recordar que todo input q viene de la base de datos debe ser escapado en la zona de la view, sino error de seguridad
 	    mav.addObject("address", pub.getAddress());
@@ -113,7 +113,7 @@ public class HelloWorldController {
 	}
 	
 	@RequestMapping(value = "publish2" ,method = RequestMethod.POST)
-	public ModelAndView publish2(@Valid @ModelAttribute("secondPublicationForm") final SecondPublicationForm form, @RequestParam("op-type") String operation, final BindingResult errors) {
+	public ModelAndView publish2(@Valid @ModelAttribute("secondPublicationForm") final SecondPublicationForm form, @RequestParam("type") String operation, final BindingResult errors) {
 		if (errors.hasErrors()) {
 			return helloPublish2(form);
 		}
