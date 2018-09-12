@@ -98,7 +98,7 @@
 		    		 
 		    		 <form:label for="price" path="price"><spring:message code="publish.price"/></form:label>
 		    		 <spring:message code="publish.placeholderPrice" var="price"/>
-		    		 <form:input type="text" id="price" path="price" name="price" placeholder="${price}"/>
+		    		 <form:input type="text" id="price" path="price" name="price" placeholder="${price}" />
 		    		 <form:errors path="price" cssClass="error" element="p"/>
 		    		 
 		    		 <spring:message code="publish.submitPublish" var="submitValue"/>

@@ -80,6 +80,10 @@
 		    <c:url value="/hello/publish3" var="postPath"/>
 				<form:form modelAttribute="thirdPublicationForm" action="${postPath}" method="post">
 		     	<div class="fillers">
+		     		 <form:input type="hidden" path="title"/>
+		    		 <form:input type="hidden" path="address"/>
+		    		 <form:input type="hidden" path="price"/>
+		    		 <form:input type="hidden" path="description"/>
 		     	
 				     <form:label for="bedrooms" path="bedrooms"><spring:message code="publish3.bedrooms"/></form:label>	
 				     <spring:message code="publish3.placeholderBedrooms" var="bedrooms"/>	    		 

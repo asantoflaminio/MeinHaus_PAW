@@ -13,7 +13,6 @@
 <fullyQualifiedTypeName name="javax.activation.DataSource"/>
 <fullyQualifiedTypeName name="org.springframework.jdbc.datasource.SimpleDriverDataSource"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="ar.edu.itba.paw.models.User"/>
 <fullyQualifiedTypeName name="ar.edu.itba.paw.UserService"/>
 <fullyQualifiedTypeName name="org.springframework.jdbc.core.simple.SimpleJdbcInsert"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
@@ -36,14 +35,16 @@
 <fullyQualifiedTypeName name="java.nio.charset.StandardCharsets"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.Pattern"/>
 <fullyQualifiedTypeName name="ar.edu.itba.paw.services.PublicationServiceImp"/>
-<fullyQualifiedTypeName name="ar.edu.itba.webapp.form.FirstPublicationForm"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.support.RequestContextUtils"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
 <fullyQualifiedTypeName name="ar.edu.itba.paw.models.Publication"/>
-<fullyQualifiedTypeName name="ar.edu.itba.webapp.form.SecondPublicationForm"/>
 <fullyQualifiedTypeName name="ar.edu.itba.webapp.form.ThirdPublicationForm"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+<fullyQualifiedTypeName name="ar.edu.itba.paw.models.User"/>
+<fullyQualifiedTypeName name="ar.edu.itba.webapp.form.MessageForm"/>
+<fullyQualifiedTypeName name="ar.edu.itba.webapp.form.FirstPublicationForm"/>
+<fullyQualifiedTypeName name="ar.edu.itba.webapp.form.SecondPublicationForm"/>
 </qualifiedTypeNameHistroy>

@@ -36,20 +36,6 @@ public class HelloWorldController {
 	@Autowired
 	private PublicationServiceImp ps;
 	
-	@RequestMapping("world")
-	public ModelAndView helloWorld() {
-		final ModelAndView mav = new ModelAndView("index");
-		mav.addObject("greeting", "PAW");
-		return mav;
-	}
-	
-	@RequestMapping("mars")
-	public ModelAndView helloMars() {
-		final ModelAndView mav = new ModelAndView("index");
-		mav.addObject("greeting", "MARS");
-		return mav;
-	}	
-	
 	@RequestMapping("home")
 	public ModelAndView helloHome() {
 		final ModelAndView mav = new ModelAndView("home");
@@ -92,29 +78,33 @@ public class HelloWorldController {
 	@RequestMapping(value = "publish")
 	public ModelAndView helloPublish(@ModelAttribute("firstPublicationForm") final FirstPublicationForm form) {
 		final ModelAndView mav = new ModelAndView("publish");
-		System.out.println("sss");
 		return mav;
 	}
 	
 	@RequestMapping(value = "publish" ,method = RequestMethod.POST)
 	public ModelAndView publish(@Valid @ModelAttribute("firstPublicationForm") final FirstPublicationForm form, final BindingResult errors, @RequestParam("operation") String operation) {
-		System.out.println("asd");
 		if (errors.hasErrors()) {
 			return helloPublish(form);
 		}
-		ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), null, null, null, null, null, null);
-		return new ModelAndView("redirect:/hello/publish2");
+		final ModelAndView mav = new ModelAndView("publish2");
+		mav.addObject("title", form.getTitle());
+		mav.addObject("address", form.getAddress());
+		mav.addObject("price", form.getPrice());
+		//ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), null, null, null, null, null, null);
+		return mav;
 	}
-	
+		
 	@RequestMapping(value = "publish2")
 	public ModelAndView helloPublish2(@ModelAttribute("secondPublicationForm") final SecondPublicationForm form) {
 		final ModelAndView mav = new ModelAndView("publish2");
+		System.out.println("TITULO:" + form.getTitle());
 		return mav;
 	}
 	
 	@RequestMapping(value = "publish2" ,method = RequestMethod.POST)
-	public ModelAndView publish2(@Valid @ModelAttribute("secondPublicationForm") final SecondPublicationForm form, @RequestParam("type") String operation, final BindingResult errors) {
+	public ModelAndView publish2(@Valid @ModelAttribute("secondPublicationForm") final SecondPublicationForm form, final BindingResult errors, @RequestParam("type") String operation) {
 		if (errors.hasErrors()) {
+			System.out.println("HAY "+ errors.getErrorCount() + " errores");
 			return helloPublish2(form);
 		}
 		return new ModelAndView("redirect:/hello/publish3");

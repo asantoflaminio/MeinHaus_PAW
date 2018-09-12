@@ -1,21 +1,19 @@
 package ar.edu.itba.webapp.form;
 
-public class SecondPublicationForm {
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+public class SecondPublicationForm extends FirstPublicationForm {
 	
+	@Size(min = 1, max = 180)
+	@Pattern(regexp = "[a-zA-Z0-9 ]+")
 	private String description;
-	private boolean propertyType;
 	
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	public boolean isPropertyType() {
-		return propertyType;
-	}
-	public void setPropertyType(boolean propertyType) {
-		this.propertyType = propertyType;
 	}
 
 }

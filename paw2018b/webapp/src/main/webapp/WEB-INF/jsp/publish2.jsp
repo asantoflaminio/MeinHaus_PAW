@@ -79,6 +79,11 @@
 		    <c:url value="/hello/publish2" var="postPath"/>
 			<form:form modelAttribute="secondPublicationForm" action="${postPath}" method="post">
 		     	<div class="fillers">
+		     		 
+		     		 <form:input type="hidden" path="title" value="${title}"/>
+		    		 <form:input type="hidden" path="address" value="${address}"/>
+		    		 <form:input type="hidden" path="price" value="${price}"/>
+		     		
 				     <form:label for="description" path="description"><spring:message code="publish2.description"/></form:label><br>
 				     <spring:message code="publish2.placeholderDescription" var="description"/>    		 
 		    		 <form:input path="description" placeholder="${description}"/><br>

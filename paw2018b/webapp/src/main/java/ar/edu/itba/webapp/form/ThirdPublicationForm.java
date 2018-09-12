@@ -3,7 +3,7 @@ package ar.edu.itba.webapp.form;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-public class ThirdPublicationForm {
+public class ThirdPublicationForm extends SecondPublicationForm {
 	
 	@Size(min = 1, max = 2)
 	@Pattern(regexp = "[0-9]+")
