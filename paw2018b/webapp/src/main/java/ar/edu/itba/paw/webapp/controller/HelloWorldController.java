@@ -1,27 +1,24 @@
 package ar.edu.itba.paw.webapp.controller;
 
-import java.util.Map;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.support.RequestContextUtils;
-
 import ar.edu.itba.paw.models.Publication;
 import ar.edu.itba.paw.models.User;
 import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
 import ar.edu.itba.webapp.form.FirstPublicationForm;
+import ar.edu.itba.webapp.form.HomeSearchForm;
 import ar.edu.itba.webapp.form.MessageForm;
 import ar.edu.itba.webapp.form.SecondPublicationForm;
 import ar.edu.itba.webapp.form.ThirdPublicationForm;
@@ -37,23 +34,32 @@ public class HelloWorldController {
 	private PublicationServiceImp ps;
 	
 	@RequestMapping("home")
-	public ModelAndView helloHome() {
+	public ModelAndView helloHome(@ModelAttribute("homeSearchForm") final HomeSearchForm form) {
 		final ModelAndView mav = new ModelAndView("home");
 		return mav;
 	}
 	
-	/*@RequestMapping("details")
-	public ModelAndView helloDetails() {
-		final ModelAndView mav = new ModelAndView("details");
+	@RequestMapping(value = "home",method = RequestMethod.POST)
+	public ModelAndView homeSearch(@Valid @ModelAttribute("homeSearchForm") final HomeSearchForm form, final BindingResult errors,
+								   @RequestParam("oper") String operation) {
+		if(errors.hasErrors()) {
+			return helloHome(form);
+		}
+		final ModelAndView mav = new ModelAndView("redirect:/hello/list");
+		mav.addObject("operation", operation);
+		if(! form.getSearch().equals(""))
+			mav.addObject("address", form.getSearch());
+		else
+			mav.addObject("address", "all");
 		return mav;
-	}*/
+	}
+	
 	
 	@RequestMapping("details")
-	public ModelAndView helloDetails(HttpServletRequest request, @Valid @ModelAttribute("MessageForm") final MessageForm form) {
-		final Publication pub = ps.findById(2);
-		final User user = us.findById(1);// Deshardcodear esto
+	public ModelAndView helloDetails(@Valid @ModelAttribute("MessageForm") final MessageForm form, @RequestParam("publicationid") String publicationid) {
+		final Publication pub = ps.findById(Integer.valueOf(publicationid));
+		final User user = us.findById(1);
 	    final ModelAndView mav = new ModelAndView("details");
-	    //Ojo recordar que todo input q viene de la base de datos debe ser escapado en la zona de la view, sino error de seguridad
 	    mav.addObject("address", pub.getAddress());
 	    mav.addObject("title", pub.getTitle());
 	    mav.addObject("price", "$" + pub.getPrice());
@@ -68,13 +74,18 @@ public class HelloWorldController {
 	
 	
 	@RequestMapping("list")
-	public ModelAndView helloList(HttpServletRequest request) {
+	public ModelAndView helloList(@RequestParam("operation") String operation,@RequestParam("address") String address) {
+		List<Publication> publications;
 		final ModelAndView mav = new ModelAndView("list");
-		mav.addObject("input", request.getParameter("input"));
-		mav.addObject("operation", request.getParameter("operation"));
+		mav.addObject("operation", operation);
+		mav.addObject("address", address);
+		if(address.equals("all")) 
+			publications = ps.findAll(operation);
+		else
+			publications = ps.findSearch(operation,address);
+		mav.addObject("publications", publications);
 		return mav;
 	}
-	
 	@RequestMapping(value = "publish")
 	public ModelAndView helloPublish(@ModelAttribute("firstPublicationForm") final FirstPublicationForm form) {
 		final ModelAndView mav = new ModelAndView("publish");
@@ -86,11 +97,10 @@ public class HelloWorldController {
 		if (errors.hasErrors()) {
 			return helloPublish(form);
 		}
-		final ModelAndView mav = new ModelAndView("publish2");
+		final ModelAndView mav = new ModelAndView("redirect:/hello/publish2");
 		mav.addObject("title", form.getTitle());
 		mav.addObject("address", form.getAddress());
 		mav.addObject("price", form.getPrice());
-		//ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), null, null, null, null, null, null);
 		return mav;
 	}
 		

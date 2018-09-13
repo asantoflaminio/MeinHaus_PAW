@@ -59,7 +59,7 @@ h1 {
 	font-weight: 550;
 	background-color: rgb(200, 200, 200);
 }
-.search_list ul li a {
+.search_list ul li input {
 	border: 1px solid rgb(206, 205, 185, .6);
 	display: block;
 	padding: 3px;
@@ -73,8 +73,9 @@ h1 {
 	border-right:1px solid #7C7C7C;
 }
 
-#myul li a:hover {
+#myul li input:hover {
 	background-color: #fd8907;
+	cursor:pointer;
 }
 
 /* Closing style*/
@@ -287,5 +288,11 @@ div.card-body.row.no-gutters.align-items-center {
 	text-align: left;
 	margin-left: 30%;
 }
+
+
+.error{
+  color: red;
+}
+
 
 /* Closing style */

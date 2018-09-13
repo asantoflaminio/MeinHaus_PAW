@@ -1,5 +1,7 @@
 package ar.edu.itba.paw.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -24,6 +26,14 @@ public class PublicationServiceImp implements PublicationService{
 	
 	public Publication findById(final long publicationid) {
 		return publicationDao.findById(publicationid);
+	}
+	
+	public List<Publication> findAll(String operation){
+		return publicationDao.findAll(operation);
+	}
+	
+	public List<Publication> findSearch(String operation, String search){
+		return publicationDao.findSearch(operation,search);
 	}
 
 }

@@ -12,7 +12,6 @@
 <fullyQualifiedTypeName name="javax.sql.DataSource"/>
 <fullyQualifiedTypeName name="javax.activation.DataSource"/>
 <fullyQualifiedTypeName name="org.springframework.jdbc.datasource.SimpleDriverDataSource"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="ar.edu.itba.paw.UserService"/>
 <fullyQualifiedTypeName name="org.springframework.jdbc.core.simple.SimpleJdbcInsert"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
@@ -47,4 +46,5 @@
 <fullyQualifiedTypeName name="ar.edu.itba.webapp.form.MessageForm"/>
 <fullyQualifiedTypeName name="ar.edu.itba.webapp.form.FirstPublicationForm"/>
 <fullyQualifiedTypeName name="ar.edu.itba.webapp.form.SecondPublicationForm"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

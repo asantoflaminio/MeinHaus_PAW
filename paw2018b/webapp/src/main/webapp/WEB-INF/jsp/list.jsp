@@ -1,29 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-
-<%
-//String id = request.getParameter("address");
-
-String address=request.getParameter("input");
-String operation=request.getParameter("operation");
-
-
-
-String connectionUrl = "jdbc:postgresql://localhost/postgres";
-String dbName = "postgres";
-String userId = "postgres";
-String password = "Bvma141511";
-
-
-
-Connection connection = null;
-Statement statement = null;
-ResultSet resultSet = null;
-%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -94,17 +70,17 @@ ResultSet resultSet = null;
         <div class="breadcrumb">
 	        <ul class="breadcrumb-list">
 			  <li><a href="#">Home</a></li>
-			  <li><a href="#"><%=operation.substring(0, 1).toUpperCase()+ operation.substring(1).toLowerCase()%></a></li>
-			  <li><a href="#"><%=address.substring(0, 1).toUpperCase()+ address.substring(1).toLowerCase()%></a></li>
+			  <li><a href="#">List</a></li>
+			  <li><a href="#"></a></li>
 			  <!-- <li>Brooklyn</li> -->
 			</ul>
 		</div>
         
 		<div class="wrap">
 		   <div class="search">
-		      <input id="search_input" type="text" class="searchTerm" placeholder=<%=address%>>
+		      <input id="search_input" type="text" class="searchTerm" placeholder="address" value = "<c:out value="${address}"/>" >
 		      <button  href="#" type="submit" class="searchButton">
-		        <img src="<c:url value="/resources/pics/search_icon.png" />" onclick="search('<%=operation%>')" alt="Search" id="search-img"></img>
+		        <img src="<c:url value="/resources/pics/search_icon.png" />" alt="Search" id="search-img"></img>
 		     </button>
 		   </div>
 		</div>
@@ -127,14 +103,8 @@ ResultSet resultSet = null;
 
     	<div class="filters">
     		<ul id="applied-filters-list">
-			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><%=operation%></li>
-			  <%
-			  if(!address.equals("")){
-			  %> 
-			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><%=address%></li>
-			  <% 
-			  }
-			  %>
+			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><c:out value="${operation}"/></li>
+			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><c:out value="${address}"/></li>
 			 
 			  
 			  <!-- <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/>2 bedrooms</li> -->
@@ -198,69 +168,40 @@ ResultSet resultSet = null;
 					</div>
 				</div>
 			</aside>
-
+			
 	        <section>
-	        
-	        <!-- ACA EMPIEZA -->
-	        
-	        	<%
-				try{ 
-					connection = DriverManager.getConnection(connectionUrl, userId, password);
-					statement=connection.createStatement();
-					
-					String sql ="SELECT * FROM publications WHERE operation = \'" + operation + "\' AND address LIKE '%" + address.toUpperCase() +"%'";
-					System.out.println("sql quedo " + sql);
-					resultSet = statement.executeQuery(sql);
-				while(resultSet.next()){
-				%>
-
+	        	<c:forEach var="row" varStatus="status" items="${publications}" step="1" begin="0">
 					<div class="polaroid-property">
 			    	<div class="img-with-tag">
 			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
 			    		<img class="favorite-icon" onclick="fav(this);" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
 			    		<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-						<h2 class="price-tag"><%="$" + resultSet.getString("price") %></h2>
+						<h2 class="price-tag"><c:out value = "${row.price}"/></h2>
 					</div>
 					<div class="property-container">
 						<div class="property-title-container">
-							<h3 class="property-title"><%=resultSet.getString("title") %></h3>
-							<h4 class="property-date">published X days ago</h4>
+							<h3 class="property-title"><c:out value = "${row.title}"/><h3>
 						</div>
 						<div class="property-characteristics">
 							<div class="column-1">
-								<h4><strong>X</strong> bedrooms</h4>
-								<h4><strong>X</strong> bathrooms</h4>
-								<h4><strong>X</strong> parking</h4>	
+								<h4><strong><c:out value = "${row.bedrooms}"/></strong> bedrooms</h4>
+								<h4><strong><c:out value = "${row.bathrooms}"/></strong> bathrooms</h4>
+								<h4><strong><c:out value = "${row.parking}"/></strong> parking</h4>	
 							</div>
 							<div class="column-2">
-								<h4><strong>X</strong> sq. meters</h4>
-								<h4><%=resultSet.getString("operation") %></h4>
+								<h4><strong><c:out value = "${row.floorSize}"/></strong> sq. meters</h4>
+								<h4><c:out value = "${row.operation}"/></h4>
 							</div>				
 						</div>
-						<h4 class="address"><%=resultSet.getString("address") %></h4>
+						<h4 class="address"><c:out value = "${row.address}"/></h4>
 						<div class="more-info">
-							<a class="more-info-title" href="details?address=<%=resultSet.getString("address")%>">MORE INFO ></a>
+							<a class="more-info-title" href="details?publicationid=${row.publicationid}">MORE INFO ></a>
 						</div>	
 					</div>
 				</div>	
-				
-	
-				
-				<% 
-				}
-				
-				} catch (Exception e) {
-				e.printStackTrace();
-				}
-				%>
-	        
-	        
-	        
-	        
-
-			
-	
+				</c:forEach>
 	        </section>
+	        
         </div>
         
         <footer>

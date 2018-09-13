@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -78,11 +79,13 @@
                 <div class="title">
                     <h1><spring:message code="home.title"/></h1>
                 </div>
+                <c:url value="/hello/home" var="postPath"/>
+				<form:form modelAttribute="homeSearchForm" action="${postPath}" method="post">
                 <div class="search_list">
-                    <ul class="rounded" id="myul">
-					  <li onclick="operation_sel('FOR SALE');" class="first_item" id="buy"><a href="#"><spring:message code="home.buy"/></a></li>
-					  <li onclick="operation_sel('FOR RENT');" id="rent"><a href="#"><spring:message code="home.rent"/></a></li>
-					</ul>
+                	<fieldset>
+                        		<input value="FSale" type="radio" name="oper" checked><spring:message code="home.buy"/>
+                        		<input value="FRent" type="radio" name="oper"><spring:message code="home.rent"/>
+                    </fieldset>
                 </div>
                 <div id="icons">
                     <div class="container">
@@ -96,16 +99,14 @@
                                         <!--end of col-->
                                         <div class="col">
                                         	<spring:message code="home.placeholderSearch" var="search"/>
-	                                    	<input class="form-control form-control-lg" type="search" id="input_search" placeholder="${search}">
+	                                    	<form:input path="search" class="form-control form-control-lg" type="search" id="input_search" placeholder="${search}"/>
+	                                    	<form:errors path="search" cssClass="error" element="p"/>
 	                                   	</div>
                                         <!--end of col-->
                                         <div class="col-auto">
-                                            <button id="searchbutton" class="btn btn-lg btn-success rounded" type="submit" onclick="search();"><a id="link"><spring:message code="home.search"/></a></button>
+                                            <input id="searchbutton" class="btn btn-lg btn-success rounded" type="submit">
                                         </div>
                                         <!--end of col-->
-                                    	<div id="msg_error_search">
-                                        	<label></label>
-                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -113,6 +114,7 @@
                         </div>
                     </div>
                 </div>
+                </form:form>
             </div>
         </header>
         

@@ -94,5 +94,14 @@ public class PublicationJdbcDao implements PublicationDao{
 		return list.get(0);
 	}
 	
+	public List<Publication> findAll(String operation){
+		return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ?", ROW_MAPPER,operation); 
+	}
+	
+	public List<Publication> findSearch(String operation, String search){
+		final String queryAddress = "%" + search + "%";
+		return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND address LIKE ?", ROW_MAPPER,operation,queryAddress);
+	}
+	
 
 }
