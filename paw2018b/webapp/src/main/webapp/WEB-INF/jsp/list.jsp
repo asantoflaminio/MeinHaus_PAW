@@ -69,8 +69,8 @@
         
         <div class="breadcrumb">
 	        <ul class="breadcrumb-list">
-			  <li><a href="#">Home</a></li>
-			  <li><a href="#">List</a></li>
+			  <li><a href="home">Home</a></li>
+			  <li><a href="">List</a></li>
 			  <li><a href="#"></a></li>
 			  <!-- <li>Brooklyn</li> -->
 			</ul>
@@ -78,6 +78,7 @@
         
 		<div class="wrap">
 		   <div class="search">
+		   	  <spring:message code="list.placeholderSearch" var="title"/>
 		      <input id="search_input" type="text" class="searchTerm" placeholder="address" value = "<c:out value="${address}"/>" >
 		      <button  href="#" type="submit" class="searchButton">
 		        <img src="<c:url value="/resources/pics/search_icon.png" />" alt="Search" id="search-img"></img>
@@ -87,17 +88,17 @@
 		
 		<div id="results-container">
 			<div class="results" id="res">
-				<h3 id="res-title">Results for:</h3>
+				<h3 id="res-title"><spring:message code="list.resultsTitle"/></h3>
 			</div>
 			
 			<div class="results" id="order">
 				<select id="order-select">
-					<option value="Lowest price">Lowest price</option>
-					<option value="Highest price">Highest price</option>
-					<option value="Newest">Newest</option>
-					<option value="Oldest">Oldest</option>
+					<option value="Lowest price"><spring:message code="list.lowest"/></option>
+					<option value="Highest price"><spring:message code="list.highest"/></option>
+					<option value="Newest"><spring:message code="list.newest"/></option>
+					<option value="Oldest"><spring:message code="list.oldest"/></option>
 				</select>				
-				<h3 id="order-title">Order by:</h3>
+				<h3 id="order-title"><spring:message code="list.orderTitle"/></h3>
 			</div>
 		</div>
 
@@ -116,10 +117,10 @@
 			    <div class="polaroid">
 					<div class="container">
 					<div id="filters-title">
-						<h3>FILTERS</h3>
+						<h3><spring:message code="list.filters"/></h3>
 					</div>
 						<div id="filters-list">
-					  		<div class="filters-list-item">LOCATION <img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
+					  		<div class="filters-list-item"><spring:message code="list.location"/> <img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
 					  			<div class="expandible">
 					  				<div class="check_box">
                             			<label><input type="checkbox"/>Belgrano</label>
@@ -134,34 +135,34 @@
                             			<label><input type="checkbox"/>Recoleta</label>
                         			</div>
 					  			</div>
-					  		<div class="filters-list-item">PRICE<img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
+					  		<div class="filters-list-item"><spring:message code="list.price"/><img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
 					  			<div class="expandible">
 					  				<div class="check_box">
-                            			<label><input type="checkbox"/>Up to USD 50.000</label>
+                            			<label><input type="checkbox"/><spring:message code="list.up50000"/></label>
                         			</div>
 					  				<div class="check_box">
-                            			<label><input type="checkbox"/>Up to USD 150.000</label>
+                            			<label><input type="checkbox"/><spring:message code="list.up150000"/></label>
                         			</div>
 					  				<div class="check_box">
-                            			<label><input type="checkbox"/>Up to USD 350.000</label>
+                            			<label><input type="checkbox"/><spring:message code="list.up350000"/></label>
                         			</div>
                         			<div class="check_box">
-                            			<label><input type="checkbox"/>Up to USD 750.000</label>
+                            			<label><input type="checkbox"/><spring:message code="list.up750000"/></label>
                         			</div>
 					  			</div>
-					  		<div class="filters-list-item">BEDROOMS<img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
+					  		<div class="filters-list-item"><spring:message code="list.bedrooms"/><img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
 								<div class="expandible filters-list-item-last">
 					  				<div class="check_box">
-                            			<label><input type="checkbox"/>1 bedroom</label>
+                            			<label><input type="checkbox"/>1 <spring:message code="list.bedroomMinus"/></label>
                         			</div>
 					  				<div class="check_box">
-                            			<label><input type="checkbox"/>2 bedrooms</label>
+                            			<label><input type="checkbox"/>2 <spring:message code="list.bedroomsMinus"/></label>
                         			</div>
 					  				<div class="check_box">
-                            			<label><input type="checkbox"/>3 bedrooms</label>
+                            			<label><input type="checkbox"/>3 <spring:message code="list.bedroomsMinus"/></label>
                         			</div>
                         			<div class="check_box">
-                            			<label><input type="checkbox"/>4 bedrooms</label>
+                            			<label><input type="checkbox"/>4 <spring:message code="list.bedroomsMinus"/></label>
                         			</div>
 					  			</div>
 						</div>
@@ -176,7 +177,7 @@
 			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
 			    		<img class="favorite-icon" onclick="fav(this);" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
 			    		<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-						<h2 class="price-tag"><c:out value = "${row.price}"/></h2>
+						<h2 class="price-tag">$<c:out value = "${row.price}"/></h2>
 					</div>
 					<div class="property-container">
 						<div class="property-title-container">
@@ -184,18 +185,18 @@
 						</div>
 						<div class="property-characteristics">
 							<div class="column-1">
-								<h4><strong><c:out value = "${row.bedrooms}"/></strong> bedrooms</h4>
-								<h4><strong><c:out value = "${row.bathrooms}"/></strong> bathrooms</h4>
-								<h4><strong><c:out value = "${row.parking}"/></strong> parking</h4>	
+								<h4><strong><c:out value = "${row.bedrooms}"/></strong> <spring:message code="list.bedroomMinus"/></h4>
+								<h4><strong><c:out value = "${row.bathrooms}"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
+								<h4><strong><c:out value = "${row.parking}"/></strong> <spring:message code="list.parkingMinus"/></h4>	
 							</div>
 							<div class="column-2">
-								<h4><strong><c:out value = "${row.floorSize}"/></strong> sq. meters</h4>
+								<h4><strong><c:out value = "${row.floorSize}"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
 								<h4><c:out value = "${row.operation}"/></h4>
 							</div>				
 						</div>
 						<h4 class="address"><c:out value = "${row.address}"/></h4>
 						<div class="more-info">
-							<a class="more-info-title" href="details?publicationid=${row.publicationid}">MORE INFO ></a>
+							<a class="more-info-title" href="details?publicationid=${row.publicationid}"><spring:message code="list.moreInfo"/> ></a>
 						</div>	
 					</div>
 				</div>	

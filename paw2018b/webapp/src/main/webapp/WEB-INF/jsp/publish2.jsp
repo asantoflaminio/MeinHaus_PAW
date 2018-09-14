@@ -83,6 +83,7 @@
 		     		 <form:input type="hidden" path="title" value="${title}"/>
 		    		 <form:input type="hidden" path="address" value="${address}"/>
 		    		 <form:input type="hidden" path="price" value="${price}"/>
+		    		 <input type="hidden" path="operation" value="${operation}" name="operation">
 		     		
 				     <form:label for="description" path="description"><spring:message code="publish2.description"/></form:label><br>
 				     <spring:message code="publish2.placeholderDescription" var="description"/>    		 

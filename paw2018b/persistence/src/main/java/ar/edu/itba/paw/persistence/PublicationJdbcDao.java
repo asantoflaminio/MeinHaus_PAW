@@ -75,12 +75,12 @@ public class PublicationJdbcDao implements PublicationDao{
 		args.put("address", address);
 		args.put("operation", operation);
 		args.put("price", price);
-		args.put("description", price);
-		args.put("propertyType", price);
-		args.put("bedrooms", price);
-		args.put("bathrooms", price);
-		args.put("flooSize", price);
-		args.put("parking", price);
+		args.put("description", description);
+		args.put("propertyType", propertyType);
+		args.put("bedrooms", bedrooms);
+		args.put("bathrooms", bathrooms);
+		args.put("flooSize", floorSize);
+		args.put("parking", parking);
 		final Number publicationid = jdbcInsert.executeAndReturnKey(args);
 		return new Publication(title, address, operation, price,
 				   description, propertyType, bedrooms,

@@ -101,23 +101,31 @@ public class HelloWorldController {
 		mav.addObject("title", form.getTitle());
 		mav.addObject("address", form.getAddress());
 		mav.addObject("price", form.getPrice());
+		mav.addObject("operation",operation);
 		return mav;
 	}
 		
 	@RequestMapping(value = "publish2")
 	public ModelAndView helloPublish2(@ModelAttribute("secondPublicationForm") final SecondPublicationForm form) {
 		final ModelAndView mav = new ModelAndView("publish2");
-		System.out.println("TITULO:" + form.getTitle());
 		return mav;
 	}
 	
 	@RequestMapping(value = "publish2" ,method = RequestMethod.POST)
-	public ModelAndView publish2(@Valid @ModelAttribute("secondPublicationForm") final SecondPublicationForm form, final BindingResult errors, @RequestParam("type") String operation) {
+	public ModelAndView publish2(@Valid @ModelAttribute("secondPublicationForm") final SecondPublicationForm form, final BindingResult errors, 
+								 @RequestParam("type") String type, @RequestParam("operation") String operation) {
 		if (errors.hasErrors()) {
-			System.out.println("HAY "+ errors.getErrorCount() + " errores");
+				
 			return helloPublish2(form);
 		}
-		return new ModelAndView("redirect:/hello/publish3");
+		final ModelAndView mav = new ModelAndView("redirect:/hello/publish3");
+		mav.addObject("title", form.getTitle());
+		mav.addObject("address", form.getAddress());
+		mav.addObject("price", form.getPrice());
+		mav.addObject("operation",operation);
+		mav.addObject("type",type);
+		mav.addObject("description",form.getDescription());
+		return mav;
 	}
 	
 	@RequestMapping(value = "publish3")
@@ -127,12 +135,19 @@ public class HelloWorldController {
 	}
 	
 	@RequestMapping(value = "publish3" ,method = RequestMethod.POST)
-	public ModelAndView publish3(@Valid @ModelAttribute("thirdPublicationForm") final ThirdPublicationForm form, final BindingResult errors) {
+	public ModelAndView publish3(@Valid @ModelAttribute("thirdPublicationForm") final ThirdPublicationForm form, final BindingResult errors,
+								 @RequestParam("type") String type, @RequestParam("operation") String operation) {
 		if (errors.hasErrors()) {
 			return helloPublish3(form);
 		}
-
-		return new ModelAndView("redirect:/hello/publish4");
+		System.out.println("Descripcion: "+ form.getDescription());
+		System.out.println("Bedrooms: "+ form.getBedrooms());
+		System.out.println("floor: "+ form.getFloorSize());
+		System.out.println("operation: "+ operation);
+		System.out.println("type: "+ type);
+		ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), form.getDescription(), 
+				type, form.getBedrooms(), form.getBathrooms(), form.getFloorSize(), form.getParking());
+		return new ModelAndView("redirect:/hello/home");
 	}
 	
 	@RequestMapping("publish4")
