@@ -13,8 +13,6 @@
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
         <link rel="shortcut icon" href="<c:url value="/resources/pics/favicon.ico" />">
         <script src="<c:url value="/resources/js/list.js" />"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
@@ -93,8 +91,8 @@
 			
 			<div class="results" id="order">
 				<select id="order-select">
-					<option value="Lowest price"><spring:message code="list.lowest"/></option>
-					<option value="Highest price"><spring:message code="list.highest"/></option>
+					<option value="Lowest price" onclick="sortHighestPrice()"><spring:message code="list.lowest"/></option>
+					<option value="Highest price" onclick="sortHighestPrice()"><spring:message code="list.highest"/></option>
 					<option value="Newest"><spring:message code="list.newest"/></option>
 					<option value="Oldest"><spring:message code="list.oldest"/></option>
 				</select>				
@@ -104,8 +102,9 @@
 
     	<div class="filters">
     		<ul id="applied-filters-list">
+    		  <li class="applied-filters-list-item"><c:out value="${address}"/></li>
 			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><c:out value="${operation}"/></li>
-			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><c:out value="${address}"/></li>
+
 			 
 			  
 			  <!-- <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/>2 bedrooms</li> -->
@@ -137,42 +136,50 @@
 					  			</div>
 					  		<div class="filters-list-item"><spring:message code="list.price"/><img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
 					  			<div class="expandible">
-					  				<div class="check_box">
-                            			<label><input type="checkbox"/><spring:message code="list.up50000"/></label>
-                        			</div>
-					  				<div class="check_box">
-                            			<label><input type="checkbox"/><spring:message code="list.up150000"/></label>
-                        			</div>
-					  				<div class="check_box">
-                            			<label><input type="checkbox"/><spring:message code="list.up350000"/></label>
-                        			</div>
-                        			<div class="check_box">
-                            			<label><input type="checkbox"/><spring:message code="list.up750000"/></label>
-                        			</div>
+					  				<form>
+					  					<fieldset id="price" price="null">
+							  				<div class="check_box">
+		                            			<label><input type="radio" onclick="filterPrice(50000)" name="price"/><spring:message code="list.up50000"/></label>
+		                        			</div>
+							  				<div class="check_box">
+		                            			<label><input type="radio" onclick="filterPrice(150000)" name="price"/><spring:message code="list.up150000"/></label>
+		                        			</div>
+							  				<div class="check_box">
+		                            			<label><input type="radio" onclick="filterPrice(350000)" name="price"/><spring:message code="list.up350000"/></label>
+		                        			</div>
+		                        			<div class="check_box">
+		                            			<label><input type="radio" onclick="filterPrice(750000)" name="price"/><spring:message code="list.up750000"/></label>
+		                        			</div>
+		                        		</fieldset>
+                        			</form>
 					  			</div>
 					  		<div class="filters-list-item"><spring:message code="list.bedrooms"/><img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
 								<div class="expandible filters-list-item-last">
-					  				<div class="check_box">
-                            			<label><input type="checkbox"/>1 <spring:message code="list.bedroomMinus"/></label>
-                        			</div>
-					  				<div class="check_box">
-                            			<label><input type="checkbox"/>2 <spring:message code="list.bedroomsMinus"/></label>
-                        			</div>
-					  				<div class="check_box">
-                            			<label><input type="checkbox"/>3 <spring:message code="list.bedroomsMinus"/></label>
-                        			</div>
-                        			<div class="check_box">
-                            			<label><input type="checkbox"/>4 <spring:message code="list.bedroomsMinus"/></label>
-                        			</div>
+									<form>
+					  					<fieldset id="bedroom" bedroom="null">
+							  				<div class="check_box">
+		                            			<label><input type="radio" onclick="filterBedroom(1)" name="bedrooms"/>1 <spring:message code="list.bedroomMinus"/></label>
+		                        			</div>
+							  				<div class="check_box">
+		                            			<label><input type="radio" onclick="filterBedroom(2)" name="bedrooms"/>2 <spring:message code="list.bedroomsMinus"/></label>
+		                        			</div>
+							  				<div class="check_box">
+		                            			<label><input type="radio" onclick="filterBedroom(3)" name="bedrooms"/>3 <spring:message code="list.bedroomsMinus"/></label>
+		                        			</div>
+		                        			<div class="check_box">
+		                            			<label><input type="radio" onclick="filterBedroom(4)" name="bedrooms"/>4 <spring:message code="list.bedroomsMinus"/></label>
+		                        			</div>
+									</form>
+					  					</fieldset>
 					  			</div>
 						</div>
 					</div>
 				</div>
 			</aside>
 			
-	        <section>
+	        <section id="publications">
 	        	<c:forEach var="row" varStatus="status" items="${publications}" step="1" begin="0">
-					<div class="polaroid-property">
+					<div class="polaroid-property" id = "publication_<c:out value = "${row.publicationid}"/>" >
 			    	<div class="img-with-tag">
 			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
 			    		<img class="favorite-icon" onclick="fav(this);" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
@@ -185,7 +192,7 @@
 						</div>
 						<div class="property-characteristics">
 							<div class="column-1">
-								<h4><strong><c:out value = "${row.bedrooms}"/></strong> <spring:message code="list.bedroomMinus"/></h4>
+								<h4 class="bedroom"><strong><c:out value = "${row.bedrooms}"/></strong> <spring:message code="list.bedroomMinus"/></h4>
 								<h4><strong><c:out value = "${row.bathrooms}"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
 								<h4><strong><c:out value = "${row.parking}"/></strong> <spring:message code="list.parkingMinus"/></h4>	
 							</div>

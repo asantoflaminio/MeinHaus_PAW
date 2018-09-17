@@ -141,7 +141,7 @@
 		     <p class="agency_text"><spring:message code="details.bedrooms"/><c:out value="${bedrooms}"/></p>
 		     <p class="agency_text"><spring:message code="details.bathrooms"/><c:out value="${bathrooms}"/></p>
 		     <p class="agency_text"><spring:message code="details.floorSize"/><c:out value="${floorSize}"/> m2</p>
-		     <p class="agency_text"><spring:message code="details.parking"/><c:out value="${parking}"/><spring:message code="details.vehicles"/></p>
+		     <p class="agency_text"><spring:message code="details.parking"/><c:out value="${parking}"/> <spring:message code="details.vehicles"/></p>
 		  </div>
 		</div>
 		

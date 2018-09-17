@@ -58,7 +58,7 @@ public class HelloWorldController {
 	@RequestMapping("details")
 	public ModelAndView helloDetails(@Valid @ModelAttribute("MessageForm") final MessageForm form, @RequestParam("publicationid") String publicationid) {
 		final Publication pub = ps.findById(Integer.valueOf(publicationid));
-		final User user = us.findById(1);
+		//final User user = us.findById(1);
 	    final ModelAndView mav = new ModelAndView("details");
 	    mav.addObject("address", pub.getAddress());
 	    mav.addObject("title", pub.getTitle());
@@ -67,7 +67,8 @@ public class HelloWorldController {
 	    mav.addObject("bedrooms", pub.getBedrooms());
 	    mav.addObject("bathrooms", pub.getBathrooms());
 	    mav.addObject("parking", pub.getParking());
-	    mav.addObject("phoneNumber",user.getPhoneNumber());
+	    mav.addObject("floorSize", pub.getFloorSize());
+	    //mav.addObject("phoneNumber",user.getPhoneNumber());
 	    
 	    return mav;
 	}
@@ -106,8 +107,9 @@ public class HelloWorldController {
 	}
 		
 	@RequestMapping(value = "publish2")
-	public ModelAndView helloPublish2(@ModelAttribute("secondPublicationForm") final SecondPublicationForm form) {
+	public ModelAndView helloPublish2(@ModelAttribute("secondPublicationForm") final SecondPublicationForm form, @RequestParam("operation") String operation) {
 		final ModelAndView mav = new ModelAndView("publish2");
+		mav.addObject("operation",operation);
 		return mav;
 	}
 	
@@ -116,7 +118,7 @@ public class HelloWorldController {
 								 @RequestParam("type") String type, @RequestParam("operation") String operation) {
 		if (errors.hasErrors()) {
 				
-			return helloPublish2(form);
+			return helloPublish2(form,operation);
 		}
 		final ModelAndView mav = new ModelAndView("redirect:/hello/publish3");
 		mav.addObject("title", form.getTitle());
@@ -129,8 +131,10 @@ public class HelloWorldController {
 	}
 	
 	@RequestMapping(value = "publish3")
-	public ModelAndView helloPublish3(@ModelAttribute("thirdPublicationForm") final ThirdPublicationForm form) {
+	public ModelAndView helloPublish3(@ModelAttribute("thirdPublicationForm") final ThirdPublicationForm form, @RequestParam("operation") String operation, @RequestParam("type") String type) {
 		final ModelAndView mav = new ModelAndView("publish3");
+		mav.addObject("operation",operation);
+		mav.addObject("type",type);
 		return mav;
 	}
 	
@@ -138,11 +142,8 @@ public class HelloWorldController {
 	public ModelAndView publish3(@Valid @ModelAttribute("thirdPublicationForm") final ThirdPublicationForm form, final BindingResult errors,
 								 @RequestParam("type") String type, @RequestParam("operation") String operation) {
 		if (errors.hasErrors()) {
-			return helloPublish3(form);
+			return helloPublish3(form,operation,type);
 		}
-		System.out.println("Descripcion: "+ form.getDescription());
-		System.out.println("Bedrooms: "+ form.getBedrooms());
-		System.out.println("floor: "+ form.getFloorSize());
 		System.out.println("operation: "+ operation);
 		System.out.println("type: "+ type);
 		ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), form.getDescription(), 

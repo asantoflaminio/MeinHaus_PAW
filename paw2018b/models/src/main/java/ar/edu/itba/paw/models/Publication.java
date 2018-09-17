@@ -23,13 +23,14 @@ public class Publication {
 		this.address = address;
 		this.operation = operation;
 		this.price = price;
-		this.setDescription(description);
-		this.setPropertyType(propertyType);
-		this.setBedrooms(bedrooms);
-		this.setBathrooms(bathrooms);
-		this.setFloorSize(floorSize);
-		this.setParking(parking);
-		this.setPublicationid(publicationid);
+		this.description = description;
+		this.propertyType = propertyType;
+		this.bedrooms = bedrooms;
+		this.bathrooms = bathrooms;
+		this.floorSize = floorSize;
+		this.parking = parking;
+		this.publicationid = publicationid;
+		
 	}
 	
 	public String getTitle() {

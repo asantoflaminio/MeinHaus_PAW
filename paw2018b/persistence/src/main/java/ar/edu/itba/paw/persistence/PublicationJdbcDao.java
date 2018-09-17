@@ -49,7 +49,8 @@ public class PublicationJdbcDao implements PublicationDao{
 		jdbcInsert = new SimpleJdbcInsert(jdbcTemplate)
 				.withTableName("publications")
 				.usingGeneratedKeyColumns("publicationid")
-				.usingColumns("title","address","operation","price");
+				.usingColumns("title","address","operation","price","description","propertyType","bedrooms",
+							  "bathrooms","flooSize","parking");
 
 		jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS publications ("
 			+ "publicationid SERIAL PRIMARY KEY,"
