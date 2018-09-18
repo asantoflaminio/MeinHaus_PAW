@@ -98,6 +98,7 @@
                                         </div>
                                         <!--end of col-->
                                         <div class="col">
+         
                                         	<spring:message code="home.placeholderSearch" var="search"/>
 	                                    	<form:input path="search" class="form-control form-control-lg" type="search" id="input_search" placeholder="${search}"/>
 	                                    	<form:errors path="search" cssClass="error" element="p"/>

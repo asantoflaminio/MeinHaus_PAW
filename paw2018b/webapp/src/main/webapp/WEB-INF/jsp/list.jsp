@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -75,13 +76,19 @@
 		</div>
         
 		<div class="wrap">
+		   <c:url value="/hello/list" var="postPath"/>
+		   <form:form modelAttribute="homeSearchForm" action="${postPath}" method="post">
 		   <div class="search">
 		   	  <spring:message code="list.placeholderSearch" var="title"/>
-		      <input id="search_input" type="text" class="searchTerm" placeholder="address" value = "<c:out value="${address}"/>" >
+		      <form:input path="search" type="text" class="searchTerm"/>
+		      <form:errors path="search" cssClass="error" element="p"/>
 		      <button  href="#" type="submit" class="searchButton">
 		        <img src="<c:url value="/resources/pics/search_icon.png" />" alt="Search" id="search-img"></img>
-		     </button>
+		      </button>
 		   </div>
+		   </form:form>
+		   <input value="FSale" type="radio" name="oper" checked><spring:message code="home.buy"/>
+           <input value="FRent" type="radio" name="oper"><spring:message code="home.rent"/>
 		</div>
 		
 		<div id="results-container">
@@ -91,7 +98,7 @@
 			
 			<div class="results" id="order">
 				<select id="order-select">
-					<option value="Lowest price" onclick="sortHighestPrice()"><spring:message code="list.lowest"/></option>
+					<option value="Lowest price" onclick="sortLowestPrice()"><spring:message code="list.lowest"/></option>
 					<option value="Highest price" onclick="sortHighestPrice()"><spring:message code="list.highest"/></option>
 					<option value="Newest"><spring:message code="list.newest"/></option>
 					<option value="Oldest"><spring:message code="list.oldest"/></option>
@@ -103,7 +110,9 @@
     	<div class="filters">
     		<ul id="applied-filters-list">
     		  <li class="applied-filters-list-item"><c:out value="${address}"/></li>
-			  <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><c:out value="${operation}"/></li>
+			  <li class="applied-filters-list-item"><c:out value="${operation}"/></li>
+			  <li class="applied-filters-list-item" id="filterPrice" ><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><spring:message code="list.noLimit"/></li>
+			  <li class="applied-filters-list-item" id="filterBedroom"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><spring:message code="list.noLimit"/></li>
 
 			 
 			  
@@ -139,16 +148,19 @@
 					  				<form>
 					  					<fieldset id="price" price="null">
 							  				<div class="check_box">
-		                            			<label><input type="radio" onclick="filterPrice(50000)" name="price"/><spring:message code="list.up50000"/></label>
+		                            			<label><input type="radio" onclick="filterPrice(50000)" name="price" class="priceFilter"/><spring:message code="list.up50000"/></label>
 		                        			</div>
 							  				<div class="check_box">
-		                            			<label><input type="radio" onclick="filterPrice(150000)" name="price"/><spring:message code="list.up150000"/></label>
+		                            			<label><input type="radio" onclick="filterPrice(150000)" name="price" class="priceFilter"/><spring:message code="list.up150000"/></label>
 		                        			</div>
 							  				<div class="check_box">
-		                            			<label><input type="radio" onclick="filterPrice(350000)" name="price"/><spring:message code="list.up350000"/></label>
+		                            			<label><input type="radio" onclick="filterPrice(350000)" name="price" class="priceFilter"/><spring:message code="list.up350000"/></label>
 		                        			</div>
 		                        			<div class="check_box">
-		                            			<label><input type="radio" onclick="filterPrice(750000)" name="price"/><spring:message code="list.up750000"/></label>
+		                            			<label><input type="radio" onclick="filterPrice(750000)" name="price" class="priceFilter"/><spring:message code="list.up750000"/></label>
+		                        			</div>
+		                       				<div class="check_box">
+		                            			<label><input type="radio" onclick="filterPrice('null')" name="price" class="priceFilter" id="priceNull"/><spring:message code="list.noLimit"/></label>
 		                        			</div>
 		                        		</fieldset>
                         			</form>
@@ -158,16 +170,19 @@
 									<form>
 					  					<fieldset id="bedroom" bedroom="null">
 							  				<div class="check_box">
-		                            			<label><input type="radio" onclick="filterBedroom(1)" name="bedrooms"/>1 <spring:message code="list.bedroomMinus"/></label>
+		                            			<label><input type="radio" onclick="filterBedroom(1)" name="bedrooms" class="bedroomFilter"/>1 <spring:message code="list.bedroomMinus"/></label>
 		                        			</div>
 							  				<div class="check_box">
-		                            			<label><input type="radio" onclick="filterBedroom(2)" name="bedrooms"/>2 <spring:message code="list.bedroomsMinus"/></label>
+		                            			<label><input type="radio" onclick="filterBedroom(2)" name="bedrooms" class="bedroomFilter"/>2 <spring:message code="list.bedroomsMinus"/></label>
 		                        			</div>
 							  				<div class="check_box">
-		                            			<label><input type="radio" onclick="filterBedroom(3)" name="bedrooms"/>3 <spring:message code="list.bedroomsMinus"/></label>
+		                            			<label><input type="radio" onclick="filterBedroom(3)" name="bedrooms" class="bedroomFilter"/>3 <spring:message code="list.bedroomsMinus"/></label>
 		                        			</div>
 		                        			<div class="check_box">
-		                            			<label><input type="radio" onclick="filterBedroom(4)" name="bedrooms"/>4 <spring:message code="list.bedroomsMinus"/></label>
+		                            			<label><input type="radio" onclick="filterBedroom(4)" name="bedrooms" class="bedroomFilter"/>4 <spring:message code="list.bedroomsMinus"/></label>
+		                        			</div>
+		                     				<div class="check_box">
+		                            			<label><input type="radio" onclick="filterBedroom('null')" name="bedrooms" class="bedroomFilter" id="bedroomNull"/><spring:message code="list.noLimit"/></label>
 		                        			</div>
 									</form>
 					  					</fieldset>

@@ -53,6 +53,41 @@ public class HelloWorldController {
 			mav.addObject("address", "all");
 		return mav;
 	}
+
+	
+	
+	@RequestMapping("list")
+	public ModelAndView helloList(@RequestParam("operation") String operation,@RequestParam("address") String address) {
+		List<Publication> publications;
+		final ModelAndView mav = new ModelAndView("list");
+		mav.addObject("operation", operation);
+		mav.addObject("address", address);
+		if(address.equals("all")) 
+			publications = ps.findAll(operation);
+		else
+			publications = ps.findSearch(operation,address);
+		mav.addObject("publications", publications);
+		return mav;
+	}
+	
+	
+	@RequestMapping(value = "list" ,method = RequestMethod.POST)
+	public ModelAndView listSearch(@Valid @ModelAttribute("homeSearchForm") final HomeSearchForm form, final BindingResult errors,
+			   						@RequestParam("oper") String operation) {
+		List<Publication> publications;
+		if (errors.hasErrors()) {
+			return helloList(operation,form.getSearch());
+		}
+		final ModelAndView mav = new ModelAndView("redirect:/hello/list");
+		mav.addObject("operation", operation);
+		mav.addObject("address", form.getSearch());
+		if(form.getSearch().equals("all")) 
+			publications = ps.findAll(operation);
+		else
+			publications = ps.findSearch(operation,form.getSearch());
+		mav.addObject("publications", publications);
+		return mav;
+	}
 	
 	
 	@RequestMapping("details")
@@ -72,26 +107,12 @@ public class HelloWorldController {
 	    
 	    return mav;
 	}
-	
-	
-	@RequestMapping("list")
-	public ModelAndView helloList(@RequestParam("operation") String operation,@RequestParam("address") String address) {
-		List<Publication> publications;
-		final ModelAndView mav = new ModelAndView("list");
-		mav.addObject("operation", operation);
-		mav.addObject("address", address);
-		if(address.equals("all")) 
-			publications = ps.findAll(operation);
-		else
-			publications = ps.findSearch(operation,address);
-		mav.addObject("publications", publications);
-		return mav;
-	}
 	@RequestMapping(value = "publish")
 	public ModelAndView helloPublish(@ModelAttribute("firstPublicationForm") final FirstPublicationForm form) {
 		final ModelAndView mav = new ModelAndView("publish");
 		return mav;
 	}
+
 	
 	@RequestMapping(value = "publish" ,method = RequestMethod.POST)
 	public ModelAndView publish(@Valid @ModelAttribute("firstPublicationForm") final FirstPublicationForm form, final BindingResult errors, @RequestParam("operation") String operation) {

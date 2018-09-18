@@ -12,6 +12,16 @@ function fav(heart){
 /* Remove search filters */
 function deleteFilter(filter){
 	filter.parentElement.style.display = "none";
+	var filterId = filter.parentElement.getAttribute("id")
+	if(filterId == "filterPrice"){
+		document.getElementById("price").setAttribute("price","null");
+		document.getElementById("priceNull").checked = true;
+	}
+	else{
+		document.getElementById("bedroom").setAttribute("bedroom","null");
+		document.getElementById("bedroomNull").checked = true;
+	}
+	filterCondition()
 }
 
 
@@ -48,11 +58,31 @@ function search(operation) {
 }
 
 function filterPrice(price){
+	var priceRadios = document.getElementsByClassName("priceFilter");
+	var priceFilter = document.getElementById("filterPrice")
+	var childDelete = priceFilter.firstChild
+	var i;
+	for(i = 0; i < priceRadios.length; i++){
+		if(priceRadios[i].checked == true)
+			priceFilter.innerText = priceRadios[i].parentElement.innerText
+	}
+	priceFilter.insertBefore(childDelete, priceFilter.firstChild);
+	priceFilter.style.display = "inline-block";
 	document.getElementById("price").setAttribute("price",price);
 	filterCondition()
 }
 
 function filterBedroom(bedroom){
+	var bedroomRadios = document.getElementsByClassName("bedroomFilter");
+	var bedroomFilter = document.getElementById("filterBedroom")
+	var childDelete = bedroomFilter.firstChild
+	var i;
+	for(i = 0; i < bedroomRadios.length; i++){
+		if(bedroomRadios[i].checked == true)
+			bedroomFilter.innerText = bedroomRadios[i].parentElement.innerText
+	}
+	bedroomFilter.insertBefore(childDelete, bedroomFilter.firstChild);
+	bedroomFilter.style.display = "inline-block";
 	document.getElementById("bedroom").setAttribute("bedroom",bedroom);
 	filterCondition()
 }
@@ -67,52 +97,68 @@ function filterCondition(){
 	for (i = 0; i < publications.length; i++) {
 		var bedroomInner = bedroomChilds[i].innerHTML
 			if( (parseInt(bedroomInner.charAt(8)) == parseInt(bedroom) || bedroom == "null") &&
-				(parseInt(priceChilds[i].innerHTML.substring(1)) <= parseInt(price)) || price == "null")
+				((parseInt(priceChilds[i].innerHTML.substring(1)) <= parseInt(price)) || price == "null"))
     			publications[i].style.display = "flex";
     		else
     			publications[i].style.display = "none";
 	}
 }
 
-function sortHighestPrice(){
-	sortList();
-}
-
-function sortList() {
+function sortHighestPrice() {
   var publications = document.querySelectorAll(".polaroid-property");
-  var publicationsSorted = document.querySelectorAll(".polaroid-property");
+  var sort = [];
   var father = document.getElementById("publications");
   var i, j, k;
-  var max = -1;
-  var maxElement;
+  var max = null;
+  while (father.firstChild) {
+   		father.removeChild(father.firstChild);
+  }
+  for(i = 0; i < publications.length; i++){
+  	max = null;
+  	for(j = 0; j < publications.length; j++){
+  		if(publications[j].getAttribute("visited") != "true"){
+	  		var price = parseInt(publications[j].getElementsByClassName("price-tag")[0].innerHTML.substring(1));
+	  		if(price > max || max == null){
+	  			max = price;
+	  			k = j;
+	  		}
+  		}
+  	}
+  	sort.push(k);
+  	publications[k].setAttribute("visited",true);
+  }
+  for(i = 0; i < sort.length; i++){
+  	publications[i].setAttribute("visited",false);
+  	father.appendChild(publications[sort[i]]);
+  }
+}
+
+function sortLowestPrice() {
+  var publications = document.querySelectorAll(".polaroid-property");
+  var sort = [];
+  var father = document.getElementById("publications");
+  var i, j, k;
+  var min = null;
 
   while (father.firstChild) {
    		father.removeChild(father.firstChild);
   }
-
   for(i = 0; i < publications.length; i++){
-  	max = -1;
+  	min = null;
   	for(j = 0; j < publications.length; j++){
-  		if(publications[j] != null){
+  		if(publications[j].getAttribute("visited") != "true"){
 	  		var price = parseInt(publications[j].getElementsByClassName("price-tag")[0].innerHTML.substring(1));
-	  		if(price > max){
-	  			max = price;
-	  			maxElement = publications[j];
+	  		if(min == null || price < min){
+	  			min = price;
 	  			k = j;
 	  		}
-  		}else{
-  			alert("was null")
   		}
   	}
-  	alert("max price index " + i + " is " + max);
-  	publicationsSorted[i] = publications[k];
-  	publications[k] = null;
-  	
+  	sort.push(k);
+  	publications[k].setAttribute("visited",true);
   }
-
-  for(i = 0; i < publicationsSorted.length; i++){
-  	father.appendChild(publicationsSorted[i]);
+  for(i = 0; i < sort.length; i++){
+  	publications[i].setAttribute("visited",false);
+  	father.appendChild(publications[sort[i]]);
   }
-
-  alert("a")
 }
