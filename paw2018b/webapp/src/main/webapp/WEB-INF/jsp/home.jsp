@@ -43,24 +43,26 @@
             </div>
             <div class="dropdown" id="sign_in">
                 <a class="navbar_item" href="#"><spring:message code="nav.signIn"/></a>
+                <c:url value="/hello/login" var="loginUrl" />
+				<form action="${loginUrl}" method="post" enctype="application/x-www-form-urlencoded">
                 <div class="dropdown-content">
                     <form class="form_login">
                         <div class="email">
                         	<spring:message code="nav.placeholderEmail" var="navEmail"/>
-                            <input oninvalid="this.setCustomValidity('Please, enter a valid email address')" class="form-control form-control-lg form-control-borderless" type="email" placeholder="${navEmail}" required>
+                            <input class="form-control form-control-lg form-control-borderless" type="email" placeholder="${navEmail}" name="j_username">
                         </div>
                         <div class="password">
                         	<spring:message code="nav.placeholderPassword" var="navPassword"/>
-                            <input oninvalid="this.setCustomValidity('Please, complete this input')" class="form-control form-control-lg form-control-borderless" type="password" placeholder="${navPassword}" required>
+                            <input class="form-control form-control-lg form-control-borderless" type="password" placeholder="${navPassword}" name="j_password">
                         </div>
                         <div class="msg_error">
                         	<label></label>
                         </div>
                         <div class="check_box">
-                            <label><input type="checkbox"/><spring:message code="nav.rememberMe"/></label>
+                            <label><input type="checkbox" name="j_rememberme" /><spring:message code="nav.rememberMe"/></label>
                         </div>
                         <div class="sign_b">
-                            <button class="btn" onclick="check_input();"><spring:message code="nav.buttonSignIn"/></button>
+                            <input type="submit"  value="<spring:message code="nav.buttonSignIn"/>">
                         </div>
                         <div class="line_separator"></div>
                         <div class="password_label">
@@ -68,6 +70,7 @@
                         </div>
                     </form>
                 </div>
+                </form>
             </div>
             <div>
                 <a class="navbar_item" id="sign_up" href="./signUp"><spring:message code="nav.signUp"/></a>

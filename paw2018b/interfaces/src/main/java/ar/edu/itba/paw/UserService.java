@@ -8,6 +8,8 @@ public interface UserService {
 			String password, String phoneNumber);
 	
 	public User findById(final long userid);
+
+	public User findByUsername(String username);
 	
 
 }

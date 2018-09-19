@@ -35,9 +35,9 @@
       <attribute value="jar:file:/home/b0ltii/.m2/repository/org/springframework/spring-context/4.2.5.RELEASE/spring-context-4.2.5.RELEASE-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE-sources.jar">
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-aop/4.3.18.RELEASE/spring-aop-4.3.18.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-aop/4.3.18.RELEASE/spring-aop-4.3.18.RELEASE-sources.jar">
     <attributes>
-      <attribute value="jar:file:/home/b0ltii/.m2/repository/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/home/b0ltii/.m2/repository/org/springframework/spring-aop/4.3.18.RELEASE/spring-aop-4.3.18.RELEASE-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" sourcepath="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0-sources.jar"/>
@@ -92,4 +92,44 @@
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/org/jboss/logging/jboss-logging/3.1.0.CR2/jboss-logging-3.1.0.CR2.jar" sourcepath="M2_REPO/org/jboss/logging/jboss-logging/3.1.0.CR2/jboss-logging-3.1.0.CR2-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/security/spring-security-core/4.2.7.RELEASE/spring-security-core-4.2.7.RELEASE.jar" sourcepath="M2_REPO/org/springframework/security/spring-security-core/4.2.7.RELEASE/spring-security-core-4.2.7.RELEASE-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/b0ltii/.m2/repository/org/springframework/security/spring-security-core/4.2.7.RELEASE/spring-security-core-4.2.7.RELEASE-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/security/spring-security-web/4.2.7.RELEASE/spring-security-web-4.2.7.RELEASE.jar" sourcepath="M2_REPO/org/springframework/security/spring-security-web/4.2.7.RELEASE/spring-security-web-4.2.7.RELEASE-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/b0ltii/.m2/repository/org/springframework/security/spring-security-web/4.2.7.RELEASE/spring-security-web-4.2.7.RELEASE-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/security/spring-security-config/4.2.7.RELEASE/spring-security-config-4.2.7.RELEASE.jar" sourcepath="M2_REPO/org/springframework/security/spring-security-config/4.2.7.RELEASE/spring-security-config-4.2.7.RELEASE-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/b0ltii/.m2/repository/org/springframework/security/spring-security-config/4.2.7.RELEASE/spring-security-config-4.2.7.RELEASE-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/b0ltii/.m2/repository/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/ch/qos/logback/logback-classic/1.1.2/logback-classic-1.1.2.jar" sourcepath="M2_REPO/ch/qos/logback/logback-classic/1.1.2/logback-classic-1.1.2-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/b0ltii/.m2/repository/ch/qos/logback/logback-classic/1.1.2/logback-classic-1.1.2-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/ch/qos/logback/logback-core/1.1.2/logback-core-1.1.2.jar" sourcepath="M2_REPO/ch/qos/logback/logback-core/1.1.2/logback-core-1.1.2-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/b0ltii/.m2/repository/ch/qos/logback/logback-core/1.1.2/logback-core-1.1.2-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/jcl-over-slf4j/1.7.5/jcl-over-slf4j-1.7.5.jar" sourcepath="M2_REPO/org/slf4j/jcl-over-slf4j/1.7.5/jcl-over-slf4j-1.7.5-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/b0ltii/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.5/jcl-over-slf4j-1.7.5-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/logback-extensions/logback-ext-spring/0.1.1/logback-ext-spring-0.1.1.jar" sourcepath="M2_REPO/org/logback-extensions/logback-ext-spring/0.1.1/logback-ext-spring-0.1.1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/b0ltii/.m2/repository/org/logback-extensions/logback-ext-spring/0.1.1/logback-ext-spring-0.1.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
 </classpath>

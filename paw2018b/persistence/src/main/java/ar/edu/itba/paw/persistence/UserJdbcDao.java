@@ -76,6 +76,13 @@ public class UserJdbcDao implements UserDao{
 		
 		return new User(firstName, lastName, email, password, phoneNumber, userId.longValue());
 	}
+
+	public User findByUsername(String email) {
+		final List<User> list = jdbcTemplate.query("SELECT * FROM users WHERE email = ?",ROW_MAPPER,email);
+		if(list.isEmpty())
+			return null;
+		return list.get(0);
+	}
 	
 
 }

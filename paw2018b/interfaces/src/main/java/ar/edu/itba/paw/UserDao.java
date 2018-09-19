@@ -13,5 +13,7 @@ public interface UserDao{
 	
 	public User create(String firstName, String lastName,String email,
 			String password, String phoneNumber);
+
+	public User findByUsername(String username);
 	
 }

@@ -33,6 +33,17 @@ public class HelloWorldController {
 	@Autowired
 	private PublicationServiceImp ps;
 	
+	@RequestMapping("/login")
+	public ModelAndView login() {
+		return new ModelAndView("redirect:/hello/home");
+	}
+	
+	@RequestMapping("/403")
+	public ModelAndView forbidden() {
+		return new ModelAndView("403");
+	}
+	
+	
 	@RequestMapping("home")
 	public ModelAndView helloHome(@ModelAttribute("homeSearchForm") final HomeSearchForm form) {
 		final ModelAndView mav = new ModelAndView("home");
