@@ -57,7 +57,7 @@ public class HelloWorldController {
 	
 	
 	@RequestMapping("list")
-	public ModelAndView helloList(@RequestParam("operation") String operation,@RequestParam("address") String address) {
+	public ModelAndView helloList(@ModelAttribute("homeSearchForm") final HomeSearchForm form, @RequestParam("operation") String operation,@RequestParam("address") String address) {
 		List<Publication> publications;
 		final ModelAndView mav = new ModelAndView("list");
 		mav.addObject("operation", operation);
@@ -76,18 +76,22 @@ public class HelloWorldController {
 			   						@RequestParam("oper") String operation) {
 		List<Publication> publications;
 		if (errors.hasErrors()) {
-			return helloList(operation,form.getSearch());
+			return helloList(form, operation,form.getSearch());
 		}
 		final ModelAndView mav = new ModelAndView("redirect:/hello/list");
 		mav.addObject("operation", operation);
-		mav.addObject("address", form.getSearch());
-		if(form.getSearch().equals("all")) 
+		if(form.getSearch().equals("")) {
 			publications = ps.findAll(operation);
-		else
+			mav.addObject("address", "all");
+		}
+		else {
 			publications = ps.findSearch(operation,form.getSearch());
+			mav.addObject("address", form.getSearch());
+		}
 		mav.addObject("publications", publications);
 		return mav;
 	}
+	
 	
 	
 	@RequestMapping("details")

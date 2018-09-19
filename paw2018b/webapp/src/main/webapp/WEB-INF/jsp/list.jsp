@@ -86,9 +86,10 @@
 		        <img src="<c:url value="/resources/pics/search_icon.png" />" alt="Search" id="search-img"></img>
 		      </button>
 		   </div>
-		   </form:form>
+		   
 		   <input value="FSale" type="radio" name="oper" checked><spring:message code="home.buy"/>
            <input value="FRent" type="radio" name="oper"><spring:message code="home.rent"/>
+           </form:form>
 		</div>
 		
 		<div id="results-container">
