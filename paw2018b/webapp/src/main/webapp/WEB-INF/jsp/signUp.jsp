@@ -63,6 +63,9 @@
                 </div>
             </div>
             <div>
+                <a class="navbar_item" id="publish" href="./publish"><spring:message code="nav.publish"/></a>
+            </div>
+            <div>
                 <a class="navbar_item" id="sign_up" href="./signUp"><spring:message code="nav.signUp"/></a>
             </div>
         </nav>

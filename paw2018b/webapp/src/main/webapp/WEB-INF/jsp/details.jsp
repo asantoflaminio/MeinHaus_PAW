@@ -71,6 +71,9 @@
                 </div>
             </div>
             <div>
+                <a class="navbar_item" id="publish" href="./publish"><spring:message code="nav.publish"/></a>
+            </div>
+            <div>
                 <a class="navbar_item" id="sign_up" href="./signUp"><spring:message code="nav.signUp"/></a>
             </div>
         </nav>
@@ -114,7 +117,7 @@
 		     <p class="agency_text"><spring:message code="details.contact"/></p>
 		     <p class="agency_text"><c:out value="${phoneNumber}"/></p>
 		     <c:url value="/hello/details" var="postPath"/>
-			<form:form modelAttribute="MessageForm" action="${postPath}" method="post">
+			<form:form modelAttribute="MessageForm" action="${postPath}" method="post" class="ocultar">
 		     	<div class="fillers">
 				     <form:label path="name"><spring:message code="details.name"/></form:label>
 				     <spring:message code="details.placeholderName" var="detailsName"/>

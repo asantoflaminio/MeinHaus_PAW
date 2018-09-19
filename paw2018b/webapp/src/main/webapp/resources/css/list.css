@@ -228,7 +228,7 @@ h3 {
 
 .expandible {
 	padding: 10px 10px 10px 10px;
-	height: 120px;
+	height: auto;
 	color: #777;
 	width: 100%;
 	display:none;
@@ -295,6 +295,7 @@ div.polaroid-property {
 	right: 8px;
 	height: 30px;
 	width: 30px;
+	display: none;
 }
 
 .next-image {
@@ -303,6 +304,7 @@ div.polaroid-property {
 	top: 95px;
 	right: 5px;
 	position: absolute;
+	display: none;
 }
 
 .polaroid-property-img{
@@ -320,6 +322,7 @@ div.polaroid-property {
 .property-title {
 	text-align: left !important;
 	color: #999;
+	margin-left: 10px;
 	font-size: 20px !important;
 	display: inline-block;
 }
@@ -352,7 +355,8 @@ div.polaroid-property {
 	font-family: 'Rubik', sans-serif !important;
 	font-size: 16px !important;
 	color: #888 !important;
-	margin-left: 30px;
+	margin-left: 10px;
+	margin-top: 3px;
 }
 
 .column-1 {
@@ -375,7 +379,7 @@ h4 {
 
 .more-info {
 	height: 20px;
-	margin-top: -10px;	
+	margin-top: -20px;	
 }
 
 .more-info-title {
@@ -394,6 +398,10 @@ section {
     section {
         margin-left: 180px;
     }
+}
+
+.ocultar {
+	display: none;
 }
 
 /* End of style */

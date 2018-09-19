@@ -61,6 +61,9 @@
                 </div>
             </div>
             <div>
+                <a class="navbar_item" id="publish" href="./publish"><spring:message code="nav.publish"/></a>
+            </div>
+            <div>
                 <a class="navbar_item" id="sign_up" href="./signUp"><spring:message code="nav.signUp"/></a>
             </div>
         </nav>
@@ -101,8 +104,8 @@
 				<select id="order-select">
 					<option value="Lowest price" onclick="sortLowestPrice()"><spring:message code="list.lowest"/></option>
 					<option value="Highest price" onclick="sortHighestPrice()"><spring:message code="list.highest"/></option>
-					<option value="Newest"><spring:message code="list.newest"/></option>
-					<option value="Oldest"><spring:message code="list.oldest"/></option>
+					<option value="Newest" class="ocultar"><spring:message code="list.newest"/></option>
+					<option value="Oldest" class="ocultar"><spring:message code="list.oldest"/></option>
 				</select>				
 				<h3 id="order-title"><spring:message code="list.orderTitle"/></h3>
 			</div>
@@ -204,8 +207,9 @@
 					</div>
 					<div class="property-container">
 						<div class="property-title-container">
-							<h3 class="property-title"><c:out value = "${row.title}"/><h3>
-						</div>
+							<h3 class="property-title"><c:out value = "${row.title}"/></h3>
+							<h4 class="address"><c:out value = "${row.address}"/></h4>
+						</div>					
 						<div class="property-characteristics">
 							<div class="column-1">
 								<h4 class="bedroom"><strong><c:out value = "${row.bedrooms}"/></strong> <spring:message code="list.bedroomMinus"/></h4>
@@ -217,7 +221,6 @@
 								<h4><c:out value = "${row.operation}"/></h4>
 							</div>				
 						</div>
-						<h4 class="address"><c:out value = "${row.address}"/></h4>
 						<div class="more-info">
 							<a class="more-info-title" href="details?publicationid=${row.publicationid}"><spring:message code="list.moreInfo"/> ></a>
 						</div>	

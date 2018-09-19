@@ -26,7 +26,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
 
-    <body background="<c:url value="/resources/pics/background5.png" />">
+    <body>
         <nav>
         	<a href="./home">
            		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
@@ -67,6 +67,9 @@
                         </div>
                     </form>
                 </div>
+            </div>
+            <div>
+                <a class="navbar_item" id="publish" href="./publish"><spring:message code="nav.publish"/></a>
             </div>
             <div>
                 <a class="navbar_item" id="sign_up" href="./signUp"><spring:message code="nav.signUp"/></a>

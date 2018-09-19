@@ -13,6 +13,7 @@ body {
     font-family: 'Rubik', monospace !important;
     margin-bottom:100px;
     background-size:100% auto;
+    background-color: #eee !important;
 }
 
 h1 {

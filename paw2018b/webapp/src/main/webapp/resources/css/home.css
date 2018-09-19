@@ -156,6 +156,7 @@ div.card-body.row.no-gutters.align-items-center {
 	margin-top: 10px;
 	height: 470px;
 	background-color: #eee;
+	display: none;
 }
 
 .newest_homes h3 {
@@ -262,6 +263,7 @@ div.card-body.row.no-gutters.align-items-center {
 	height: 180px;
 	background-color: #fff;
 	display: flex;
+	display: none;
 }
 
 .contact-info-column {

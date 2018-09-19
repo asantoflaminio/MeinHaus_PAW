@@ -113,6 +113,11 @@ nav {
 /* Closing style */
 
 /* Sign in style */
+
+#sign_in {
+	display: none;
+}
+
 .form_login {
     padding: 20px;
     display: block;
