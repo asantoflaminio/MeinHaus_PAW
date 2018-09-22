@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -77,16 +79,16 @@
 		
 		<div class="polaroid_agency">
 		  <div class="container3">
-			<h3 id="titl">FINAL STEP</h3>
-		     <form action="/action_page.php">
+			<h3 id="titl"><spring:message code="publish4.finalstep"/></h3>
+		     <form:form modelAttribute="fourthPublicationForm" action="${postPath}" method="post">
 		     	<div class="fillers">
-				     <p>PHOTOS</p>		    		 
+				     <p><spring:message code="publish4.photos"/></p>		    		 
 		    		 <img src="<c:url value="/resources/pics/upload.png" />" alt="Upload" id="upload_icon">
-		    		 <a class="button" href="./publish4">PUBLISH</a>
 	    		 </div>
 	    		 
-	    		 
-	    	</form>
+	    		<spring:message code="publish4.submitPublish" var="submitValue"/>
+		    	<input class="signup-submit" type="submit" value=${submitValue}>
+	    	</form:form>
 		  </div>
 		</div>
          <footer>

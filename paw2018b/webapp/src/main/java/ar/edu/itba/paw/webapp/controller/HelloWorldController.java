@@ -18,6 +18,7 @@ import ar.edu.itba.paw.models.User;
 import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
 import ar.edu.itba.webapp.form.FirstPublicationForm;
+import ar.edu.itba.webapp.form.FourthPublicationForm;
 import ar.edu.itba.webapp.form.HomeSearchForm;
 import ar.edu.itba.webapp.form.MessageForm;
 import ar.edu.itba.webapp.form.SecondPublicationForm;
@@ -180,17 +181,41 @@ public class HelloWorldController {
 		if (errors.hasErrors()) {
 			return helloPublish3(form,operation,type);
 		}
-		System.out.println("operation: "+ operation);
-		System.out.println("type: "+ type);
-		ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), form.getDescription(), 
-				type, form.getBedrooms(), form.getBathrooms(), form.getFloorSize(), form.getParking());
-		return new ModelAndView("redirect:/hello/home");
+		final ModelAndView mav = new ModelAndView("redirect:/hello/publish4");
+		mav.addObject("title", form.getTitle());
+		mav.addObject("address", form.getAddress());
+		mav.addObject("price", form.getPrice());
+		mav.addObject("operation",operation);
+		mav.addObject("type",type);
+		mav.addObject("description",form.getDescription());
+		mav.addObject("bedrooms",form.getBedrooms());
+		mav.addObject("bathrooms",form.getBathrooms());
+		mav.addObject("floorSize",form.getFloorSize());
+		mav.addObject("parking",form.getParking());
+		//System.out.println("operation: "+ operation);
+		//System.out.println("type: "+ type);
+		//ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), form.getDescription(), 
+		//		type, form.getBedrooms(), form.getBathrooms(), form.getFloorSize(), form.getParking());
+		return mav;
 	}
 	
 	@RequestMapping("publish4")
 	public ModelAndView helloPublish4() {
 		final ModelAndView mav = new ModelAndView("publish4");
 		return mav;
+	}
+	
+	@RequestMapping(value = "publish4" ,method = RequestMethod.POST)
+	public ModelAndView publish4(@Valid @ModelAttribute("fourthPublicationForm") final FourthPublicationForm form, final BindingResult errors,
+								 @RequestParam("type") String type, @RequestParam("operation") String operation) {
+		if (errors.hasErrors()) {
+			//return helloPublish3(form,operation,type);
+		}
+		System.out.println("operation: "+ operation);
+		System.out.println("type: "+ type);
+		ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), form.getDescription(), 
+				type, form.getBedrooms(), form.getBathrooms(), form.getFloorSize(), form.getParking());
+		return new ModelAndView("redirect:/hello/home");
 	}
 	
 	@RequestMapping("signUp")
