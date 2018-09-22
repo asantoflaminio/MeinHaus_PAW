@@ -51,20 +51,6 @@ public class PublicationJdbcDao implements PublicationDao{
 				.usingGeneratedKeyColumns("publicationid")
 				.usingColumns("title","address","operation","price","description","propertyType","bedrooms",
 							  "bathrooms","flooSize","parking");
-
-		jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS publications ("
-			+ "publicationid SERIAL PRIMARY KEY,"
-			+ "title varchar(30),"
-			+ "address varchar(30) UNIQUE NOT NULL,"
-			+ "operation varchar(30),"
-			+ "price varchar(30),"
-			+ "description varchar(60),"
-			+ "propertyType varchar(30),"
-			+ "bedrooms varchar(3),"
-			+ "bathrooms varchar(3),"
-			+ "flooSize varchar(3),"
-			+ "parking varchar(3)"
-			+ ")");
 	}
 
 	public Publication create(String title, String address, String operation, String price,
