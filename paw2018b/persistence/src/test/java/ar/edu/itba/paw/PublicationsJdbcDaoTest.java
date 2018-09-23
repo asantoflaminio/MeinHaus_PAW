@@ -69,7 +69,5 @@ public class PublicationsJdbcDaoTest {
 		Assert.assertEquals(PARKING, pb.getParking());
 		Assert.assertEquals(1, JdbcTestUtils.countRowsInTable(jdbcTemplate, "publications"));
 	}
-	
-	
-	
+		
 }
