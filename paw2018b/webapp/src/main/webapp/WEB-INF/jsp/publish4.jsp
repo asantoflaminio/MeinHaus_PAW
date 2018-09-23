@@ -80,10 +80,21 @@
 		<div class="polaroid_agency">
 		  <div class="container3">
 			<h3 id="titl"><spring:message code="publish4.finalstep"/></h3>
-		     <form:form modelAttribute="fourthPublicationForm" action="${postPath}" method="post">
+		     <form:form modelAttribute="fourthPublicationForm" action="${postPath}" method="post" enctype="multipart/form-data">
 		     	<div class="fillers">
-				     <p><spring:message code="publish4.photos"/></p>		    		 
-		    		 <img src="<c:url value="/resources/pics/upload.png" />" alt="Upload" id="upload_icon">
+
+		        <p><spring:message code="publish4.photos"/></p>	
+		            <table border="0">
+		                <tr>
+		                    <td><input type="file" name="fileUpload" size="50" /></td>
+		                </tr>
+		                <tr>
+		                    <td><input type="file" name="fileUpload" size="50" /></td>
+		                </tr>
+		            </table>
+
+
+				     	    		 
 	    		 </div>
 	    		 
 	    		<spring:message code="publish4.submitPublish" var="submitValue"/>

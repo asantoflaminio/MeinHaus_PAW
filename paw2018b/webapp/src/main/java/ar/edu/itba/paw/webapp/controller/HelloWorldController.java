@@ -6,14 +6,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import ar.edu.itba.paw.FileUploadDao;
 import ar.edu.itba.paw.models.Publication;
+import ar.edu.itba.paw.models.UploadFile;
 import ar.edu.itba.paw.models.User;
 import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
@@ -27,12 +32,16 @@ import ar.edu.itba.webapp.form.signUpForm;
 
 @Controller
 @RequestMapping("/hello/")
+//@ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
 public class HelloWorldController {
 	@Autowired
 	private UserServiceImpl us;
 	
 	@Autowired
 	private PublicationServiceImp ps;
+	
+	@Autowired
+    private FileUploadDao fileUploadDao;
 	
 	@RequestMapping("/login")
 	public ModelAndView login() {
@@ -207,7 +216,7 @@ public class HelloWorldController {
 	
 	@RequestMapping(value = "publish4" ,method = RequestMethod.POST)
 	public ModelAndView publish4(@Valid @ModelAttribute("fourthPublicationForm") final FourthPublicationForm form, final BindingResult errors,
-								 @RequestParam("type") String type, @RequestParam("operation") String operation) {
+								 @RequestParam("type") String type, @RequestParam("operation") String operation, @RequestParam CommonsMultipartFile[] fileUpload) {
 		if (errors.hasErrors()) {
 			//return helloPublish3(form,operation,type);
 		}
@@ -215,6 +224,18 @@ public class HelloWorldController {
 		System.out.println("type: "+ type);
 		ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), form.getDescription(), 
 				type, form.getBedrooms(), form.getBathrooms(), form.getFloorSize(), form.getParking());
+		
+		if (fileUpload != null && fileUpload.length > 0) {
+            for (CommonsMultipartFile aFile : fileUpload){
+                  
+                System.out.println("Saving file: " + aFile.getOriginalFilename());
+                 
+                UploadFile uploadFile = new UploadFile();
+                uploadFile.setAddress(form.getAddress());
+                uploadFile.setData(aFile.getBytes());
+                fileUploadDao.save(uploadFile);               
+            }
+        }
 		return new ModelAndView("redirect:/hello/home");
 	}
 	

@@ -1,5 +1,6 @@
 package ar.edu.itba.paw.models;
 
+
 public class User {
 
 	private long userId;

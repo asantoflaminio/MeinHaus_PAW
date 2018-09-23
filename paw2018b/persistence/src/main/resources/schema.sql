@@ -21,4 +21,10 @@ CREATE TABLE IF NOT EXISTS publications (
 	parking 		varchar(3) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS images (
+   upload_id integer NOT NULL,
+   address varchar(30) NOT NULL,
+   file_data bytea,
+   PRIMARY KEY (upload_id)
+);
 

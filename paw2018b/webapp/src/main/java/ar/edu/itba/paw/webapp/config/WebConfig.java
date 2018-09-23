@@ -4,6 +4,8 @@ import java.nio.charset.StandardCharsets;
 
 import javax.sql.DataSource;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +18,7 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.DatabasePopulator;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -23,8 +26,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+import ar.edu.itba.paw.FileUploadDao;
+import ar.edu.itba.paw.persistence.FileUploadDAOImpl;
+
 @EnableWebMvc
-@ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence" })
+@ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
 	@Value("classpath:schema.sql")
@@ -36,6 +42,20 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		dsi.setDataSource(ds);
 		dsi.setDatabasePopulator(databasePopulator());
 		return dsi;
+	}
+	
+	@Autowired
+	@Bean(name = "fileUploadDao")
+	public FileUploadDao getUserDao(SessionFactory sessionFactory) {
+	    return new FileUploadDAOImpl(sessionFactory);
+	}
+	
+	@Bean(name = "multipartResolver")
+	public CommonsMultipartResolver getCommonsMultipartResolver() {
+	    CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+	    multipartResolver.setMaxUploadSize(20971520);   // 20MB
+	    multipartResolver.setMaxInMemorySize(1048576);  // 1MB
+	    return multipartResolver;
 	}
 	
 	private DatabasePopulator databasePopulator() {
@@ -67,8 +87,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		final SimpleDriverDataSource ds = new SimpleDriverDataSource();
 		ds.setDriverClass(org.postgresql.Driver.class);
 		ds.setUrl("jdbc:postgresql://localhost/postgres");
-		ds.setUsername("rocio");
-		ds.setPassword("Rd12345");
+		ds.setUsername("postgres");
+		ds.setPassword("123456");
 		return ds;
 	}
 	
