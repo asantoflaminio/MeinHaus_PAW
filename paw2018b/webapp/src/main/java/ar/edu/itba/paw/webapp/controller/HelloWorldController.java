@@ -2,7 +2,6 @@ package ar.edu.itba.paw.webapp.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.itba.paw.FileUploadDao;
 import ar.edu.itba.paw.models.Publication;
 import ar.edu.itba.paw.models.UploadFile;
-import ar.edu.itba.paw.models.User;
+import ar.edu.itba.paw.services.FileUploadImpl;
 import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
 import ar.edu.itba.webapp.form.FirstPublicationForm;
@@ -32,8 +30,9 @@ import ar.edu.itba.webapp.form.signUpForm;
 
 @Controller
 @RequestMapping("/hello/")
-//@ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
+@ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
 public class HelloWorldController {
+	
 	@Autowired
 	private UserServiceImpl us;
 	
@@ -41,7 +40,7 @@ public class HelloWorldController {
 	private PublicationServiceImp ps;
 	
 	@Autowired
-    private FileUploadDao fileUploadDao;
+    private FileUploadImpl fu;
 	
 	@RequestMapping("/login")
 	public ModelAndView login() {
@@ -233,7 +232,7 @@ public class HelloWorldController {
                 UploadFile uploadFile = new UploadFile();
                 uploadFile.setAddress(form.getAddress());
                 uploadFile.setData(aFile.getBytes());
-                fileUploadDao.save(uploadFile);               
+                fu.save(uploadFile);               
             }
         }
 		return new ModelAndView("redirect:/hello/home");

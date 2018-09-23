@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import ar.edu.itba.paw.models.Publication;
-import ar.edu.itba.paw.models.User;
 
 @Service
 public interface PublicationDao {

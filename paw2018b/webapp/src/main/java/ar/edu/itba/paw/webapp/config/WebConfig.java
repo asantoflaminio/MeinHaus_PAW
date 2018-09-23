@@ -13,7 +13,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.io.Resource;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.DatabasePopulator;
@@ -27,7 +26,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import ar.edu.itba.paw.FileUploadDao;
-import ar.edu.itba.paw.persistence.FileUploadDAOImpl;
+import ar.edu.itba.paw.services.FileUploadImpl;
 
 @EnableWebMvc
 @ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
@@ -47,7 +46,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	@Autowired
 	@Bean(name = "fileUploadDao")
 	public FileUploadDao getUserDao(SessionFactory sessionFactory) {
-	    return new FileUploadDAOImpl(sessionFactory);
+	    return new FileUploadImpl(sessionFactory);
 	}
 	
 	@Bean(name = "multipartResolver")
