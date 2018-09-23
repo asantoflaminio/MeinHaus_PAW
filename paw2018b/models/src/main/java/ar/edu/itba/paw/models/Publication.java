@@ -2,6 +2,7 @@ package ar.edu.itba.paw.models;
 
 public class Publication {
 	
+	private long publicationid;
 	private String title;
 	private String address;
 	private String operation;
@@ -12,13 +13,12 @@ public class Publication {
 	private String bathrooms;
 	private String floorSize;
 	private String parking;
-	private long publicationid;
 	
-	
-	
-	public Publication(String title, String address, String operation, String price,
+	public Publication(long publicationid, String title, String address, String operation, String price,
 					   String description, String propertyType, String bedrooms,
-					   String bathrooms, String floorSize, String parking, long publicationid) {
+					   String bathrooms, String floorSize, String parking) {
+		
+		this.publicationid = publicationid;
 		this.title = title;
 		this.address = address;
 		this.operation = operation;
@@ -29,31 +29,44 @@ public class Publication {
 		this.bathrooms = bathrooms;
 		this.floorSize = floorSize;
 		this.parking = parking;
+	}
+	
+	public long getPublicationid() {
+		return publicationid;
+	}
+
+	public void setPublicationid(long publicationid) {
 		this.publicationid = publicationid;
-		
 	}
 	
 	public String getTitle() {
 		return title;
 	}
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
 	public String getAddress() {
 		return address;
 	}
+	
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
 	public String getOperation() {
 		return operation;
 	}
+	
 	public void setOperation(String operation) {
 		this.operation = operation;
 	}
+	
 	public String getPrice() {
 		return price;
 	}
+	
 	public void setPrice(String price) {
 		this.price = price;
 	}
@@ -104,14 +117,6 @@ public class Publication {
 
 	public void setParking(String parking) {
 		this.parking = parking;
-	}
-
-	public long getPublicationid() {
-		return publicationid;
-	}
-
-	public void setPublicationid(long publicationid) {
-		this.publicationid = publicationid;
 	}
 
 }

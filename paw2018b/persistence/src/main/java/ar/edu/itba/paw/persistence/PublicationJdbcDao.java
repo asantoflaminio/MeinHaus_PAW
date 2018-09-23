@@ -16,7 +16,6 @@ import org.springframework.stereotype.Repository;
 
 import ar.edu.itba.paw.PublicationDao;
 import ar.edu.itba.paw.models.Publication;
-import ar.edu.itba.paw.models.User;
 
 @Repository
 public class PublicationJdbcDao implements PublicationDao{
@@ -27,7 +26,8 @@ public class PublicationJdbcDao implements PublicationDao{
 	private final static RowMapper<Publication> ROW_MAPPER = new RowMapper<Publication>(){
 
 		public Publication mapRow(ResultSet rs, int rowNum) throws SQLException {
-			return new Publication(rs.getString("title"), 
+			return new Publication(rs.getInt("publicationid"),
+							rs.getString("title"), 
 							rs.getString("address"),
 							rs.getString("operation"),
 							rs.getString("price"),
@@ -35,9 +35,8 @@ public class PublicationJdbcDao implements PublicationDao{
 							rs.getString("propertyType"),
 							rs.getString("bedrooms"),
 							rs.getString("bathrooms"),
-							rs.getString("flooSize"),
-							rs.getString("parking"),
-							rs.getInt("publicationid"));
+							rs.getString("floorSize"),
+							rs.getString("parking"));
 		}
 		
 	};
@@ -50,7 +49,7 @@ public class PublicationJdbcDao implements PublicationDao{
 				.withTableName("publications")
 				.usingGeneratedKeyColumns("publicationid")
 				.usingColumns("title","address","operation","price","description","propertyType","bedrooms",
-							  "bathrooms","flooSize","parking");
+							  "bathrooms","floorSize","parking");
 	}
 
 	public Publication create(String title, String address, String operation, String price,
@@ -66,12 +65,12 @@ public class PublicationJdbcDao implements PublicationDao{
 		args.put("propertyType", propertyType);
 		args.put("bedrooms", bedrooms);
 		args.put("bathrooms", bathrooms);
-		args.put("flooSize", floorSize);
+		args.put("floorSize", floorSize);
 		args.put("parking", parking);
 		final Number publicationid = jdbcInsert.executeAndReturnKey(args);
-		return new Publication(title, address, operation, price,
+		return new Publication(publicationid.longValue(), title, address, operation, price,
 				   description, propertyType, bedrooms,
-				   bathrooms, floorSize, parking, publicationid.longValue());
+				   bathrooms, floorSize, parking);
 	}
 
 	public Publication findById(long id) {

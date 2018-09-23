@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS users (
-	userid 		INTEGER IDENTITY PRIMARY KEY,
-	firstName 	varchar(30),
-	lastName 	varchar(30),
-	email 		varchar(30) UNIQUE NOT NULL,
-	password	varchar(30),
-	phoneNumber	varchar(30)
+	userid 			INTEGER IDENTITY PRIMARY KEY,
+	firstName 		varchar(30) NOT NULL,
+	lastName 		varchar(30) NOT NULL,
+	email 			varchar(30) UNIQUE NOT NULL,
+	password		varchar(30) NOT NULL,
+	phoneNumber		varchar(30) NOT NULL
 );
 
 insert into users(userid, firstName, lastName, email, password, phoneNumber)

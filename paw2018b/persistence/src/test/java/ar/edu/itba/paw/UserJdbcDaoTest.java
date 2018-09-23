@@ -58,4 +58,7 @@ public class UserJdbcDaoTest {
 		Assert.assertEquals(PHONENUMBER, user.getPhoneNumber());
 		Assert.assertEquals(1, JdbcTestUtils.countRowsInTable(jdbcTemplate, "users"));
 	}
+	
+	
+	
 }
