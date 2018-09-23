@@ -26,12 +26,13 @@ public class UserJdbcDao implements UserDao{
 	private final static RowMapper<User> ROW_MAPPER = new RowMapper<User>(){
 		
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-			return new User(rs.getString("firstName"), 
+			return new User(rs.getInt("userid"),
+							rs.getString("firstName"), 
 							rs.getString("lastName"),
 							rs.getString("email"),
 							rs.getString("password"),
-							rs.getString("phoneNUmber"),
-							rs.getInt("userid"));
+							rs.getString("phoneNUmber")
+							);
 		}
 		
 	};
@@ -65,7 +66,7 @@ public class UserJdbcDao implements UserDao{
 
 		final Number userId = jdbcInsert.executeAndReturnKey(args);
 		
-		return new User(firstName, lastName, email, password, phoneNumber, userId.longValue());
+		return new User(userId.longValue(), firstName, lastName, email, password, phoneNumber);
 	}
 
 	public User findByUsername(String email) {
