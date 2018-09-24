@@ -24,6 +24,7 @@
 		</param-value>
 	</context-param>
 
+
 	<!-- Bootstrap the root application context as usual using ContextLoaderListener -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
