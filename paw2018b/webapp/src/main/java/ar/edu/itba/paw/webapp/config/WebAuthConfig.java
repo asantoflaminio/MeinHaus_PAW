@@ -23,26 +23,22 @@ public class WebAuthConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(final HttpSecurity http) throws Exception {
 	http.userDetailsService(userDetailsService)
 	.sessionManagement()
-	.invalidSessionUrl("/hello/login")
 	.and().authorizeRequests()
-	.antMatchers("/hello/login").anonymous()
-	.antMatchers("/admin/**").hasRole("ADMIN")
+	.antMatchers("/hello/home").permitAll()
+	.antMatchers("/hello/signUp").permitAll()
 	.antMatchers("/hello/**").authenticated()
 	.and().formLogin()
 	.usernameParameter("j_username")
 	.passwordParameter("j_password")
-	.defaultSuccessUrl("/hello/publish", false)
 	.loginPage("/hello/home")
+	.defaultSuccessUrl("/hello/home", false)
 	.and().rememberMe()
 	.rememberMeParameter("j_rememberme")
 	.userDetailsService(userDetailsService)
 	.key("mysupersecretketthatnobodyknowsabout") //esto hay q modificar porqeu sino chau tp
 	.tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30))
-	.and().logout()
-	.logoutUrl("/logout")
-	.logoutSuccessUrl("/login")
 	.and().exceptionHandling()
-	.accessDeniedPage("/403")
+	.accessDeniedPage("/hello/403")
 	.and().csrf().disable();
 	}
 	
