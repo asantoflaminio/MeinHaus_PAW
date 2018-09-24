@@ -9,6 +9,18 @@ body {
    	background-color: #eee !important;
 }
 
+#Data  {
+	display : none;
+}
+
+#Publications {
+	display : none;
+}
+
+#Favourites {
+	display : none;
+}
+
 input[type=text], select {
     width: 95%;
     height: 30px;
@@ -138,7 +150,8 @@ div.polaroid {
   	height: auto;
   	background-color: white;
   	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  	margin-bottom: 50px;
+  	margin-bottom: 30px;
+  	padding-bottom:50px;
 }
 
 .form{
@@ -158,8 +171,7 @@ div.polaroid {
     padding: 5px !important;
     font-size: 15px !important;
     margin-right: 10px !important;
-    margin-top: 10px !important;
-    margin-bottom: 20px !important;
+    margin-top: -1px !important;
 }
 
 .editdata-input {
@@ -169,16 +181,4 @@ div.polaroid {
 
 .error{
   color: red;
-}
-
-#Data  {
-	display : none;
-}
-
-#Publications {
-	display : none;
-}
-
-#Favourites {
-	display : none;
 }

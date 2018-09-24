@@ -24,6 +24,7 @@ import ar.edu.itba.webapp.form.FirstPublicationForm;
 import ar.edu.itba.webapp.form.FourthPublicationForm;
 import ar.edu.itba.webapp.form.HomeSearchForm;
 import ar.edu.itba.webapp.form.MessageForm;
+import ar.edu.itba.webapp.form.NewPasswordForm;
 import ar.edu.itba.webapp.form.ProfileForm;
 import ar.edu.itba.webapp.form.SecondPublicationForm;
 import ar.edu.itba.webapp.form.ThirdPublicationForm;
@@ -109,14 +110,29 @@ public class HelloWorldController {
 		return mav;
 	}
 	
+	/*@RequestMapping("profile")
+	public ModelAndView helloProfile(@ModelAttribute("NewPasswordForm") final NewPasswordForm form) {
+		final ModelAndView mav = new ModelAndView("profile");
+		return mav;
+	}*/
+	
 	@RequestMapping (value = "profile", method = RequestMethod.POST )
 	public ModelAndView profile(@Valid @ModelAttribute("ProfileForm") final ProfileForm form, final BindingResult errors) {
 		if (errors.hasErrors()) {
 			return helloProfile(form);
 		}
 		
-		return new ModelAndView("redirect:/hello/home"); //!!!!!!!!!! no
+		return new ModelAndView("redirect:/hello/profile"); //!!!!!!!!!! no
 	}
+	
+	/*@RequestMapping (value = "profile", method = RequestMethod.POST )
+	public ModelAndView newpassword(@Valid @ModelAttribute("NewPasswordForm") final NewPasswordForm form, final BindingResult errors) {
+		if (errors.hasErrors()) {
+			return helloProfile(form);
+		}
+		
+		return new ModelAndView("redirect:/hello/profile"); //!!!!!!!!!! no
+	}*/
 	
 	
 	@RequestMapping("list")

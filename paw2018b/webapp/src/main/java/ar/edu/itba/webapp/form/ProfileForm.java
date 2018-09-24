@@ -20,14 +20,21 @@ public class ProfileForm {
 	private String email;
 	
 	@Size(min = 6, max = 20)
-	private String password;
-	
-	@Size(min = 6, max = 20)
-	private String newpassword;
-	
-	@Size(min = 6, max = 20)
 	@Pattern(regexp = "[0-9]+")
 	private String phoneNumber;
+	
+	/*SACAR ESTO*/
+	@Size(min = 6, max = 20)
+	private String password;
+	
+	/*SACAR ESTO*/
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}/*SACAR ESTO*/
 
 	public String getFirstName() {
 		return firstName;
@@ -51,14 +58,6 @@ public class ProfileForm {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getPhoneNumber() {
