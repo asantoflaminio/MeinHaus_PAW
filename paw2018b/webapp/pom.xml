@@ -79,6 +79,11 @@
 	      <groupId>org.hibernate</groupId>
 	      <artifactId>hibernate-core</artifactId>
 	    </dependency>
+	    <dependency>
+    		<groupId>javax.servlet.jsp</groupId>
+    		<artifactId>javax.servlet.jsp-api</artifactId>
+    		<version>2.2.1</version>
+		</dependency>
 	</dependencies>
 	
 

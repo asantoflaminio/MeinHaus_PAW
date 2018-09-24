@@ -15,8 +15,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @Configuration
 @EnableWebSecurity
 @ComponentScan("ar.edu.itba.paw.webapp.auth")
-@Order(1)
-public class WebAuthConfig extends WebSecurityConfigurerAdapter {
+@Order(2)
+public class WebAuthConfigSignUp extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	private UserDetailsService userDetailsService;
@@ -26,15 +26,15 @@ public class WebAuthConfig extends WebSecurityConfigurerAdapter {
 	http.userDetailsService(userDetailsService)
 	.sessionManagement()
 	.and().authorizeRequests()
-	.antMatchers("/hello/home").permitAll()
-	.antMatchers("/hello/**").authenticated()
+	.antMatchers("/hello/signUp").permitAll()
 	.and().formLogin()
 	.usernameParameter("j_username")
 	.passwordParameter("j_password")
-	.loginPage("/hello/home")
+	.loginPage("/hello/signUp")
 	.defaultSuccessUrl("/hello/home", false)
-	.failureUrl("/hello/home?error")
+	.failureUrl("/hello/signUp?error")
 	.and().rememberMe()
+	.rememberMeParameter("j_rememberme")
 	.userDetailsService(userDetailsService)
 	.key("mysupersecretketthatnobodyknowsabout") //esto hay q modificar porqeu sino chau tp
 	.tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30))
@@ -46,6 +46,6 @@ public class WebAuthConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(final WebSecurity web) throws Exception {
 	web.ignoring()
-	.antMatchers("/css/**", "/js/**", "/img/**","/favicon.ico", "/403", "/hello/signUp");
+	.antMatchers("/css/**", "/js/**", "/img/**","/favicon.ico", "/403");
 	}
 }

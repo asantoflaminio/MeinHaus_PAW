@@ -131,24 +131,32 @@
 			</div>
 		</div>
 		
+
 		<div class="polaroid-member">
 			<div class="signup-container">
 				<div id="signup-title">
 					<h3><spring:message code="signUp.signInTitle"/></h3>
 				</div>
 					<div class="signup-list">
+						<c:url value="/hello/home" var="loginUrl" />
+						<form action="${loginUrl}" method="POST" enctype="application/x-www-form-urlencoded">
 						<div class="signup-list-item">
                         	<label><spring:message code="signUp.email"/></label>
-                        	<input class="sign-up-input" type="text" placeholder="${email}">
+                        	<input class="sign-up-input" type="text" placeholder="${email}" name="j_username"/>
                         </div>
                         <div class="signup-list-item signup-list-item-last">
                         	<label><spring:message code="signUp.password"/></label>
-                        	<input class="sign-up-input" type="password" placeholder="${password}">
+                        	<input class="sign-up-input" type="password" placeholder="${password}" name="j_password"/>
+                        </div>
+                        <div class="check_box">
+                            <label><input type="checkbox" name="j_rememberme" /><spring:message code="nav.rememberMe"/></label>
                         </div>
                     <spring:message code="signUp.submitSignIn" var="signInValue"/>
                     <input class="signup-submit" type="submit" value="${signInValue}">  
+                    </form>
 					</div>
 			</div>
 		</div>
+		
 
     </body>

@@ -273,13 +273,13 @@
 	        
 	        <div class="page-nums-container">
 				<div class="page-nums">
-						<button class="page-number">&laquo;</button>
+						<a class="page-number" href="#">&laquo;</a>
 					<c:set var="counter" value="1"/>
 					<c:forEach begin="1" end="${listLength/maxLength + listLength%maxLength}" varStatus="loop">
-						<button class="page-number">${counter}</button>
+						<a class="page-number" href="#">${counter}</a>
 						<c:set var="counter" value="${counter+1}"/>
 					</c:forEach>
- 					<button>&raquo;</button>
+ 					<a class="page-number" href="#">&raquo;</a>
 				</div>	        
 			</div>	        
         </div>
