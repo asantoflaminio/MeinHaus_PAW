@@ -39,8 +39,8 @@ public class HelloWorldController {
 	@Autowired
 	private PublicationServiceImp ps;
 	
-	@Autowired
-    private FileUploadImpl fu;
+	/*@Autowired
+    private FileUploadDao fileUploadDao;*/
 	
 	@RequestMapping("/login")
 	public ModelAndView login() {
@@ -215,7 +215,7 @@ public class HelloWorldController {
 	
 	@RequestMapping(value = "publish4" ,method = RequestMethod.POST)
 	public ModelAndView publish4(@Valid @ModelAttribute("fourthPublicationForm") final FourthPublicationForm form, final BindingResult errors,
-								 @RequestParam("type") String type, @RequestParam("operation") String operation, @RequestParam CommonsMultipartFile[] fileUpload) {
+								 @RequestParam("type") String type, @RequestParam("operation") String operation /*, @RequestParam CommonsMultipartFile[] fileUpload*/) {
 		if (errors.hasErrors()) {
 			//return helloPublish3(form,operation,type);
 		}
@@ -224,7 +224,7 @@ public class HelloWorldController {
 		ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), form.getDescription(), 
 				type, form.getBedrooms(), form.getBathrooms(), form.getFloorSize(), form.getParking());
 		
-		if (fileUpload != null && fileUpload.length > 0) {
+		/*if (fileUpload != null && fileUpload.length > 0) {
             for (CommonsMultipartFile aFile : fileUpload){
                   
                 System.out.println("Saving file: " + aFile.getOriginalFilename());
@@ -234,7 +234,7 @@ public class HelloWorldController {
                 uploadFile.setData(aFile.getBytes());
                 fu.save(uploadFile);               
             }
-        }
+        }*/
 		return new ModelAndView("redirect:/hello/home");
 	}
 	

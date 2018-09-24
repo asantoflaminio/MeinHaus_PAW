@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.itba.paw.FileUploadDao;
 import ar.edu.itba.paw.models.UploadFile;
-
+/*
 @Service
 public class FileUploadImpl implements FileUploadDao {
 	
@@ -29,4 +29,4 @@ public class FileUploadImpl implements FileUploadDao {
     	fileUploadDao.save(uploadFile);
     	sessionFactory.getCurrentSession().save(uploadFile);
     }
-}
+}*/

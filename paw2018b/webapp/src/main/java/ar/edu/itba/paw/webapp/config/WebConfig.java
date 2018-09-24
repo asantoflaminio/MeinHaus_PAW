@@ -1,6 +1,7 @@
 package ar.edu.itba.paw.webapp.config;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
 import javax.sql.DataSource;
 
@@ -43,7 +44,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		return dsi;
 	}
 	
-	@Autowired
+	/*@Autowired
 	@Bean(name = "fileUploadDao")
 	public FileUploadDao getUserDao(SessionFactory sessionFactory) {
 	    return new FileUploadImpl(sessionFactory);
@@ -55,7 +56,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	    multipartResolver.setMaxUploadSize(20971520);   // 20MB
 	    multipartResolver.setMaxInMemorySize(1048576);  // 1MB
 	    return multipartResolver;
-	}
+	}*/
+	
 	
 	private DatabasePopulator databasePopulator() {
 		final ResourceDatabasePopulator dbp = new ResourceDatabasePopulator();
