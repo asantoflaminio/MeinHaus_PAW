@@ -5,7 +5,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
-public class signUpForm {
+public class ProfileForm {
 	
 	@Size(min = 3, max = 20)
 	@Pattern(regexp = "[a-zA-Z]+")

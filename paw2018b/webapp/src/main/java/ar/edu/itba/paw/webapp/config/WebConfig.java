@@ -27,7 +27,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import ar.edu.itba.paw.FileUploadDao;
-import ar.edu.itba.paw.services.FileUploadImpl;
 
 @EnableWebMvc
 @ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
@@ -88,8 +87,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		final SimpleDriverDataSource ds = new SimpleDriverDataSource();
 		ds.setDriverClass(org.postgresql.Driver.class);
 		ds.setUrl("jdbc:postgresql://localhost/postgres");
-		ds.setUsername("postgres");
-		ds.setPassword("123456");
+		ds.setUsername("rocio");
+		ds.setPassword("Rd12345");
 		return ds;
 	}
 	

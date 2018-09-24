@@ -17,16 +17,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.itba.paw.models.Publication;
 import ar.edu.itba.paw.models.UploadFile;
-import ar.edu.itba.paw.services.FileUploadImpl;
 import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
 import ar.edu.itba.webapp.form.FirstPublicationForm;
 import ar.edu.itba.webapp.form.FourthPublicationForm;
 import ar.edu.itba.webapp.form.HomeSearchForm;
 import ar.edu.itba.webapp.form.MessageForm;
+import ar.edu.itba.webapp.form.ProfileForm;
 import ar.edu.itba.webapp.form.SecondPublicationForm;
 import ar.edu.itba.webapp.form.ThirdPublicationForm;
-import ar.edu.itba.webapp.form.signUpForm;
+import ar.edu.itba.webapp.form.SignUpForm;
 
 @Controller
 @RequestMapping("/hello/")
@@ -74,6 +74,14 @@ public class HelloWorldController {
 		return mav;
 	}
 
+	@RequestMapping("profile")
+	public ModelAndView profile(@ModelAttribute("profileForm") final ProfileForm form, final BindingResult errors) {
+		if (errors.hasErrors()) {
+			//return ;
+		}
+		final ModelAndView mav = new ModelAndView("profile");
+		return mav;
+	}
 	
 	
 	@RequestMapping("list")
@@ -239,13 +247,13 @@ public class HelloWorldController {
 	}
 	
 	@RequestMapping("signUp")
-	public ModelAndView helloSignUp(@ModelAttribute("signUpForm") final signUpForm form) {
+	public ModelAndView helloSignUp(@ModelAttribute("signUpForm") final SignUpForm form) {
 		final ModelAndView mav = new ModelAndView("signUp");
 		return mav;
 	}
 	
 	@RequestMapping (value = "signUp", method = RequestMethod.POST )
-	public ModelAndView create(@Valid @ModelAttribute("signUpForm") final signUpForm form, final BindingResult errors) {
+	public ModelAndView create(@Valid @ModelAttribute("signUpForm") final SignUpForm form, final BindingResult errors) {
 		if (errors.hasErrors()) {
 			return helloSignUp(form);
 		}
