@@ -74,13 +74,20 @@ public class HelloWorldController {
 		return mav;
 	}
 
+	
 	@RequestMapping("profile")
-	public ModelAndView profile(@ModelAttribute("profileForm") final ProfileForm form, final BindingResult errors) {
-		if (errors.hasErrors()) {
-			//return ;
-		}
+	public ModelAndView helloProfile(@ModelAttribute("ProfileForm") final ProfileForm form) {
 		final ModelAndView mav = new ModelAndView("profile");
 		return mav;
+	}
+	
+	@RequestMapping (value = "profile", method = RequestMethod.POST )
+	public ModelAndView profile(@Valid @ModelAttribute("ProfileForm") final ProfileForm form, final BindingResult errors) {
+		if (errors.hasErrors()) {
+			return helloProfile(form);
+		}
+		
+		return new ModelAndView("redirect:/hello/home"); //!!!!!!!!!! no
 	}
 	
 	

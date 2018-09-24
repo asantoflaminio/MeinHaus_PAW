@@ -22,7 +22,7 @@
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
                 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        
+        <script src="<c:url value="/resources/js/profile.js" />"></script>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -81,23 +81,94 @@
         <aside>
       		<div class="leftcol">
        		<ul>
-	          <li><a href="#">Mis Datos</a></li>
-	          <li><a href="#">Mis Publicaciones</a></li>
-	          <li><a href="#">Mis Favoritos</a></li>
+	          <li id="dat"><a href="#" onclick="showData();">Mis Datos</a></li>
+	          <li id="pub"><a href="#" onclick="showPublications();">Mis Publicaciones</a></li>
+	          <li id="fav"><a href="#" onclick="showFavourites();">Mis Favoritos</a></li>
         	</ul>
       		</div>
       	</aside>
-             
+      
+        
+        <div id="Data">
         <article>     
         	<div class="data polaroid">
         	<div>       
-	          		<h3>Datos personales</h3>  
+	          		<h3><spring:message code="profile.titlePersonalData"/></h3>  
 			</div>
-			<div class="signup-list-item">
-                       
-                        	
+			<c:url value="/hello/profile" var="postPath"/>
+				 <form:form modelAttribute="ProfileForm" action="${postPath}" method="post">
+					<div class="form">
+						<div class="editdata-list-item">
+                        	<form:label path="firstName"><spring:message code="signUp.firstName"/></form:label>
+                        	<spring:message code="signUp.placeholderFirstName" var="firstName"/>
+                        	<form:input class="editdata-input" path="firstName" type="text" placeholder="${firstName}" name="firstName"/>
+                        	<form:errors path="firstName" cssClass="error" element="p"/>
+                        </div>
+						<div class="editdata-list-item">
+                        	<form:label path="lastName"><spring:message code="signUp.lastName"/></form:label>
+                        	<spring:message code="signUp.placeholderLastName" var="lastName"/>
+                        	<form:input class="editdata-input" path="lastName" type="text" placeholder="${lastName}" name="lastName"/>
+                        	<form:errors path="lastName" cssClass="error" element="p"/>
+                        </div>
+											
+                        <div class="editdata-list-item">
+                        	<form:label path="email"><spring:message code="signUp.email"/></form:label>
+                        	<spring:message code="signUp.placeholderEmail" var="email"/>
+                        	<form:input class="editdata-input" path="email" type="text" placeholder="${email}" name="email"/>
+                        	<form:errors path="email" cssClass="error" element="p"/>
+                        </div>  
+						<div class="editdata-list-item">
+                        	<form:label path="phoneNumber"><spring:message code="signUp.phoneNumber"/></form:label>
+                        	<spring:message code="signUp.placeholderPhoneNumber" var="phoneNumber"/>
+                        	<form:input class="editdata-input" path="phoneNumber" type="text" placeholder="${phoneNumber}" name="phoneNumber"/>
+                        	<form:errors path="phoneNumber" cssClass="error" element="p"/>
+                        </div>
+                        <div class="editdata-list-item">
+                        	<spring:message code="signUp.submitSignUp" var="signUpValue"/>
+                        	<input class="editdata-submit" type="submit" value="${signUpValue}">
+						</div>
+						
+          		</div>
+           </form:form>
+           </div>
+           
+           <div class="data polaroid">
+           	<div>       
+	          		<h3><spring:message code="profile.titleNewPassword"/></h3>  
+			</div>
+			<c:url value="/hello/profile" var="postPath"/>
+				 <form:form modelAttribute="ProfileForm" action="${postPath}" method="post">
+						<div class="form">
+						<div class="editdata-list-item">
+                        	<form:label path="password"><spring:message code="profile.password"/></form:label>
+                        	<spring:message code="profile.placeholderPassword" var="password"/>
+                        	<form:input class="editdata-input" path="password" type="password" placeholder="${password}" name="password"/>
+                        	<form:errors path="password" cssClass="error" element="p"/>
+                        </div>
+						<div class="editdata-list-item">
+                        	<form:label path="password"><spring:message code="profile.newpassword"/></form:label>
+                        	<spring:message code="signUp.placeholderPassword" var="password"/>
+                        	<form:input class="editdata-input" path="password" type="password" placeholder="${password}" name="password"/>
+                        	<form:errors path="password" cssClass="error" element="p"/>
+                        </div>
+                         <div class="editdata-list-item">
+                        	<spring:message code="signUp.submitSignUp" var="signUpValue"/>
+                        	<input class="editdata-submit" type="submit" value="${signUpValue}">
+						</div>
+                        </div>
+                        
+           </form:form>
            </div>
 		</article>
+		</div>
+		
+		<div id="Publications">
+		<h3>Publications</h3>  
+		</div>
+		
+		<div id="Favourites">
+		<h3>Favourites</h3>  
+		</div>
 		
         <footer>
         	<div id="footer">

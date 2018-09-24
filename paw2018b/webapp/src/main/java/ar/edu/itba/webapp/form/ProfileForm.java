@@ -23,6 +23,9 @@ public class ProfileForm {
 	private String password;
 	
 	@Size(min = 6, max = 20)
+	private String newpassword;
+	
+	@Size(min = 6, max = 20)
 	@Pattern(regexp = "[0-9]+")
 	private String phoneNumber;
 
