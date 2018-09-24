@@ -107,33 +107,33 @@
 				 <form:form modelAttribute="ProfileForm" action="${postPath}" method="post">
 					<div class="form">
 						<div class="editdata-list-item">
-                        	<form:label path="firstName"><spring:message code="signUp.firstName"/></form:label>
-                        	<spring:message code="signUp.placeholderFirstName" var="firstName"/>
+                        	<form:label path="firstName"><spring:message code="profile.firstName"/></form:label>
+                        	<spring:message code="profile.placeholderFirstName" var="firstName"/>
                         	<form:input class="editdata-input" path="firstName" type="text" placeholder="${firstName}" name="firstName"/>
                         	<form:errors path="firstName" cssClass="error" element="p"/>
                         </div>
 						<div class="editdata-list-item">
-                        	<form:label path="lastName"><spring:message code="signUp.lastName"/></form:label>
-                        	<spring:message code="signUp.placeholderLastName" var="lastName"/>
+                        	<form:label path="lastName"><spring:message code="profile.lastName"/></form:label>
+                        	<spring:message code="profile.placeholderLastName" var="lastName"/>
                         	<form:input class="editdata-input" path="lastName" type="text" placeholder="${lastName}" name="lastName"/>
                         	<form:errors path="lastName" cssClass="error" element="p"/>
                         </div>
 											
                         <div class="editdata-list-item">
-                        	<form:label path="email"><spring:message code="signUp.email"/></form:label>
-                        	<spring:message code="signUp.placeholderEmail" var="email"/>
+                        	<form:label path="email"><spring:message code="profile.email"/></form:label>
+                        	<spring:message code="profile.placeholderEmail" var="email"/>
                         	<form:input class="editdata-input" path="email" type="text" placeholder="${email}" name="email"/>
                         	<form:errors path="email" cssClass="error" element="p"/>
                         </div>  
 						<div class="editdata-list-item">
-                        	<form:label path="phoneNumber"><spring:message code="signUp.phoneNumber"/></form:label>
-                        	<spring:message code="signUp.placeholderPhoneNumber" var="phoneNumber"/>
+                        	<form:label path="phoneNumber"><spring:message code="profile.phoneNumber"/></form:label>
+                        	<spring:message code="profile.placeholderPhoneNumber" var="phoneNumber"/>
                         	<form:input class="editdata-input" path="phoneNumber" type="text" placeholder="${phoneNumber}" name="phoneNumber"/>
                         	<form:errors path="phoneNumber" cssClass="error" element="p"/>
                         </div>
-                        <div class="editdata-list-item">
-                        	<spring:message code="signUp.submitSignUp" var="signUpValue"/>
-                        	<input class="editdata-submit" type="submit" value="${signUpValue}">
+                        <div>
+                        	<spring:message code="profile.submit" var="sumbit"/>
+                        	<input class="editdata-submit" type="submit" value="${sumbit}">
 						</div>
 						
           		</div>
@@ -155,13 +155,13 @@
                         </div>
 						<div class="editdata-list-item">
                         	<form:label path="password"><spring:message code="profile.newpassword"/></form:label>
-                        	<spring:message code="signUp.placeholderPassword" var="password"/>
+                        	<spring:message code="profile.placeholderNewPassword" var="password"/>
                         	<form:input class="editdata-input" path="password" type="password" placeholder="${password}" name="password"/>
                         	<form:errors path="password" cssClass="error" element="p"/>
                         </div>
-                         <div class="editdata-list-item">
-                        	<spring:message code="signUp.submitSignUp" var="signUpValue"/>
-                        	<input class="editdata-submit" type="submit" value="${signUpValue}">
+                         <div>
+                        	<spring:message code="profile.submit" var="sumbit"/>
+                        	<input class="editdata-submit" type="submit" value="${sumbit}">
 						</div>
                         </div>
                         
