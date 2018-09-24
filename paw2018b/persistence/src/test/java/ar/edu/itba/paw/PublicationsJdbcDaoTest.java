@@ -34,6 +34,7 @@ public class PublicationsJdbcDaoTest {
 	private static final String BATHROOMS = "1";
 	private static final String FLOORSIZE = "50";
 	private static final String PARKING = "1";
+	private static final long USERID = 2;
 	
 	@Autowired
 	private DataSource ds;
@@ -55,7 +56,7 @@ public class PublicationsJdbcDaoTest {
 	
 	@Test
 	public void testCreate() {
-		final Publication pb = pbDao.create(TITLE, ADDRESS, OPERATION, PRICE, DESCRIPTION, PROPERTYTYPE, BEDROOMS, BATHROOMS, FLOORSIZE, PARKING);
+		final Publication pb = pbDao.create(TITLE, ADDRESS, OPERATION, PRICE, DESCRIPTION, PROPERTYTYPE, BEDROOMS, BATHROOMS, FLOORSIZE, PARKING, USERID);
 		Assert.assertNotNull(pb);
 		Assert.assertEquals(TITLE, pb.getTitle());
 		Assert.assertEquals(ADDRESS, pb.getAddress());
@@ -67,6 +68,7 @@ public class PublicationsJdbcDaoTest {
 		Assert.assertEquals(BATHROOMS, pb.getBathrooms());
 		Assert.assertEquals(FLOORSIZE, pb.getFloorSize());
 		Assert.assertEquals(PARKING, pb.getParking());
+		Assert.assertEquals(USERID, pb.getUserid());
 		Assert.assertEquals(1, JdbcTestUtils.countRowsInTable(jdbcTemplate, "publications"));
 	}
 		

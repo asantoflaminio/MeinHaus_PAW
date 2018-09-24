@@ -34,23 +34,25 @@
                     <a href="./help.html"><spring:message code="nav.logOut"/></a>
                 </div>
             </div>
+            <c:if test="${empty pageContext.request.userPrincipal}">
             <div class="dropdown" id="sign_in">
                 <a class="navbar_item" href="#"><spring:message code="nav.signIn"/></a>
+                <c:url value="/hello/home" var="loginUrl" />
+				<form action="${loginUrl}" method="POST" class="form_login"  enctype="application/x-www-form-urlencoded">
                 <div class="dropdown-content">
-                    <form class="form_login">
                         <div class="email">
                         	<spring:message code="nav.placeholderEmail" var="navEmail"/>
-                            <input oninvalid="this.setCustomValidity('Please, enter a valid email address')" class="form-control form-control-lg form-control-borderless" type="email" placeholder="${navEmail}" required>
+                            <input class="form-control form-control-lg form-control-borderless" type="email" placeholder="${navEmail}" name="j_username">
                         </div>
                         <div class="password">
                         	<spring:message code="nav.placeholderPassword" var="navPassword"/>
-                            <input oninvalid="this.setCustomValidity('Please, complete this input')" class="form-control form-control-lg form-control-borderless" type="password" placeholder="${navPassword}" required>
+                            <input class="form-control form-control-lg form-control-borderless" type="password" placeholder="${navPassword}" name="j_password">
                         </div>
                         <div class="msg_error">
                         	<label></label>
                         </div>
                         <div class="check_box">
-                            <label><input type="checkbox"/><spring:message code="nav.rememberMe"/></label>
+                            <label><input type="checkbox" name="j_rememberme" /><spring:message code="nav.rememberMe"/></label>
                         </div>
                         <div class="sign_b">
                             <input type="submit" class="btn" value="<spring:message code="nav.buttonSignIn"/>" >
@@ -59,15 +61,21 @@
                         <div class="password_label">
                             <label><spring:message code="nav.forgotPassword"/></label>
                         </div>
-                    </form>
                 </div>
-            </div>
-            <div>
-                <a class="navbar_item" id="publish" href="./publish"><spring:message code="nav.publish"/></a>
+                </form>
             </div>
             <div>
                 <a class="navbar_item" id="sign_up" href="./signUp"><spring:message code="nav.signUp"/></a>
             </div>
+            </c:if>
+            <c:if test="${not empty pageContext.request.userPrincipal}">
+            <div>
+                <a class="navbar_item" id="userName" href="#"><c:out value="${pageContext.request.userPrincipal.name}" /></a>
+            </div>
+            <div>
+                <a class="navbar_item" id="publish" href="./publish"><spring:message code="nav.publish"/></a>
+            </div>
+            </c:if>
         </nav>
         
         

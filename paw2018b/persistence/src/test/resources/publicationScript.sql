@@ -9,10 +9,11 @@ CREATE TABLE IF NOT EXISTS publications (
 	bedrooms 		varchar(2) NOT NULL,
 	bathrooms 		varchar(2) NOT NULL,
 	floorSize 		varchar(4) NOT NULL,
-	parking 		varchar(10) NOT NULL
+	parking 		varchar(10) NOT NULL,
+	userid		INTEGER FOREIGN KEY NOT NULL
 );
 
 insert into publications(publicationid, title, address, operation, price, description, 
-	propertyType, bedrooms, bathrooms, floorSize, parking)
+	propertyType, bedrooms, bathrooms, floorSize, parking, userid)
 values (1,'TitleTest','AddressTest','OperationTest','4350000','DescriptionTest',
-	'TypeTest','2','1','50','1')
+	'TypeTest','2','1','50','1',2)

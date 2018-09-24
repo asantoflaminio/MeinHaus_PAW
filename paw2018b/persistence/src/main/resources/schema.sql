@@ -18,7 +18,8 @@ CREATE TABLE IF NOT EXISTS publications (
 	bedrooms 		varchar(3) NOT NULL,
 	bathrooms 		varchar(3) NOT NULL,
 	floorSize 		varchar(3) NOT NULL,
-	parking 		varchar(3) NOT NULL
+	parking 		varchar(3) NOT NULL,
+	userid 			integer REFERENCES users(userid)
 );
 
 CREATE TABLE IF NOT EXISTS images (

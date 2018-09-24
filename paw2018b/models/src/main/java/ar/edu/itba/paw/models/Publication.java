@@ -13,10 +13,11 @@ public class Publication {
 	private String bathrooms;
 	private String floorSize;
 	private String parking;
+	private long userid;
 	
 	public Publication(long publicationid, String title, String address, String operation, String price,
 					   String description, String propertyType, String bedrooms,
-					   String bathrooms, String floorSize, String parking) {
+					   String bathrooms, String floorSize, String parking, long userid) {
 		
 		this.publicationid = publicationid;
 		this.title = title;
@@ -29,6 +30,7 @@ public class Publication {
 		this.bathrooms = bathrooms;
 		this.floorSize = floorSize;
 		this.parking = parking;
+		this.setUserid(userid);
 	}
 	
 	public long getPublicationid() {
@@ -117,6 +119,14 @@ public class Publication {
 
 	public void setParking(String parking) {
 		this.parking = parking;
+	}
+
+	public long getUserid() {
+		return userid;
+	}
+
+	public void setUserid(long userid) {
+		this.userid = userid;
 	}
 
 }
