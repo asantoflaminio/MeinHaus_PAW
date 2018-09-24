@@ -75,7 +75,7 @@
             	<div class="dropdown">
             	    <a class="navbar_item" id="userName" href="#"><c:out value="${pageContext.request.userPrincipal.name}" /></a>
            			<div class="dropdown-content" id="profile_dropdown">
-          				<a class="user_dropdown" href="#"><spring:message code="nav.myProfile"/></a>
+          				<a class="user_dropdown" href="./profile"><spring:message code="nav.myProfile"/></a>
            			    <a class="user_dropdown" href="#"><spring:message code="nav.logOut"/></a>
            			</div>
            		</div>
