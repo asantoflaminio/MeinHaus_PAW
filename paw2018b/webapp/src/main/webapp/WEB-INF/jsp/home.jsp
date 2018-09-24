@@ -43,7 +43,7 @@
             </div>
             <div class="dropdown" id="sign_in">
                 <a class="navbar_item" href="#"><spring:message code="nav.signIn"/></a>
-                <c:url value="/hello/login" var="loginUrl" />
+                <c:url value="/hello/home" var="loginUrl" />
 				<form action="${loginUrl}" method="post" enctype="application/x-www-form-urlencoded">
                 <div class="dropdown-content">
                     <form class="form_login">
@@ -62,7 +62,7 @@
                             <label><input type="checkbox" name="j_rememberme" /><spring:message code="nav.rememberMe"/></label>
                         </div>
                         <div class="sign_b">
-                            <input type="submit"  value="<spring:message code="nav.buttonSignIn"/>">
+                            <input type="submit"  value="<spring:message code="nav.buttonSignIn"/>" >
                         </div>
                         <div class="line_separator"></div>
                         <div class="password_label">
@@ -85,7 +85,7 @@
                 <div class="title">
                     <h1><spring:message code="home.title"/></h1>
                 </div>
-                <c:url value="/hello/home" var="postPath"/>
+                <c:url value="/hello/homeSearch" var="postPath"/>
 				<form:form modelAttribute="homeSearchForm" action="${postPath}" method="post">
                 <div class="search_list">
                 	<fieldset class="search_list-container rounded">
