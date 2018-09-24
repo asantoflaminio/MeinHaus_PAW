@@ -241,8 +241,6 @@ public class HelloWorldController {
 			//return helloPublish3(form,operation,type);
 		}
 		long userid = us.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getUserId();
-		System.out.println("Username: " + SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
-		System.out.println("User id: " + userid);
 		ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), form.getDescription(), 
 				type, form.getBedrooms(), form.getBathrooms(), form.getFloorSize(), form.getParking(),userid);
 		
