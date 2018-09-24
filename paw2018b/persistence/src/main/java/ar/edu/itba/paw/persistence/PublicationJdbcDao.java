@@ -36,7 +36,8 @@ public class PublicationJdbcDao implements PublicationDao{
 							rs.getString("bedrooms"),
 							rs.getString("bathrooms"),
 							rs.getString("floorSize"),
-							rs.getString("parking"));
+							rs.getString("parking"),
+							rs.getLong("userid"));
 		}
 		
 	};
@@ -49,12 +50,12 @@ public class PublicationJdbcDao implements PublicationDao{
 				.withTableName("publications")
 				.usingGeneratedKeyColumns("publicationid")
 				.usingColumns("title","address","operation","price","description","propertyType","bedrooms",
-							  "bathrooms","floorSize","parking");
+							  "bathrooms","floorSize","parking","userid");
 	}
 
 	public Publication create(String title, String address, String operation, String price,
 			   String description, String propertyType, String bedrooms,
-			   String bathrooms, String floorSize, String parking) {
+			   String bathrooms, String floorSize, String parking, long userid) {
 		final Map<String, Object> args = new HashMap<String, Object>();
     	
 		args.put("title", title);
@@ -67,10 +68,11 @@ public class PublicationJdbcDao implements PublicationDao{
 		args.put("bathrooms", bathrooms);
 		args.put("floorSize", floorSize);
 		args.put("parking", parking);
+		args.put("userid", userid);
 		final Number publicationid = jdbcInsert.executeAndReturnKey(args);
 		return new Publication(publicationid.longValue(), title, address, operation, price,
 				   description, propertyType, bedrooms,
-				   bathrooms, floorSize, parking);
+				   bathrooms, floorSize, parking, userid);
 	}
 
 	public Publication findById(long id) {

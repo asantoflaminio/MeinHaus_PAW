@@ -52,9 +52,6 @@ public class HelloWorldController {
 	@RequestMapping("home")
 	public ModelAndView helloHome(@ModelAttribute("homeSearchForm") final HomeSearchForm form) {
 		System.out.println("Home");
-		String name = SecurityContextHolder.getContext().getAuthentication().getName();
-		if(name != null)
-		System.out.println(name);
 		final ModelAndView mav = new ModelAndView("home");
 		return mav;
 	}
@@ -243,10 +240,10 @@ public class HelloWorldController {
 		if (errors.hasErrors()) {
 			//return helloPublish3(form,operation,type);
 		}
-		System.out.println("operation: "+ operation);
-		System.out.println("type: "+ type);
+		long userid = us.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getUserId();
 		ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), form.getDescription(), 
-				type, form.getBedrooms(), form.getBathrooms(), form.getFloorSize(), form.getParking());
+				type, form.getBedrooms(), form.getBathrooms(), form.getFloorSize(), form.getParking(),userid);
+		
 		
 		/*if (fileUpload != null && fileUpload.length > 0) {
             for (CommonsMultipartFile aFile : fileUpload){

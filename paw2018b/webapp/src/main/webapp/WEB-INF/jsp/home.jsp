@@ -41,12 +41,12 @@
                     <a href="./help.html"><spring:message code="nav.logOut"/></a>
                 </div>
             </div>
+            <c:if test="${empty pageContext.request.userPrincipal}">
             <div class="dropdown" id="sign_in">
                 <a class="navbar_item" href="#"><spring:message code="nav.signIn"/></a>
                 <c:url value="/hello/home" var="loginUrl" />
-
+				<form action="${loginUrl}" method="POST" class="form_login"  enctype="application/x-www-form-urlencoded">
                 <div class="dropdown-content">
-					<form action="${loginUrl}" class="form_login" method="post" enctype="application/x-www-form-urlencoded">
                         <div class="email">
                         	<spring:message code="nav.placeholderEmail" var="navEmail"/>
                             <input class="form-control form-control-lg form-control-borderless" type="email" placeholder="${navEmail}" name="j_username">
@@ -68,15 +68,21 @@
                         <div class="password_label">
                             <label><spring:message code="nav.forgotPassword"/></label>
                         </div>
-	                </form>
                 </div>
-            </div>
-            <div>
-                <a class="navbar_item" id="publish" href="./publish"><spring:message code="nav.publish"/></a>
+                </form>
             </div>
             <div>
                 <a class="navbar_item" id="sign_up" href="./signUp"><spring:message code="nav.signUp"/></a>
             </div>
+            </c:if>
+            <c:if test="${not empty pageContext.request.userPrincipal}">
+            <div>
+                <a class="navbar_item" id="userName" href="#"><c:out value="${pageContext.request.userPrincipal.name}" /></a>
+            </div>
+            <div>
+                <a class="navbar_item" id="publish" href="./publish"><spring:message code="nav.publish"/></a>
+            </div>
+            </c:if>
         </nav>
         
         <header>
