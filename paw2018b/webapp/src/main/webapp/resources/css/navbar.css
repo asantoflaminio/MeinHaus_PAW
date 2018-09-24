@@ -110,6 +110,16 @@ nav {
     display: block;
 }
 
+.user_dropdown {
+	font-size: 14px !important;
+	text-align: right;
+	width: 100%;
+}
+
+#profile_dropdown {
+	min-width: 120px;
+}
+
 /* Closing style */
 
 /* Sign in style */

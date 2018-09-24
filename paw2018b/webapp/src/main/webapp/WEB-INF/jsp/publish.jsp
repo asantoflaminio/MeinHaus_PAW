@@ -76,9 +76,14 @@
             </c:if>
             <c:if test="${not empty pageContext.request.userPrincipal}">
             <div>
-                <a class="navbar_item" id="userName" href="#"><c:out value="${pageContext.request.userPrincipal.name}" /></a>
-            </div>
-            <div>
+            	<div class="dropdown">
+            	    <a class="navbar_item" id="userName" href="#"><c:out value="${pageContext.request.userPrincipal.name}" /></a>
+           			<div class="dropdown-content" id="profile_dropdown">
+          				<a class="user_dropdown" href="#"><spring:message code="nav.myProfile"/></a>
+           			    <a class="user_dropdown" href="#"><spring:message code="nav.logOut"/></a>
+           			</div>
+           		</div>
+            </div>            <div>
                 <a class="navbar_item" id="publish" href="./publish"><spring:message code="nav.publish"/></a>
             </div>
             </c:if>
