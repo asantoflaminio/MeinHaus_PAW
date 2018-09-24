@@ -81,9 +81,9 @@
         <aside>
       		<div class="leftcol">
        		<ul>
-	          <li id="dat"><a href="#" onclick="showData();">Mis Datos</a></li>
-	          <li id="pub"><a href="#" onclick="showPublications();">Mis Publicaciones</a></li>
-	          <li id="fav"><a href="#" onclick="showFavourites();">Mis Favoritos</a></li>
+	          <li id="dat"><a href="#" onclick="showData();"><spring:message code="profile.optionData"/></a></li>
+	          <li id="pub"><a href="#" onclick="showPublications();"><spring:message code="profile.optionPublications"/></a></li>
+	          <li id="fav"><a href="#" onclick="showFavourites();"><spring:message code="profile.optionFavourites"/></a></li>
         	</ul>
       		</div>
       	</aside>
