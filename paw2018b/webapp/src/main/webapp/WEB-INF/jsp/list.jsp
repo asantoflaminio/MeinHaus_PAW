@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +99,7 @@
 			      
 		   <div class="search">
 		   	  <spring:message code="list.placeholderSearch" var="title"/>
-		      <form:input path="search" type="text" class="searchTerm"/>
+		      <form:input path="search" type="text" class="searchTerm" placeholder="${title}"/>
 		      <form:errors path="search" cssClass="error" element="p"/>
 		      <button  href="#" type="submit" class="searchButton">
 		        <img src="<c:url value="/resources/pics/search_icon.png" />" alt="Search" id="search-img"></img>
@@ -219,41 +221,59 @@
 			</aside>
 			
 	        <section id="publications">
+	        
+	        	<c:set var = "listLength" scope = "session" value = "${fn:length(publications)}"/>
+	        	<c:set var = "maxLength" scope = "session" value = "1"/>
+	        	<c:set var = "current" scope = "session" value = "1"/>
+	        	
 	        	<c:forEach var="row" varStatus="status" items="${publications}" step="1" begin="0">
-					<div class="polaroid-property" id = "publication_<c:out value = "${row.publicationid}"/>" >
-			    	<div class="img-with-tag">
-			    		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
-			    		<img class="favorite-icon" onclick="fav(this);" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
-			    		<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-						<h2 class="price-tag">$<c:out value = "${row.price}"/></h2>
-					</div>
-					<div class="property-container">
-						<div class="property-title-container">
-							<h3 class="property-title"><c:out value = "${row.title}"/></h3>
-							<h4 class="address"><c:out value = "${row.address}"/></h4>
-						</div>					
-						<div class="property-characteristics">
-							<div class="column-1">
-								<h4 class="bedroom"><strong><c:out value = "${row.bedrooms}"/></strong> <spring:message code="list.bedroomMinus"/></h4>
-								<h4><strong><c:out value = "${row.bathrooms}"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
-								<h4><strong><c:out value = "${row.parking}"/></strong> <spring:message code="list.parkingMinus"/></h4>	
+	        		<c:if test = "${current <= maxLength}">
+	        			<c:set var = "current" scope = "session" value = "${current+1}"/>
+	        		
+						<div class="polaroid-property" id = "publication_<c:out value = "${row.publicationid}"/>" >
+				    		<div class="img-with-tag">
+				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
+				    			<img class="favorite-icon" onclick="fav(this);" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
+				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
+								<h2 class="price-tag">$<c:out value = "${row.price}"/></h2>
 							</div>
-							<div class="column-2">
-								<h4><strong><c:out value = "${row.floorSize}"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
-								<h4><c:out value = "${row.operation}"/></h4>
-							</div>				
+							<div class="property-container">
+								<div class="property-title-container">
+									<h3 class="property-title"><c:out value = "${row.title}"/></h3>
+									<h4 class="address"><c:out value = "${row.address}"/></h4>
+								</div>					
+								<div class="property-characteristics">
+									<div class="column-1">
+										<h4 class="bedroom"><strong><c:out value = "${row.bedrooms}"/></strong> <spring:message code="list.bedroomMinus"/></h4>
+										<h4><strong><c:out value = "${row.bathrooms}"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
+										<h4><strong><c:out value = "${row.parking}"/></strong> <spring:message code="list.parkingMinus"/></h4>	
+									</div>
+									<div class="column-2">
+										<h4><strong><c:out value = "${row.floorSize}"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
+										<h4><c:out value = "${row.operation}"/></h4>
+									</div>				
+								</div>
+								<div class="more-info">
+									<a class="more-info-title" href="details?publicationid=${row.publicationid}"><spring:message code="list.moreInfo"/> ></a>
+								</div>	
+							</div>
 						</div>
-						<div class="more-info">
-							<a class="more-info-title" href="details?publicationid=${row.publicationid}"><spring:message code="list.moreInfo"/> ></a>
-						</div>	
-					</div>
-				</div>	
+					</c:if>
 				</c:forEach>
-				<div id="page-nums">
-					
-				</div>
+
 	        </section>
 	        
+	        <div class="page-nums-container">
+				<div class="page-nums">
+						<button class="page-number">&laquo;</button>
+					<c:set var="counter" value="1"/>
+					<c:forEach begin="1" end="${listLength/maxLength + listLength%maxLength}" varStatus="loop">
+						<button class="page-number">${counter}</button>
+						<c:set var="counter" value="${counter+1}"/>
+					</c:forEach>
+ 					<button>&raquo;</button>
+				</div>	        
+			</div>	        
         </div>
         
         <footer>

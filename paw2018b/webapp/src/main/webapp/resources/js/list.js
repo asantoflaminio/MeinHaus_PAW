@@ -9,7 +9,20 @@ $(document).ready(function() {
         	index = 1;	
         color(index);
     });
+	
+	$('.page-number').bind("click", function(e){
+        var num = this.innerHTML;
+        changeSelectedPage(num);
+    });
 });
+
+function changeSelectedPage(index) {
+	var pub = document.getElementById("publications").children;
+	
+	for(i = 0; i < pub.length; i++){
+		pub[i].style.display = "none";
+	}
+}
 
 function color(index) {
 	var list = document.getElementsByClassName("search_list-container")[0];
