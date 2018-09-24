@@ -115,7 +115,6 @@ nav {
 /* Sign in style */
 
 #sign_in {
-	display: none;
 }
 
 .form_login {
@@ -175,7 +174,7 @@ nav {
     display: flex;
 }
 
-.sign_b button {
+.sign_b input {
     width:60%;
     height:40px;
     background-color: #FD8907;
@@ -183,6 +182,7 @@ nav {
     font-family: 'Rubik', sans-serif !important;
     font-size: 14px;
     margin: 0 auto;
+    padding: 3px 15px 3px 15px;
 }
 
 .line_separator{

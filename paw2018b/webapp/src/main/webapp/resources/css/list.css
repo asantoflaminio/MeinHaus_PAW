@@ -297,8 +297,9 @@ h3 {
 	border-bottom: none;
 }
 
+
 .expandible {
-	padding: 10px 10px 10px 10px;
+	padding: 10px 5px 10px 5px;
 	height: auto;
 	color: #777;
 	width: 100%;
@@ -308,6 +309,7 @@ h3 {
 
 .check_box {
 	width:100%;
+	padding-left: 0 !important;
 }
 
 .arrow-up-filters {
@@ -321,7 +323,7 @@ div.polaroid {
   margin-top: 7px;
   float: left;
   margin-left: 1%;
-  width: 18%;
+  width: 19%;
   height: auto;
   min-width: 170px;
   background-color: white;

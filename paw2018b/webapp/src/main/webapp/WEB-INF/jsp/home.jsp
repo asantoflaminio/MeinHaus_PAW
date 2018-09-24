@@ -44,9 +44,9 @@
             <div class="dropdown" id="sign_in">
                 <a class="navbar_item" href="#"><spring:message code="nav.signIn"/></a>
                 <c:url value="/hello/home" var="loginUrl" />
-				<form action="${loginUrl}" method="post" enctype="application/x-www-form-urlencoded">
+
                 <div class="dropdown-content">
-                    <form class="form_login">
+					<form action="${loginUrl}" class="form_login" method="post" enctype="application/x-www-form-urlencoded">
                         <div class="email">
                         	<spring:message code="nav.placeholderEmail" var="navEmail"/>
                             <input class="form-control form-control-lg form-control-borderless" type="email" placeholder="${navEmail}" name="j_username">
@@ -62,15 +62,14 @@
                             <label><input type="checkbox" name="j_rememberme" /><spring:message code="nav.rememberMe"/></label>
                         </div>
                         <div class="sign_b">
-                            <input type="submit"  value="<spring:message code="nav.buttonSignIn"/>" >
+                            <input type="submit" class="btn" value="<spring:message code="nav.buttonSignIn"/>" >
                         </div>
                         <div class="line_separator"></div>
                         <div class="password_label">
                             <label><spring:message code="nav.forgotPassword"/></label>
                         </div>
-                    </form>
+	                </form>
                 </div>
-                </form>
             </div>
             <div>
                 <a class="navbar_item" id="publish" href="./publish"><spring:message code="nav.publish"/></a>

@@ -61,7 +61,7 @@
                             <label><input type="checkbox"/><spring:message code="nav.rememberMe"/></label>
                         </div>
                         <div class="sign_b">
-                            <button class="btn" onclick="check_input();"><spring:message code="nav.buttonSignIn"/></button>
+                            <input type="submit" class="btn" value="<spring:message code="nav.buttonSignIn"/>" >
                         </div>
                         <div class="line_separator"></div>
                         <div class="password_label">
