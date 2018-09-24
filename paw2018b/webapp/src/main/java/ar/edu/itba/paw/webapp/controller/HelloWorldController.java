@@ -42,11 +42,6 @@ public class HelloWorldController {
 	/*@Autowired
     private FileUploadDao fileUploadDao;*/
 	
-	@RequestMapping("/login")
-	public ModelAndView login() {
-		return new ModelAndView("redirect:/hello/home");
-	}
-	
 	@RequestMapping("/403")
 	public ModelAndView forbidden() {
 		return new ModelAndView("403");
@@ -55,14 +50,27 @@ public class HelloWorldController {
 	
 	@RequestMapping("home")
 	public ModelAndView helloHome(@ModelAttribute("homeSearchForm") final HomeSearchForm form) {
+		System.out.println("Home");
+		String name = SecurityContextHolder.getContext().getAuthentication().getName();
+		if(name != null)
+		System.out.println(name);
 		final ModelAndView mav = new ModelAndView("home");
 		return mav;
 	}
 	
 	@RequestMapping(value = "home",method = RequestMethod.POST)
+	public ModelAndView helloLogin() {
+		System.out.println("Me llamo login");
+		final ModelAndView mav = new ModelAndView("home");
+		return mav;
+	}
+	
+	@RequestMapping(value = "homeSearch",method = RequestMethod.POST)
 	public ModelAndView homeSearch(@Valid @ModelAttribute("homeSearchForm") final HomeSearchForm form, final BindingResult errors,
 								   @RequestParam("oper") String operation) {
+		System.out.println("Me llamo list");
 		if(errors.hasErrors()) {
+			System.out.println("Tengo errores :c");
 			return helloHome(form);
 		}
 		final ModelAndView mav = new ModelAndView("redirect:/hello/list");
