@@ -36,13 +36,13 @@ h1 {
 
 /* List style */
 
-.search_list{
+.search_list {
 	width: 20%;
   	margin: 0 auto;
   	margin-top: 70px;
 }
 
-.search_list ul {
+.search_list-container {
 	text-align: center;  
 	width:100%;
 	border: 1px solid #7C7C7C;
@@ -50,32 +50,41 @@ h1 {
 	margin: 0 auto;
 	padding: 0;
 	overflow: hidden;
+	min-width: 200px;
 }
 
-.search_list ul li {
+.search_list-item {
 	float: left;
 	width: 50%;
 	color: white; 
 	font-weight: 550;
 	background-color: rgb(200, 200, 200);
-}
-.search_list ul li input {
-	border: 1px solid rgb(206, 205, 185, .6);
-	display: block;
-	padding: 3px;
-	width: 100%;
-	font-size: 17px !important;
-	color: white;
-	text-decoration: none;
+	cursor: pointer;
 }
 
-.first_item {
-	border-right:1px solid #7C7C7C;
+.search_list-item:hover {
+	background-color: #fecc94;
 }
 
-#myul li input:hover {
-	background-color: #fd8907;
+.search_list-item label {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+
+.search_list-item input[type=radio] {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+ }
+
+.search_list-item input:hover {
+	background-color: #fecc94;
 	cursor:pointer;
+}
+
+#buy {
+	border-right: 1px solid #7C7C7C;
 }
 
 /* Closing style*/

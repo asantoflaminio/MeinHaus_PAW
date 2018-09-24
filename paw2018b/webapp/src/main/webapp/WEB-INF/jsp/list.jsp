@@ -13,6 +13,8 @@
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/footer.css" />">
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
         <link rel="shortcut icon" href="<c:url value="/resources/pics/favicon.ico" />">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="<c:url value="/resources/js/list.js" />"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -81,6 +83,18 @@
 		<div class="wrap">
 		   <c:url value="/hello/list" var="postPath"/>
 		   <form:form modelAttribute="homeSearchForm" action="${postPath}" method="post">
+
+           <div class="search_list">
+		  	 <fieldset class="search_list-container rounded">
+				   <div class="search_list-item" id="buy">
+					   <input value="FSale" type="radio" name="oper" checked><label id="buy-label"><spring:message code="home.buy"/></label>
+    		       </div>
+    		       <div class="search_list-item">
+    	    	 	  <input value="FRent" type="radio" name="oper"><label id="rent-label"><spring:message code="home.rent"/></label>
+				   </div>
+			   </fieldset>
+		   </div>	
+			      
 		   <div class="search">
 		   	  <spring:message code="list.placeholderSearch" var="title"/>
 		      <form:input path="search" type="text" class="searchTerm"/>
@@ -90,8 +104,6 @@
 		      </button>
 		   </div>
 		   
-		   <input value="FSale" type="radio" name="oper" checked><spring:message code="home.buy"/>
-           <input value="FRent" type="radio" name="oper"><spring:message code="home.rent"/>
            </form:form>
 		</div>
 		
@@ -146,6 +158,9 @@
                         			<div class="check_box">
                             			<label><input type="checkbox"/>Recoleta</label>
                         			</div>
+                        			<div class="apply-container">
+                        				<input type="button" class="apply-btn" value="APLICAR"/>
+					  				</div>
 					  			</div>
 					  		<div class="filters-list-item"><spring:message code="list.price"/><img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
 					  			<div class="expandible">
@@ -166,6 +181,9 @@
 		                       				<div class="check_box">
 		                            			<label><input type="radio" onclick="filterPrice('null')" name="price" class="priceFilter" id="priceNull"/><spring:message code="list.noLimit"/></label>
 		                        			</div>
+		                        			<div class="apply-container">
+                        						<input type="button" class="apply-btn" value="APLICAR"/>
+					  						</div>
 		                        		</fieldset>
                         			</form>
 					  			</div>
@@ -188,8 +206,12 @@
 		                     				<div class="check_box">
 		                            			<label><input type="radio" onclick="filterBedroom('null')" name="bedrooms" class="bedroomFilter" id="bedroomNull"/><spring:message code="list.noLimit"/></label>
 		                        			</div>
-									</form>
+                        					<div class="apply-container">
+                        						<input type="button" class="apply-btn" value="APLICAR"/>
+					  						</div>									
 					  					</fieldset>
+					  				</form>
+					  					
 					  			</div>
 						</div>
 					</div>

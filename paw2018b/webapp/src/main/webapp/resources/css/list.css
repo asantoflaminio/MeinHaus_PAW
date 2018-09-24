@@ -101,7 +101,7 @@ ul.breadcrumb-list li a:hover {
 .wrap{
 	margin-left: 15px;
 	width: 500px;
-	height: 40px;
+	height: 85px;
 	margin-bottom: 20px;
 }
 
@@ -157,6 +157,61 @@ ul.breadcrumb-list li a:hover {
 
 /* End of style */
 
+/* Buy Rent Style */
+
+.search_list {
+	width: 40%;
+	min-width: 200px;
+  	margin-bottom: 15px;
+}
+
+.search_list-container {
+	text-align: center;  
+	width:100%;
+	border: 1px solid #7C7C7C;
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+	overflow: hidden;
+	min-width: 200px;
+}
+
+.search_list-item {
+	float: left;
+	width: 50%;
+	color: white; 
+	font-weight: 550;
+	background-color: rgb(200, 200, 200);
+	cursor: pointer;
+}
+
+.search_list-item:hover {
+	background-color: #fecc94;
+}
+
+.search_list-item label {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+
+.search_list-item input[type=radio] {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+ }
+
+.search_list-item input:hover {
+	background-color: #fecc94;
+	cursor:pointer;
+}
+
+#buy {
+	border-right: 1px solid #7C7C7C;
+}
+
+/* Closing Style */
+
 /* Applied filters style */
 
 #applied-filters-list {
@@ -194,6 +249,22 @@ ul.breadcrumb-list li a:hover {
 	width: 13px;
 	margin-right: 5px;
 	margin-bottom: 3px;
+}
+
+.apply-container {
+	height: 40px;
+}
+
+.apply-btn {
+	width: auto;
+	height: 25px;
+	min-width: 70px;
+	background-color: #a5a5a5;
+	border: none;
+	color: white;
+	font-size: 13px;
+	margin-top: 10px;
+	float: right;
 }
 
 /* End of style */

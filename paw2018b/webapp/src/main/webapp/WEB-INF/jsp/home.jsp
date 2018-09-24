@@ -88,9 +88,13 @@
                 <c:url value="/hello/home" var="postPath"/>
 				<form:form modelAttribute="homeSearchForm" action="${postPath}" method="post">
                 <div class="search_list">
-                	<fieldset>
-                        		<input value="FSale" type="radio" name="oper" checked><spring:message code="home.buy"/>
-                        		<input value="FRent" type="radio" name="oper"><spring:message code="home.rent"/>
+                	<fieldset class="search_list-container rounded">
+                			<div class="search_list-item selected" id="buy">
+                        		<input value="FSale" type="radio" name="oper" checked><label id="buy-label"><spring:message code="home.buy"/></label>
+                        	</div>
+                			<div class="search_list-item" id="rent">
+                        		<input value="FRent" type="radio" name="oper"><label id="rent-label"><spring:message code="home.rent"/></label>
+                    		</div>
                     </fieldset>
                 </div>
                 <div id="icons">
