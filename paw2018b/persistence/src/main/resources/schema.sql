@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS publications (
 	propertyType 	varchar(30) NOT NULL,
 	bedrooms 		varchar(3) NOT NULL,
 	bathrooms 		varchar(3) NOT NULL,
-	flooSize 		varchar(3) NOT NULL,
+	floorSize 		varchar(3) NOT NULL,
 	parking 		varchar(3) NOT NULL
 );
 
