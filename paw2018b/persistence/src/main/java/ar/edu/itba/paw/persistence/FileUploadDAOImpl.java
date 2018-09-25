@@ -20,7 +20,6 @@ public class FileUploadDAOImpl implements FileUploadDao {
         this.sessionFactory = sessionFactory;
     }
  
-    @Transactional
     public void save(UploadFile uploadFile) {
        sessionFactory.getCurrentSession().save(uploadFile);
     }
