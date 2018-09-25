@@ -21,9 +21,6 @@ body {
 	display:none;
 }
 
-#PublicationDetails{
-	display:none;
-}
 
 input[type=text], select {
     width: 95%;
@@ -344,7 +341,7 @@ h4 {
 
 /* Publications */
 
-.edit{
+.delete{
 	width:10px;
 	height:10px;
 	margin-top:-5px;
