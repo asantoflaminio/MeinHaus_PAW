@@ -187,7 +187,6 @@ div.polaroid {
 
 /* Favourites */
 
-
 .title_section {
 	margin-top:20px;
 	margin-left:250px;
@@ -196,7 +195,6 @@ div.polaroid {
 }
 
 /* Properties polaroid list style */
-
 
 .favourites div.polaroid-property {
 	margin-top: 12px;
@@ -335,6 +333,24 @@ h4 {
 
 .ocultar {
 	display: none;
+}
+
+/* End of style */
+
+/* End of style */
+
+/* Publications */
+
+.edit{
+	width:10px;
+	height:10px;
+	margin-top:-5px;
+}
+
+.section1{
+	background-color:red;
+	height:99%;
+	width:99%;
 }
 
 /* End of style */
