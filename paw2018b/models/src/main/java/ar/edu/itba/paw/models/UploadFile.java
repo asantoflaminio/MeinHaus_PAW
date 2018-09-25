@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "FILES_UPLOAD")
+@Table(name = "images")
 public class UploadFile {
     private long id;
     private String address;
@@ -20,7 +20,7 @@ public class UploadFile {
  
     @Id
     @GeneratedValue
-    @Column(name = "FILE_ID")
+    @Column(name = "upload_id")
     public long getId() {
         return id;
     }
@@ -29,7 +29,7 @@ public class UploadFile {
         this.id = id;
     }
  
-    @Column(name = "ADDRESS")
+    @Column(name = "address")
     public String getAddress() {
         return address;
     }
@@ -38,7 +38,7 @@ public class UploadFile {
         this.address = address;
     }
 
-    @Column(name = "FILE_DATA")
+    @Column(name = "file_data")
     public byte[] getData() {
         return data;
     }
