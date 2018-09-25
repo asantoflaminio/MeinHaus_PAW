@@ -62,3 +62,10 @@ function showFavourites() {
     fav.style.display = "block";
     document.getElementById("fav").setAttribute("class", "current"); 
 }
+
+function fav(heart){
+	if (heart.src.includes("heart_filled"))
+		heart.src = "/resources/pics/heart.png";
+	else
+		heart.src = "/resources/pics/heart_filled.png";
+}
