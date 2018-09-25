@@ -45,7 +45,7 @@
             <c:if test="${empty pageContext.request.userPrincipal}">
             <div class="dropdown" id="sign_in">
                 <a class="navbar_item" href="#"><spring:message code="nav.signIn"/></a>
-                <c:url value="/hello/home" var="loginUrl" />
+                <c:url value="/meinHaus/home" var="loginUrl" />
 				<form action="${loginUrl}" method="POST" class="form_login"  enctype="application/x-www-form-urlencoded">
                 <div class="dropdown-content">
                         <div class="email">
@@ -82,7 +82,7 @@
             	    <a class="navbar_item" id="userName" href="#"><c:out value="${pageContext.request.userPrincipal.name}" /></a>
            			<div class="dropdown-content" id="profile_dropdown">
           				<a class="user_dropdown" href="./publish"><spring:message code="nav.myProfile"/></a>
-           			    <a class="user_dropdown" href="#"><spring:message code="nav.logOut"/></a>
+           			    <a class="user_dropdown" href="./logout"><spring:message code="nav.logOut"/></a>
            			</div>
            		</div>
             </div>            <div>
@@ -108,7 +108,7 @@
         	<div>       
 	          		<h3><spring:message code="profile.titlePersonalData"/></h3>  
 			</div>
-			<c:url value="/hello/profile" var="postPath"/>
+			<c:url value="/meinHaus/profile" var="postPath"/>
 				 <form:form modelAttribute="ProfileForm" action="${postPath}" method="post">
 					<div class="form">
 						<div class="editdata-list-item">
@@ -149,7 +149,7 @@
            	<div>       
 	          		<h3><spring:message code="profile.titleNewPassword"/></h3>  
 			</div>
-			<c:url value="/hello/profile" var="postPath"/>
+			<c:url value="/meinHaus/profile" var="postPath"/>
 				 <form:form modelAttribute="ProfileForm" action="${postPath}" method="post">
 						<div class="form">
 						<div class="editdata-list-item">

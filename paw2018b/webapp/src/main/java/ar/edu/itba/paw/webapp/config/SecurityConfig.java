@@ -19,34 +19,37 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @ComponentScan("ar.edu.itba.paw.webapp.auth")
 public class SecurityConfig {
 	
-	@Order(1)
+	@Order(2)
 	@Configuration
 	public static class WebAuthConfig extends WebSecurityConfigurerAdapter {
 		
 		@Autowired
 		private UserDetailsService userDetailsService;
-		
 		@Override
 		protected void configure(final HttpSecurity http) throws Exception {
-		http.antMatcher("/hello/**")
+		http.antMatcher("/meinHaus/**")
 		.userDetailsService(userDetailsService)
 		.sessionManagement()
-		.invalidSessionUrl("/hello/home")
+		.invalidSessionUrl("/meinHaus/home")
 		.and().authorizeRequests()
-		.antMatchers("/hello/home").permitAll()
-		.antMatchers("/hello/**").authenticated()
+		.antMatchers("/meinHaus/publish*").authenticated()
+		.antMatchers("/meinHaus/profile").authenticated()
+		.anyRequest().permitAll()
 		.and().formLogin()
 		.usernameParameter("j_username")
 		.passwordParameter("j_password")
-		.loginPage("/hello/home")
-		.defaultSuccessUrl("/hello/home", false)
-		.failureUrl("/hello/home?error")
+		.loginPage("/meinHaus/home")
+		.defaultSuccessUrl("/meinHaus/home", false)
+		.failureUrl("/meinHaus/home?error")
 		.and().rememberMe()
 		.userDetailsService(userDetailsService)
-		.key("mysupersecretketthatnobodyknowsabout") //esto hay q modificar porqeu sino chau tp
+		.key(encryptKey(randomAlphaNumeric(Math.round(Math.random())))) //esto hay q modificar porqeu sino chau tp
 		.tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30))
+		.and().logout()
+		.logoutUrl("/meinHaus/logout")
+		.logoutSuccessUrl("/meinHaus/home")
 		.and().exceptionHandling()
-		.accessDeniedPage("/hello/403")
+		.accessDeniedPage("/meinHaus/403")
 		.and().csrf().disable();
 		}
 		
@@ -56,16 +59,29 @@ public class SecurityConfig {
 		.antMatchers("/css/**", "/js/**", "/img/**","/favicon.ico", "/403");
 		}
 		
-		public String encryptKey(String username) throws NoSuchAlgorithmException {
+		public static String encryptKey(String username) throws NoSuchAlgorithmException {
 			MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
 			messageDigest.update(username.getBytes());
 			String encryptedString = new String(messageDigest.digest());
 			return encryptedString;
 		}
+		
+
+		
+		public static String randomAlphaNumeric(long count) {
+			final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			StringBuilder builder = new StringBuilder();
+			
+			while (count-- != 0) {
+				int character = (int)(Math.random()*ALPHA_NUMERIC_STRING.length());
+				builder.append(ALPHA_NUMERIC_STRING.charAt(character));
+			}
+			return builder.toString();
+		}
 	}
 	
 	@Configuration
-	@Order(2)
+	@Order(1)
 	public static class WebAuthConfigSignUp extends WebSecurityConfigurerAdapter {
 
 		@Autowired
@@ -73,25 +89,28 @@ public class SecurityConfig {
 		
 		@Override
 		protected void configure(final HttpSecurity http) throws Exception {
-		http.antMatcher("/signUp/**")
+		http.antMatcher("/meinHaus/signUp/**")
 		.userDetailsService(userDetailsService)
 		.sessionManagement()
-		.invalidSessionUrl("/signUp/signUp")
+		.invalidSessionUrl("/meinHaus/signUp")
 		.and().authorizeRequests()
-		.antMatchers("/signUp/**").permitAll()
+		.antMatchers("/meinHaus/signUp/**").permitAll()
 		.and().formLogin()
 		.usernameParameter("j_username")
 		.passwordParameter("j_password")
-		.loginPage("/signUp/signUp")
-		.defaultSuccessUrl("/hello/home", false)
-		.failureUrl("/signUp/signUp?error")
+		.loginPage("/meinHaus/signUp")
+		.defaultSuccessUrl("/meinHaus/home", false)
+		.failureUrl("/meinHaus/signUp?error")
 		.and().rememberMe()
 		.rememberMeParameter("j_rememberme")
 		.userDetailsService(userDetailsService)
-		.key("mysupersecretketthatnobodyknowsabout") //esto hay q modificar porqeu sino chau tp
+		.key(encryptKey(randomAlphaNumeric(Math.round(Math.random())))) //esto hay q modificar porqeu sino chau tp
 		.tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30))
+		.and().logout()
+		.logoutUrl("/meinHaus/logout")
+		.logoutSuccessUrl("/meinHaus/home")
 		.and().exceptionHandling()
-		.accessDeniedPage("/hello/403")
+		.accessDeniedPage("/meinHaus/403")
 		.and().csrf().disable();
 		}
 		
@@ -101,11 +120,24 @@ public class SecurityConfig {
 		.antMatchers("/css/**", "/js/**", "/img/**","/favicon.ico", "/403");
 		}
 		
-		public String encryptKey(String username) throws NoSuchAlgorithmException {
+		public static String encryptKey(String username) throws NoSuchAlgorithmException {
 			MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
 			messageDigest.update(username.getBytes());
 			String encryptedString = new String(messageDigest.digest());
 			return encryptedString;
+		}
+		
+
+		
+		public static String randomAlphaNumeric(long count) {
+			final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			StringBuilder builder = new StringBuilder();
+			
+			while (count-- != 0) {
+				int character = (int)(Math.random()*ALPHA_NUMERIC_STRING.length());
+				builder.append(ALPHA_NUMERIC_STRING.charAt(character));
+			}
+			return builder.toString();
 		}
 		
 		

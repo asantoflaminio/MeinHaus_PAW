@@ -14,32 +14,32 @@ import ar.edu.itba.paw.services.UserServiceImpl;
 import ar.edu.itba.webapp.form.SignUpForm;
 
 @Controller
-@RequestMapping("/signUp/")
+@RequestMapping("/meinHaus/")
 public class SignUpController{
  
 	@Autowired
 	private UserServiceImpl us;
 	
 	@RequestMapping("signUp")
-	public ModelAndView helloSignUp(@ModelAttribute("signUpForm") final SignUpForm form) {
+	public ModelAndView signUp(@ModelAttribute("signUpForm") final SignUpForm form) {
 		System.out.println("en signUp");
 		final ModelAndView mav = new ModelAndView("signUp");
 		return mav;
 	}
 	
 	
-	@RequestMapping (value = "create", method = RequestMethod.POST )
+	@RequestMapping (value = "signUp/create", method = RequestMethod.POST )
 	public ModelAndView create(@Valid @ModelAttribute("signUpForm") final SignUpForm form, final BindingResult errors) {
 		System.out.println("Creando usuario");
 		if (errors.hasErrors()) {
-			return helloSignUp(form);
+			return signUp(form);
 		}
 		us.create(form.getFirstName(),
 					form.getLastName(),
 					form.getEmail(),
 					form.getPassword(),
 					form.getPhoneNumber());
-		return new ModelAndView("redirect:/hello/home");
+		return new ModelAndView("redirect:/meinHaus/home");
 	}
    
 

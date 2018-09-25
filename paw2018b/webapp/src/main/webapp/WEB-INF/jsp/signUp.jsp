@@ -37,7 +37,7 @@
             <c:if test="${empty pageContext.request.userPrincipal}">
             <div class="dropdown" id="sign_in">
                 <a class="navbar_item" href="#"><spring:message code="nav.signIn"/></a>
-                <c:url value="/hello/home" var="loginUrl" />
+                <c:url value="/meinHaus/home" var="loginUrl" />
 				<form action="${loginUrl}" method="POST" class="form_login"  enctype="application/x-www-form-urlencoded">
                 <div class="dropdown-content">
                         <div class="email">
@@ -84,7 +84,7 @@
 				<div id="signup-title">
 					<h3><spring:message code="signUp.title"/></h3>
 				</div>
-				<c:url value="/signUp/create" var="postPath"/>
+				<c:url value="/meinHaus/signUp/create" var="postPath"/>
 				 <form:form modelAttribute="signUpForm" action="${postPath}" method="post">
 					<div class="signup-list">
 						<div class="signup-list-item">
@@ -138,7 +138,7 @@
 					<h3><spring:message code="signUp.signInTitle"/></h3>
 				</div>
 					<div class="signup-list">
-						<c:url value="/signUp/signUp" var="signUpLogInUrl" />
+						<c:url value="/meinHaus/signUp" var="signUpLogInUrl" />
 						<form action="${signUpLogInUrl}" method="POST" enctype="application/x-www-form-urlencoded">
 						<div class="signup-list-item">
                         	<label><spring:message code="signUp.email"/></label>
