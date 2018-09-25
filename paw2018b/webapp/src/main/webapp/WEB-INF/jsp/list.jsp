@@ -144,6 +144,7 @@
     	</div>
     	
     	<div>
+    	<div id="content-container">
     		<aside>    		
 			    <div class="polaroid">
 					<div class="container">
@@ -265,21 +266,36 @@
 						</div>
 					</c:if>
 				</c:forEach>
-
+		       
 	        </section>
 	        
-	        <div class="page-nums-container">
-				<div class="page-nums">
-						<a class="page-number" href="#">&laquo;</a>
-					<c:set var="counter" value="1"/>
-					<c:forEach begin="1" end="${listLength/maxLength + listLength%maxLength}" varStatus="loop">
-						<a class="page-number" href="#">${counter}</a>
-						<c:set var="counter" value="${counter+1}"/>
-					</c:forEach>
- 					<a class="page-number" href="#">&raquo;</a>
-				</div>	        
-			</div>	        
+	        <c:if test="${listLength == 0}">	        
+	 	       <div id="no-results">
+					<h2 id="no-results-title"><spring:message code="list.noResultsTitle"/></h2>
+					<h3 id="no-results-info"><spring:message code="list.noResultsInfo"/></h3>
+				</div>
+	        </c:if>
+	        
+	       	</div>
+	       	
+	       	<c:if test="${listLength != 0}">	            
+		        <div class="page-nums-container">
+					<div class="page-nums">
+							<a class="page-number" href="#">&laquo;</a>
+						<c:set var="counter" value="1"/>
+						<c:forEach begin="1" end="${listLength/maxLength + listLength%maxLength}" varStatus="loop">
+							<a class="page-number" href="#">${counter}</a>
+							<c:set var="counter" value="${counter+1}"/>
+						</c:forEach>
+ 						<a class="page-number" href="#">&raquo;</a>
+					</div>	        
+				</div>
+			</c:if>	        
         </div>
+        
+       	<div id="separator">
+        </div>
+
         
         <footer>
           <div id="footer">
