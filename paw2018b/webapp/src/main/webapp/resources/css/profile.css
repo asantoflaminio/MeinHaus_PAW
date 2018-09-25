@@ -19,6 +19,7 @@ body {
 
 #Favourites {
 	display : none;
+	
 }
 
 input[type=text], select {
@@ -66,7 +67,7 @@ input[type=submit] {
 }
 
 label{
-    margin-left: 2%;
+    margin-left: 1%;
 }
 
 /* Aside bar style */
@@ -182,3 +183,158 @@ div.polaroid {
 .error{
   color: red;
 }
+
+
+/* Favourites */
+
+
+.title_section {
+	margin-top:20px;
+	margin-left:250px;
+	font-weight:bold;
+	color:dimgrey;
+}
+
+/* Properties polaroid list style */
+
+
+.favourites div.polaroid-property {
+	margin-top: 12px;
+	margin-left: 1%;
+	width: 35%;
+	float:left;
+	height: auto;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	display: flex;
+	min-width: 650px;
+}
+
+.img-with-tag {
+	display: inline-block;
+	position: relative;
+}
+
+.price-tag {
+	color: white !important;
+	font-family: 'Rubik', sans-serif;
+	font-size: 23px !important;
+	position: absolute;
+	bottom: 5px;
+	left: 15px;
+	text-shadow: 0.5px 1px 1px #666;
+}
+
+.favorite-icon {
+	position: absolute;
+	top: 12px;
+	right: 8px;
+	height: 30px;
+	width: 30px;
+	display: none;
+}
+
+.next-image {
+	height: 25px;
+	width: 25px;
+	top: 95px;
+	right: 5px;
+	position: absolute;
+	display: none;
+}
+
+.polaroid-property-img{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px; 
+    width: 260px; 
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.property-title {
+	text-align: left !important;
+	color: #999;
+	margin-left: 10px;
+	margin-top:10px;
+	font-size: 20px !important;
+	display: inline-block;
+}
+
+.property-date {
+	float: right !important;
+	color: #888;
+	font-size: 13px !important;
+	display: inline-block;
+	margin-top: 15px;
+	margin-right: 5px;
+}
+
+.property-container {
+	margin-right: 10px;
+	margin-left: 15px;
+	height: 180px;
+	width: 58%;
+}
+
+.property-characteristics {
+	margin-left: 30px;
+	height: 100px;
+	margin-top: 20px;
+	margin-right: 200px;
+	display: flex;	
+}
+
+.address {
+	font-family: 'Rubik', sans-serif !important;
+	font-size: 16px !important;
+	color: #888 !important;
+	margin-left: 10px;
+	margin-top: 3px;
+}
+
+.column-1 {
+	height: inherit;
+	width: 30%;
+	min-width: 130px;
+}
+
+.column-2 {
+	height: inherit;
+	width: 45%;
+	min-width: 190px;
+}
+
+h4 {
+	font-family: 'Rubik', sans-serif !important;
+	font-size: 13px !important;
+	color: #888 !important;
+}
+
+.more-info {
+	height: 20px;
+	margin-top: -10px;	
+}
+
+.more-info-title {
+	float: right;
+	font-size: 15px !important;
+	color: #FD8907 !important;
+	margin-right: 25px;
+}
+
+
+@media screen and ( max-width: 935px ){
+    section {
+        margin-left: 180px;
+    }
+}
+
+.ocultar {
+	display: none;
+}
+
+/* End of style */

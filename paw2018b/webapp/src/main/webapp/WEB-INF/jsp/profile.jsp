@@ -179,10 +179,191 @@
 		<h3>Publications</h3>  
 		</div>
 		
+		<section>
 		<div id="Favourites">
-		<h3>Favourites</h3>  
+			
+				<h2 class="title_section"><spring:message code="profile.favourites" /></h2>  
+				
+	        
+	        	<c:set var = "listLength" scope = "session" value = ""/>
+	        	<c:set var = "maxLength" scope = "session" value = "1"/>
+	        	<c:set var = "current" scope = "session" value = "1"/>
+	        	<div class="favourites">
+						<div class="polaroid-property">
+				    		<div class="img-with-tag">
+				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
+				    			<img class="favorite-icon" onclick="fav(this);" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
+				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
+								<h2 class="price-tag">$<c:out value = "245.000$"/></h2>
+							</div>
+							<div class="property-container">
+								<div class="property-title-container">
+									<h3 class="property-title"><c:out value = "Venta Departamento Belgrano"/></h3>
+									<h4 class="address"><c:out value = "Cabildo 123"/></h4>
+								</div>					
+								<div class="property-characteristics">
+									<div class="column-1">
+										<h4 class="bedroom"><strong><c:out value = "2"/></strong> <spring:message code="list.bedroomMinus"/></h4>
+										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
+										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.parkingMinus"/></h4>	
+									</div>
+									<div class="column-2">
+										<h4><strong><c:out value = "45m2"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
+										<h4><c:out value = "Venta"/></h4>
+									</div>				
+								</div>
+								<div class="more-info">
+									<a class="more-info-title"><spring:message code="list.moreInfo"/> ></a>
+								</div>	
+							</div>
+						</div>
+						
+						<div class="polaroid-property">
+				    		<div class="img-with-tag">
+				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
+				    			<img class="favorite-icon" onclick="fav(this);" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
+				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
+								<h2 class="price-tag">$<c:out value = "35.000$"/></h2>
+							</div>
+							<div class="property-container">
+								<div class="property-title-container">
+									<h3 class="property-title"><c:out value = "Alquiler Casa 4 Ambientes"/></h3>
+									<h4 class="address"><c:out value = "Cabildo 123"/></h4>
+								</div>					
+								<div class="property-characteristics">
+									<div class="column-1">
+										<h4 class="bedroom"><strong><c:out value = "3"/></strong> <spring:message code="list.bedroomMinus"/></h4>
+										<h4><strong><c:out value = "2"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
+										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.parkingMinus"/></h4>	
+									</div>
+									<div class="column-2">
+										<h4><strong><c:out value = "85m2"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
+										<h4><c:out value = "Alquiler"/></h4>
+									</div>				
+								</div>
+								<div class="more-info">
+									<a class="more-info-title"><spring:message code="list.moreInfo"/> ></a>
+								</div>	
+							</div>
+						</div>
+						
+						<div class="polaroid-property">
+				    		<div class="img-with-tag">
+				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
+				    			<img class="favorite-icon" onclick="fav(this);" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
+				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
+								<h2 class="price-tag">$<c:out value = "35.000$"/></h2>
+							</div>
+							<div class="property-container">
+								<div class="property-title-container">
+									<h3 class="property-title"><c:out value = "Alquiler Casa 4 Ambientes"/></h3>
+									<h4 class="address"><c:out value = "Cabildo 123"/></h4>
+								</div>					
+								<div class="property-characteristics">
+									<div class="column-1">
+										<h4 class="bedroom"><strong><c:out value = "3"/></strong> <spring:message code="list.bedroomMinus"/></h4>
+										<h4><strong><c:out value = "2"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
+										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.parkingMinus"/></h4>	
+									</div>
+									<div class="column-2">
+										<h4><strong><c:out value = "85m2"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
+										<h4><c:out value = "Alquiler"/></h4>
+									</div>				
+								</div>
+								<div class="more-info">
+									<a class="more-info-title"><spring:message code="list.moreInfo"/> ></a>
+								</div>	
+							</div>
+						</div>
+						<div class="polaroid-property">
+				    		<div class="img-with-tag">
+				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
+				    			<img class="favorite-icon" onclick="fav(this);" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
+				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
+								<h2 class="price-tag">$<c:out value = "35.000$"/></h2>
+							</div>
+							<div class="property-container">
+								<div class="property-title-container">
+									<h3 class="property-title"><c:out value = "Alquiler Casa 4 Ambientes"/></h3>
+									<h4 class="address"><c:out value = "Cabildo 123"/></h4>
+								</div>					
+								<div class="property-characteristics">
+									<div class="column-1">
+										<h4 class="bedroom"><strong><c:out value = "3"/></strong> <spring:message code="list.bedroomMinus"/></h4>
+										<h4><strong><c:out value = "2"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
+										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.parkingMinus"/></h4>	
+									</div>
+									<div class="column-2">
+										<h4><strong><c:out value = "85m2"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
+										<h4><c:out value = "Alquiler"/></h4>
+									</div>				
+								</div>
+								<div class="more-info">
+									<a class="more-info-title"><spring:message code="list.moreInfo"/> ></a>
+								</div>	
+							</div>
+						</div>
+						<div class="polaroid-property">
+				    		<div class="img-with-tag">
+				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
+				    			<img class="favorite-icon" onclick="fav(this);" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
+				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
+								<h2 class="price-tag">$<c:out value = "35.000$"/></h2>
+							</div>
+							<div class="property-container">
+								<div class="property-title-container">
+									<h3 class="property-title"><c:out value = "Alquiler Casa 4 Ambientes"/></h3>
+									<h4 class="address"><c:out value = "Cabildo 123"/></h4>
+								</div>					
+								<div class="property-characteristics">
+									<div class="column-1">
+										<h4 class="bedroom"><strong><c:out value = "3"/></strong> <spring:message code="list.bedroomMinus"/></h4>
+										<h4><strong><c:out value = "2"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
+										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.parkingMinus"/></h4>	
+									</div>
+									<div class="column-2">
+										<h4><strong><c:out value = "85m2"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
+										<h4><c:out value = "Alquiler"/></h4>
+									</div>				
+								</div>
+								<div class="more-info">
+									<a class="more-info-title"><spring:message code="list.moreInfo"/> ></a>
+								</div>	
+							</div>
+						</div>
+						<div class="polaroid-property">
+				    		<div class="img-with-tag">
+				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
+				    			<img class="favorite-icon" onclick="fav(this);" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
+				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
+								<h2 class="price-tag">$<c:out value = "35.000$"/></h2>
+							</div>
+							<div class="property-container">
+								<div class="property-title-container">
+									<h3 class="property-title"><c:out value = "Alquiler Casa 4 Ambientes"/></h3>
+									<h4 class="address"><c:out value = "Cabildo 123"/></h4>
+								</div>					
+								<div class="property-characteristics">
+									<div class="column-1">
+										<h4 class="bedroom"><strong><c:out value = "3"/></strong> <spring:message code="list.bedroomMinus"/></h4>
+										<h4><strong><c:out value = "2"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
+										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.parkingMinus"/></h4>	
+									</div>
+									<div class="column-2">
+										<h4><strong><c:out value = "85m2"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
+										<h4><c:out value = "Alquiler"/></h4>
+									</div>				
+								</div>
+								<div class="more-info">
+									<a class="more-info-title"><spring:message code="list.moreInfo"/> ></a>
+								</div>	
+							</div>
+						</div>
+			
+			
+			</div>
 		</div>
-		
+		</section>
         <footer>
         	<div id="footer">
               <p>Copyright &copy; 2018, MeinHaus. All rights reserved.</p>
