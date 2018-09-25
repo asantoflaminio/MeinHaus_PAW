@@ -25,15 +25,6 @@
         	<a href="./home">
            		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
             </a>
-            <div class="dropdown">
-	                <img src="
-	                <c:url value="/resources/pics/user.png" />
-	                " alt="user" id="user_icon" class="navbar_item">
-                <div id="myDropdown" class="dropdown-content"> 
-                    <a href="./help.html"><spring:message code="nav.profile"/></a>
-                    <a href="./help.html"><spring:message code="nav.logOut"/></a>
-                </div>
-            </div>
             <c:if test="${empty pageContext.request.userPrincipal}">
             <div class="dropdown" id="sign_in">
                 <a class="navbar_item" href="#"><spring:message code="nav.signIn"/></a>
