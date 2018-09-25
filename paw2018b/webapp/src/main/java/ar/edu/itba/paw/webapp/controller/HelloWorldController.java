@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.itba.paw.models.Publication;
 import ar.edu.itba.paw.models.UploadFile;
+import ar.edu.itba.paw.services.FileUploadImpl;
 import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
 import ar.edu.itba.webapp.form.FirstPublicationForm;
@@ -31,7 +32,7 @@ import ar.edu.itba.webapp.form.ThirdPublicationForm;
 import ar.edu.itba.webapp.form.SignUpForm;
 
 @Controller
-@RequestMapping("/hello/")
+@RequestMapping("/meinHaus/")
 @ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
 public class HelloWorldController {
 	
@@ -44,6 +45,9 @@ public class HelloWorldController {
 	/*@Autowired
     private FileUploadDao fileUploadDao;*/
 	
+	@Autowired
+	private FileUploadImpl fileUploadImpl;
+	
 	@RequestMapping("/403")
 	public ModelAndView forbidden() {
 		return new ModelAndView("403");
@@ -51,14 +55,14 @@ public class HelloWorldController {
 	
 	
 	@RequestMapping("home")
-	public ModelAndView helloHome(@ModelAttribute("homeSearchForm") final HomeSearchForm form) {
+	public ModelAndView home(@ModelAttribute("homeSearchForm") final HomeSearchForm form) {
 		System.out.println("Home");
 		final ModelAndView mav = new ModelAndView("home");
 		return mav;
 	}
 	
 	@RequestMapping(value = "home",method = RequestMethod.POST)
-	public ModelAndView helloLogin() {
+	public ModelAndView homeLogin() {
 		System.out.println("Me llamo login");
 		final ModelAndView mav = new ModelAndView("home");
 		return mav;
@@ -70,9 +74,9 @@ public class HelloWorldController {
 		System.out.println("Me llamo list");
 		if(errors.hasErrors()) {
 			System.out.println("Tengo errores :c");
-			return helloHome(form);
+			return home(form);
 		}
-		final ModelAndView mav = new ModelAndView("redirect:/hello/list");
+		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/list");
 		mav.addObject("operation", operation);
 		if(! form.getSearch().equals(""))
 			mav.addObject("address", form.getSearch());
@@ -80,32 +84,10 @@ public class HelloWorldController {
 			mav.addObject("address", "all");
 		return mav;
 	}
-	
-	@RequestMapping("signUp")
-	public ModelAndView helloSignUp(@ModelAttribute("signUpForm") final SignUpForm form) {
-		System.out.println("en signUp");
-		final ModelAndView mav = new ModelAndView("signUp");
-		return mav;
-	}
-	
-	
-	@RequestMapping (value = "signUp", method = RequestMethod.POST )
-	public ModelAndView create(@Valid @ModelAttribute("signUpForm") final SignUpForm form, final BindingResult errors) {
-		System.out.println("Creando usuario");
-		if (errors.hasErrors()) {
-			return helloSignUp(form);
-		}
-		us.create(form.getFirstName(),
-					form.getLastName(),
-					form.getEmail(),
-					form.getPassword(),
-					form.getPhoneNumber());
-		return new ModelAndView("redirect:/hello/home");
-	}
 
 	
 	@RequestMapping("profile")
-	public ModelAndView helloProfile(@ModelAttribute("ProfileForm") final ProfileForm form) {
+	public ModelAndView profile(@ModelAttribute("ProfileForm") final ProfileForm form) {
 		final ModelAndView mav = new ModelAndView("profile");
 		return mav;
 	}
@@ -119,10 +101,10 @@ public class HelloWorldController {
 	@RequestMapping (value = "profile", method = RequestMethod.POST )
 	public ModelAndView profile(@Valid @ModelAttribute("ProfileForm") final ProfileForm form, final BindingResult errors) {
 		if (errors.hasErrors()) {
-			return helloProfile(form);
+			return profile(form);
 		}
 		
-		return new ModelAndView("redirect:/hello/profile"); //!!!!!!!!!! no
+		return new ModelAndView("redirect:/meinHaus/profile"); //!!!!!!!!!! no
 	}
 	
 	/*@RequestMapping (value = "profile", method = RequestMethod.POST )
@@ -136,7 +118,7 @@ public class HelloWorldController {
 	
 	
 	@RequestMapping("list")
-	public ModelAndView helloList(@ModelAttribute("homeSearchForm") final HomeSearchForm form, @RequestParam("operation") String operation,@RequestParam("address") String address) {
+	public ModelAndView list(@ModelAttribute("homeSearchForm") final HomeSearchForm form, @RequestParam("operation") String operation,@RequestParam("address") String address) {
 		List<Publication> publications;
 		final ModelAndView mav = new ModelAndView("list");
 		mav.addObject("operation", operation);
@@ -155,9 +137,9 @@ public class HelloWorldController {
 			   						@RequestParam("oper") String operation) {
 		List<Publication> publications;
 		if (errors.hasErrors()) {
-			return helloList(form, operation,form.getSearch());
+			return list(form, operation,form.getSearch());
 		}
-		final ModelAndView mav = new ModelAndView("redirect:/hello/list");
+		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/list");
 		mav.addObject("operation", operation);
 		if(form.getSearch().equals("")) {
 			publications = ps.findAll(operation);
@@ -174,7 +156,7 @@ public class HelloWorldController {
 	
 	
 	@RequestMapping("details")
-	public ModelAndView helloDetails(@Valid @ModelAttribute("MessageForm") final MessageForm form, @RequestParam("publicationid") String publicationid) {
+	public ModelAndView details(@Valid @ModelAttribute("MessageForm") final MessageForm form, @RequestParam("publicationid") String publicationid) {
 		final Publication pub = ps.findById(Integer.valueOf(publicationid));
 		//final User user = us.findById(1);
 	    final ModelAndView mav = new ModelAndView("details");
@@ -191,7 +173,7 @@ public class HelloWorldController {
 	    return mav;
 	}
 	@RequestMapping(value = "publish")
-	public ModelAndView helloPublish(@ModelAttribute("firstPublicationForm") final FirstPublicationForm form) {
+	public ModelAndView publish(@ModelAttribute("firstPublicationForm") final FirstPublicationForm form) {
 		final ModelAndView mav = new ModelAndView("publish");
 		return mav;
 	}
@@ -200,9 +182,9 @@ public class HelloWorldController {
 	@RequestMapping(value = "publish" ,method = RequestMethod.POST)
 	public ModelAndView publish(@Valid @ModelAttribute("firstPublicationForm") final FirstPublicationForm form, final BindingResult errors, @RequestParam("operation") String operation) {
 		if (errors.hasErrors()) {
-			return helloPublish(form);
+			return publish(form);
 		}
-		final ModelAndView mav = new ModelAndView("redirect:/hello/publish2");
+		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/publish2");
 		mav.addObject("title", form.getTitle());
 		mav.addObject("address", form.getAddress());
 		mav.addObject("price", form.getPrice());
@@ -211,7 +193,7 @@ public class HelloWorldController {
 	}
 		
 	@RequestMapping(value = "publish2")
-	public ModelAndView helloPublish2(@ModelAttribute("secondPublicationForm") final SecondPublicationForm form, @RequestParam("operation") String operation) {
+	public ModelAndView publish2(@ModelAttribute("secondPublicationForm") final SecondPublicationForm form, @RequestParam("operation") String operation) {
 		final ModelAndView mav = new ModelAndView("publish2");
 		mav.addObject("operation",operation);
 		return mav;
@@ -222,9 +204,9 @@ public class HelloWorldController {
 								 @RequestParam("type") String type, @RequestParam("operation") String operation) {
 		if (errors.hasErrors()) {
 				
-			return helloPublish2(form,operation);
+			return publish2(form,operation);
 		}
-		final ModelAndView mav = new ModelAndView("redirect:/hello/publish3");
+		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/publish3");
 		mav.addObject("title", form.getTitle());
 		mav.addObject("address", form.getAddress());
 		mav.addObject("price", form.getPrice());
@@ -235,7 +217,7 @@ public class HelloWorldController {
 	}
 	
 	@RequestMapping(value = "publish3")
-	public ModelAndView helloPublish3(@ModelAttribute("thirdPublicationForm") final ThirdPublicationForm form, @RequestParam("operation") String operation, @RequestParam("type") String type) {
+	public ModelAndView publish3(@ModelAttribute("thirdPublicationForm") final ThirdPublicationForm form, @RequestParam("operation") String operation, @RequestParam("type") String type) {
 		final ModelAndView mav = new ModelAndView("publish3");
 		mav.addObject("operation",operation);
 		mav.addObject("type",type);
@@ -246,9 +228,9 @@ public class HelloWorldController {
 	public ModelAndView publish3(@Valid @ModelAttribute("thirdPublicationForm") final ThirdPublicationForm form, final BindingResult errors,
 								 @RequestParam("type") String type, @RequestParam("operation") String operation) {
 		if (errors.hasErrors()) {
-			return helloPublish3(form,operation,type);
+			return publish3(form,operation,type);
 		}
-		final ModelAndView mav = new ModelAndView("redirect:/hello/publish4");
+		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/publish4");
 		mav.addObject("title", form.getTitle());
 		mav.addObject("address", form.getAddress());
 		mav.addObject("price", form.getPrice());
@@ -267,23 +249,23 @@ public class HelloWorldController {
 	}
 	
 	@RequestMapping("publish4")
-	public ModelAndView helloPublish4() {
+	public ModelAndView publish4() {
 		final ModelAndView mav = new ModelAndView("publish4");
 		return mav;
 	}
 	
 	@RequestMapping(value = "publish4" ,method = RequestMethod.POST)
 	public ModelAndView publish4(@Valid @ModelAttribute("fourthPublicationForm") final FourthPublicationForm form, final BindingResult errors,
-								 @RequestParam("type") String type, @RequestParam("operation") String operation /*, @RequestParam CommonsMultipartFile[] fileUpload*/) {
+								 @RequestParam("type") String type, @RequestParam("operation") String operation , @RequestParam CommonsMultipartFile[] fileUpload) {
 		if (errors.hasErrors()) {
-			//return helloPublish3(form,operation,type);
+			//return publish4();
 		}
 		long userid = us.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getUserId();
 		ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), form.getDescription(), 
 				type, form.getBedrooms(), form.getBathrooms(), form.getFloorSize(), form.getParking(),userid);
 		
 		
-		/*if (fileUpload != null && fileUpload.length > 0) {
+		if (fileUpload != null && fileUpload.length > 0) {
             for (CommonsMultipartFile aFile : fileUpload){
                   
                 System.out.println("Saving file: " + aFile.getOriginalFilename());
@@ -291,10 +273,10 @@ public class HelloWorldController {
                 UploadFile uploadFile = new UploadFile();
                 uploadFile.setAddress(form.getAddress());
                 uploadFile.setData(aFile.getBytes());
-                fu.save(uploadFile);               
+                //fileUploadImpl.save(uploadFile);               
             }
-        }*/
-		return new ModelAndView("redirect:/hello/home");
+        }
+		return new ModelAndView("redirect:/meinHaus/home");
 	}
 
 	

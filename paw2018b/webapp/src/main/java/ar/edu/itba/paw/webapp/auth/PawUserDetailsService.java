@@ -24,7 +24,7 @@ public class PawUserDetailsService implements UserDetailsService {
 	
 	public UserDetails loadUserByUsername(final String username)throws UsernameNotFoundException {
 		final User user = us.findByUsername(username);
-		
+		System.out.println("Searching user in DB");
 		if (user == null) {
 			throw new UsernameNotFoundException("No user by the name " + username);
 		}	

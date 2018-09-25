@@ -18,6 +18,7 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.DatabasePopulator;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -27,6 +28,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import ar.edu.itba.paw.FileUploadDao;
+import ar.edu.itba.paw.persistence.FileUploadDAOImpl;
 
 @EnableWebMvc
 @ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
@@ -43,19 +45,31 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		return dsi;
 	}
 	
-	/*@Autowired
+	@Bean
+	public LocalSessionFactoryBean sessionFactory() {
+	   LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+	   sessionFactory.setDataSource(dataSource());
+	   sessionFactory.setPackagesToScan(
+	       new String[] { "base.package.to.scan" }
+	   );
+	   //sessionFactory.setHibernateProperties(hibernateProperties());
+
+	   return sessionFactory;
+	}
+
+	@Autowired
 	@Bean(name = "fileUploadDao")
 	public FileUploadDao getUserDao(SessionFactory sessionFactory) {
-	    return new FileUploadImpl(sessionFactory);
+	    return new FileUploadDAOImpl(sessionFactory);
 	}
-	
+
 	@Bean(name = "multipartResolver")
 	public CommonsMultipartResolver getCommonsMultipartResolver() {
 	    CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
 	    multipartResolver.setMaxUploadSize(20971520);   // 20MB
 	    multipartResolver.setMaxInMemorySize(1048576);  // 1MB
 	    return multipartResolver;
-	}*/
+	}
 	
 	
 	private DatabasePopulator databasePopulator() {
@@ -88,7 +102,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		ds.setDriverClass(org.postgresql.Driver.class);
 		ds.setUrl("jdbc:postgresql://localhost/postgres");
 		ds.setUsername("postgres");
-		ds.setPassword("3296");
+		ds.setPassword("Bvma141511");
 		return ds;
 	}
 	
