@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.itba.paw.models.Publication;
 import ar.edu.itba.paw.models.UploadFile;
+import ar.edu.itba.paw.services.FileUploadImpl;
 import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
 import ar.edu.itba.webapp.form.FirstPublicationForm;
@@ -43,6 +44,9 @@ public class HelloWorldController {
 	
 	/*@Autowired
     private FileUploadDao fileUploadDao;*/
+	
+	@Autowired
+	private FileUploadImpl fileUploadImpl;
 	
 	@RequestMapping("/403")
 	public ModelAndView forbidden() {
@@ -274,7 +278,7 @@ public class HelloWorldController {
 	
 	@RequestMapping(value = "publish4" ,method = RequestMethod.POST)
 	public ModelAndView publish4(@Valid @ModelAttribute("fourthPublicationForm") final FourthPublicationForm form, final BindingResult errors,
-								 @RequestParam("type") String type, @RequestParam("operation") String operation /*, @RequestParam CommonsMultipartFile[] fileUpload*/) {
+								 @RequestParam("type") String type, @RequestParam("operation") String operation , @RequestParam CommonsMultipartFile[] fileUpload) {
 		if (errors.hasErrors()) {
 			//return helloPublish3(form,operation,type);
 		}
@@ -283,7 +287,7 @@ public class HelloWorldController {
 				type, form.getBedrooms(), form.getBathrooms(), form.getFloorSize(), form.getParking(),userid);
 		
 		
-		/*if (fileUpload != null && fileUpload.length > 0) {
+		if (fileUpload != null && fileUpload.length > 0) {
             for (CommonsMultipartFile aFile : fileUpload){
                   
                 System.out.println("Saving file: " + aFile.getOriginalFilename());
@@ -291,9 +295,9 @@ public class HelloWorldController {
                 UploadFile uploadFile = new UploadFile();
                 uploadFile.setAddress(form.getAddress());
                 uploadFile.setData(aFile.getBytes());
-                fu.save(uploadFile);               
+                //fileUploadImpl.save(uploadFile);               
             }
-        }*/
+        }
 		return new ModelAndView("redirect:/hello/home");
 	}
 
