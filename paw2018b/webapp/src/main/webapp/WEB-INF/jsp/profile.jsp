@@ -96,7 +96,7 @@
 		<section>
        		<div id="Data">
        	 	 	<div class="data polaroid">
-        			<div>       
+        			<div class="title-container">       
 	          			<h3><spring:message code="profile.titlePersonalData"/></h3>  
 					</div>
 					<c:url value="/meinHaus/profile" var="postPath"/>
@@ -134,8 +134,8 @@
            			</form:form>
            		</div>
            
-           		<div class="data polaroid">
-	           		<div>       
+           		<div class="data polaroid last">
+	           		<div class="title-container">       
 		          		<h3><spring:message code="profile.titleNewPassword"/></h3>  
 					</div>
 					<c:url value="/meinHaus/profile" var="postPath"/>
