@@ -18,6 +18,7 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.DatabasePopulator;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
@@ -50,7 +51,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	   LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 	   sessionFactory.setDataSource(dataSource());
 	   sessionFactory.setPackagesToScan(
-	       new String[] { "base.package.to.scan" }
+	       new String[] { "ar.edu.itba.paw"  }
 	   );
 	   //sessionFactory.setHibernateProperties(hibernateProperties());
 
@@ -94,6 +95,15 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		return viewResolver;
 	}
 	
+	@Bean
+	@Autowired
+	public HibernateTransactionManager transactionManager(
+	    SessionFactory sessionFactory) {
+	    HibernateTransactionManager txManager = new HibernateTransactionManager();
+	    txManager.setSessionFactory(sessionFactory);
+	    return txManager;
+	}
+	
 	//Creo q hay que cambiar lo de abajo para que sea la base de datos nuestra
 	
 	@Bean
@@ -102,7 +112,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		ds.setDriverClass(org.postgresql.Driver.class);
 		ds.setUrl("jdbc:postgresql://localhost/postgres");
 		ds.setUsername("postgres");
-		ds.setPassword("Bvma141511");
+		ds.setPassword("123456");
 		return ds;
 	}
 	
