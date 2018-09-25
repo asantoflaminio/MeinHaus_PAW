@@ -11,7 +11,7 @@
         <c:url value="/resources/pics/favicon.ico" />
         ">
         <link rel="stylesheet" type="text/css" href="
-        <c:url value="/resources/css/publish3.css" />
+        <c:url value="/resources/css/publish4.css" />
         ">
         <link rel="stylesheet" type="text/css" href="
         <c:url value="/resources/css/navbar.css" />
@@ -84,21 +84,23 @@
 		
 		<div class="polaroid_agency">
 		  <div class="container3">
-			<h3 id="titl"><spring:message code="publish4.finalstep"/></h3>
+		  	<div id="step4-title">
+				<h3 id="titl"><spring:message code="publish4.finalstep"/></h3>
+			</div>
 		     <form:form modelAttribute="fourthPublicationForm" action="${postPath}" method="post" enctype="multipart/form-data">
 		     	<div class="fillers">
 
-		        <p><spring:message code="publish4.photos"/></p>	
+				<div class="signup-list-item">
+		        <p id="photos-title"><spring:message code="publish4.photos"/></p>	
 		            <table border="0">
 		                <tr>
-		                    <td><input type="file" name="fileUpload" size="50" /></td>
+		                    <td class="upload-pic"><input type="file" name="fileUpload" size="50" /></td>
 		                </tr>
 		                <tr>
-		                    <td><input type="file" name="fileUpload" size="50" /></td>
+		                    <td class="upload-pic"><input type="file" name="fileUpload" size="50" /></td>
 		                </tr>
 		            </table>
-
-
+	    		 </div>
 				     	    		 
 	    		 </div>
 	    		 

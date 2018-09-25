@@ -149,5 +149,10 @@
 			</div>
 		</div>
 		
+         <footer>
+          <div id="footer">
+              <p>Copyright &copy; 2018, MeinHaus. All rights reserved.</p>
+          </div>
+        </footer>
 
     </body>

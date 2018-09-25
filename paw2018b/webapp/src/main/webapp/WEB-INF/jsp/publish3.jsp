@@ -84,7 +84,9 @@
 		
 		<div class="polaroid_agency">
 		  <div class="container3">
-			<h3 id="titl"><spring:message code="publish3.step"/></h3>
+		  	<div id="step3-title">
+				<h3 id="titl"><spring:message code="publish3.step"/></h3>
+			</div>
 		    <c:url value="/meinHaus/publish3" var="postPath"/>
 				<form:form modelAttribute="thirdPublicationForm" action="${postPath}" method="post">
 		     	<div class="fillers">
@@ -95,26 +97,30 @@
 		    		 <form:input type="hidden" path="description" value="${description}"/>
 		    		 <input type="hidden" path="type" value="${type}" name="type">
 		     	
+				<div class="signup-list-item">
 				     <form:label for="bedrooms" path="bedrooms"><spring:message code="publish3.bedrooms"/></form:label>	
 				     <spring:message code="publish3.placeholderBedrooms" var="bedrooms"/>	    		 
 		    		 <form:input type="text" id="bedrooms" path="bedrooms" name="bedrooms" placeholder="${bedrooms}"/>
 		    		 <form:errors path="bedrooms" cssClass="error" element="p"/>
-		    		 
+		    	</div>
+				<div class="signup-list-item">
 		    		 <form:label for="bathrooms" path="bathrooms"><spring:message code="publish3.bathrooms"/></form:label>	
 		    		 <spring:message code="publish3.placeholderBathrooms" var="bathrooms"/>	 
 		    		 <form:input type="text" id="bathrooms" path="bathrooms" name="bathrooms" placeholder="${bathrooms}"/>
 		    		 <form:errors path="bathrooms" cssClass="error" element="p"/>
-		    		 
+		    	</div>
+				<div class="signup-list-item">
 		    		 <form:label for="floor_size" path="floorSize"><spring:message code="publish3.floorSize"/></form:label>	 
 		    		 <spring:message code="publish3.placeholderFloorSize" var="floorSize"/>	 
 		    		 <form:input type="text" id="floor_size" path="floorSize" name="floor_size" placeholder="${floorSize}"/>
 		    		 <form:errors path="floorSize" cssClass="error" element="p"/>
-		    		 
+		    	</div>
+				<div class="signup-list-item">
 		    		 <form:label for="parking" path="parking"><spring:message code="publish3.parking"/></form:label>	 
 		    		 <spring:message code="publish3.placeholderParking" var="parking"/>	 
 		    		 <input type="text" id="parking" name="parking" path="parking" placeholder="${parking}">
 		    		 <form:errors path="parking" cssClass="error" element="p"/>
-		    		 
+		    	</div>
 		    		 <spring:message code="publish3.submitPublish" var="submitValue"/>
 		    		 <input class="signup-submit" type="submit" value=${submitValue}>
 	    		 </div>
