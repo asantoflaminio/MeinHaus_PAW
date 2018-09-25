@@ -84,28 +84,6 @@ public class HelloWorldController {
 			mav.addObject("address", "all");
 		return mav;
 	}
-	
-	@RequestMapping("signUp")
-	public ModelAndView helloSignUp(@ModelAttribute("signUpForm") final SignUpForm form) {
-		System.out.println("en signUp");
-		final ModelAndView mav = new ModelAndView("signUp");
-		return mav;
-	}
-	
-	
-	@RequestMapping (value = "signUp", method = RequestMethod.POST )
-	public ModelAndView create(@Valid @ModelAttribute("signUpForm") final SignUpForm form, final BindingResult errors) {
-		System.out.println("Creando usuario");
-		if (errors.hasErrors()) {
-			return helloSignUp(form);
-		}
-		us.create(form.getFirstName(),
-					form.getLastName(),
-					form.getEmail(),
-					form.getPassword(),
-					form.getPhoneNumber());
-		return new ModelAndView("redirect:/hello/home");
-	}
 
 	
 	@RequestMapping("profile")

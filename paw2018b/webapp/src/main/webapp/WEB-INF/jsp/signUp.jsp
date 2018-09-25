@@ -84,7 +84,7 @@
 				<div id="signup-title">
 					<h3><spring:message code="signUp.title"/></h3>
 				</div>
-				<c:url value="/hello/signUp" var="postPath"/>
+				<c:url value="/signUp/create" var="postPath"/>
 				 <form:form modelAttribute="signUpForm" action="${postPath}" method="post">
 					<div class="signup-list">
 						<div class="signup-list-item">
@@ -138,8 +138,8 @@
 					<h3><spring:message code="signUp.signInTitle"/></h3>
 				</div>
 					<div class="signup-list">
-						<c:url value="/hello/home" var="loginUrl" />
-						<form action="${loginUrl}" method="POST" enctype="application/x-www-form-urlencoded">
+						<c:url value="/signUp/signUp" var="signUpLogInUrl" />
+						<form action="${signUpLogInUrl}" method="POST" enctype="application/x-www-form-urlencoded">
 						<div class="signup-list-item">
                         	<label><spring:message code="signUp.email"/></label>
                         	<input class="sign-up-input" type="text" placeholder="${email}" name="j_username"/>
@@ -151,9 +151,9 @@
                         <div class="check_box">
                             <label><input type="checkbox" name="j_rememberme" /><spring:message code="nav.rememberMe"/></label>
                         </div>
-                    <spring:message code="signUp.submitSignIn" var="signInValue"/>
-                    <input class="signup-submit" type="submit" value="${signInValue}">  
-                    </form>
+	                    <spring:message code="signUp.submitSignIn" var="signInValue"/>
+	                    <input class="signup-submit" type="submit" value="${signInValue}">  
+	                    </form>
 					</div>
 			</div>
 		</div>

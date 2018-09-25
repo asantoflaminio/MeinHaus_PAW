@@ -72,7 +72,7 @@
                 </form>
             </div>
             <div>
-                <a class="navbar_item" id="sign_up" href="./signUp"><spring:message code="nav.signUp"/></a>
+                <a class="navbar_item" id="sign_up" href="/signUp/signUp"><spring:message code="nav.signUp"/></a>
             </div>
             </c:if>
             <c:if test="${not empty pageContext.request.userPrincipal}">

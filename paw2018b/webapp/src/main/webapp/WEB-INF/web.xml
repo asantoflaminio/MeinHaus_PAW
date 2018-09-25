@@ -20,8 +20,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 		ar.edu.itba.paw.webapp.config.WebConfig, 
-		ar.edu.itba.paw.webapp.config.WebAuthConfig,
-		ar.edu.itba.paw.webapp.config.WebAuthConfigSignUp		
+		ar.edu.itba.paw.webapp.config.SecurityConfig		
 		</param-value>
 	</context-param>
 
