@@ -9,17 +9,20 @@ body {
    	background-color: #eee !important;
 }
 
-#Data  {
-	display : none;
+#Data{
+	display:none;
 }
 
-#Publications {
-	display : none;
+#Publications{
+	display:none;
 }
 
-#Favourites {
-	display : none;
-	
+#Favourites{
+	display:none;
+}
+
+#PublicationDetails{
+	display:none;
 }
 
 input[type=text], select {
