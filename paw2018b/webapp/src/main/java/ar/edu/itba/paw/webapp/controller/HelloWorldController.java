@@ -262,7 +262,7 @@ public class HelloWorldController {
 			//return publish4();
 		}
 		long userid = us.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getUserId();
-		ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), form.getDescription(), 
+		Publication aux = ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), form.getDescription(), 
 				type, form.getBedrooms(), form.getBathrooms(), form.getFloorSize(), form.getParking(),userid);
 		
 		
@@ -275,7 +275,9 @@ public class HelloWorldController {
                 UploadFile uploadFile = new UploadFile();
                 
                 uploadFile.setId((int) (Math.random()*1000000));
-                uploadFile.setAddress(form.getAddress());
+                
+                uploadFile.setAddress(Long.toString(aux.getPublicationid())); //es el id de la publication en vez de address
+                
                 uploadFile.setData(aFile.getBytes());
                 System.out.println("I'm about to save with id: " + uploadFile.getId());
                 if(uploadFile.getData().length > 0) {
