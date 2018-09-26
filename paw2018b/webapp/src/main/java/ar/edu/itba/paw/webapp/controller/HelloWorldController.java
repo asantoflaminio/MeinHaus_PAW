@@ -1,6 +1,7 @@
 package ar.edu.itba.paw.webapp.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -270,10 +271,26 @@ public class HelloWorldController {
                   
                 System.out.println("Saving file: " + aFile.getOriginalFilename());
                  
+                //hay que chequear q si o si sea jpg o el formato q queramos
                 UploadFile uploadFile = new UploadFile();
+                
+                uploadFile.setId((int) (Math.random()*1000000));
                 uploadFile.setAddress(form.getAddress());
                 uploadFile.setData(aFile.getBytes());
-                //fileUploadImpl.save(uploadFile);               
+                System.out.println("I'm about to save with id: " + uploadFile.getId());
+                if(uploadFile.getData().length > 0) {
+                	if(aFile.getOriginalFilename().contains(".jpg")) {
+                		fileUploadImpl.save(uploadFile); 
+                	}else {
+                		//error mostrarlo!
+                		System.out.println("Sth went wrong with file format");
+                	}
+                	
+                }else {
+                	System.out.println("Nope");
+                }
+                
+                
             }
         }
 		return new ModelAndView("redirect:/meinHaus/home");
