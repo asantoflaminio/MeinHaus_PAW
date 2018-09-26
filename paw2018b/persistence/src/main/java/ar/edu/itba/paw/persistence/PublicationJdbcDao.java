@@ -91,5 +91,17 @@ public class PublicationJdbcDao implements PublicationDao{
 		return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND address LIKE ?", ROW_MAPPER,operation,queryAddress);
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

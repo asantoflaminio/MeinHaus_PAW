@@ -90,7 +90,6 @@
 		<div class="wrap">
 		   <c:url value="/meinHaus/list" var="postPath"/>
 		   <form:form modelAttribute="homeSearchForm" action="${postPath}" method="post">
-
            <div class="search_list">
 		  	 <fieldset class="search_list-container rounded">
 				   <div class="search_list-item" id="buy">
@@ -99,19 +98,21 @@
     		       <div class="search_list-item">
     	    	 	  <input value="FRent" type="radio" name="oper"><label id="rent-label"><spring:message code="home.rent"/></label>
 				   </div>
-			   </fieldset>
-		   </div>	
-			      
+			 </fieldset>
+		   </div>
+		   
+		   <input type="hidden" name="price" value="oh si"/>
+		   <input type="hidden" name="bedrooms" value="oh no"/>
+
 		   <div class="search">
 		   	  <spring:message code="list.placeholderSearch" var="title"/>
 		      <form:input path="search" type="text" class="searchTerm" placeholder="${title}"/>
 		      <form:errors path="search" cssClass="error" element="p"/>
-		      <button  href="#" type="submit" class="searchButton">
+		       <input type="submit">
 		        <img src="<c:url value="/resources/pics/search_icon.png" />" alt="Search" id="search-img"></img>
-		      </button>
 		   </div>
-		   
            </form:form>
+           
 		</div>
 		
 		<div id="results-container">
@@ -136,10 +137,6 @@
 			  <li class="applied-filters-list-item"><c:out value="${operation}"/></li>
 			  <li class="applied-filters-list-item" id="filterPrice" ><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><spring:message code="list.noLimit"/></li>
 			  <li class="applied-filters-list-item" id="filterBedroom"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><spring:message code="list.noLimit"/></li>
-
-			 
-			  
-			  <!-- <li class="applied-filters-list-item"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/>2 bedrooms</li> -->
 			</ul>
     	</div>
     	
@@ -173,7 +170,7 @@
 					  		<div class="filters-list-item"><spring:message code="list.price"/><img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
 					  			<div class="expandible">
 					  				<form>
-					  					<fieldset id="price" price="null">
+					  					 <fieldset id="price" price="null">
 							  				<div class="check_box">
 		                            			<label><input type="radio" onclick="filterPrice(50000)" name="price" class="priceFilter"/><spring:message code="list.up50000"/></label>
 		                        			</div>
@@ -192,7 +189,7 @@
 		                        			<div class="apply-container">
                         						<input type="button" class="apply-btn" value="APLICAR"/>
 					  						</div>
-		                        		</fieldset>
+		                        		 </fieldset>
                         			</form>
 					  			</div>
 					  		<div class="filters-list-item"><spring:message code="list.bedrooms"/><img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
@@ -222,6 +219,8 @@
 					  					
 					  			</div>
 						</div>
+						
+						<input type="button" class="apply-btn" value="APLICAR"/>
 					</div>
 				</div>
 			</aside>
@@ -229,13 +228,14 @@
 	        <section id="publications">
 	        
 	        	<c:set var = "listLength" scope = "session" value = "${fn:length(publications)}"/>
-	        	<c:set var = "maxLength" scope = "session" value = "1"/>
+	        	<c:set var = "maxLength" scope = "session" value = "2"/>
+	        	<c:set var = "page" scope = "session" value = "${page}"/>
+	        	<c:set var = "init" scope = "session" value = "${(page - 1) * maxLength}"/>
 	        	<c:set var = "current" scope = "session" value = "1"/>
 	        	
-	        	<c:forEach var="row" varStatus="status" items="${publications}" step="1" begin="0">
+	        	<c:forEach var="row" varStatus="status" items="${publications}" step="1" begin="${init}">
 	        		<c:if test = "${current <= maxLength}">
 	        			<c:set var = "current" scope = "session" value = "${current+1}"/>
-	        		
 						<div class="polaroid-property" id = "publication_<c:out value = "${row.publicationid}"/>" >
 				    		<div class="img-with-tag">
 				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
@@ -284,7 +284,7 @@
 							<a class="page-number" href="#">&laquo;</a>
 						<c:set var="counter" value="1"/>
 						<c:forEach begin="1" end="${listLength/maxLength + listLength%maxLength}" varStatus="loop">
-							<a class="page-number" href="#">${counter}</a>
+							<a class="page-number" href="list?operation=${operation}&address=${address}&page=${counter}">${counter}</a>
 							<c:set var="counter" value="${counter+1}"/>
 						</c:forEach>
  						<a class="page-number" href="#">&raquo;</a>

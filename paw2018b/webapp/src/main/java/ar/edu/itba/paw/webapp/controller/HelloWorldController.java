@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.itba.paw.models.ListFilters;
 import ar.edu.itba.paw.models.Publication;
 import ar.edu.itba.paw.models.UploadFile;
+import ar.edu.itba.paw.models.User;
 import ar.edu.itba.paw.services.FileUploadImpl;
 import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
@@ -83,6 +85,7 @@ public class HelloWorldController {
 			mav.addObject("address", form.getSearch());
 		else
 			mav.addObject("address", "all");
+		mav.addObject("page",1);
 		return mav;
 	}
 
@@ -119,8 +122,13 @@ public class HelloWorldController {
 	
 	
 	@RequestMapping("list")
-	public ModelAndView list(@ModelAttribute("homeSearchForm") final HomeSearchForm form, @RequestParam("operation") String operation,@RequestParam("address") String address) {
+	public ModelAndView list(@ModelAttribute("homeSearchForm") final HomeSearchForm form, @RequestParam("operation") String operation,
+			@RequestParam("address") String address, @RequestParam(value = "page", required=false) String page, 
+			@RequestParam(value = "price", required=false) String price,
+			@RequestParam(value = "bedrooms", required=false) String bedrooms) {
+		System.out.println("EN list tranqui");
 		List<Publication> publications;
+		ListFilters filters = new ListFilters(price,bedrooms);
 		final ModelAndView mav = new ModelAndView("list");
 		mav.addObject("operation", operation);
 		mav.addObject("address", address);
@@ -128,17 +136,30 @@ public class HelloWorldController {
 			publications = ps.findAll(operation);
 		else
 			publications = ps.findSearch(operation,address);
+		if(page != null)
+			mav.addObject("page", page);
+		else
+			mav.addObject("page", 1);
 		mav.addObject("publications", publications);
+		mav.addObject("filters",filters);
+		System.out.println("bedrooms: " + bedrooms);
+		System.out.println("price: " + price);
 		return mav;
 	}
 	
 	
 	@RequestMapping(value = "list" ,method = RequestMethod.POST)
 	public ModelAndView listSearch(@Valid @ModelAttribute("homeSearchForm") final HomeSearchForm form, final BindingResult errors,
-			   						@RequestParam("oper") String operation) {
+			   						@RequestParam("oper") String operation, @RequestParam(value = "page", required=false) String page,
+			   						@RequestParam(value = "price", required=false) String price,
+			   						@RequestParam(value = "bedrooms", required=false) String bedrooms){
+		System.out.println("EN list validate");
+		System.out.println("bedrooms: " + bedrooms);
+		System.out.println("price: " + price);
 		List<Publication> publications;
+		ListFilters filters = new ListFilters(price,bedrooms);
 		if (errors.hasErrors()) {
-			return list(form, operation,form.getSearch());
+			return list(form, operation,form.getSearch(),page,price,bedrooms);
 		}
 		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/list");
 		mav.addObject("operation", operation);
@@ -150,7 +171,12 @@ public class HelloWorldController {
 			publications = ps.findSearch(operation,form.getSearch());
 			mav.addObject("address", form.getSearch());
 		}
+		if(page != null)
+			mav.addObject("page", page);
+		else
+			mav.addObject("page", 1);
 		mav.addObject("publications", publications);
+		mav.addObject("filters",filters);
 		return mav;
 	}
 	
@@ -159,7 +185,7 @@ public class HelloWorldController {
 	@RequestMapping("details")
 	public ModelAndView details(@Valid @ModelAttribute("MessageForm") final MessageForm form, @RequestParam("publicationid") String publicationid) {
 		final Publication pub = ps.findById(Integer.valueOf(publicationid));
-		//final User user = us.findById(1);
+		final User user = us.findById(pub.getUserid());
 	    final ModelAndView mav = new ModelAndView("details");
 	    mav.addObject("address", pub.getAddress());
 	    mav.addObject("title", pub.getTitle());
@@ -169,7 +195,7 @@ public class HelloWorldController {
 	    mav.addObject("bathrooms", pub.getBathrooms());
 	    mav.addObject("parking", pub.getParking());
 	    mav.addObject("floorSize", pub.getFloorSize());
-	    //mav.addObject("phoneNumber",user.getPhoneNumber());
+	    mav.addObject("phoneNumber",user.getPhoneNumber());
 	    
 	    return mav;
 	}
