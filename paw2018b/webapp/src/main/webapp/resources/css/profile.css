@@ -21,13 +21,10 @@ body {
 	display:none;
 }
 
-#PublicationDetails{
-	display:none;
-}
 
 input[type=text], select {
     width: 95%;
-    height: 30px;
+    height: 35px;
     padding: 12px 20px;
     margin-top: 2px;
 	margin-left: 5px;
@@ -41,7 +38,7 @@ input[type=text], select {
 
 .editdata-list-item input[type=password] {
     width: 95%;
-    height: 30px;
+    height: 35px;
     padding: 12px 20px;
     margin-top: 2px;
 	margin-left: 5px;
@@ -77,7 +74,7 @@ label{
 .leftcol {
     background:#FD8907;
     text-align:left;
-    height:800px;
+    height:820px;
     float:left;
     padding-top: 20px;
     margin-left: 10px;
@@ -110,10 +107,12 @@ label{
 .leftcol ul a {
     text-decoration: none;
     color:#eee;
-    font-weight: bold;
+    font-weight: 580;
     padding: 8px;
     text-align: center;
     vertical-align:middle;
+   	font-size:17px;
+    
 }
 
 .leftcol ul li {
@@ -135,7 +134,17 @@ label{
 /* "Mis Datos" menu style */
 
 .data h3{
-	margin-left:15px;
+	margin-top: 5px !important;
+	text-align: center !important;
+	font-size: 18px !important;
+	color: #666 !important;
+}
+
+.title-container {
+	margin-right: 10px;
+	margin-left: 10px;
+	height: auto;
+	border-bottom: 1px solid #ccc;
 }
 
 .data {
@@ -145,6 +154,7 @@ label{
 	background-color: #db7504;
 	width:40%;
 	height:80%;
+	margin-left: 19% !important;
 }
 
 div.polaroid {
@@ -156,6 +166,10 @@ div.polaroid {
   	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   	margin-bottom: 30px;
   	padding-bottom:50px;
+}
+
+.last {
+	margin-bottom: 45px !important;
 }
 
 .form{
@@ -193,8 +207,9 @@ div.polaroid {
 .title_section {
 	margin-top:20px;
 	margin-left:250px;
-	font-weight:bold;
+	font-weight:580;
 	color:dimgrey;
+	font-size:23px;
 }
 
 /* Properties polaroid list style */
@@ -344,7 +359,7 @@ h4 {
 
 /* Publications */
 
-.edit{
+.delete{
 	width:10px;
 	height:10px;
 	margin-top:-5px;

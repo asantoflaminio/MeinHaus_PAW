@@ -1,11 +1,3 @@
-function showPublicationDetails(){
-	var pub;
-	pub = document.getElementById("Publications");
-    pub.style.display = "none";
-    
-    document.getElementById("PublicationDetails").style.display = "block";
-}
-
 function showData() {
     // Declare variables
     var dat, pub, fav;
@@ -17,8 +9,6 @@ function showData() {
     
     fav = document.getElementById("Favourites");
     fav.style.display = "none";
-    
-    document.getElementById("PublicationDetails").style.display = "none";
     
     dat = document.getElementById("Data");
     dat.style.display = "block";
@@ -37,8 +27,6 @@ function showPublications() {
     fav = document.getElementById("Favourites");
     fav.style.display = "none";
     
-    document.getElementById("PublicationDetails").style.display = "none";
-    
     pub = document.getElementById("Publications");
     pub.style.display = "block";
     document.getElementById("pub").setAttribute("class", "current"); 
@@ -55,8 +43,6 @@ function showFavourites() {
     
     pub = document.getElementById("Publications");
     pub.style.display = "none";
-    
-    document.getElementById("PublicationDetails").style.display = "none";
     
     fav = document.getElementById("Favourites");
     fav.style.display = "block";

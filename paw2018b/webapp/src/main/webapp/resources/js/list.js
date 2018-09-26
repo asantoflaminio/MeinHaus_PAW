@@ -58,9 +58,9 @@ function color(index) {
 /* Changes heart icon according to the one that corresponds */
 function fav(heart){
 	if (heart.src.includes("heart_filled"))
-		heart.src = "/resources/pics/heart.png";
+		heart.src = "/null/resources/pics/heart.png";
 	else
-		heart.src = "/resources/pics/heart_filled.png";
+		heart.src = "/null/resources/pics/heart_filled.png";
 }
 
 
@@ -85,10 +85,10 @@ function deleteFilter(filter){
 /* Expands a section of the filter list */
 function expand(arrow){
 	if (arrow.src.includes("arrow_up")) {
-		arrow.src = "/resources/pics/arrow_down.png";
+		arrow.src = "/null/resources/pics/arrow_down.png";
 		arrow.parentElement.nextElementSibling.style.display = "block";
 	} else {
-		arrow.src = "/resources/pics/arrow_up.png";
+		arrow.src = "/null/resources/pics/arrow_up.png";
 		arrow.parentElement.nextElementSibling.style.display = "none";
 	}
 }

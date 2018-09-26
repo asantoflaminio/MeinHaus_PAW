@@ -462,9 +462,13 @@ h4 {
 	margin-right: 15px;
 }
 
-section {
+#publications {
 	margin-left: 20%;
-	height: 1000px !important;
+}
+
+#content-container {
+	display:inline-block;
+	width: 100%;
 }
 
 @media screen and ( max-width: 935px ){
@@ -482,18 +486,19 @@ section {
 /* Style pagination */
 
 .page-nums-container {
-	margin-bottom: 100px;
 	margin-left: 20% !important;
 }
 
 .page-nums {
-	margin-left: 35%;
+	margin-top: 20px;
+	margin-left: 40%;
+	height: 70px;
 }
 
 .page-nums a {
     color: #FD8907;
     border: none;
-    float: left;
+    float: center;
     padding: 8px 16px;
     transition: background-color .3s;
     cursor: pointer;
@@ -522,5 +527,23 @@ section {
 .pagination a:hover:not(.active) {
 	background-color: #a5a5a5;
 } 
+
+/* End of style */
+
+/* No results style */
+
+#no-results {
+	margin-left: 21%;
+}
+
+#no-results-title {
+	padding-top: 40px;
+	text-align: center;
+	color: #FD8907;
+}
+
+#no-results-info {
+	color: #aeaeae;
+}
 
 /* End of style */

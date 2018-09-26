@@ -25,17 +25,7 @@ h3 {
 	text-align: center !important;
 	font-size: 18px !important;
 	color: #666 !important;
-	line-height: 1.2;
 }
-
-#titl {
-	margin-right: 10px;
-	margin-left: 10px;
-	height: auto;
-	border-bottom: 1px solid #ccc;
-}
-
-
 
 .prop-type-box {
 	display: flex;
@@ -44,18 +34,15 @@ h3 {
 
 
 div.polaroid_agency {
-
-  width: 50%;
-  margin: auto;
-  margin-top: 15px;
+  margin-top: 40px;
+  float: left;
+  margin-left: 28%;
+  width: 45%;
+  height: auto;
+  min-width: 250px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
-}
-
-div.container3 {
-  text-align: center;
-  padding: 10px 20px;
+  margin-bottom: 50px;
 }
 
 .polaroid_img_agency{
@@ -75,7 +62,12 @@ div.container3 {
   text-align: left;
   padding: 5px 10px;
 }
- label {
+
+ #photos-title {
+    display: inline-block;
+}
+
+label {
     display: inline-block;
 }
 
@@ -103,4 +95,69 @@ div.container3 {
 
 .error{
   color: red;
+}
+
+.signup-list-item {
+	font-size: 15px;
+	color: #777;
+	padding: 10px 10px 15px 10px;
+}
+
+input[type=submit] {
+    width: 80%;
+    color: white;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #FD8907;
+    margin-left: 50px;
+    float: right;
+}
+
+.signup-submit {
+	height: 35px !important;
+    width: 90px !important;
+    padding: 5px !important;
+    font-size: 15px !important;
+    margin-right: 10px !important;
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+    background-color:red;
+}
+
+#step4-title {
+	margin-right: 10px;
+	margin-left: 10px;
+	height: auto;
+	border-bottom: 1px solid #ccc;
+}
+
+input[type=text], select {
+    width: 95%;
+    height: 35px;
+    padding: 12px 20px;
+    margin-top: 2px;
+	margin-left: 5px;
+    display: inline-block;
+    border: 1px solid;
+    border-color:#aaa;
+    border-radius: 2px;
+    box-sizing: border-box;
+    color: #888;
+}
+
+#photos-title {
+    margin-left: 2%;
+}
+
+label {
+    margin-left: 2%;
+}
+
+.upload-pic {
+}
+
+input[type="file"] {
+	
 }

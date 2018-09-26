@@ -84,24 +84,29 @@
 		
 		<div class="polaroid_agency">
 		  <div class="container3">
-			<h3 id="titl"><spring:message code="publish2.step"/></h3>
+		  	<div id="step2-title">
+				<h3 id="titl"><spring:message code="publish2.step"/></h3>
+			</div>
 		    <c:url value="/meinHaus/publish2" var="postPath"/>
 			<form:form modelAttribute="secondPublicationForm" action="${postPath}" method="post">
 		     	<div class="fillers">
-		     		 
+		     	
 		     		 <form:input type="hidden" path="title" value="${title}"/>
 		    		 <form:input type="hidden" path="address" value="${address}"/>
 		    		 <form:input type="hidden" path="price" value="${price}"/>
 		    		 <input type="hidden" path="operation" value="${operation}" name="operation">
-		     		
+				<div class="signup-list-item">
 				     <form:label for="description" path="description"><spring:message code="publish2.description"/></form:label><br>
 				     <spring:message code="publish2.placeholderDescription" var="description"/>    		 
 		    		 <form:input path="description" placeholder="${description}"/><br>
+		    	</div>
+				<div class="signup-list-item">
 		    		 <label for="PROPERTY TYPE"><spring:message code="publish2.propertyType"/></label>	
 		    		 <div class="prop-type-box">
                         		<input class="radio-1" checked="checked" type="radio" name="type" value="Apartment"><spring:message code="publish2.apartment"/><br>
                         		<input class="radio-2" type="radio" name="type" value="House"><spring:message code="publish2.house"/><br>
 	                 </div>   
+		    	</div>
 		    		 <spring:message code="publish2.submitPublish" var="submitValue"/>
 		    		 <input class="signup-submit" type="submit" value=${submitValue}>
 	    		 </div>
