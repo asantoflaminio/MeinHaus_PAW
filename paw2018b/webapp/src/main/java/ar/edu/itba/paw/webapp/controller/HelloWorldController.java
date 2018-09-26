@@ -276,7 +276,7 @@ public class HelloWorldController {
                 
                 uploadFile.setId((int) (Math.random()*1000000));
                 
-                uploadFile.setAddress(Long.toString(aux.getPublicationid())); //es el id de la publication en vez de address
+                uploadFile.setPublicationId(Long.toString(aux.getPublicationid())); 
                 
                 uploadFile.setData(aFile.getBytes());
                 System.out.println("I'm about to save with id: " + uploadFile.getId());

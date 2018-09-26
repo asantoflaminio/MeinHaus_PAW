@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS publications (
 
 CREATE TABLE IF NOT EXISTS images (
    upload_id integer NOT NULL,
-   address varchar(30) NOT NULL,
+   publicationid varchar(30) NOT NULL,
    file_data bytea,
    PRIMARY KEY (upload_id)
 );

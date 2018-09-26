@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "images")
 public class UploadFile {
     private Integer id;
-    private String address;
+    private String publicationId;
     private byte[] data;
     
     public UploadFile() {
@@ -33,13 +33,13 @@ public class UploadFile {
         this.id = id;
     }
  
-    @Column(name = "address")
-    public String getAddress() {
-        return address;
+    @Column(name = "publicationid")
+    public String getPublicationId() {
+        return publicationId;
     }
  
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPublicationId(String pub) {
+        this.publicationId = pub;
     }
 
     @Column(name = "file_data")
