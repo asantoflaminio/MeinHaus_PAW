@@ -125,7 +125,9 @@ function filterPrice(price){
 	priceFilter.insertBefore(childDelete, priceFilter.firstChild);
 	priceFilter.style.display = "inline-block";
 	document.getElementById("price").setAttribute("price",price);
-	filterCondition()
+	
+	document.getElementById("searchPrice").setAttribute("value",price)
+	document.getElementById("filterPriceInput").setAttribute("value",price)
 }
 
 function filterBedroom(bedroom){
@@ -140,25 +142,82 @@ function filterBedroom(bedroom){
 	bedroomFilter.insertBefore(childDelete, bedroomFilter.firstChild);
 	bedroomFilter.style.display = "inline-block";
 	document.getElementById("bedroom").setAttribute("bedroom",bedroom);
-	filterCondition()
+	document.getElementById("searchBedrooms").setAttribute("value",bedroom)
+	document.getElementById("filterBedroomsInput").setAttribute("value",bedroom)
 }
 
-function filterCondition(){
-	var price = document.getElementById("price").getAttribute("price");
-	var bedroom = document.getElementById("bedroom").getAttribute("bedroom")
-	var publications = document.querySelectorAll(".polaroid-property");
-	var priceChilds = document.getElementsByClassName("price-tag");
-	var bedroomChilds = document.getElementsByClassName("bedroom");
+function setFilter(operation){
+	document.getElementById("filterOperation").setAttribute("value",operation)
+}
 
-	for (i = 0; i < publications.length; i++) {
-		var bedroomInner = bedroomChilds[i].innerHTML
-			if( (parseInt(bedroomInner.charAt(8)) == parseInt(bedroom) || bedroom == "null") &&
-				((parseInt(priceChilds[i].innerHTML.substring(1)) <= parseInt(price)) || price == "null"))
-    			publications[i].style.display = "flex";
-    		else
-    			publications[i].style.display = "none";
+function chargeParameters(address,operation,price,bedrooms){
+	document.getElementById("filterOperation").setAttribute("value",operation)
+	document.getElementById("filterAddress").setAttribute("value",address)
+
+	var bedroomRadios = document.getElementsByClassName("bedroomFilter");
+	var bedroomFilter = document.getElementById("filterBedroom")
+	var childDelete = bedroomFilter.firstChild
+	var bedroomRadioInteger
+	var i;
+
+	for(i = 0; i < bedroomRadios.length; i++){
+		bedroomRadioInteger = (bedroomRadios[i].parentElement.innerText).replace(/(^\d+)(.+$)/i,'$1');
+		if(bedrooms == bedroomRadioInteger){
+			bedroomRadios[i].checked = true
+			bedroomFilter.innerText = bedroomRadios[i].parentElement.innerText
+			break
+		}
+
+		if(i == bedroomRadios.length - 1){
+			bedroomRadios[i].checked = true
+			bedroomFilter.innerText = bedroomRadios[i].parentElement.innerText
+		}
+	}
+	bedroomFilter.insertBefore(childDelete, bedroomFilter.firstChild);
+	bedroomFilter.style.display = "inline-block";
+	document.getElementById("bedroom").setAttribute("bedroom",bedrooms);
+	document.getElementById("searchBedrooms").setAttribute("value",bedrooms)
+	document.getElementById("filterBedroomsInput").setAttribute("value",bedrooms)
+
+	var priceRadios = document.getElementsByClassName("priceFilter");
+	var priceFilter = document.getElementById("filterPrice")
+	var childDelete = priceFilter.firstChild
+	var numberPattern = /\d+/g;
+	var priceRadioInteger
+	for(i = 0; i < priceRadios.length; i++){
+		if(i == priceRadios.length - 1){
+			priceFilter.innerText = priceRadios[i].parentElement.innerText
+			priceRadios[i].checked = true
+			break
+		}
+		priceRadioInteger = (priceRadios[i].parentElement.innerText).match(numberPattern)[0] * 1000
+		if(price == priceRadioInteger){
+			priceRadios[i].checked = true
+			priceFilter.innerText = priceRadios[i].parentElement.innerText
+			break
+		}
+
+	}
+	priceFilter.insertBefore(childDelete, priceFilter.firstChild);
+	priceFilter.style.display = "inline-block";
+	document.getElementById("price").setAttribute("price",price);
+	document.getElementById("searchPrice").setAttribute("value",price)
+	document.getElementById("filterPriceInput").setAttribute("value",price)
+
+	var buy = document.getElementById("Fsale")
+	var rent = document.getElementById("Frent")
+
+	if(operation == "FSale"){
+		buy.checked = true;
+		buy.parentElement.classList.add("selected");
+		buy.parentElement.style.backgroundColor = "#fd8907";
+	}else{
+		rent.checked = true;
+		rent.parentElement.classList.add("selected");
+		rent.parentElement.style.backgroundColor = "#fd8907";
 	}
 }
+
 
 function sortHighestPrice() {
   var publications = document.querySelectorAll(".polaroid-property");

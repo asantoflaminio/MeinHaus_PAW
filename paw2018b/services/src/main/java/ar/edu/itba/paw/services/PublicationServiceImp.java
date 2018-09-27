@@ -35,5 +35,9 @@ public class PublicationServiceImp implements PublicationService{
 	public List<Publication> findSearch(String operation, String search){
 		return publicationDao.findSearch(operation,search);
 	}
+	
+	public List<Publication> findSearchFiltering(String operation, String address, String price, String bedrooms){
+		return publicationDao.findSearchFiltering(operation, address, price, bedrooms);
+	}
 
 }

@@ -12,13 +12,13 @@ CREATE TABLE IF NOT EXISTS publications (
 	title 			varchar(30) NOT NULL,
 	address 		varchar(30) UNIQUE NOT NULL,
 	operation 		varchar(30) NOT NULL,
-	price 			varchar(30) NOT NULL,
+	price 			integer NOT NULL,
 	description 	varchar(60) NOT NULL,
 	propertyType 	varchar(30) NOT NULL,
-	bedrooms 		varchar(3) NOT NULL,
-	bathrooms 		varchar(3) NOT NULL,
-	floorSize 		varchar(3) NOT NULL,
-	parking 		varchar(3) NOT NULL,
+	bedrooms 		integer NOT NULL,
+	bathrooms 		integer NOT NULL,
+	floorSize 		integer NOT NULL,
+	parking 		integer NOT NULL,
 	userid 			integer REFERENCES users(userid)
 );
 

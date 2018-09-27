@@ -6,30 +6,30 @@ public class Publication {
 	private String title;
 	private String address;
 	private String operation;
-	private String price;
+	private Integer price;
 	private String description;
 	private String propertyType;
-	private String bedrooms;
-	private String bathrooms;
-	private String floorSize;
-	private String parking;
+	private Integer bedrooms;
+	private Integer bathrooms;
+	private Integer floorSize;
+	private Integer parking;
 	private long userid;
 	
-	public Publication(long publicationid, String title, String address, String operation, String price,
-					   String description, String propertyType, String bedrooms,
-					   String bathrooms, String floorSize, String parking, long userid) {
+	public Publication(long publicationid, String title, String address, String operation, Integer price,
+					   String description, String propertyType, Integer bedrooms,
+					   Integer bathrooms, Integer floorSize, Integer parking, long userid) {
 		
 		this.publicationid = publicationid;
 		this.title = title;
 		this.address = address;
 		this.operation = operation;
-		this.price = price;
+		this.setPrice(price);
 		this.description = description;
 		this.propertyType = propertyType;
-		this.bedrooms = bedrooms;
-		this.bathrooms = bathrooms;
-		this.floorSize = floorSize;
-		this.parking = parking;
+		this.setBedrooms(bedrooms);
+		this.setBathrooms(bathrooms);
+		this.setFloorSize(floorSize);
+		this.setParking(parking);
 		this.setUserid(userid);
 	}
 	
@@ -65,13 +65,6 @@ public class Publication {
 		this.operation = operation;
 	}
 	
-	public String getPrice() {
-		return price;
-	}
-	
-	public void setPrice(String price) {
-		this.price = price;
-	}
 
 	public String getDescription() {
 		return description;
@@ -89,37 +82,6 @@ public class Publication {
 		this.propertyType = propertyType;
 	}
 
-	public String getBedrooms() {
-		return bedrooms;
-	}
-
-	public void setBedrooms(String bedrooms) {
-		this.bedrooms = bedrooms;
-	}
-
-	public String getBathrooms() {
-		return bathrooms;
-	}
-
-	public void setBathrooms(String bathrooms) {
-		this.bathrooms = bathrooms;
-	}
-
-	public String getFloorSize() {
-		return floorSize;
-	}
-
-	public void setFloorSize(String floorSize) {
-		this.floorSize = floorSize;
-	}
-
-	public String getParking() {
-		return parking;
-	}
-
-	public void setParking(String parking) {
-		this.parking = parking;
-	}
 
 	public long getUserid() {
 		return userid;
@@ -127,6 +89,46 @@ public class Publication {
 
 	public void setUserid(long userid) {
 		this.userid = userid;
+	}
+
+	public Integer getPrice() {
+		return price;
+	}
+
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+
+	public Integer getBedrooms() {
+		return bedrooms;
+	}
+
+	public void setBedrooms(Integer bedrooms) {
+		this.bedrooms = bedrooms;
+	}
+
+	public Integer getBathrooms() {
+		return bathrooms;
+	}
+
+	public void setBathrooms(Integer bathrooms) {
+		this.bathrooms = bathrooms;
+	}
+
+	public Integer getFloorSize() {
+		return floorSize;
+	}
+
+	public void setFloorSize(Integer floorSize) {
+		this.floorSize = floorSize;
+	}
+
+	public Integer getParking() {
+		return parking;
+	}
+
+	public void setParking(Integer parking) {
+		this.parking = parking;
 	}
 
 }

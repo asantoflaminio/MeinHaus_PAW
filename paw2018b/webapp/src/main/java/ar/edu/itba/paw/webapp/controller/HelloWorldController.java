@@ -1,7 +1,6 @@
 package ar.edu.itba.paw.webapp.controller;
 
 import java.util.List;
-import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.itba.paw.models.ListFilters;
 import ar.edu.itba.paw.models.Publication;
 import ar.edu.itba.paw.models.UploadFile;
 import ar.edu.itba.paw.models.User;
@@ -29,11 +27,9 @@ import ar.edu.itba.webapp.form.FirstPublicationForm;
 import ar.edu.itba.webapp.form.FourthPublicationForm;
 import ar.edu.itba.webapp.form.HomeSearchForm;
 import ar.edu.itba.webapp.form.MessageForm;
-import ar.edu.itba.webapp.form.NewPasswordForm;
 import ar.edu.itba.webapp.form.ProfileForm;
 import ar.edu.itba.webapp.form.SecondPublicationForm;
 import ar.edu.itba.webapp.form.ThirdPublicationForm;
-import ar.edu.itba.webapp.form.SignUpForm;
 
 @Controller
 @RequestMapping("/meinHaus/")
@@ -62,9 +58,10 @@ public class HelloWorldController {
 	
 	
 	@RequestMapping("home")
-	public ModelAndView home(@ModelAttribute("homeSearchForm") final HomeSearchForm form) {
+	public ModelAndView home(@ModelAttribute("homeSearchForm") final HomeSearchForm form, @RequestParam(value = "error", required=false) String error) {
 		System.out.println("Home");
 		final ModelAndView mav = new ModelAndView("home");
+		mav.addObject("error",error);
 		return mav;
 	}
 	
@@ -81,7 +78,7 @@ public class HelloWorldController {
 		System.out.println("Me llamo list");
 		if(errors.hasErrors()) {
 			System.out.println("Tengo errores :c");
-			return home(form);
+			return home(form,null);
 		}
 		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/list");
 		mav.addObject("operation", operation);
@@ -130,24 +127,26 @@ public class HelloWorldController {
 			@RequestParam("address") String address, @RequestParam(value = "page", required=false) String page, 
 			@RequestParam(value = "price", required=false) String price,
 			@RequestParam(value = "bedrooms", required=false) String bedrooms) {
-		System.out.println("EN list tranqui");
+		System.out.println("en List");
 		List<Publication> publications;
-		ListFilters filters = new ListFilters(price,bedrooms);
 		final ModelAndView mav = new ModelAndView("list");
-		mav.addObject("operation", operation);
-		mav.addObject("address", address);
-		if(address.equals("all")) 
-			publications = ps.findAll(operation);
-		else
-			publications = ps.findSearch(operation,address);
+		if((price == null && bedrooms == null) || (price.equals("") && bedrooms.equals(""))) {
+			if(address.equals("all")) 
+				publications = ps.findAll(operation);
+			else
+				publications = ps.findSearch(operation,address);
+		}else {
+			publications = ps.findSearchFiltering(operation,address,price,bedrooms);
+		}
 		if(page != null)
 			mav.addObject("page", page);
 		else
 			mav.addObject("page", 1);
+		mav.addObject("operation", operation);
+		mav.addObject("address", address);
 		mav.addObject("publications", publications);
-		mav.addObject("filters",filters);
-		System.out.println("bedrooms: " + bedrooms);
-		System.out.println("price: " + price);
+		mav.addObject("bedrooms",bedrooms);
+		mav.addObject("price",price);
 		return mav;
 	}
 	
@@ -157,30 +156,24 @@ public class HelloWorldController {
 			   						@RequestParam("oper") String operation, @RequestParam(value = "page", required=false) String page,
 			   						@RequestParam(value = "price", required=false) String price,
 			   						@RequestParam(value = "bedrooms", required=false) String bedrooms){
-		System.out.println("EN list validate");
-		System.out.println("bedrooms: " + bedrooms);
-		System.out.println("price: " + price);
-		List<Publication> publications;
-		ListFilters filters = new ListFilters(price,bedrooms);
+		System.out.println("Bedrooms:" + bedrooms);
 		if (errors.hasErrors()) {
 			return list(form, operation,form.getSearch(),page,price,bedrooms);
 		}
 		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/list");
-		mav.addObject("operation", operation);
-		if(form.getSearch().equals("")) {
-			publications = ps.findAll(operation);
-			mav.addObject("address", "all");
-		}
-		else {
-			publications = ps.findSearch(operation,form.getSearch());
-			mav.addObject("address", form.getSearch());
-		}
+		
 		if(page != null)
 			mav.addObject("page", page);
 		else
 			mav.addObject("page", 1);
-		mav.addObject("publications", publications);
-		mav.addObject("filters",filters);
+		if(! form.getSearch().equals(""))
+			mav.addObject("address", form.getSearch());
+		else
+			mav.addObject("address", "all");
+		
+		mav.addObject("operation", operation); 
+		mav.addObject("bedrooms",bedrooms);
+		mav.addObject("price",price);
 		return mav;
 	}
 	
@@ -192,7 +185,7 @@ public class HelloWorldController {
 		final User user = us.findById(pub.getUserid());
 	    final ModelAndView mav = new ModelAndView("details");
 	    long myid = pub.getPublicationid();
-	    
+
 	    UploadFile ufa = imageServiceImp.findFirstById(Long.parseLong(publicationid));
 	    System.out.println("mi publication id es " +ufa.getPublicationId());
 	    System.out.println("mi id de upload es " + ufa.getId());

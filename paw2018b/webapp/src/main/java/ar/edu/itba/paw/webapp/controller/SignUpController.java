@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.itba.paw.services.UserServiceImpl;
@@ -21,9 +22,10 @@ public class SignUpController{
 	private UserServiceImpl us;
 	
 	@RequestMapping("signUp")
-	public ModelAndView signUp(@ModelAttribute("signUpForm") final SignUpForm form) {
+	public ModelAndView signUp(@ModelAttribute("signUpForm") final SignUpForm form, @RequestParam(value = "error", required=false) String error) {
 		System.out.println("en signUp");
 		final ModelAndView mav = new ModelAndView("signUp");
+		mav.addObject("error",error);
 		return mav;
 	}
 	
@@ -32,7 +34,7 @@ public class SignUpController{
 	public ModelAndView create(@Valid @ModelAttribute("signUpForm") final SignUpForm form, final BindingResult errors) {
 		System.out.println("Creando usuario");
 		if (errors.hasErrors()) {
-			return signUp(form);
+			return signUp(form,null);
 		}
 		us.create(form.getFirstName(),
 					form.getLastName(),

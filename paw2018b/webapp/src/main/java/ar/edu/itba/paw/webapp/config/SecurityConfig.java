@@ -40,7 +40,7 @@ public class SecurityConfig {
 		.passwordParameter("j_password")
 		.loginPage("/meinHaus/home")
 		.defaultSuccessUrl("/meinHaus/home", false)
-		.failureUrl("/meinHaus/home?error")
+		.failureUrl("/meinHaus/home?error=true")
 		.and().rememberMe()
 		.userDetailsService(userDetailsService)
 		.key(encryptKey(randomAlphaNumeric(Math.round(Math.random())))) //esto hay q modificar porqeu sino chau tp
@@ -100,7 +100,7 @@ public class SecurityConfig {
 		.passwordParameter("j_password")
 		.loginPage("/meinHaus/signUp")
 		.defaultSuccessUrl("/meinHaus/home", false)
-		.failureUrl("/meinHaus/signUp?error")
+		.failureUrl("/meinHaus/signUp?error=true")
 		.and().rememberMe()
 		.rememberMeParameter("j_rememberme")
 		.userDetailsService(userDetailsService)

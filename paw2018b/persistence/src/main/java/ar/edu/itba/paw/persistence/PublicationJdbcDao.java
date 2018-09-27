@@ -30,13 +30,13 @@ public class PublicationJdbcDao implements PublicationDao{
 							rs.getString("title"), 
 							rs.getString("address"),
 							rs.getString("operation"),
-							rs.getString("price"),
+							rs.getInt("price"),
 							rs.getString("description"),
 							rs.getString("propertyType"),
-							rs.getString("bedrooms"),
-							rs.getString("bathrooms"),
-							rs.getString("floorSize"),
-							rs.getString("parking"),
+							rs.getInt("bedrooms"),
+							rs.getInt("bathrooms"),
+							rs.getInt("floorSize"),
+							rs.getInt("parking"),
 							rs.getLong("userid"));
 		}
 		
@@ -61,18 +61,18 @@ public class PublicationJdbcDao implements PublicationDao{
 		args.put("title", title);
 		args.put("address", address);
 		args.put("operation", operation);
-		args.put("price", price);
+		args.put("price", Integer.valueOf(price));
 		args.put("description", description);
 		args.put("propertyType", propertyType);
-		args.put("bedrooms", bedrooms);
-		args.put("bathrooms", bathrooms);
-		args.put("floorSize", floorSize);
-		args.put("parking", parking);
+		args.put("bedrooms", Integer.valueOf(bedrooms));
+		args.put("bathrooms", Integer.valueOf(bathrooms));
+		args.put("floorSize", Integer.valueOf(floorSize));
+		args.put("parking", Integer.valueOf(parking));
 		args.put("userid", userid);
 		final Number publicationid = jdbcInsert.executeAndReturnKey(args);
-		return new Publication(publicationid.longValue(), title, address, operation, price,
-				   description, propertyType, bedrooms,
-				   bathrooms, floorSize, parking, userid);
+		return new Publication(publicationid.longValue(), title, address, operation, Integer.valueOf(price),
+				   description, propertyType, Integer.valueOf(bedrooms),
+				   Integer.valueOf(bathrooms), Integer.valueOf(floorSize), Integer.valueOf(parking), userid);
 	}
 
 	public Publication findById(long id) {
@@ -90,6 +90,31 @@ public class PublicationJdbcDao implements PublicationDao{
 		final String queryAddress = "%" + search + "%";
 		return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND address LIKE ?", ROW_MAPPER,operation,queryAddress);
 	}
+	
+	public List<Publication> findSearchFiltering(String operation, String address, String price, String bedrooms){
+		System.out.println("Searching with parameters: " + operation + " " + address + " " + price + " " + bedrooms);
+		String queryAddress;
+		if(address.equals("all"))
+			queryAddress = "%%";
+		else
+			queryAddress = "%" + address + "%";
+		if(! price.equals("") && ! bedrooms.equals("")) {
+			System.out.print("Busco con todo: " + bedrooms + " " + price);
+			return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND address LIKE ? AND bedrooms = ? AND price <= ?", ROW_MAPPER,operation,queryAddress,Integer.valueOf(bedrooms),Integer.valueOf(price)	);
+		}
+		else if(! price.equals("")) {
+			System.out.print("Busco con price: " + price);
+			return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND address LIKE ? AND price <= ?", ROW_MAPPER,operation,queryAddress,Integer.valueOf(price));
+		}
+		else {
+			System.out.print("Busco con bedrooms: " + bedrooms);
+			return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND address LIKE ? AND bedrooms = ?", ROW_MAPPER,operation,queryAddress,Integer.valueOf(bedrooms)	);
+		}
+	}
+	
+	
+	
+	
 	
 	
 	

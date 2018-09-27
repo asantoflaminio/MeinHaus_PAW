@@ -22,7 +22,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
     
-    <body>       
+    <body onload="chargeParameters('${address}','${operation}','${price}','${bedrooms}')">       
         <nav>
         	<a href="./home">
            		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
@@ -92,21 +92,21 @@
 		   <form:form modelAttribute="homeSearchForm" action="${postPath}" method="post">
            <div class="search_list">
 		  	 <fieldset class="search_list-container rounded">
-				   <div class="search_list-item" id="buy">
-					   <input value="FSale" type="radio" name="oper" checked><label id="buy-label"><spring:message code="home.buy"/></label>
+				   <div class="search_list-item" id="buy" onclick="setFilter('FSale')">
+					   <input value="FSale" type="radio" name="oper" id="Fsale"><label id="buy-label"><spring:message code="home.buy"/></label>
     		       </div>
-    		       <div class="search_list-item">
-    	    	 	  <input value="FRent" type="radio" name="oper"><label id="rent-label"><spring:message code="home.rent"/></label>
+    		       <div class="search_list-item" onclick="setFilter('FRent')">
+    	    	 	  <input value="FRent" type="radio" name="oper" id="Frent" ><label id="rent-label"><spring:message code="home.rent"/></label>
 				   </div>
 			 </fieldset>
 		   </div>
 		   
-		   <input type="hidden" name="price" value="oh si"/>
-		   <input type="hidden" name="bedrooms" value="oh no"/>
+		   <input type="hidden" id="searchPrice" name="price"/>
+		   <input type="hidden" id="searchBedrooms" name="bedrooms"/>
 
 		   <div class="search">
 		   	  <spring:message code="list.placeholderSearch" var="title"/>
-		      <form:input path="search" type="text" class="searchTerm" placeholder="${title}"/>
+		      <form:input path="search" type="text" class="searchTerm" placeholder="${title}" value="${address}"/>
 		      <form:errors path="search" cssClass="error" element="p"/>
 		       <input type="submit">
 		        <img src="<c:url value="/resources/pics/search_icon.png" />" alt="Search" id="search-img"></img>
@@ -184,11 +184,8 @@
 		                            			<label><input type="radio" onclick="filterPrice(750000)" name="price" class="priceFilter"/><spring:message code="list.up750000"/></label>
 		                        			</div>
 		                       				<div class="check_box">
-		                            			<label><input type="radio" onclick="filterPrice('null')" name="price" class="priceFilter" id="priceNull"/><spring:message code="list.noLimit"/></label>
+		                            			<label><input type="radio" onclick="filterPrice('')" name="price" class="priceFilter" id="priceNull"/><spring:message code="list.noLimit"/></label>
 		                        			</div>
-		                        			<div class="apply-container">
-                        						<input type="button" class="apply-btn" value="APLICAR"/>
-					  						</div>
 		                        		 </fieldset>
                         			</form>
 					  			</div>
@@ -209,18 +206,23 @@
 		                            			<label><input type="radio" onclick="filterBedroom(4)" name="bedrooms" class="bedroomFilter"/>4 <spring:message code="list.bedroomsMinus"/></label>
 		                        			</div>
 		                     				<div class="check_box">
-		                            			<label><input type="radio" onclick="filterBedroom('null')" name="bedrooms" class="bedroomFilter" id="bedroomNull"/><spring:message code="list.noLimit"/></label>
-		                        			</div>
-                        					<div class="apply-container">
-                        						<input type="button" class="apply-btn" value="APLICAR"/>
-					  						</div>									
+		                            			<label><input type="radio" onclick="filterBedroom('')" name="bedrooms" class="bedroomFilter" id="bedroomNull"/><spring:message code="list.noLimit"/></label>
+		                        			</div>								
 					  					</fieldset>
 					  				</form>
 					  					
 					  			</div>
 						</div>
-						
-						<input type="button" class="apply-btn" value="APLICAR"/>
+						 <c:url value="/meinHaus/list" var="postPath"/>
+		  				 <form action="${postPath}">
+							<div class="apply-container">
+									<input type="hidden" id="filterOperation" name="operation"/>
+									<input type="hidden" id="filterAddress" name="address"/>
+									<input type="hidden" id="filterPriceInput" name="price"/>
+		  			 				<input type="hidden" id="filterBedroomsInput" name="bedrooms"/>
+	                        		<input type="submit" class="apply-btn" value="APLICAR"/>
+						    </div>	
+					    </form>
 					</div>
 				</div>
 			</aside>
@@ -284,7 +286,7 @@
 							<a class="page-number" href="#">&laquo;</a>
 						<c:set var="counter" value="1"/>
 						<c:forEach begin="1" end="${listLength/maxLength + listLength%maxLength}" varStatus="loop">
-							<a class="page-number" href="list?operation=${operation}&address=${address}&page=${counter}">${counter}</a>
+							<a class="page-number" href="list?operation=${operation}&address=${address}&page=${counter}&price=${price}&bedrooms=${bedrooms}">${counter}</a>
 							<c:set var="counter" value="${counter+1}"/>
 						</c:forEach>
  						<a class="page-number" href="#">&raquo;</a>

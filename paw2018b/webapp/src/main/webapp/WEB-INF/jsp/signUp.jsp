@@ -139,6 +139,10 @@
                         	<label><spring:message code="signUp.password"/></label>
                         	<input class="sign-up-input" type="password" placeholder="${password}" name="j_password"/>
                         </div>
+                        <c:set var = "logIn" scope = "session" value = "${error}"/>	
+                        <c:if test="${logIn == 'true'}">
+                        	<p><spring:message code="signUp.signInError"/></p>
+                        </c:if>
                         <div class="check_box">
                             <label><input type="checkbox" name="j_rememberme" /><spring:message code="nav.rememberMe"/></label>
                         </div>
