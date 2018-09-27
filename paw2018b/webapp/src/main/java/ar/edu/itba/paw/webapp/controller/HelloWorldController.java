@@ -22,6 +22,7 @@ import ar.edu.itba.paw.models.Publication;
 import ar.edu.itba.paw.models.UploadFile;
 import ar.edu.itba.paw.models.User;
 import ar.edu.itba.paw.services.FileUploadImpl;
+import ar.edu.itba.paw.services.ImageServiceImp;
 import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
 import ar.edu.itba.webapp.form.FirstPublicationForm;
@@ -50,6 +51,9 @@ public class HelloWorldController {
 	
 	@Autowired
 	private FileUploadImpl fileUploadImpl;
+	
+	@Autowired
+	private ImageServiceImp imageServiceImp;
 	
 	@RequestMapping("/403")
 	public ModelAndView forbidden() {
@@ -182,11 +186,17 @@ public class HelloWorldController {
 	
 	
 	
-	@RequestMapping("details")
+	@RequestMapping(value = "details", method = RequestMethod.GET)
 	public ModelAndView details(@Valid @ModelAttribute("MessageForm") final MessageForm form, @RequestParam("publicationid") String publicationid) {
 		final Publication pub = ps.findById(Integer.valueOf(publicationid));
 		final User user = us.findById(pub.getUserid());
 	    final ModelAndView mav = new ModelAndView("details");
+	    long myid = pub.getPublicationid();
+	    
+	    UploadFile ufa = imageServiceImp.findFirstById(Long.parseLong(publicationid));
+	    System.out.println("mi publication id es " +ufa.getPublicationId());
+	    System.out.println("mi id de upload es " + ufa.getId());
+	    System.out.println("mis bytes son " + ufa.getData().toString());
 	    mav.addObject("address", pub.getAddress());
 	    mav.addObject("title", pub.getTitle());
 	    mav.addObject("price", "$" + pub.getPrice());

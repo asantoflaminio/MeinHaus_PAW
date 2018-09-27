@@ -16,11 +16,15 @@ public class UploadFile {
     private byte[] data;
     
     public UploadFile() {
-
-
-    }
- 
+    	
+    }	
     
+    public UploadFile(Integer id, String pid, byte[] data) {
+    	this.id = id;
+    	this.publicationId = pid;
+    	this.data = data;
+    	
+    }	
     
     @Id
     //@GeneratedValue(strategy=GenerationType.IDENTITY)

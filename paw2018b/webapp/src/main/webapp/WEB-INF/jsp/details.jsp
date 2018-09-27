@@ -87,7 +87,10 @@
          <div class="polaroid">       
           <div class="w3-content w3-display-container" style="max-width:800px">
            	<div class="size_div">
-           		  <img class="mySlides" src="<c:url value="/resources/pics/casa1.jpg" />" >
+           		  <c:forEach items="${imagenames}" var="imagename">
+					    <img src="${pageContext.request.contextPath}/images/${imagename}">
+				  </c:forEach>
+           		  <!-- img class="mySlides" src="<c:url value="/resources/pics/casa1.jpg" />" > --><
 				  <img class="mySlides" src="<c:url value="/resources/pics/casa2.jpg" />" >
 				  <img class="mySlides" src="<c:url value="/resources/pics/casa3.jpg" />" >
 				  <img class="mySlides" src="<c:url value="/resources/pics/casa4.jpg" />" >
