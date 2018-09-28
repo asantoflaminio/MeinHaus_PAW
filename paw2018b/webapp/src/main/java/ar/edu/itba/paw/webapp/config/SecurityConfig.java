@@ -41,7 +41,7 @@ public class SecurityConfig {
 		.loginPage("/meinHaus/home")
 		.defaultSuccessUrl("/meinHaus/home", false)
 		.failureUrl("/meinHaus/home?error=true")
-		.and().rememberMe()
+		.and().rememberMe().rememberMeParameter("j_rememberme")
 		.userDetailsService(userDetailsService)
 		.key(encryptKey(randomAlphaNumeric(Math.round(Math.random())))) //esto hay q modificar porqeu sino chau tp
 		.tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30))
