@@ -240,7 +240,7 @@
 	        			<c:set var = "current" scope = "session" value = "${current+1}"/>
 						<div class="polaroid-property" id = "publication_<c:out value = "${row.publicationid}"/>" >
 				    		<div class="img-with-tag">
-				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
+				   		 		<img class="polaroid-property-img" src="<c:url value="/meinHaus/images/${row.publicationid}" />" alt="5 Terre">
 				    			<img class="favorite-icon" onclick="fav(this);" src="<c:url value="/resources/pics/heart.png"/>" alt="Fave">
 				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
 								<h2 class="price-tag">$<c:out value = "${row.price}"/></h2>

@@ -1,15 +1,31 @@
 package ar.edu.itba.paw.webapp.controller;
 
+import java.awt.Image;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -185,11 +201,8 @@ public class HelloWorldController {
 		final User user = us.findById(pub.getUserid());
 	    final ModelAndView mav = new ModelAndView("details");
 	    long myid = pub.getPublicationid();
+	    
 
-	    UploadFile ufa = imageServiceImp.findFirstById(Long.parseLong(publicationid));
-	    System.out.println("mi publication id es " +ufa.getPublicationId());
-	    System.out.println("mi id de upload es " + ufa.getId());
-	    System.out.println("mis bytes son " + ufa.getData().toString());
 	    mav.addObject("address", pub.getAddress());
 	    mav.addObject("title", pub.getTitle());
 	    mav.addObject("price", "$" + pub.getPrice());
@@ -199,6 +212,7 @@ public class HelloWorldController {
 	    mav.addObject("parking", pub.getParking());
 	    mav.addObject("floorSize", pub.getFloorSize());
 	    mav.addObject("phoneNumber",user.getPhoneNumber());
+	    mav.addObject("publicationid", pub.getPublicationid());
 	    
 	    return mav;
 	}
@@ -326,6 +340,40 @@ public class HelloWorldController {
         }
 		return new ModelAndView("redirect:/meinHaus/home");
 	}
+	
+
+	@RequestMapping(value = "/images/{uniqueId}",method = RequestMethod.GET)
+    public ResponseEntity<byte[]> getProfilePic(@PathVariable long uniqueId) {
+
+        try{ 
+
+        	UploadFile ufa = imageServiceImp.findFirstById(uniqueId);
+
+            System.out.println("we're gonna celebrate");
+            
+            if(ufa == null) {
+            	System.out.println("Flaco es null");
+            	File fi = new File("/webapp/src/main/webapp/resources/pics/default.jpg");
+            	byte[] fileContent = Files.readAllBytes(fi.toPath());
+            	final HttpHeaders headers = new HttpHeaders();
+                headers.setContentType(MediaType.IMAGE_JPEG);
+                return new ResponseEntity<byte[]>(fileContent, headers, HttpStatus.OK);
+            
+            }
+            
+           
+            final HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);
+            return new ResponseEntity<byte[]>(ufa.getData(), headers, HttpStatus.OK);
+            
+        }catch(Exception ex){
+            ex.printStackTrace();
+        	System.out.println("Sth went wrong");
+            final HttpHeaders headers = new HttpHeaders();
+            return new ResponseEntity<byte[]>(null, headers, HttpStatus.NOT_FOUND);
+            //return null;
+        }
+    }
 
 	
 }
