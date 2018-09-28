@@ -34,7 +34,7 @@ public class WebAuthConfig extends WebSecurityConfigurerAdapter {
 	.loginPage("/hello/home")
 	.defaultSuccessUrl("/hello/home", false)
 	.failureUrl("/hello/home?error")
-	.and().rememberMe()
+	.and().rememberMe().rememberMeParameter("j_rememberme")
 	.userDetailsService(userDetailsService)
 	.key("mysupersecretketthatnobodyknowsabout") //esto hay q modificar porqeu sino chau tp
 	.tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30))
