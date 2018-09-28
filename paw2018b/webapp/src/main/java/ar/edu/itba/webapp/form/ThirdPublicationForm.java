@@ -5,11 +5,11 @@ import javax.validation.constraints.Size;
 
 public class ThirdPublicationForm extends SecondPublicationForm {
 	
-	@Size(min = 1, max = 2)
+	@Size(min = 1, max = 3)
 	@Pattern(regexp = "[0-9]+")
 	private String bedrooms;
 	
-	@Size(min = 1, max = 2)
+	@Size(min = 1, max = 3)
 	@Pattern(regexp = "[0-9]+")
 	private String bathrooms;
 	
@@ -17,7 +17,7 @@ public class ThirdPublicationForm extends SecondPublicationForm {
 	@Pattern(regexp = "[0-9]+")
 	private String floorSize;
 	
-	@Size(min = 1, max = 2)
+	@Size(min = 1, max = 3)
 	@Pattern(regexp = "[0-9]+")
 	private String parking;
 

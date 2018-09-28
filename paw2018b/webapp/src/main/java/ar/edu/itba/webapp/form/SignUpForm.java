@@ -7,22 +7,22 @@ import org.hibernate.validator.constraints.Email;
 
 public class SignUpForm {
 	
-	@Size(min = 3, max = 20)
-	@Pattern(regexp = "[a-zA-Z]+")
+	@Size(min = 3, max = 30)
+	@Pattern(regexp = "[a-zA-Z ]+")
 	private String firstName;
 	
-	@Size(min = 3, max = 20)
-	@Pattern(regexp = "[a-zA-Z]+")
+	@Size(min = 3, max = 30)
+	@Pattern(regexp = "[a-zA-Z ]+")
 	private String lastName;
 	
 	@Size(min = 3, max = 30)
 	@Email
 	private String email;
 	
-	@Size(min = 6, max = 20)
+	@Size(min = 6, max = 30)
 	private String password;
 	
-	@Size(min = 6, max = 20)
+	@Size(min = 6, max = 30)
 	@Pattern(regexp = "[0-9]+")
 	private String phoneNumber;
 

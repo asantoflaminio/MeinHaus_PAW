@@ -11,5 +11,8 @@ public interface UserService {
 
 	public User findByUsername(String username);
 	
+	public boolean validate(String firstName, String lastName,String email,
+			String password, String phoneNumber);
+	
 
 }
