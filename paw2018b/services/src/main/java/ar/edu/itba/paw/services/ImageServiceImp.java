@@ -18,9 +18,15 @@ public class ImageServiceImp implements ImageDao{
 	public UploadFile findFirstById(long id) {
 		return imageDao.findFirstById(id);
 	}
+	
+	public UploadFile findByUploadId(int id) {
+		return imageDao.findByUploadId(id);
+	}
 
 	public List<UploadFile> findAllById(long id) {
 		return imageDao.findAllById(id);
 	}
+	
+	
 
 }

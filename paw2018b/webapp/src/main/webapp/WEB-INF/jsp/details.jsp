@@ -87,10 +87,14 @@
          <div class="polaroid">       
           <div class="w3-content w3-display-container" style="max-width:800px">
            	<div class="size_div">
-           		  <!-- img class="mySlides" src="<c:url value="/resources/pics/casa1.jpg" />" > --><
-				  <img class="mySlides" src="<c:url value="/meinHaus/images/${publicationid}" />" >
-				  <img class="mySlides" src="<c:url value="/resources/pics/casa3.jpg" />" >
-				  <img class="mySlides" src="<c:url value="/resources/pics/casa4.jpg" />" >
+				  <!-- <img class="mySlides" src="<c:url value="/meinHaus/images/${publicationid}" />" > -->
+				  <c:set var = "current" scope = "session" value = "1"/>
+				  <c:set var = "maxLength" scope = "session" value = "${amountImages}"/>
+				  <c:forEach var="row" varStatus="status" items="${myImages}" step="1" begin="0">
+	        		<c:if test = "${current <= maxLength}">
+						  <img class="mySlides" src="<c:url value="/meinHaus/imagesByUpload/${row.id}" />" >
+				  	</c:if>
+				</c:forEach>
            	</div>
 			  
 			  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">

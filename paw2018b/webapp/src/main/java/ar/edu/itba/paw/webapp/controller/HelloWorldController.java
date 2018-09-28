@@ -11,6 +11,7 @@ import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -222,7 +223,17 @@ public class HelloWorldController {
 		final User user = us.findById(pub.getUserid());
 	    final ModelAndView mav = new ModelAndView("details");
 	    
-
+	    List<UploadFile> myImages = imageServiceImp.findAllById(pub.getPublicationid());
+	    
+	    if(myImages == null) {
+	    	UploadFile aux = new UploadFile(-1, "Default", null);
+	    	myImages = new ArrayList<UploadFile>();
+	    	myImages.add(aux);
+	    	mav.addObject("amountImages", 1);
+	    }else {
+	    	mav.addObject("amountImages", myImages.size());
+	    }	 
+	    mav.addObject("myImages", myImages);
 	    mav.addObject("address", pub.getAddress());
 	    mav.addObject("title", pub.getTitle());
 	    mav.addObject("price", "$" + pub.getPrice());
@@ -386,18 +397,45 @@ public class HelloWorldController {
 	
 
 	@RequestMapping(value = "/images/{uniqueId}",method = RequestMethod.GET)
-    public ResponseEntity<byte[]> getProfilePic(@PathVariable long uniqueId) {
+    public ResponseEntity<byte[]> getFirstPic(@PathVariable long uniqueId) {
 
         try{ 
 
         	UploadFile ufa = imageServiceImp.findFirstById(uniqueId);
-
-            System.out.println("we're gonna celebrate");
             
             if(ufa == null) {
-            	System.out.println("Flaco es null");
-            	//File fi = new File("/webapp/src/main/webapp/resources/pics/default.jpg");
-            	//byte[] fileContent = Files.readAllBytes(fi.toPath());
+            	String relativeWebPath = "/resources/pics/default.jpg";
+            	InputStream input =  servletContext.getResourceAsStream(relativeWebPath);
+            	byte[] fileContent =  IOUtils.toByteArray(input);
+            	final HttpHeaders headers = new HttpHeaders();
+                headers.setContentType(MediaType.IMAGE_JPEG);
+                return new ResponseEntity<byte[]>(fileContent, headers, HttpStatus.OK);
+            
+            }
+            
+           
+            final HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);
+            return new ResponseEntity<byte[]>(ufa.getData(), headers, HttpStatus.OK);
+            
+        }catch(Exception ex){
+            ex.printStackTrace();
+        	System.out.println("Sth went wrong");
+            final HttpHeaders headers = new HttpHeaders();
+            return new ResponseEntity<byte[]>(null, headers, HttpStatus.NOT_FOUND);
+            //return null;
+        }
+    }
+    
+    @RequestMapping(value = "/imagesByUpload/{uniqueId}",method = RequestMethod.GET)
+    public ResponseEntity<byte[]> getPicByUpload(@PathVariable int uniqueId) {
+
+        try{ 
+
+        	UploadFile ufa = imageServiceImp.findByUploadId(uniqueId);
+        	System.out.println("ok my uploadId es " + uniqueId);
+            
+            if(ufa == null) {
             	String relativeWebPath = "/resources/pics/default.jpg";
             	InputStream input =  servletContext.getResourceAsStream(relativeWebPath);
             	byte[] fileContent =  IOUtils.toByteArray(input);
