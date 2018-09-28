@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,8 +14,10 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import javax.imageio.ImageIO;
+import javax.servlet.ServletContext;
 import javax.validation.Valid;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpHeaders;
@@ -32,6 +35,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -77,6 +82,9 @@ public class HelloWorldController {
 	
 	@Autowired
 	private MailServiceImpl ms;
+	
+	@Autowired
+	ServletContext servletContext;
 	
 	@RequestMapping("/403")
 	public ModelAndView forbidden() {
@@ -388,8 +396,11 @@ public class HelloWorldController {
             
             if(ufa == null) {
             	System.out.println("Flaco es null");
-            	File fi = new File("/webapp/src/main/webapp/resources/pics/default.jpg");
-            	byte[] fileContent = Files.readAllBytes(fi.toPath());
+            	//File fi = new File("/webapp/src/main/webapp/resources/pics/default.jpg");
+            	//byte[] fileContent = Files.readAllBytes(fi.toPath());
+            	String relativeWebPath = "/resources/pics/default.jpg";
+            	InputStream input =  servletContext.getResourceAsStream(relativeWebPath);
+            	byte[] fileContent =  IOUtils.toByteArray(input);
             	final HttpHeaders headers = new HttpHeaders();
                 headers.setContentType(MediaType.IMAGE_JPEG);
                 return new ResponseEntity<byte[]>(fileContent, headers, HttpStatus.OK);
