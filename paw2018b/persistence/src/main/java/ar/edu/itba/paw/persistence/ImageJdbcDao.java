@@ -54,8 +54,15 @@ public class ImageJdbcDao implements ImageDao{
 		return list.get(0);
 	}
 	
+	public UploadFile findByUploadId(int id) {
+		final List<UploadFile> list = jdbcTemplate.query("SELECT * FROM images WHERE upload_id = ?",ROW_MAPPER,id);
+		if(list.isEmpty())
+			return null;
+		return list.get(0);
+	}
+	
 	public List<UploadFile> findAllById(long id) {
-		final List<UploadFile> list = jdbcTemplate.query("SELECT * FROM images WHERE publicationid = ?",ROW_MAPPER,id);
+		final List<UploadFile> list = jdbcTemplate.query("SELECT * FROM images WHERE publicationid = ?",ROW_MAPPER,Long.toString(id));
 		if(list.isEmpty())
 			return null;
 		return list;

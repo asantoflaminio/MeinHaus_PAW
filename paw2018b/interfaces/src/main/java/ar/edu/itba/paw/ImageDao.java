@@ -11,5 +11,7 @@ public interface ImageDao {
 	
 	public UploadFile findFirstById(long id);
 	
+	public UploadFile findByUploadId(int id);
+	
 	public List<UploadFile> findAllById(long id);
 }
