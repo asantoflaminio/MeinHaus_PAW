@@ -1,11 +1,22 @@
 package ar.edu.itba.webapp.form;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+
 public class MessageForm {
 	
+	@Pattern(regexp = "[a-zA-Z ]+")
+	@Size(min = 2, max = 15)
 	private String name;
 	
-	private String Email;
+	@Size(min = 3, max = 30)
+	@Email
+	private String email;
 	
+	@Pattern(regexp = "[a-zA-Z0-9.@ ]+")
+	@Size(min = 1, max = 60)
 	private String message;
 
 	public String getName() {
@@ -17,11 +28,11 @@ public class MessageForm {
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
 	public String getMessage() {

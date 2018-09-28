@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.sql.SQLException"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="java.awt.List"/>
-<fullyQualifiedTypeName name="org.springframework.jdbc.core.RowMapper"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="javax.sql.DataSource"/>
 <fullyQualifiedTypeName name="javax.activation.DataSource"/>
 <fullyQualifiedTypeName name="org.springframework.jdbc.datasource.SimpleDriverDataSource"/>
 <fullyQualifiedTypeName name="org.springframework.jdbc.core.simple.SimpleJdbcInsert"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 <fullyQualifiedTypeName name="ar.edu.itba.paw.PublicationDao"/>
 <fullyQualifiedTypeName name="ar.edu.itba.paw.PublicationService"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.Size"/>
@@ -46,7 +39,6 @@
 <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.builders.WebSecurity"/>
 <fullyQualifiedTypeName name="ar.edu.itba.paw.services.PawUserDetailsService"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="ar.edu.itba.paw.UserService"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
@@ -60,4 +52,12 @@
 <fullyQualifiedTypeName name="ar.edu.itba.paw.models.User"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="ar.edu.itba.paw.models.ListFilters"/>
+<fullyQualifiedTypeName name="org.springframework.mail.javamail.JavaMailSenderImpl"/>
+<fullyQualifiedTypeName name="ar.edu.itba.paw.MailService"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.mail.javamail.JavaMailSender"/>
+<fullyQualifiedTypeName name="ar.edu.itba.paw.models.Mail"/>
+<fullyQualifiedTypeName name="org.springframework.mail.SimpleMailMessage"/>
+<fullyQualifiedTypeName name="org.springframework.mail.MailSender"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 </qualifiedTypeNameHistroy>

@@ -15,7 +15,7 @@ public class SignUpForm {
 	@Pattern(regexp = "[a-zA-Z]+")
 	private String lastName;
 	
-	@Size(min = 3, max = 20)
+	@Size(min = 3, max = 30)
 	@Email
 	private String email;
 	

@@ -21,6 +21,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -37,6 +40,7 @@ import ar.edu.itba.paw.models.UploadFile;
 import ar.edu.itba.paw.models.User;
 import ar.edu.itba.paw.services.FileUploadImpl;
 import ar.edu.itba.paw.services.ImageServiceImp;
+import ar.edu.itba.paw.services.MailServiceImpl;
 import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
 import ar.edu.itba.webapp.form.FirstPublicationForm;
@@ -66,6 +70,13 @@ public class HelloWorldController {
 	
 	@Autowired
 	private ImageServiceImp imageServiceImp;
+	
+	
+	@Autowired
+	private JavaMailSender mailSender;
+	
+	@Autowired
+	private MailServiceImpl ms;
 	
 	@RequestMapping("/403")
 	public ModelAndView forbidden() {
@@ -196,11 +207,12 @@ public class HelloWorldController {
 	
 	
 	@RequestMapping(value = "details", method = RequestMethod.GET)
-	public ModelAndView details(@Valid @ModelAttribute("MessageForm") final MessageForm form, @RequestParam("publicationid") String publicationid) {
+	public ModelAndView details(@ModelAttribute("MessageForm") final MessageForm form, @RequestParam("publicationid") String publicationid,
+								@RequestParam(value = "sent", required=false) String sent) {
+		System.out.println("Details");
 		final Publication pub = ps.findById(Integer.valueOf(publicationid));
 		final User user = us.findById(pub.getUserid());
 	    final ModelAndView mav = new ModelAndView("details");
-	    long myid = pub.getPublicationid();
 	    
 
 	    mav.addObject("address", pub.getAddress());
@@ -213,8 +225,31 @@ public class HelloWorldController {
 	    mav.addObject("floorSize", pub.getFloorSize());
 	    mav.addObject("phoneNumber",user.getPhoneNumber());
 	    mav.addObject("publicationid", pub.getPublicationid());
+	    mav.addObject("sellerEmail",user.getEmail());
 	    
 	    return mav;
+	}
+	
+	@RequestMapping(value = "detailsSend", method = RequestMethod.POST)
+	public ModelAndView detailsMessage(@Valid @ModelAttribute("MessageForm") final MessageForm form, final BindingResult errors,
+									   @RequestParam("publicationid") String publicationid, @RequestParam("emailSeller") String email) {
+		System.out.println("Details send email: " + email);
+		if (errors.hasErrors()) {
+			System.out.println("Errors: " + errors.getErrorCount());
+			return details(form, publicationid,null);
+		}
+		final String sent = "true";
+		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/details");
+		
+		SimpleMailMessage smm = new SimpleMailMessage();
+		smm.setTo(email);
+		smm.setText(ms.prepareMessage(form.getMessage(), form.getEmail()));
+		
+		mailSender.send(smm);
+		
+		mav.addObject("publicationid",publicationid);
+		mav.addObject("sent",sent);
+		return mav;
 	}
 	@RequestMapping(value = "publish")
 	public ModelAndView publish(@ModelAttribute("firstPublicationForm") final FirstPublicationForm form) {

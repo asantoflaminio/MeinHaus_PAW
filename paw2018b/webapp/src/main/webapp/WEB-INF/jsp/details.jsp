@@ -121,20 +121,26 @@
 		     <img class="polaroid_img_agency" src="<c:url value="/resources/pics/richmond.png" />" alt="5 Terre" style="width:100%">
 		     <p class="agency_text"><spring:message code="details.contact"/></p>
 		     <p class="agency_text"><c:out value="${phoneNumber}"/></p>
-		     <c:url value="/meinHaus/details" var="postPath"/>
-			<form:form modelAttribute="MessageForm" action="${postPath}" method="post" class="ocultar">
+		     <c:url value="/meinHaus/detailsSend?publicationid=${publicationid}" var="postPath"/>
+			<form:form modelAttribute="MessageForm" action="${postPath}" method="post">
 		     	<div class="fillers">
 				     <form:label path="name"><spring:message code="details.name"/></form:label>
 				     <spring:message code="details.placeholderName" var="detailsName"/>
 		    		 <form:input type="text" path="name" id="name" name="name" placeholder="${detailsName}" />
+		    		 <form:errors path="name" cssClass="error" element="p"/>
 		    		 
-		    		 <form:label for="email" path="email"><spring:message code="details.email"/></form:label>
-		    		 <spring:message code="details.placeholderEmail" var="detailsEmail"/>
-		    		 <form:input type="text" path="email" id="email" name="email" placeholder="${detailsEmail}"/>
+		    		 
+		    		 <form:label path="email"><spring:message code="details.email"/></form:label>
+                     <spring:message code="details.placeholderEmail" var="detailsEmail"/>
+                     <form:input path="email" type="text" placeholder="${detailsEmail}"/>
+                     <form:errors path="email" cssClass="error" element="p"/>
 		    		 
 		    		 <form:label path="message" for="message"><spring:message code="details.message"/></form:label>
 		    		 <spring:message code="details.placeholderMessage" var="detailsMessage"/>
 		    		 <form:input id="message" path="message" placeholder="${detailsMessage}"/>
+		    		 <form:errors path="message" cssClass="error" element="p"/>
+		    		 
+		    		 <input type="hidden" value=${sellerEmail} name="emailSeller">
 		    		 
 		    		 <spring:message code="details.contactButton" var="submitValue"/>
 		    		 <input class="button" type="submit" value=${submitValue}>

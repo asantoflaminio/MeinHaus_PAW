@@ -12,6 +12,10 @@ public interface PublicationService {
 	
 	public Publication findById(final long publicationid);
 	
+	public boolean validate(String title, String address, String operation, String price,
+			   String description, String propertyType, String bedrooms,
+			   String bathrooms, String floorSize, String parking, long userid);
+	
 	public List<Publication> findAll(String operation);
 	
 	public List<Publication> findSearch(String operation, String search);
