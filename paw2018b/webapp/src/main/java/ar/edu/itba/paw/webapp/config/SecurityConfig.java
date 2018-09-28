@@ -1,7 +1,9 @@
 package ar.edu.itba.paw.webapp.config;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +45,7 @@ public class SecurityConfig {
 		.failureUrl("/meinHaus/home?error=true")
 		.and().rememberMe().rememberMeParameter("j_rememberme")
 		.userDetailsService(userDetailsService)
-		.key(encryptKey(randomAlphaNumeric(Math.round(Math.random())))) //esto hay q modificar porqeu sino chau tp
+		.key(encryptKey(randomAlphaNumeric(Math.round(Math.random()*10+1))))
 		.tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30))
 		.and().logout()
 		.logoutUrl("/meinHaus/logout")
@@ -60,9 +62,9 @@ public class SecurityConfig {
 		}
 		
 		public static String encryptKey(String username) throws NoSuchAlgorithmException {
-			MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-			messageDigest.update(username.getBytes());
-			String encryptedString = new String(messageDigest.digest());
+			MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
+			byte[] hash = messageDigest.digest(username.getBytes(StandardCharsets.UTF_8));
+			String encryptedString = new String(hash);
 			return encryptedString;
 		}
 		
@@ -104,7 +106,7 @@ public class SecurityConfig {
 		.and().rememberMe()
 		.rememberMeParameter("j_rememberme")
 		.userDetailsService(userDetailsService)
-		.key(encryptKey(randomAlphaNumeric(Math.round(Math.random())))) //esto hay q modificar porqeu sino chau tp
+		.key(encryptKey(randomAlphaNumeric(Math.round(Math.random()*32+1))))
 		.tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30))
 		.and().logout()
 		.logoutUrl("/meinHaus/logout")
@@ -121,9 +123,9 @@ public class SecurityConfig {
 		}
 		
 		public static String encryptKey(String username) throws NoSuchAlgorithmException {
-			MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-			messageDigest.update(username.getBytes());
-			String encryptedString = new String(messageDigest.digest());
+			MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
+			byte[] hash = messageDigest.digest(username.getBytes(StandardCharsets.UTF_8));
+			String encryptedString = new String(hash);
 			return encryptedString;
 		}
 		
