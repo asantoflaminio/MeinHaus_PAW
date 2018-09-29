@@ -102,6 +102,13 @@
 		                </tr> -->
 		            </table>
 	    		 </div>
+	    		 <c:set var = "current" scope = "session" value = "1"/>
+				  <c:set var = "maxLength" scope = "session" value = "1"/>
+				  <c:forEach var="row" varStatus="status" items="${maxFiles}" step="1" begin="0">
+	        		<c:if test = "${current <= maxLength}">
+						  <p id="imageMaximum"><spring:message code="publish4.imageMaximum"/></p>
+				  	</c:if>
+				</c:forEach>
 				     	    		 
 	    		 </div>
 	    		 

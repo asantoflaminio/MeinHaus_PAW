@@ -67,6 +67,11 @@ div.polaroid_agency {
     display: inline-block;
 }
 
+ #imageMaximum {
+    display: inline-block;
+    color: red;
+}
+
 label {
     display: inline-block;
 }

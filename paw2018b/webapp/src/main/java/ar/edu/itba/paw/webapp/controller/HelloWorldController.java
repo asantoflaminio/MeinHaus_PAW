@@ -12,10 +12,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.apache.commons.io.IOUtils;
@@ -31,6 +35,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,8 +44,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
+import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ar.edu.itba.paw.models.Publication;
 import ar.edu.itba.paw.models.UploadFile;
@@ -347,8 +356,11 @@ public class HelloWorldController {
 	}
 	
 	@RequestMapping("publish4")
-	public ModelAndView publish4() {
+	public ModelAndView publish4(@ModelAttribute("fourthPublicationForm") final FourthPublicationForm form,
+			 @RequestParam("type") String type, @RequestParam("operation") String operation) {
 		final ModelAndView mav = new ModelAndView("publish4");
+		mav.addObject("operation",operation);
+		mav.addObject("type",type);
 		return mav;
 	}
 	
@@ -356,12 +368,24 @@ public class HelloWorldController {
 	public ModelAndView publish4(@Valid @ModelAttribute("fourthPublicationForm") final FourthPublicationForm form, final BindingResult errors,
 								 @RequestParam("type") String type, @RequestParam("operation") String operation , @RequestParam CommonsMultipartFile[] fileUpload) {
 		if (errors.hasErrors()) {
-			//return publish4();
+			ModelAndView mav = publish4(form,type, operation);
+			return mav;
 		}
+		
+		
+		if(fileUpload.length > 15) {
+			
+			ModelAndView mav = publish4(form,type, operation);
+			List<String> l= new ArrayList<String>();
+			l.add("Too many files");
+			mav.addObject("maxFiles", l);
+			return mav;
+
+		}
+		
 		long userid = us.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getUserId();
 		Publication aux = ps.create(form.getTitle(), form.getAddress(), operation, form.getPrice(), form.getDescription(), 
 				type, form.getBedrooms(), form.getBathrooms(), form.getFloorSize(), form.getParking(),userid);
-		
 		
 		if (fileUpload != null && fileUpload.length > 0) {
             for (CommonsMultipartFile aFile : fileUpload){
@@ -376,17 +400,19 @@ public class HelloWorldController {
                 uploadFile.setPublicationId(Long.toString(aux.getPublicationid())); 
                 
                 uploadFile.setData(aFile.getBytes());
+                
+                final long limit = 20 * 1024 * 1024; //20MB
+                
                 System.out.println("I'm about to save with id: " + uploadFile.getId());
-                if(uploadFile.getData().length > 0) {
+                if(aFile.getSize() < limit && uploadFile.getData().length > 0) {
                 	if(aFile.getOriginalFilename().contains(".jpg")) {
                 		fileUploadImpl.save(uploadFile); 
                 	}else {
-                		//error mostrarlo!
                 		System.out.println("Sth went wrong with file format");
                 	}
                 	
                 }else {
-                	System.out.println("Nope");
+                	System.out.println("File is too big or it's empty");
                 }
                 
                 
@@ -395,6 +421,13 @@ public class HelloWorldController {
 		return new ModelAndView("redirect:/meinHaus/home");
 	}
 	
+	@ExceptionHandler({MultipartException.class})
+	public ModelAndView handleMaxSizeException(Exception excptn, HttpServletRequest request) {
+		System.out.println("I'm here");
+		return new ModelAndView("redirect:/meinHaus/home");
+	}
+	
+
 
 	@RequestMapping(value = "/images/{uniqueId}",method = RequestMethod.GET)
     public ResponseEntity<byte[]> getFirstPic(@PathVariable long uniqueId) {
