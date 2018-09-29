@@ -121,7 +121,7 @@
 		
 		<div class="polaroid_agency">
 		  <div class="container3">
-		     <p class="agency_text"><spring:message code="details.contact"/></p>
+		     <p class="agency_text_contact"><spring:message code="details.contact"/></p>
 		     <div id="tel-container">
 		     	<p class="tel-text"><spring:message code="details.tel"/></p>
 		     	<p class="tel-num"><c:out value="${phoneNumber}"/></p>
