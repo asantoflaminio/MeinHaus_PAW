@@ -58,7 +58,8 @@ ul.breadcrumb-list li a:hover {
 
 .search {
   width: 100%;
-  position: relative
+  position: relative;
+  display: flex;
 }
 
 .searchTerm {
@@ -78,18 +79,20 @@ ul.breadcrumb-list li a:hover {
   color: #555;
 }
 
-.searchButton {
-  position: absolute;  
-  right: -50px;
-  width: 45px;
-  height: 40px;
-  border: 1px solid #FD8907;
-  background: #FD8907;
-  text-align: center;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 20px;
+input#search-btn {
+	background-image: url('/null/resources/pics/search_icon5.png');
+	background-position: 6px 7.5px;
+	background-repeat: no-repeat;
+	/*exactly the width and height of the image*/
+	width: 40px;
+	height: 40px;
+	border: 0;
+	font-size:0;	
+	background-color: #FD8907;
+	cursor: pointer;
+	border-radius: 5px;
+	outline: 0;
+	margin-left: 5px;
 }
 
 #search-img {
@@ -100,7 +103,7 @@ ul.breadcrumb-list li a:hover {
 
 .wrap{
 	margin-left: 15px;
-	width: 500px;
+	width: 600px;
 	height: 85px;
 	margin-bottom: 20px;
 }
@@ -252,19 +255,19 @@ ul.breadcrumb-list li a:hover {
 }
 
 .apply-container {
-	height: 40px;
+	height: 50px;
 }
 
 .apply-btn {
-	width: auto;
-	height: 25px;
+	width: 100%;
+	height: 30px;
 	min-width: 70px;
 	background-color: #a5a5a5;
 	border: none;
 	color: white;
-	font-size: 13px;
+	font-size: 15px;
 	margin-top: 10px;
-	float: right;
+	float: center;
 }
 
 /* End of style */
@@ -487,11 +490,12 @@ h4 {
 
 .page-nums-container {
 	margin-left: 20% !important;
+	text-align: center;
 }
 
 .page-nums {
 	margin-top: 20px;
-	margin-left: 40%;
+	display:inline-block;
 	height: 70px;
 }
 
