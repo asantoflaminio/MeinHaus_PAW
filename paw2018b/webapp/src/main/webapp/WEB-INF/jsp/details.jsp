@@ -170,6 +170,13 @@
 		    <p class="agency_text"><c:out value="${description}"/></p>
 		  </div>
 		</div>
+		
+		  <div class="notice">
+            <div class="msg-sent-container">
+              <p id='msg-sent'><spring:message code="details.msgSent"/></p> 
+            </div>
+          </div>
+		
          <footer>
 
           <div id="footer">
