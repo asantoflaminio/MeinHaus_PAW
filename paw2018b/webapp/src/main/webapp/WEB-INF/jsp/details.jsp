@@ -121,24 +121,26 @@
 		
 		<div class="polaroid_agency">
 		  <div class="container3">
-		     <img class="polaroid_img_agency" src="<c:url value="/resources/pics/richmond.png" />" alt="5 Terre" style="width:100%">
 		     <p class="agency_text"><spring:message code="details.contact"/></p>
-		     <p class="agency_text"><c:out value="${phoneNumber}"/></p>
+		     <div id="tel-container">
+		     	<p class="tel-text"><spring:message code="details.tel"/></p>
+		     	<p class="tel-num"><c:out value="${phoneNumber}"/></p>
+		     </div>
 		     <c:url value="/meinHaus/detailsSend?publicationid=${publicationid}" var="postPath"/>
 			<form:form modelAttribute="MessageForm" action="${postPath}" method="post">
 		     	<div class="fillers">
-				     <form:label path="name"><spring:message code="details.name"/></form:label>
+				     <form:label cssClass="contact-title" path="name"><spring:message code="details.name"/></form:label>
 				     <spring:message code="details.placeholderName" var="detailsName"/>
 		    		 <form:input type="text" path="name" id="name" name="name" placeholder="${detailsName}" />
 		    		 <form:errors path="name" cssClass="error" element="p"/>
 		    		 
 		    		 
-		    		 <form:label path="email"><spring:message code="details.email"/></form:label>
+		    		 <form:label cssClass="contact-title" path="email"><spring:message code="details.email"/></form:label>
                      <spring:message code="details.placeholderEmail" var="detailsEmail"/>
                      <form:input path="email" type="text" placeholder="${detailsEmail}"/>
                      <form:errors path="email" cssClass="error" element="p"/>
 		    		 
-		    		 <form:label path="message" for="message"><spring:message code="details.message"/></form:label>
+		    		 <form:label cssClass="contact-title" path="message" for="message"><spring:message code="details.message"/></form:label>
 		    		 <spring:message code="details.placeholderMessage" var="detailsMessage"/>
 		    		 <form:input id="message" path="message" placeholder="${detailsMessage}"/>
 		    		 <form:errors path="message" cssClass="error" element="p"/>
@@ -146,7 +148,7 @@
 		    		 <input type="hidden" value=${sellerEmail} name="emailSeller">
 		    		 
 		    		 <spring:message code="details.contactButton" var="submitValue"/>
-		    		 <input class="button" type="submit" value=${submitValue}>
+		    		 <input class="button-contact" type="submit" value=${submitValue}>
 	    		 </div>
 	    	</form:form>
 		  </div>

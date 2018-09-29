@@ -23,7 +23,7 @@ h1 {
 div.polaroid {
   margin-top: 40px;
   float: left;
-  margin-left: 15%;
+  margin-left: 190px;
   width: 35%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -44,9 +44,8 @@ div.polaroid {
 }
 
 div.polaroid_price {
-  float: right;
   margin-top: 40px;
-  margin-right: 15%;
+  margin-left: 680px; 
   width: 30%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -106,9 +105,8 @@ div.container2 {
 
 
 div.polaroid_agency {
-  float: right;
-  margin-top: 15px;
-  margin-right: 15%;
+  margin-left: 680px; 
+  margin-top: 30px; 
   width: 30%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -119,7 +117,6 @@ div.polaroid_agency {
 div.container3 {
   text-align: center;
   padding: 10px 20px;
-  height: 70px;
 }
 
 .polaroid_img_agency{
@@ -138,10 +135,9 @@ div.container3 {
 div.polaroid_des {
   margin-top: 15px;
   position: relative;
-  top: 100px;
   float: left;
-  margin-left: 15%;
-  width: 70%;
+  margin-left: 190px;
+  width: 870px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 50px;
@@ -182,13 +178,12 @@ label {
 div.polaroid_overview {
   float: left;
   position: relative;
-  right: 900px;
-  margin-top: 15px;
-  margin-left: 15%;
+  margin-left: 190px;
   width: 35%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
+  margin-top: -242px;
   min-width:  450px; 
   
 }
@@ -201,7 +196,7 @@ div.polaroid_overview {
 
 div.container4 {
   text-align: left;
-  padding: 10px 20px;
+  padding: 15px 25px;
 }
 
 .fillers .button {
@@ -238,6 +233,57 @@ div.container4 {
 	min-height: 60px;
 }
 
-.ocultar {
-	
+.button-contact {
+	background-color: #FD8907;
+    border: none;
+    color: white;
+    width:100%;
+    height: 45px;
+    padding: 5px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 13px 2px 7px 2px;
+    cursor: pointer;
+}
+
+.error {
+	color: red;
+}
+
+input[type=text] {
+    width: 95%;
+    height: 35px;
+    padding: 12px 20px;
+    margin-top: 2px;
+    display: inline-block;
+    border: 1px solid;
+    border-color:#aaa;
+    border-radius: 2px;
+    box-sizing: border-box;
+    color: #888;
+}
+
+.contact-title{
+	font-size: 15px;
+	color: #777;
+	padding-top: 10px;
+}
+
+.agency_text {
+	font-size: 21px;
+	color: #666;
+	margin-top: 5px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+#tel-container {
+	text-align: left;
+	display: inline-block;
+}
+
+.tel-num {
+	text-align: left;
 }
