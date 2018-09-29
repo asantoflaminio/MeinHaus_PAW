@@ -20,7 +20,7 @@
 				<table class="table" id="table1">
 					<tr>
 						<td id="td2" align="center" bgcolor="#ccc" >
-							<img class="img" src="./Logo4.png" alt="Creating Email Magic" width="150" height="50"  />
+							<img class="img" src="<c:url value="/resources/pics/Logo4.png" />" alt="MeinHaus" width="150" height="50"  />
 						</td>
 					</tr>
 					<tr>
