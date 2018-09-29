@@ -106,10 +106,9 @@
 
 		   <div class="search">
 		   	  <spring:message code="list.placeholderSearch" var="title"/>
-		      <form:input path="search" type="text" class="searchTerm" placeholder="${title}" value="${address}"/>
+		      <form:input path="search" type="text" class="searchTerm" placeholder="${title}" value="${list.placeholderSearch}"/>
 		      <form:errors path="search" cssClass="error" element="p"/>
-		       <input type="submit">
-		        <img src="<c:url value="/resources/pics/search_icon.png" />" alt="Search" id="search-img"></img>
+		       <input type="submit" id="search-btn">
 		   </div>
            </form:form>
            

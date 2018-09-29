@@ -81,7 +81,7 @@ ul.breadcrumb-list li a:hover {
 
 input#search-btn {
 	background-image: url('/null/resources/pics/search_icon5.png');
-	background-position: 6px 7.5px;
+	background-position: 7px 7.5px;
 	background-repeat: no-repeat;
 	/*exactly the width and height of the image*/
 	width: 40px;
