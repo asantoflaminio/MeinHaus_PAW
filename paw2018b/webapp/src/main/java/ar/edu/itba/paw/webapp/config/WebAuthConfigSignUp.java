@@ -33,7 +33,7 @@ public class WebAuthConfigSignUp extends WebSecurityConfigurerAdapter {
 	.loginPage("/hello/signUp")
 	.defaultSuccessUrl("/hello/home", false)
 	.failureUrl("/hello/signUp?error")
-	.and().rememberMe()
+	.and().rememberMe().rememberMeParameter("j_rememberme")
 	.rememberMeParameter("j_rememberme")
 	.userDetailsService(userDetailsService)
 	.key("mysupersecretketthatnobodyknowsabout") //esto hay q modificar porqeu sino chau tp

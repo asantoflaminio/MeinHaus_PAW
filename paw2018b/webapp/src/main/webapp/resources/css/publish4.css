@@ -158,6 +158,30 @@ label {
 .upload-pic {
 }
 
+.file-submit {
+	height: 35px !important;
+    width: 300px !important;
+    padding: 5px !important;
+    font-size: 15px !important;
+    margin-right: 10px !important;
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+    background-color:red;
+}
+
 input[type="file"] {
-	
+	width: 80%;
+    color: white;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #FD8907;
+    margin-left: 10px;
+    float: right;
+}
+
+tr td input.file-submit {
+  text-decoration: none; 
+  color: #ffffff; 
 }

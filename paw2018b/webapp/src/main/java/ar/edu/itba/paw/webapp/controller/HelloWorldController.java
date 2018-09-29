@@ -11,6 +11,7 @@ import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -223,8 +224,16 @@ public class HelloWorldController {
 	    final ModelAndView mav = new ModelAndView("details");
 	    
 	    List<UploadFile> myImages = imageServiceImp.findAllById(pub.getPublicationid());
+	    
+	    if(myImages == null) {
+	    	UploadFile aux = new UploadFile(-1, "Default", null);
+	    	myImages = new ArrayList<UploadFile>();
+	    	myImages.add(aux);
+	    	mav.addObject("amountImages", 1);
+	    }else {
+	    	mav.addObject("amountImages", myImages.size());
+	    }	 
 	    mav.addObject("myImages", myImages);
-	    mav.addObject("amountImages", myImages.size());
 	    mav.addObject("address", pub.getAddress());
 	    mav.addObject("title", pub.getTitle());
 	    mav.addObject("price", "$" + pub.getPrice());
