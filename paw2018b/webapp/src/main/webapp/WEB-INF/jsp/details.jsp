@@ -38,7 +38,7 @@
                 <a class="navbar_item" href="#"><spring:message code="nav.signIn"/></a>
                 <c:url value="/meinHaus/home" var="loginUrl" />
 				<form action="${loginUrl}" method="POST" class="form_login"  enctype="application/x-www-form-urlencoded">
-                <div class="dropdown-content">
+                <div class="dropdown-content dropdown-padding">
                         <div class="email">
                         	<spring:message code="nav.placeholderEmail" var="navEmail"/>
                             <input class="form-control form-control-lg form-control-borderless" type="email" placeholder="${navEmail}" name="j_username">
