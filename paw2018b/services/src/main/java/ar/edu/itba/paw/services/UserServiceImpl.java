@@ -1,8 +1,11 @@
 package ar.edu.itba.paw.services;
 
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -13,7 +16,7 @@ import ar.edu.itba.paw.models.User;
 
 @Service
 public class UserServiceImpl implements UserService{
-
+	
 	@Autowired
 	private UserDao userDaoInt;
 	
