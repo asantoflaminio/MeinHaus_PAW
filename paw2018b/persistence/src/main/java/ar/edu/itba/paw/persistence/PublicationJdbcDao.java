@@ -86,6 +86,10 @@ public class PublicationJdbcDao implements PublicationDao{
 		return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ?", ROW_MAPPER,operation); 
 	}
 	
+	public List<Publication> findByUserId(long id){
+		return jdbcTemplate.query("SELECT * FROM publications WHERE userid = ?", ROW_MAPPER,id); 
+	}
+	
 	public List<Publication> findSearch(String operation, String search){
 		final String queryAddress = "%" + search + "%";
 		return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND address LIKE ?", ROW_MAPPER,operation,queryAddress);

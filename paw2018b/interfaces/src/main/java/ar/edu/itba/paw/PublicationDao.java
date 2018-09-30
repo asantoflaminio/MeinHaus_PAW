@@ -17,6 +17,8 @@ public interface PublicationDao {
 	
 	public List<Publication> findAll(String operation);
 	
+	public List<Publication> findByUserId(long id);
+	
 	public List<Publication> findSearch(String operation, String search);
 	
 	public List<Publication> findSearchFiltering(String operation, String address, String price, String bedrooms);
