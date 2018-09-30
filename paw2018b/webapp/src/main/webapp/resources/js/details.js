@@ -26,3 +26,9 @@
 		  x[slideIndex-1].style.display = "block";  
 		  dots[slideIndex-1].className += " w3-white";
 		}
+
+
+
+	$(document).ready(function() {
+    	$("#divMessageSent").delay(5000).hide(1000);
+	});

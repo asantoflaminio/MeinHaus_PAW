@@ -171,14 +171,18 @@
 		  </div>
 		</div>
 		
-		  <div class="notice">
+		<c:set var = "sentVar" scope = "session" value = "${sent}"/>
+        <c:if test="${sentVar == 'true'}">
+		  <div class="notice" id="divMessageSent">
             <div class="msg-sent-container">
               <p id='msg-sent'><spring:message code="details.msgSent"/></p> 
             </div>
           </div>
+        </c:if>
 		
          <footer>
 
+		  
           <div id="footer">
               <p>Copyright &copy; 2018, MeinHaus. All rights reserved.</p>
           </div>

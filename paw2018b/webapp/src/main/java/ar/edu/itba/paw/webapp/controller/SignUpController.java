@@ -31,7 +31,7 @@ public class SignUpController{
 	
 	
 	@RequestMapping (value = "signUp/create", method = RequestMethod.POST )
-	public ModelAndView create(@Valid @ModelAttribute("signUpForm") final SignUpForm form, final BindingResult errors) {
+	public ModelAndView create(@Valid @ModelAttribute("signUpForm") final SignUpForm form, final BindingResult errors)  {
 		System.out.println("Creando usuario");
 		if (errors.hasErrors()) {
 			return signUp(form,null);

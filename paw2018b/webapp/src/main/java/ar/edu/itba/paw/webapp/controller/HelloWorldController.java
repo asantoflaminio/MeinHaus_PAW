@@ -17,11 +17,20 @@ import java.util.List;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
+import javax.mail.Message;
+import javax.mail.Message.RecipientType;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -49,6 +58,8 @@ import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.MimeBodyPart;
 
 import ar.edu.itba.paw.models.Publication;
 import ar.edu.itba.paw.models.UploadFile;
@@ -95,11 +106,6 @@ public class HelloWorldController {
 	
 	@Autowired
 	ServletContext servletContext;
-	
-	@RequestMapping("/403")
-	public ModelAndView forbidden() {
-		return new ModelAndView("403");
-	}
 	
 	
 	@RequestMapping("home")
@@ -254,13 +260,14 @@ public class HelloWorldController {
 	    mav.addObject("phoneNumber",user.getPhoneNumber());
 	    mav.addObject("publicationid", pub.getPublicationid());
 	    mav.addObject("sellerEmail",user.getEmail());
+	    mav.addObject("sent", sent);
 	    
 	    return mav;
 	}
 	
 	@RequestMapping(value = "detailsSend", method = RequestMethod.POST)
 	public ModelAndView detailsMessage(@Valid @ModelAttribute("MessageForm") final MessageForm form, final BindingResult errors,
-									   @RequestParam("publicationid") String publicationid, @RequestParam("emailSeller") String email) {
+									   @RequestParam("publicationid") String publicationid, @RequestParam("emailSeller") String email) throws AddressException, MessagingException{
 		System.out.println("Details send email: " + email);
 		if (errors.hasErrors()) {
 			System.out.println("Errors: " + errors.getErrorCount());
@@ -269,11 +276,7 @@ public class HelloWorldController {
 		final String sent = "true";
 		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/details");
 		
-		SimpleMailMessage smm = new SimpleMailMessage();
-		smm.setTo(email);
-		smm.setText(ms.prepareMessage(form.getMessage(), form.getEmail()));
-		
-		mailSender.send(smm);
+		ms.sendEmail(email, form.getMessage());
 		
 		mav.addObject("publicationid",publicationid);
 		mav.addObject("sent",sent);

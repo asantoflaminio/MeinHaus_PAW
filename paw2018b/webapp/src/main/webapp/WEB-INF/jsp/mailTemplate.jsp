@@ -9,7 +9,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>MeinHaus</title>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/mail_template.css" />">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/mailTemplate.css" />">
 	<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -33,7 +33,7 @@
 								</tr>
 								<tr>
 									<td id="td5">
-										Te llegó un mail de: 
+										Te llegï¿½ un mail de: 
 										<a href="#" class="sender">lala@gmail.com</a>
 									</td>
 								</tr>
@@ -44,7 +44,7 @@
 								</tr>
 								<tr>
 									<td id="msg-content">
-										Me encanta tu propiedad! Me podés mandar más información?
+										Me encanta tu propiedad! Me podï¿½s mandar mï¿½s informaciï¿½n?
 									</td>
 								</tr>
 							</table>
