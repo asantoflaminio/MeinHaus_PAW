@@ -102,12 +102,17 @@
                         	<spring:message code="signUp.placeholderEmail" var="email"/>
                         	<form:input class="sign-up-input" path="email" type="text" placeholder="${email}" name="email"/>
                         	<form:errors path="email" cssClass="error" element="p"/>
+                        	<c:set var = "signUp" scope = "session" value = "${error}"/>	
+                        	<c:if test="${signUp == 'emailTaken'}">
+                        		<p class="error"><spring:message code="signUp.emailTaken"/></p>
+                         	</c:if>
                         </div>
                         <div class="signup-list-item">
                         	<form:label path="password"><spring:message code="signUp.password"/></form:label>
                         	<spring:message code="signUp.placeholderPassword" var="password"/>
                         	<form:input class="sign-up-input" path="password" type="password" placeholder="${password}" name="password"/>
                         	<form:errors path="password" cssClass="error" element="p"/>
+
                         </div>
 						<div class="signup-list-item">
                         	<form:label path="phoneNumber"><spring:message code="signUp.phoneNumber"/></form:label>

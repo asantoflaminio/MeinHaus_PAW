@@ -32,6 +32,9 @@ public class UserServiceImpl implements UserService{
 		if(! validate(firstName, lastName, email, password, phoneNumber))
 			return null;
 		
+		if(userDaoInt.findByUsername(email) != null)
+			return null;
+		
 		return userDaoInt.create(firstName, lastName, email, password, phoneNumber);
 	}
 	

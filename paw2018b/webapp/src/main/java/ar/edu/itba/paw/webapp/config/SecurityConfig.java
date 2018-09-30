@@ -27,6 +27,7 @@ public class SecurityConfig {
 		
 		@Autowired
 		private UserDetailsService userDetailsService;
+		
 		@Override
 		protected void configure(final HttpSecurity http) throws Exception {
 		http.antMatcher("/meinHaus/**")
