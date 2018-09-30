@@ -4,6 +4,8 @@ package ar.edu.itba.paw.services;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -15,6 +17,8 @@ import ar.edu.itba.paw.models.User;
 @Service
 public class UserServiceImpl implements UserService{
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
+	
 	@Autowired
 	private UserDao userDaoInt;
 	
@@ -25,16 +29,20 @@ public class UserServiceImpl implements UserService{
 
 	public User create(String firstName, String lastName,String email,
 			String password, String phoneNumber) {
-		if(! validate(firstName, lastName, email,
-				password, phoneNumber))
+		if(! validate(firstName, lastName, email, password, phoneNumber))
 			return null;
 		
-		return userDaoInt.create(firstName, lastName, email,
-				password, phoneNumber);
+		return userDaoInt.create(firstName, lastName, email, password, phoneNumber);
 	}
 	
 	public User findById(final long userid) {
-		return userDaoInt.findById(userid);
+		if(userid < 0){
+            LOGGER.error("Attempted to find a user with a negative id");
+            throw new IllegalArgumentException("id must be positive");
+        }
+		
+        LOGGER.trace("Looking up user with id {}", userid);
+        return userDaoInt.findById(userid);
 	}
 
 	public User findByUsername(String username) {
@@ -42,7 +50,6 @@ public class UserServiceImpl implements UserService{
 	}
 
 	public boolean validate(String firstName, String lastName, String email, String password, String phoneNumber) {
-		
 		final String lettesAndSpacesRegex = "[a-zA-Z ]+";
 		final String numbersRegex = "[0-9]+";
 		final Pattern emailRegex = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);

@@ -9,7 +9,7 @@ public interface UserService {
 	
 	public User findById(final long userid);
 
-	public User findByUsername(String username);
+	public User findByUsername(String email);
 	
 	public boolean validate(String firstName, String lastName,String email,
 			String password, String phoneNumber);

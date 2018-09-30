@@ -18,7 +18,6 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.phoneNumber = phoneNumber;
-		
 	}
 	
 	public long getUserId() {

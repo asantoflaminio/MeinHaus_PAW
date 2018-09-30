@@ -1,5 +1,6 @@
 package ar.edu.itba.paw;
 
+
 import org.springframework.stereotype.Service;
 
 import ar.edu.itba.paw.models.User;
@@ -12,6 +13,6 @@ public interface UserDao{
 	public User create(String firstName, String lastName,String email,
 			String password, String phoneNumber);
 
-	public User findByUsername(String username);
+	public User findByUsername(String email);
 	
 }
