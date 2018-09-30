@@ -9,7 +9,8 @@ import ar.edu.itba.paw.models.UploadFile;
 
 @Repository
 public class FileUploadDAOImpl implements FileUploadDao {
-    @Autowired
+    
+	@Autowired(required=false) 
     private SessionFactory sessionFactory;
      
     public FileUploadDAOImpl() {

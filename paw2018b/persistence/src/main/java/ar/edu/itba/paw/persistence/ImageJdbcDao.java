@@ -2,9 +2,7 @@ package ar.edu.itba.paw.persistence;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -15,7 +13,6 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import ar.edu.itba.paw.ImageDao;
-import ar.edu.itba.paw.PublicationDao;
 import ar.edu.itba.paw.models.UploadFile;
 
 @Repository

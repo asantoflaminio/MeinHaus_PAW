@@ -1,7 +1,5 @@
 package ar.edu.itba.paw;
 
-
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import ar.edu.itba.paw.models.User;

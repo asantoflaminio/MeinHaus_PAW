@@ -4,7 +4,6 @@ import org.junit.Assert;
 
 import javax.sql.DataSource;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,11 +40,6 @@ public class UserJdbcDaoTest {
 		jdbcTemplate = new JdbcTemplate(ds);
 		JdbcTestUtils.deleteFromTables(jdbcTemplate, "users");
 	}
-	
-	@After
-	public void after(){
-        JdbcTestUtils.deleteFromTables(jdbcTemplate, "users");
-    }
 	
 	@Test
 	public void testCreate() {
