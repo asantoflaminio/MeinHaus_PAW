@@ -83,7 +83,8 @@
             </c:if>
         </nav>
         
-             
+        <div id="cols">
+         <div id="left-col">   
          <div class="polaroid">       
           <div class="w3-content w3-display-container" style="max-width:800px">
            	<div class="size_div">
@@ -110,6 +111,18 @@
 		  </div>
 		</div>
 		
+		<div class="polaroid_overview">
+		  <div class="container4">
+		     <p class="polaroid_title"><spring:message code="details.overview"/></p>
+		     <p class="agency_text"><spring:message code="details.bedrooms"/><c:out value="${bedrooms}"/></p>
+		     <p class="agency_text"><spring:message code="details.bathrooms"/><c:out value="${bathrooms}"/></p>
+		     <p class="agency_text"><spring:message code="details.floorSize"/><c:out value="${floorSize}"/> m2</p>
+		     <p class="agency_text"><spring:message code="details.parking"/><c:out value="${parking}"/> <spring:message code="details.vehicles"/></p>
+		  </div>
+		</div>
+		</div>
+		
+		<div id="right-col">
 		<div class="polaroid_price">
 		  <div class="container2">
 		    <div class="price_text">
@@ -137,7 +150,7 @@
 		    		 
 		    		 <form:label cssClass="contact-title" path="email"><spring:message code="details.email"/></form:label>
                      <spring:message code="details.placeholderEmail" var="detailsEmail"/>
-                     <form:input path="email" type="text" placeholder="${detailsEmail}"/>
+                     <form:input path="email" name="contactEmail" type="text" placeholder="${detailsEmail}"/>
                      <form:errors path="email" cssClass="error" element="p"/>
 		    		 
 		    		 <form:label cssClass="contact-title" path="message" for="message"><spring:message code="details.message"/></form:label>
@@ -153,16 +166,9 @@
 	    	</form:form>
 		  </div>
 		</div>
-		
-		<div class="polaroid_overview">
-		  <div class="container4">
-		     <p class="polaroid_title"><spring:message code="details.overview"/></p>
-		     <p class="agency_text"><spring:message code="details.bedrooms"/><c:out value="${bedrooms}"/></p>
-		     <p class="agency_text"><spring:message code="details.bathrooms"/><c:out value="${bathrooms}"/></p>
-		     <p class="agency_text"><spring:message code="details.floorSize"/><c:out value="${floorSize}"/> m2</p>
-		     <p class="agency_text"><spring:message code="details.parking"/><c:out value="${parking}"/> <spring:message code="details.vehicles"/></p>
-		  </div>
 		</div>
+		</div>
+
 		
 		<div class="polaroid_des">
 		  <div class="container">

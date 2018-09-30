@@ -116,7 +116,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		ds.setDriverClass(org.postgresql.Driver.class);
 		ds.setUrl("jdbc:postgresql://localhost/postgres");
 		ds.setUsername("postgres");
-		ds.setPassword("Bvma141511");
+		ds.setPassword("3296");
 		return ds;
 	}
 	
@@ -144,6 +144,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         javaMailProperties.put("mail.smtp.auth", "true");
         javaMailProperties.put("mail.transport.protocol", "smtp");
         javaMailProperties.put("mail.debug", "true");
+        javaMailProperties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
  
         mailSender.setJavaMailProperties(javaMailProperties);
         return mailSender;

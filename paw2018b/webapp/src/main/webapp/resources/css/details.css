@@ -13,7 +13,7 @@ body {
     font-family: 'Rubik', sans-serif !important;
     margin-bottom:100px;
     background-size:100% auto;
-    background-color: #eee !important;
+    background-color: #eee !important;    
 }
 
 h1 {
@@ -22,8 +22,7 @@ h1 {
 
 div.polaroid {
   margin-top: 40px;
-  float: left;
-  margin-left: 190px;
+  margin-left: 30%;
   width: 35%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -45,8 +44,8 @@ div.polaroid {
 
 div.polaroid_price {
   margin-top: 40px;
-  margin-left: 680px; 
   width: 30%;
+  margin-left: 7%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
@@ -72,7 +71,7 @@ div.container2 {
     height: auto; 
     width: auto; 
     max-width: 300px; 
-    max-height: 300px;    
+    max-height: 300px; 
 }
 
 .direction {
@@ -105,9 +104,9 @@ div.container2 {
 
 
 div.polaroid_agency {
-  margin-left: 680px; 
   margin-top: 30px; 
   width: 30%;
+  margin-left: 7%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
@@ -137,7 +136,7 @@ div.polaroid_des {
   position: relative;
   float: left;
   margin-left: 190px;
-  width: 870px;
+  width: 69%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 50px;
@@ -176,15 +175,13 @@ label {
 }
 
 div.polaroid_overview {
-  float: left;
-  position: relative;
-  margin-left: 190px;
+  margin-left: 30%;
   width: 35%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
-  margin-top: -242px;
   min-width:  450px; 
+  margin-top: 20px;
   
 }
 
@@ -192,6 +189,7 @@ div.polaroid_overview {
     font-family: 'Rubik', sans-serif !important;
     font-size: 22px;
     font-weight: bold;
+    margin-top: 5px;
 }
 
 div.container4 {
@@ -274,18 +272,25 @@ input[type=text] {
 .agency_text_contact {
 	font-size: 21px;
 	color: #666;
-	margin-top: 5px;
+	margin-top: 10px;
 	text-align: left;
 	margin-left: 10px;
 }
 
 #tel-container {
 	text-align: left;
-	display: inline-block;
+	display: flex;
 }
 
 .tel-num {
 	text-align: left;
+	margin-left: 10px;
+	color: #999;
+}
+
+.tel-text {
+	margin-left: 10px;
+	font-style: italic;
 }
 
 /* Notice style */
@@ -312,5 +317,27 @@ input[type=text] {
     margin-top: 6px;
     margin-bottom: 6px;
 }
+
+/* End of style */
+
+/* Columns style */
+
+#cols {
+	display: flex;
+	width: 100vw;
+}
+
+#right-col {
+	width:50vw;
+	min-width: 630px;
+}
+
+#left-col {
+	width: 50vw;
+	min-width: 630px;
+	
+}
+
+/* End of style */
 
 /* End of style */
