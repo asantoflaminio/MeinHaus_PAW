@@ -45,6 +45,10 @@ public class PublicationServiceImp implements PublicationService{
 		return publicationDao.findAll(operation);
 	}
 	
+	public List<Publication> findByUserId(long id){
+		return publicationDao.findByUserId(id);
+	}
+	
 	public List<Publication> findSearch(String operation, String search){
 		return publicationDao.findSearch(operation,search);
 	}

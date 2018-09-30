@@ -159,8 +159,11 @@ public class HelloWorldController {
 		if (errors.hasErrors()) {
 			return profile(form);
 		}
-		
-		return new ModelAndView("redirect:/meinHaus/profile"); //!!!!!!!!!! no
+		final ModelAndView mav = new ModelAndView("profile");
+		List<Publication> publications; //= ps.findByUserId(id);
+		System.out.println();
+		//mav.addObject("publications", publications);
+		return mav; 
 	}
 	
 	/*@RequestMapping (value = "profile", method = RequestMethod.POST )
