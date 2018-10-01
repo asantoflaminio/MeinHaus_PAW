@@ -52,7 +52,6 @@ public class UserJdbcDaoTest {
 		JdbcTestUtils.deleteFromTables(jdbcTemplate, "users");
 		final User user = userDao.create(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER);
 		String email = "'" + EMAIL + "'";
-		String userid = "'" + USERID + "'";
 		
 		Assert.assertNotNull(user);
 		Assert.assertEquals(FIRSTNAME, user.getFirstName());
@@ -60,26 +59,16 @@ public class UserJdbcDaoTest {
 		Assert.assertEquals(EMAIL, user.getEmail());
 		Assert.assertEquals(PASSWORD, user.getPassword());
 		Assert.assertEquals(PHONENUMBER, user.getPhoneNumber());
-		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users",  "email = " + email));
+		Assert.assertEquals(1, JdbcTestUtils.countRowsInTable(jdbcTemplate, "users"));
 	}
 	
 	@Test
 	public void testFindByEmail() {
 		final User user = userDao.findByUsername(EMAIL);
 		String email = "'" + EMAIL + "'";
-		String userid = "'" + USERID + "'";
 		
 		Assert.assertNotNull(user);
 		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "email = " + email));
-	}
-	
-	@Test
-	public void testFindById() {
-		final User user = userDao.findById(USERID);
-		String userid = "'" + USERID + "'";
-		
-		Assert.assertNotNull(user);
-		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "userid = " + userid));
 	}
 	
 	@Test
@@ -91,7 +80,7 @@ public class UserJdbcDaoTest {
 	}
 	
 	@Test
-	public void editData() {
+	public void testEditData() {
 		userDao.editData(NEWFIRSTNAME, LASTNAME, EMAIL, PHONENUMBER, USERID);
 		String firstname = "'" + FIRSTNAME + "'";
 		String newfirstname = "'" + NEWFIRSTNAME + "'";
@@ -102,7 +91,7 @@ public class UserJdbcDaoTest {
 	}
 	
 	@Test
-	public void editPassword() {
+	public void testEditPassword() {
 		userDao.editPassword(NEWPASSWORD, USERID);
 		String password = "'" + PASSWORD + "'";
 		String newpassword = "'" + NEWPASSWORD + "'";
