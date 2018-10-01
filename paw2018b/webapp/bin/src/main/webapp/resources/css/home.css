@@ -1,0 +1,306 @@
+@charset "UTF-8";
+
+html {
+    position:relative; 
+}
+
+body {
+    font-family: 'Rubik', sans-serif !important;
+    background-color: #eee !important;
+}
+
+/* Header style */
+.header {
+    width: 100%;
+    height: 580px;
+    background-size:100% auto;
+}
+
+.title{
+	color: #fff;
+	padding-top:100px;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 0 0 4px #666;
+}
+
+/* Closing style */
+
+section {
+    text-align: center;  
+}
+
+h1 {
+    font: bold 2em 'Rubik', sans-serif !important;
+}
+
+/* List style */
+
+.search_list {
+	width: 20%;
+  	margin: 0 auto;
+  	margin-top: 70px;
+}
+
+.search_list-container {
+	text-align: center;  
+	width:100%;
+	border: 1px solid #7C7C7C;
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+	overflow: hidden;
+	min-width: 200px;
+}
+
+.search_list-item {
+	float: left;
+	width: 50%;
+	color: white; 
+	font-weight: 550;
+	background-color: rgb(200, 200, 200);
+	cursor: pointer;
+}
+
+.search_list-item:hover {
+	background-color: #fecc94;
+}
+
+.search_list-item label {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+
+.search_list-item input[type=radio] {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+ }
+
+.search_list-item input:hover {
+	background-color: #fecc94;
+	cursor:pointer;
+}
+
+#buy {
+	border-right: 1px solid #7C7C7C;
+}
+
+/* Closing style*/
+
+.rounded {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+/* Search style */
+
+#msg_error_search{
+	width:100%;
+	color:red;
+	font-size:12px;
+	padding-top:5px;
+	padding-left:10px;
+	display: none;
+}
+
+#searchbutton {
+    background-color: #FD8907;
+    border-color: #FD8907;
+    margin-left: 10px;
+    font-size: 17px !important;
+}
+
+#searchbutton a{
+	color: white;
+	text-decoration: none;
+}
+
+
+#input_search {
+	font-size: 16px !important;
+}
+
+#card{
+    width: 600px;
+    display: table;
+  	margin-right: auto;
+  	margin-left: auto;
+}
+
+#icons {    
+    margin-top: 10px;
+}
+
+div.card-body.row.no-gutters.align-items-center {
+	padding: 15px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #aaa !important;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #aaa !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #aaa !important;
+}
+
+/* Closing style */
+
+
+/* Newest_homes style */
+
+.newest_homes {
+	margin: 0;
+	padding: 0;
+	margin-top: 10px;
+	height: 470px;
+	background-color: #eee;
+	display: none;
+}
+
+.newest_homes h3 {
+    font-family: 'Rubik', sans-serif !important;
+    color: #666;
+	font-size: 22px;
+	padding: 30px;
+	padding-bottom: 10px;
+	text-align: left;
+	margin-left: 20px;
+	text-shadow: 2px 2px 2px #fff;
+	
+}
+
+.newest_homes li {
+ 	display: inline-block;
+	width:250px;
+	height:300px;
+	border-radius: 1px;
+	padding: 5px;
+	margin: 5px 3px 15px 3px;
+}
+
+.polaroid {
+  	background-color: white;
+  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.newest_homes ul {
+ 	overflow: auto;
+ 	white-space: nowrap;
+  	margin-right: 35px;
+ 	margin-left: 35px;
+ 	padding-left: 10px;
+}
+
+.newest_homes img{
+	width:90%;
+	margin: 5px;
+	height:150px;
+}
+
+.newest_homes .description_box{
+	width:100%;
+	height:120px;	
+	margin-bottom:5px;
+	padding: 0px;
+	margin: 10px;
+}
+
+.newest_homes .description_box label{
+	font-size: 14px;
+	color: #777;
+	margin-bottom: 2px;
+	width:90%;
+	float:left;
+	text-align:left;
+}
+
+.newest_homes .description_box .price{
+	font-size: 18px !important;
+	color: #555;
+}
+
+.newest_homes .description_box .expenses{
+	font-size: 15px !important;
+	color: #666;	
+}
+
+.newest_homes ::-webkit-scrollbar-track{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.newest_homes ::-webkit-scrollbar{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.newest_homes ::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #999;
+}
+/* Closing style */
+
+/* Footer style */
+.footer{
+	margin: 0;
+	padding: 0;
+	height:100px;
+	background-color: #999999;
+}
+/* Closing style */
+
+
+/* Contact info style */
+
+.contact-info {
+	margin: 0;
+	padding: 0;
+	margin-top: 10px;
+	height: 180px;
+	background-color: #fff;
+	display: flex;
+	display: none;
+}
+
+.contact-info-column {
+	margin-top: 25px;
+	width: 33%;
+	min-width: 290px;
+}
+
+.contact-info-column h4 {
+	font-size: 15px;
+	color: #666;
+	text-align: left;
+	margin-left: 30%;
+}
+
+.contact-info-column ul {
+	list-style: none;
+	padding: 0;
+}
+
+.contact-info-column li {
+	color: #888;
+	font-size: 13px;
+	text-align: left;
+	margin-left: 30%;
+}
+
+
+.error{
+  color: red;
+}
+
+
+/* Closing style */
