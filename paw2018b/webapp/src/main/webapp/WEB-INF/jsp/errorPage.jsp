@@ -79,8 +79,11 @@
  			<h1 id="error-title"><spring:message code="errorPage.title"/></h1>
   			<p id="error-message"><spring:message code="errorPage.message"/></p>
   		</div>
-  		<div id="link-container">
-  			<a href="./home" id="error-link"><spring:message code="errorPage.backHome"/></a>
+  		<div id="link1-container">
+  			<a href="javascript:history.back()" id="error-link1"><spring:message code="errorPage.goBack"/></a>
+		</div>
+  		<div id="link2-container">
+  			<a href="./home" id="error-link2"><spring:message code="errorPage.backHome"/></a>
 		</div>
 		
 		<footer>

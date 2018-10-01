@@ -81,9 +81,7 @@
         <div class="breadcrumb">
 	        <ul class="breadcrumb-list">
 			  <li><a href="home">Home</a></li>
-			  <li><a href="">List</a></li>
-			  <li><a href="#"></a></li>
-			  <!-- <li>Brooklyn</li> -->
+			  <li><c:out value="${address}"/></li>
 			</ul>
 		</div>
         

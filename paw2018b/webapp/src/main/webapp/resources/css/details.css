@@ -21,7 +21,7 @@ h1 {
 }
 
 div.polaroid {
-  margin-top: 40px;
+  margin-top: 10px;
   margin-left: 30%;
   width: 35%;
   background-color: white;
@@ -43,7 +43,7 @@ div.polaroid {
 }
 
 div.polaroid_price {
-  margin-top: 40px;
+  margin-top: 10px;
   width: 30%;
   margin-left: 7%;
   background-color: white;
@@ -339,5 +339,25 @@ input[type=text] {
 }
 
 /* End of style */
+
+/* Breadcrumb style */
+
+/* Style the list */
+.breadcrumb {
+    background-color: #eee !important;
+}
+
+/* Add a color to all links inside the list */
+.breadcrumb a {
+    color: #FD8907;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Add a color on mouse-over */
+.breadcrumb a:hover {
+    color: #555;
+    text-decoration: underline;
+}
 
 /* End of style */

@@ -31,13 +31,22 @@ body {
 	font-size: 18px;
 }
 
-#error-link {
+#error-link1 {
 	color: #FD8907;
 	font-style: italic;
 }
 
-#link-container {
-	width: 90%;
+#error-link2 {
+	color: #FD8907;
+	font-style: italic;
+}
+
+#link1-container {
 	margin-left: 40px;
 	margin-top: 40px;
+}
+
+#link2-container {
+	margin-left: 40px;
+	margin-top: 10px;
 }
