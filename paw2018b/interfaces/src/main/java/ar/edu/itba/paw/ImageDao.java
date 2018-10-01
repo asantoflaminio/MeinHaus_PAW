@@ -14,4 +14,6 @@ public interface ImageDao {
 	public UploadFile findByUploadId(int id);
 	
 	public List<UploadFile> findAllById(long id);
+	
+	public void deleteById(long publicationid);
 }

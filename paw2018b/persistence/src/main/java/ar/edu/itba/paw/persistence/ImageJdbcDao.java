@@ -65,6 +65,11 @@ public class ImageJdbcDao implements ImageDao{
 		return list;
 	}
 	
+	public void deleteById(long publicationid) {
+		jdbcTemplate.update("DELETE FROM images WHERE publicationid = ?", Long.toString(publicationid));
+		
+	}
+	
 	
 
 }

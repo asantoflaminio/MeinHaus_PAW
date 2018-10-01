@@ -27,6 +27,10 @@ public class ImageServiceImp implements ImageDao{
 		return imageDao.findAllById(id);
 	}
 	
+	public void deleteById(long publicationid) {
+		imageDao.deleteById(publicationid);
+	}
+	
 	
 
 }

@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.itba.paw.models.Publication;
 import ar.edu.itba.paw.models.User;
+import ar.edu.itba.paw.services.ImageServiceImp;
 import ar.edu.itba.paw.services.PublicationServiceImp;
 import ar.edu.itba.paw.services.UserServiceImpl;
 import ar.edu.itba.webapp.form.PasswordForm;
@@ -39,6 +40,9 @@ public class profileController {
 	
 	@Autowired
 	private PublicationServiceImp ps;
+	
+	@Autowired
+	private ImageServiceImp imageServiceImp;
 	
 	@RequestMapping("profile")
 	public ModelAndView profile(@ModelAttribute("ProfileForm") final ProfileForm form, @ModelAttribute("PasswordForm") final PasswordForm passForm,
@@ -102,6 +106,7 @@ public class profileController {
 	public ModelAndView newpassword(@ModelAttribute("PasswordForm") final PasswordForm passForm,  @ModelAttribute("ProfileForm") final ProfileForm form, 
 													@RequestParam(value = "page", defaultValue = "1") String page, @RequestParam(value = "pubid") long pubid) {
 		ps.deleteById(pubid);
+		imageServiceImp.deleteById(pubid);
 		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/profile");
 		return mav; 
 	}
