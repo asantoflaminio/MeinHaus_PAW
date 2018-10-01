@@ -25,10 +25,13 @@ import ar.edu.itba.paw.persistence.UserJdbcDao;
 public class UserJdbcDaoTest {
 	
 	private static final long USERID = 1;
+	private static final long INVALIDUSERID = -1;
 	private static final String FIRSTNAME = "TestFirstName";
+	private static final String NEWFIRSTNAME = "TestNewFirstName";
 	private static final String LASTNAME = "TestLastName";
 	private static final String EMAIL = "test1@mail.com";
 	private static final String PASSWORD = "TestPassword";
+	private static final String NEWPASSWORD = "TestNewPassword";
 	private static final String PHONENUMBER = "1522334455";
 	
 	@Autowired
@@ -48,13 +51,15 @@ public class UserJdbcDaoTest {
 	public void testCreate() {
 		JdbcTestUtils.deleteFromTables(jdbcTemplate, "users");
 		final User user = userDao.create(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER);
+		String email = "'" + EMAIL + "'";
+		String userid = "'" + USERID + "'";
+		
 		Assert.assertNotNull(user);
 		Assert.assertEquals(FIRSTNAME, user.getFirstName());
 		Assert.assertEquals(LASTNAME, user.getLastName());
 		Assert.assertEquals(EMAIL, user.getEmail());
 		Assert.assertEquals(PASSWORD, user.getPassword());
 		Assert.assertEquals(PHONENUMBER, user.getPhoneNumber());
-		String email = "'" + EMAIL + "'";
 		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users",  "email = " + email));
 	}
 	
@@ -62,6 +67,8 @@ public class UserJdbcDaoTest {
 	public void testFindByEmail() {
 		final User user = userDao.findByUsername(EMAIL);
 		String email = "'" + EMAIL + "'";
+		String userid = "'" + USERID + "'";
+		
 		Assert.assertNotNull(user);
 		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "email = " + email));
 	}
@@ -69,11 +76,40 @@ public class UserJdbcDaoTest {
 	@Test
 	public void testFindById() {
 		final User user = userDao.findById(USERID);
+		String userid = "'" + USERID + "'";
+		
 		Assert.assertNotNull(user);
-		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "userid = 1"));
+		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "userid = " + userid));
 	}
 	
+	@Test
+	public void testFindByInvalidId() {
+		final User user = userDao.findById(INVALIDUSERID);
+		String userid = "'" + INVALIDUSERID + "'";
+		Assert.assertNull(user);
+		Assert.assertEquals(0, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "userid = " + userid));
+	}
 	
+	@Test
+	public void editData() {
+		userDao.editData(NEWFIRSTNAME, LASTNAME, EMAIL, PHONENUMBER, USERID);
+		String firstname = "'" + FIRSTNAME + "'";
+		String newfirstname = "'" + NEWFIRSTNAME + "'";
+		String userid = "'" + USERID + "'";
+		
+		Assert.assertEquals(0, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "firstname = " + firstname + " AND userid= " + userid));
+		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "firstname = " + newfirstname + " AND userid= " + userid));
+	}
 	
+	@Test
+	public void editPassword() {
+		userDao.editPassword(NEWPASSWORD, USERID);
+		String password = "'" + PASSWORD + "'";
+		String newpassword = "'" + NEWPASSWORD + "'";
+		String userid = "'" + USERID + "'";
+		
+		Assert.assertEquals(0, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "password = " + password + " AND userid= " + userid));
+		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "password = " + newpassword + " AND userid= " + userid));
+	}
 	
 }
