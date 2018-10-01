@@ -9,8 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 INSERT INTO users(userid, firstName, lastName, email, password, phoneNumber)
 VALUES (1, 'TestFirstName', 'TestLastName', 'test1@mail.com', 'TestPassword', '1522334455');
-INSERT INTO users(userid, firstName, lastName, email, password, phoneNumber)
-VALUES (2, 'TestFirstName1', 'TestLastName1', 'test2@mail.com', 'TestPassword1', '1522334455');
+
 
 /* INSERT INTO users(userid, firstName, lastName, email, password, phoneNumber)
 VALUES (1, 'TestFirstName', 'TestLastName', 'test@mail.com', 'TestPassword', '1522334455'); */
