@@ -10,7 +10,10 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS publications (
 	publicationid 	SERIAL PRIMARY KEY,
 	title 			varchar(30) NOT NULL,
-	address 		varchar(30) UNIQUE NOT NULL,
+	address 		varchar(30) NOT NULL,
+	neighborhood		varchar(30) NOT NULL,
+	city			varchar(30) NOT NULL,
+	province		varchar(30) NOT NULL,
 	operation 		varchar(30) NOT NULL,
 	price 			integer NOT NULL,
 	description 	varchar(60) NOT NULL,

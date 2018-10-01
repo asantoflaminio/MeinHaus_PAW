@@ -24,5 +24,7 @@ public interface PublicationService {
 	
 	public List<Publication> findSearchFiltering(String operation, String address, String price, String bedrooms);
 	
+	public void deleteById(final long publicationdid);
+	
 	
 }

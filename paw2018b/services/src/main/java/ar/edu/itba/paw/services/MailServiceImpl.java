@@ -105,9 +105,9 @@ public class MailServiceImpl implements MailService {
 	}
 	
 	
-	public void sendEmail(String to, String body) throws AddressException, MessagingException {
+	public void sendEmail(String to,String from, String body) throws AddressException, MessagingException {
 		
-		String message = prepareMessage(body,to);
+		String message = prepareMessage(body,from);
 
 		MimeMessage email = mailSender.createMimeMessage();
 		

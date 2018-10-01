@@ -26,6 +26,11 @@ public class UserServiceImpl implements UserService{
 	private final static int SHORT_STRING_MAX_LENGTH = 30;
 	private final static int LONG_STRING_MIN_LENGTH = 6;
 	private final static int LONG_STRING_MAX_LENGTH = 30;
+	private final static String PASSWORD = "correct";
+	
+	private static final String LETTERSANDSPACESREGEX = "[a-zA-Z ]+";
+	private static final String NUMBERSREGEX = "[0-9]+";
+	private static final Pattern EMAILREGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
 	public User create(String firstName, String lastName,String email,
 			String password, String phoneNumber) {
@@ -36,6 +41,27 @@ public class UserServiceImpl implements UserService{
 			return null;
 		
 		return userDaoInt.create(firstName, lastName, email, password, phoneNumber);
+	}
+	
+	public boolean editData(String firstName, String lastName, String email, String phoneNumber, String oldEmail) {
+		if(! validate(firstName,lastName, email, PASSWORD, phoneNumber))
+			return false;
+		
+		userDaoInt.editData(firstName, lastName, email, phoneNumber,userDaoInt.findByUsername(oldEmail).getUserId());
+		return true;
+	}
+	
+	public String editPassword(String oldPassword,String newPassword, String oldEmail) {
+		User user = userDaoInt.findByUsername(oldEmail);
+		if(! oldPassword.equals(user.getPassword()))
+			return "error";
+		if(! validatePassword(newPassword))
+			return "exception";
+		
+		userDaoInt.editPassword(newPassword, user.getUserId());
+		
+		return "correct";
+		
 	}
 	
 	public User findById(final long userid) {
@@ -53,41 +79,52 @@ public class UserServiceImpl implements UserService{
 	}
 
 	public boolean validate(String firstName, String lastName, String email, String password, String phoneNumber) {
-		final String lettesAndSpacesRegex = "[a-zA-Z ]+";
-		final String numbersRegex = "[0-9]+";
-		final Pattern emailRegex = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-		
-		if(firstName.length() > SHORT_STRING_MAX_LENGTH || firstName.length() < SHORT_STRING_MIN_LENGTH)
+		if(! validateFirstName(firstName) || ! validateLastName(lastName) || ! validateEmail(email)
+				|| ! validatePassword(password) || ! validatePhone(phoneNumber))
 			return false;
-		
-		if(lastName.length() > SHORT_STRING_MAX_LENGTH || lastName.length() < SHORT_STRING_MIN_LENGTH)
-			return false;
-		
-		if(email.length() > SHORT_STRING_MAX_LENGTH || email.length() < SHORT_STRING_MIN_LENGTH)
-			return false;
-		
-		if(password.length() > LONG_STRING_MAX_LENGTH || password.length() < LONG_STRING_MIN_LENGTH)
-			return false;
-		
-		if(phoneNumber.length() > LONG_STRING_MAX_LENGTH || phoneNumber.length() < LONG_STRING_MIN_LENGTH)
-			return false;
-		
-		if(! firstName.matches(lettesAndSpacesRegex))
-			return false;
-		
-		if(! lastName.matches(lettesAndSpacesRegex))
-			return false;
-		
-		Matcher matcher = emailRegex.matcher(email);
-		
-		if(! matcher.find())
-			return false;
-		
-		if(! phoneNumber.matches(numbersRegex))
-			return false;
-		
 		System.out.println("Pasa el validate del back");
 		return true;
+	}
+	
+	public boolean validateFirstName(String firstName) {
+		if(firstName.length() > SHORT_STRING_MAX_LENGTH || firstName.length() < SHORT_STRING_MIN_LENGTH)
+			return false;
+		if(! firstName.matches(LETTERSANDSPACESREGEX))
+			return false;
+		return true;
+		
+	}
+	
+	public boolean validateLastName(String lastName) {
+		if(lastName.length() > SHORT_STRING_MAX_LENGTH || lastName.length() < SHORT_STRING_MIN_LENGTH)
+			return false;
+		if(! lastName.matches(LETTERSANDSPACESREGEX))
+			return false;
+		return true;
+	}
+	
+	public boolean validateEmail(String email) {
+		if(email.length() > SHORT_STRING_MAX_LENGTH || email.length() < SHORT_STRING_MIN_LENGTH)
+			return false;
+		Matcher matcher = EMAILREGEX.matcher(email);
+		if(! matcher.find())
+			return false;
+		return true;
+	}
+	
+	public boolean validatePassword(String password) {
+		if(password.length() > LONG_STRING_MAX_LENGTH || password.length() < LONG_STRING_MIN_LENGTH)
+			return false;
+		return true;
+	}
+	
+	public boolean validatePhone(String phoneNumber) {
+		if(phoneNumber.length() > LONG_STRING_MAX_LENGTH || phoneNumber.length() < LONG_STRING_MIN_LENGTH)
+			return false;
+		if(! phoneNumber.matches(NUMBERSREGEX))
+			return false;
+		return true;
+		
 	}
 
 }

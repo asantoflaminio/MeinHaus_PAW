@@ -81,9 +81,7 @@
         <div class="breadcrumb">
 	        <ul class="breadcrumb-list">
 			  <li><a href="home">Home</a></li>
-			  <li><a href="">List</a></li>
-			  <li><a href="#"></a></li>
-			  <!-- <li>Brooklyn</li> -->
+			  <li><c:out value="${address}"/></li>
 			</ul>
 		</div>
         
@@ -279,18 +277,31 @@
 	        
 	       	</div>
 	       	
-	       	<c:if test="${listLength != 0}">	            
-		        <div class="page-nums-container">
-					<div class="page-nums">
+	       	<c:if test="${listLength != 0}">
+	       		<c:if test="${listLength <= maxLength}">
+	 	      		<div class="page-nums-container">
+						<div class="page-nums">
 							<a class="page-number" href="#">&laquo;</a>
-						<c:set var="counter" value="1"/>
-						<c:forEach begin="1" end="${listLength/maxLength + listLength%maxLength}" varStatus="loop">
+							<c:set var="counter" value="1"/>
 							<a class="page-number" href="list?operation=${operation}&address=${address}&page=${counter}&price=${price}&bedrooms=${bedrooms}">${counter}</a>
 							<c:set var="counter" value="${counter+1}"/>
-						</c:forEach>
- 						<a class="page-number" href="#">&raquo;</a>
-					</div>	        
-				</div>
+ 							<a class="page-number" href="#">&raquo;</a>
+						</div>	        
+					</div>
+				</c:if>	        
+	       		<c:if test="${listLength > maxLength}">
+		        	<div class="page-nums-container">
+						<div class="page-nums">
+								<a class="page-number" href="#">&laquo;</a>
+							<c:set var="counter" value="1"/>
+							<c:forEach begin="1" end="${listLength/maxLength + listLength%maxLength}" varStatus="loop">
+								<a class="page-number" href="list?operation=${operation}&address=${address}&page=${counter}&price=${price}&bedrooms=${bedrooms}">${counter}</a>
+								<c:set var="counter" value="${counter+1}"/>
+							</c:forEach>
+ 							<a class="page-number" href="#">&raquo;</a>
+						</div>	        
+					</div>
+				</c:if>	        
 			</c:if>	        
         </div>
         

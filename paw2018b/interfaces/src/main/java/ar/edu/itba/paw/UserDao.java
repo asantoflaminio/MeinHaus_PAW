@@ -15,4 +15,8 @@ public interface UserDao{
 
 	public User findByUsername(String email);
 	
+	public void editData(String firstName, String lastName, String email, String phoneNumber, long userid);
+	
+	public void editPassword(String newPassword, long userid);
+	
 }

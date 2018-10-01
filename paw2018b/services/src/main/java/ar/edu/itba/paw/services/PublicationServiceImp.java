@@ -41,6 +41,10 @@ public class PublicationServiceImp implements PublicationService{
 		return publicationDao.findById(publicationid);
 	}
 	
+	public void deleteById(final long publicationdid) {
+		publicationDao.deleteById(publicationdid);
+	}
+	
 	public List<Publication> findAll(String operation){
 		return publicationDao.findAll(operation);
 	}

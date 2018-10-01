@@ -11,8 +11,9 @@ public interface UserService {
 
 	public User findByUsername(String email);
 	
-	public boolean validate(String firstName, String lastName,String email,
-			String password, String phoneNumber);
+	public boolean editData(String firstName, String lastName, String email, String phoneNumber, String oldEmail);
+	
+	public String editPassword(String oldPassword,String newPassword, String oldEmail);
 	
 
 }

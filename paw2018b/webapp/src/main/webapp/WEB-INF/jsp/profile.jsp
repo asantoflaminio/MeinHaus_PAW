@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -99,31 +101,39 @@
         			<div class="title-container">       
 	          			<h3><spring:message code="profile.titlePersonalData"/></h3>  
 					</div>
-					<c:url value="/meinHaus/profile" var="postPath"/>
+					<c:url value="/meinHaus/profileData" var="postPath"/>
 				 	<form:form modelAttribute="ProfileForm" action="${postPath}" method="post">
+				 	<c:set var = "name" scope = "session" value = "${firstNameValue}"/>
+				 	<c:set var = "surname" scope = "session" value = "${lastNameValue}"/>
+				 	<c:set var = "oldEmail" scope = "session" value = "${emailValue}"/>
+				 	<c:set var = "phone" scope = "session" value = "${phoneNumberValue}"/>
+				 	<c:set var = "errorForm" scope = "session" value = "${error}"/>
 						<div class="form">
 							<div class="editdata-list-item">
 	                        	<form:label path="firstName"><spring:message code="profile.firstName"/></form:label>
 	                        	<spring:message code="profile.placeholderFirstName" var="firstName"/>
-	                        	<form:input class="editdata-input" path="firstName" type="text" placeholder="${firstName}" name="firstName"/>
+	                        	<form:input class="editdata-input" path="firstName" type="text" placeholder="${firstName}" name="firstName" value="${name}"/>
 	                        	<form:errors path="firstName" cssClass="error" element="p"/>
 	                        </div>
 							<div class="editdata-list-item">
 	                        	<form:label path="lastName"><spring:message code="profile.lastName"/></form:label>
 	                        	<spring:message code="profile.placeholderLastName" var="lastName"/>
-	                        	<form:input class="editdata-input" path="lastName" type="text" placeholder="${lastName}" name="lastName"/>
+	                        	<form:input class="editdata-input" path="lastName" type="text" placeholder="${lastName}" name="lastName" value="${surname}"/>
 	                        	<form:errors path="lastName" cssClass="error" element="p"/>
 	                        </div>
 							<div class="editdata-list-item">
 	                        	<form:label path="email"><spring:message code="profile.email"/></form:label>
 	                        	<spring:message code="profile.placeholderEmail" var="email"/>
-	                        	<form:input class="editdata-input" path="email" type="text" placeholder="${email}" name="email"/>
+	                        	<form:input class="editdata-input" path="email" type="text" placeholder="${email}" name="email" value="${oldEmail}"/>
 	                        	<form:errors path="email" cssClass="error" element="p"/>
+	                        	<c:if test="${errorForm == 'email'}">
+	                        		<p class="error"><spring:message code="signUp.emailTaken"/></p>
+	                        	</c:if>
                         	</div>  
 							<div class="editdata-list-item">
 	                        	<form:label path="phoneNumber"><spring:message code="profile.phoneNumber"/></form:label>
 	                        	<spring:message code="profile.placeholderPhoneNumber" var="phoneNumber"/>
-	                        	<form:input class="editdata-input" path="phoneNumber" type="text" placeholder="${phoneNumber}" name="phoneNumber"/>
+	                        	<form:input class="editdata-input" path="phoneNumber" type="text" placeholder="${phoneNumber}" name="phoneNumber" value="${phone}"/>
 	                        	<form:errors path="phoneNumber" cssClass="error" element="p"/>
                         	</div>
 	                        <div>
@@ -138,20 +148,23 @@
 	           		<div class="title-container">       
 		          		<h3><spring:message code="profile.titleNewPassword"/></h3>  
 					</div>
-					<c:url value="/meinHaus/profile" var="postPath"/>
-					<form:form modelAttribute="ProfileForm" action="${postPath}" method="post">
+					<c:url value="/meinHaus/profilePassword" var="postPathpass"/>
+					<form:form modelAttribute="PasswordForm" action="${postPathpass}" method="post">
 						<div class="form">
 							<div class="editdata-list-item">
-	                        	<form:label path="password"><spring:message code="profile.password"/></form:label>
+	                        	<form:label path="passwordOld"><spring:message code="profile.password"/></form:label>
 	                        	<spring:message code="profile.placeholderPassword" var="password"/>
-	                        	<form:input class="editdata-input" path="password" type="password" placeholder="${password}" name="password"/>
-	                        	<form:errors path="password" cssClass="error" element="p"/>
+	                        	<form:input class="editdata-input" path="passwordOld" type="password" placeholder="${password}" name="password"/>
+	                        	<form:errors path="passwordOld" cssClass="error" element="p"/>
+	                        	<c:if test="${errorForm == 'password'}">
+	                        		<p class="error"><spring:message code="profile.passwordError"/></p>
+	                        	</c:if>
 	                        </div>
 							<div class="editdata-list-item">
-	                        	<form:label path="password"><spring:message code="profile.newpassword"/></form:label>
+	                        	<form:label path="passwordNew"><spring:message code="profile.newpassword"/></form:label>
 	                        	<spring:message code="profile.placeholderNewPassword" var="password"/>
-	                        	<form:input class="editdata-input" path="password" type="password" placeholder="${password}" name="password"/>
-	                        	<form:errors path="password" cssClass="error" element="p"/>
+	                        	<form:input class="editdata-input" path="passwordNew" type="password" placeholder="${password}" name="password"/>
+	                        	<form:errors path="passwordNew" cssClass="error" element="p"/>
 	                        </div>
 	                        <div>
 	                        	<spring:message code="profile.submit" var="sumbit"/>
@@ -168,182 +181,47 @@
 			<div id="Publications">
 				<h2 class="title_section"><spring:message code="profile.publications" /></h2> 
 				<div class="section_publications">
-		        	<div class="favourites">
+		        	<div class="favourites">	        		
+		        		<c:set var = "listLength" scope = "session" value = "${fn:length(publications)}"/>
+			        	<c:set var = "maxLength" scope = "session" value = "2"/>
+			        	<c:set var = "page" scope = "session" value = "${page}"/>
+			        	<c:set var = "init" scope = "session" value = "${(page - 1) * maxLength}"/>
+			        	<c:set var = "current" scope = "session" value = "1"/>
+	        			<c:forEach var="row" varStatus="status" items="${publications}" step="1" begin="${init}">
+	        			<c:if test = "${current <= maxLength}">
+	        			<c:set var = "current" scope = "session" value = "${current+1}"/>
+	        			
 						<div class="polaroid-property">
 				    		<div class="img-with-tag">
 				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
 				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-								<h2 class="price-tag">$<c:out value = "245.000$"/></h2>
+								<h2 class="price-tag">$<c:out value = "${row.price}"/></h2>
 							</div>
 							<div class="property-container">
 								<div class="property-title-container">
-									<h3 class="property-title"><c:out value = "Venta Departamento Belgrano"/></h3>
-									<h4 class="address"><c:out value = "Cabildo 123"/></h4>
+									<h3 class="property-title"><c:out value = "${row.title}"/></h3>
+									<h4 class="address"><c:out value = "${row.address}"/></h4>
 								</div>					
 								<div class="property-characteristics">
 									<div class="column-1">
-										<h4 class="bedroom"><strong><c:out value = "2"/></strong> <spring:message code="list.bedroomMinus"/></h4>
-										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
-										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.parkingMinus"/></h4>	
+										<h4 class="bedroom"><strong><c:out value = "${row.bedrooms}"/></strong> <spring:message code="list.bedroomMinus"/></h4>
+										<h4><strong><c:out value = "${row.bathrooms}"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
+										<h4><strong><c:out value = "${row.parking}"/></strong> <spring:message code="list.parkingMinus"/></h4>	
 									</div>
 									<div class="column-2">
-										<h4><strong><c:out value = "45m2"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
-										<h4><c:out value = "Venta"/></h4>
+										<h4><strong><c:out value = "${row.floorSize}"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
+										<h4><c:out value = "${row.operation}"/></h4>
 									</div>				
 								</div>
 								<div class="more-info">
-									<a class="more-info-title"><img class="delete" src="
+									<a class="more-info-title" href="profileDelete?page=${page}&pubid=${row.publicationid}"><img class="delete" src="
 	                        <c:url value="/resources/pics/trash.png" />
 	                        ">	</img><spring:message code="profile.delete"/> </a>
 								</div>		
 							</div>
 						</div>	
-						<div class="polaroid-property">
-				    		<div class="img-with-tag">
-				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
-				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-								<h2 class="price-tag">$<c:out value = "35.000$"/></h2>
-							</div>
-							<div class="property-container">
-								<div class="property-title-container">
-									<h3 class="property-title"><c:out value = "Alquiler Casa 4 Ambientes"/></h3>
-									<h4 class="address"><c:out value = "Cabildo 123"/></h4>
-								</div>					
-								<div class="property-characteristics">
-									<div class="column-1">
-										<h4 class="bedroom"><strong><c:out value = "3"/></strong> <spring:message code="list.bedroomMinus"/></h4>
-										<h4><strong><c:out value = "2"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
-										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.parkingMinus"/></h4>	
-									</div>
-									<div class="column-2">
-										<h4><strong><c:out value = "85m2"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
-										<h4><c:out value = "Alquiler"/></h4>
-									</div>				
-								</div>
-								<div class="more-info">
-									<a class="more-info-title"><img class="delete" src="
-	                        <c:url value="/resources/pics/trash.png" />
-	                        ">	</img><spring:message code="profile.delete"/> </a>
-								</div>	
-							</div>
-						</div>
-						<div class="polaroid-property">
-				    		<div class="img-with-tag">
-				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
-				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-								<h2 class="price-tag">$<c:out value = "35.000$"/></h2>
-							</div>
-							<div class="property-container">
-								<div class="property-title-container">
-									<h3 class="property-title"><c:out value = "Alquiler Casa 4 Ambientes"/></h3>
-									<h4 class="address"><c:out value = "Cabildo 123"/></h4>
-								</div>					
-								<div class="property-characteristics">
-									<div class="column-1">
-										<h4 class="bedroom"><strong><c:out value = "3"/></strong> <spring:message code="list.bedroomMinus"/></h4>
-										<h4><strong><c:out value = "2"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
-										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.parkingMinus"/></h4>	
-									</div>
-									<div class="column-2">
-										<h4><strong><c:out value = "85m2"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
-										<h4><c:out value = "Alquiler"/></h4>
-									</div>				
-								</div>
-								<div class="more-info">
-									<a class="more-info-title"><img class="delete" src="
-	                        <c:url value="/resources/pics/trash.png" />
-	                        ">	</img><spring:message code="profile.delete"/> </a>
-								</div>	
-							</div>
-						</div>
-						<div class="polaroid-property">
-				    		<div class="img-with-tag">
-				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
-				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-								<h2 class="price-tag">$<c:out value = "35.000$"/></h2>
-							</div>
-							<div class="property-container">
-								<div class="property-title-container">
-									<h3 class="property-title"><c:out value = "Alquiler Casa 4 Ambientes"/></h3>
-									<h4 class="address"><c:out value = "Cabildo 123"/></h4>
-								</div>					
-								<div class="property-characteristics">
-									<div class="column-1">
-										<h4 class="bedroom"><strong><c:out value = "3"/></strong> <spring:message code="list.bedroomMinus"/></h4>
-										<h4><strong><c:out value = "2"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
-										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.parkingMinus"/></h4>	
-									</div>
-									<div class="column-2">
-										<h4><strong><c:out value = "85m2"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
-										<h4><c:out value = "Alquiler"/></h4>
-									</div>				
-								</div>
-								<div class="more-info">
-									<a class="more-info-title"><img class="delete" src="
-	                        <c:url value="/resources/pics/trash.png" />
-	                        ">	</img><spring:message code="profile.delete"/> </a>
-								</div>		
-							</div>
-						</div>
-						<div class="polaroid-property">
-				    		<div class="img-with-tag">
-				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
-				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-								<h2 class="price-tag">$<c:out value = "35.000$"/></h2>
-							</div>
-							<div class="property-container">
-								<div class="property-title-container">
-									<h3 class="property-title"><c:out value = "Alquiler Casa 4 Ambientes"/></h3>
-									<h4 class="address"><c:out value = "Cabildo 123"/></h4>
-								</div>					
-								<div class="property-characteristics">
-									<div class="column-1">
-										<h4 class="bedroom"><strong><c:out value = "3"/></strong> <spring:message code="list.bedroomMinus"/></h4>
-										<h4><strong><c:out value = "2"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
-										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.parkingMinus"/></h4>	
-									</div>
-									<div class="column-2">
-										<h4><strong><c:out value = "85m2"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
-										<h4><c:out value = "Alquiler"/></h4>
-									</div>				
-								</div>
-								<div class="more-info">
-									<a class="more-info-title"><img class="delete" src="
-	                        <c:url value="/resources/pics/trash.png" />
-	                        ">	</img><spring:message code="profile.delete"/> </a>
-								</div>	
-							</div>
-						</div>
-						<div class="polaroid-property">
-				    		<div class="img-with-tag">
-				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
-				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
-								<h2 class="price-tag">$<c:out value = "35.000$"/></h2>
-							</div>
-							<div class="property-container">
-								<div class="property-title-container">
-									<h3 class="property-title"><c:out value = "Alquiler Casa 4 Ambientes"/></h3>
-									<h4 class="address"><c:out value = "Cabildo 123"/></h4>
-								</div>					
-								<div class="property-characteristics">
-									<div class="column-1">
-										<h4 class="bedroom"><strong><c:out value = "3"/></strong> <spring:message code="list.bedroomMinus"/></h4>
-										<h4><strong><c:out value = "2"/></strong> <spring:message code="list.bathroomsMinus"/></h4>
-										<h4><strong><c:out value = "1"/></strong> <spring:message code="list.parkingMinus"/></h4>	
-									</div>
-									<div class="column-2">
-										<h4><strong><c:out value = "85m2"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
-										<h4><c:out value = "Alquiler"/></h4>
-									</div>				
-								</div>
-								<div class="more-info">
-									<a class="more-info-title"><img class="delete" src="
-	                        <c:url value="/resources/pics/trash.png" />
-	                        ">	</img><spring:message code="profile.delete"/> </a>
-								</div>	
-							</div>
-						</div>
-					</div>		
+					</c:if>
+				</c:forEach>		
 				</div>	
 			</div>
 		</section>
@@ -528,6 +406,61 @@
 			
 		</div>
 		</section>
+		
+			        <c:if test="${listLength == 0}">	        
+	 	       <div id="no-results">
+					<h2 id="no-results-title"><spring:message code="list.noResultsTitle"/></h2>
+					<h3 id="no-results-info"><spring:message code="list.noResultsInfo"/></h3>
+				</div>
+	        </c:if>
+	        
+	       	</div>
+
+	       	<fmt:formatNumber var="maxPage" value="${listLength/maxLength + listLength%maxLength}" maxFractionDigits="0" />
+	       	
+	       	<c:if test="${page == maxPage}">
+	       		<c:set var = "nextPage" scope = "session" value = "${maxPage}"/>
+	       	</c:if>
+	       	
+	        <c:if test="${page != maxPage}">
+	       		<c:set var = "nextPage" scope = "session" value = "${page + 1}"/>
+	       		<h2">${maxPage}</h2>
+	       	</c:if>
+	       	
+	        <c:if test="${page == 1}">
+	       		<c:set var = "previousPage" scope = "session" value = "1"/>
+	       	</c:if>
+	        <c:if test="${page != 1}">
+	       		<c:set var = "previousPage" scope = "session" value = "${page - 1}"/>
+	       	</c:if>
+	       	
+	       	<c:if test="${listLength != 0}">
+	       		<c:if test="${listLength <= maxLength}">
+	 	      		<div class="page-nums-container">
+						<div class="page-nums">
+							<a class="page-number" href="profile?page=${previousPage}">&laquo;</a>
+							<c:set var="counter" value="1"/>
+							<a class="page-number" href="profile?page=${counter}">${counter}</a>
+							<c:set var="counter" value="${counter+1}"/>
+ 							<a class="page-number" href="profile?page=${nextPage}">&raquo;</a>
+						</div>	        
+					</div>
+				</c:if>	        
+	       		<c:if test="${listLength > maxLength}">
+		        	<div class="page-nums-container">
+						<div class="page-nums">
+								<a class="page-number" href="profile?page=${previousPage}">&laquo;</a>
+							<c:set var="counter" value="1"/>
+							<c:forEach begin="1" end="${listLength/maxLength + listLength%maxLength}" varStatus="loop">
+								<a class="page-number" href="profile?page=${counter}">${counter}</a>
+								<c:set var="counter" value="${counter+1}"/>
+							</c:forEach>
+ 							<a class="page-number" href="profile?page=${nextPage}">&raquo;</a>
+						</div>	        
+					</div>
+				</c:if>	        
+			</c:if>	        
+        </div>
         
         <footer>
         	<div id="footer">

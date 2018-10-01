@@ -29,6 +29,9 @@ public class PublicationJdbcDao implements PublicationDao{
 			return new Publication(rs.getInt("publicationid"),
 							rs.getString("title"), 
 							rs.getString("address"),
+							rs.getString("neighborhood"),
+							rs.getString("city"),
+							rs.getString("province"),
 							rs.getString("operation"),
 							rs.getInt("price"),
 							rs.getString("description"),
@@ -49,7 +52,7 @@ public class PublicationJdbcDao implements PublicationDao{
 		jdbcInsert = new SimpleJdbcInsert(jdbcTemplate)
 				.withTableName("publications")
 				.usingGeneratedKeyColumns("publicationid")
-				.usingColumns("title","address","operation","price","description","propertyType","bedrooms",
+				.usingColumns("title","address","neighborhood","city","province","operation","price","description","propertyType","bedrooms",
 							  "bathrooms","floorSize","parking","userid");
 	}
 
@@ -60,6 +63,9 @@ public class PublicationJdbcDao implements PublicationDao{
     	
 		args.put("title", title);
 		args.put("address", address);
+		args.put("neighborhood", "");
+		args.put("city", "");
+		args.put("province", "");
 		args.put("operation", operation);
 		args.put("price", Integer.valueOf(price));
 		args.put("description", description);
@@ -70,7 +76,7 @@ public class PublicationJdbcDao implements PublicationDao{
 		args.put("parking", Integer.valueOf(parking));
 		args.put("userid", userid);
 		final Number publicationid = jdbcInsert.executeAndReturnKey(args);
-		return new Publication(publicationid.longValue(), title, address, operation, Integer.valueOf(price),
+		return new Publication(publicationid.longValue(), title, address,"","","", operation, Integer.valueOf(price),
 				   description, propertyType, Integer.valueOf(bedrooms),
 				   Integer.valueOf(bathrooms), Integer.valueOf(floorSize), Integer.valueOf(parking), userid);
 	}
@@ -114,6 +120,11 @@ public class PublicationJdbcDao implements PublicationDao{
 			System.out.print("Busco con bedrooms: " + bedrooms);
 			return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND address LIKE ? AND bedrooms = ?", ROW_MAPPER,operation,queryAddress,Integer.valueOf(bedrooms)	);
 		}
+	}
+
+	public void deleteById(long publicationid) {
+		jdbcTemplate.update("DELETE FROM publications WHERE publicationid = ?", publicationid);
+		
 	}
 	
 	

@@ -8,33 +8,20 @@ import org.hibernate.validator.constraints.Email;
 public class ProfileForm {
 	
 	@Size(min = 3, max = 20)
-	@Pattern(regexp = "[a-zA-Z]+")
+	@Pattern(regexp = "[a-zA-Z ]+")
 	private String firstName;
 	
 	@Size(min = 3, max = 20)
 	@Pattern(regexp = "[a-zA-Z]+")
 	private String lastName;
 	
-	@Size(min = 3, max = 20)
+	@Size(min = 3, max = 30)
 	@Email
 	private String email;
 	
 	@Size(min = 6, max = 20)
 	@Pattern(regexp = "[0-9]+")
 	private String phoneNumber;
-	
-	/*SACAR ESTO*/
-	@Size(min = 6, max = 20)
-	private String password;
-	
-	/*SACAR ESTO*/
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}/*SACAR ESTO*/
 
 	public String getFirstName() {
 		return firstName;

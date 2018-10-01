@@ -97,10 +97,6 @@ public class HelloWorldController {
 	@Autowired
 	private ImageServiceImp imageServiceImp;
 	
-	
-	@Autowired
-	private JavaMailSender mailSender;
-	
 	@Autowired
 	private MailServiceImpl ms;
 	
@@ -141,40 +137,6 @@ public class HelloWorldController {
 		return mav;
 	}
 
-	
-	@RequestMapping("profile")
-	public ModelAndView profile(@ModelAttribute("ProfileForm") final ProfileForm form) {
-		final ModelAndView mav = new ModelAndView("profile");
-		return mav;
-	}
-	
-	/*@RequestMapping("profile")
-	public ModelAndView helloProfile(@ModelAttribute("NewPasswordForm") final NewPasswordForm form) {
-		final ModelAndView mav = new ModelAndView("profile");
-		return mav;
-	}*/
-	
-	@RequestMapping (value = "profile", method = RequestMethod.POST )
-	public ModelAndView profile(@Valid @ModelAttribute("ProfileForm") final ProfileForm form, final BindingResult errors) {
-		if (errors.hasErrors()) {
-			return profile(form);
-		}
-		final ModelAndView mav = new ModelAndView("profile");
-		List<Publication> publications; //= ps.findByUserId(id);
-		System.out.println();
-		//mav.addObject("publications", publications);
-		return mav; 
-	}
-	
-	/*@RequestMapping (value = "profile", method = RequestMethod.POST )
-	public ModelAndView newpassword(@Valid @ModelAttribute("NewPasswordForm") final NewPasswordForm form, final BindingResult errors) {
-		if (errors.hasErrors()) {
-			return helloProfile(form);
-		}
-		
-		return new ModelAndView("redirect:/hello/profile"); //!!!!!!!!!! no
-	}*/
-	
 	
 	@RequestMapping("list")
 	public ModelAndView list(@ModelAttribute("homeSearchForm") final HomeSearchForm form, @RequestParam("operation") String operation,
@@ -279,7 +241,7 @@ public class HelloWorldController {
 		final String sent = "true";
 		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/details");
 		
-		ms.sendEmail(email, form.getMessage());
+		ms.sendEmail(email,form.getEmail(), form.getMessage());
 		
 		mav.addObject("publicationid",publicationid);
 		mav.addObject("sent",sent);

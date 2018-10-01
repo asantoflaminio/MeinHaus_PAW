@@ -5,6 +5,9 @@ public class Publication {
 	private long publicationid;
 	private String title;
 	private String address;
+	private String neighborhood;
+	private String city;
+	private String province;
 	private String operation;
 	private Integer price;
 	private String description;
@@ -15,13 +18,17 @@ public class Publication {
 	private Integer parking;
 	private long userid;
 	
-	public Publication(long publicationid, String title, String address, String operation, Integer price,
+	public Publication(long publicationid, String title, String address, String neighborhood, 
+					   String city, String province, String operation, Integer price,
 					   String description, String propertyType, Integer bedrooms,
 					   Integer bathrooms, Integer floorSize, Integer parking, long userid) {
 		
 		this.publicationid = publicationid;
 		this.title = title;
 		this.address = address;
+		this.setNeighborhood(neighborhood);
+		this.setCity(city);
+		this.setProvince(province);
 		this.operation = operation;
 		this.setPrice(price);
 		this.description = description;
@@ -129,6 +136,30 @@ public class Publication {
 
 	public void setParking(Integer parking) {
 		this.parking = parking;
+	}
+
+	public String getNeighborhood() {
+		return neighborhood;
+	}
+
+	public void setNeighborhood(String neighborhood) {
+		this.neighborhood = neighborhood;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
 	}
 
 }

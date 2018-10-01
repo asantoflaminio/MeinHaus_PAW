@@ -75,6 +75,27 @@ public class UserJdbcDao implements UserDao{
 			return null;
 		return list.get(0);
 	}
+
+	public void editData(String firstName, String lastName, String email, String phoneNumber, long userid) {
+		jdbcTemplate.update(  "UPDATE users "
+							+ "SET firstName = ? , lastName = ? , email = ? , phoneNumber = ? "
+							+ "WHERE userid = ?",firstName,lastName,email,phoneNumber,userid);
+	}
+
+	public void editPassword(String newPassword, long userid) {
+		jdbcTemplate.update(  "UPDATE users "
+				+ "SET password = ? "
+				+ "WHERE userid = ?",newPassword,userid);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 }
