@@ -193,7 +193,7 @@
 	        			
 						<div class="polaroid-property">
 				    		<div class="img-with-tag">
-				   		 		<img class="polaroid-property-img" src="<c:url value="/resources/pics/casa1.jpg" />" alt="5 Terre">
+				   		 		<img class="polaroid-property-img" src="<c:url value="/meinHaus/images/${row.publicationid}" />" alt="5 Terre">
 				    			<img class="next-image" src="<c:url value="/resources/pics/arrow_right.png" />" alt="Next">
 								<h2 class="price-tag">$<c:out value = "${row.price}"/></h2>
 							</div>
