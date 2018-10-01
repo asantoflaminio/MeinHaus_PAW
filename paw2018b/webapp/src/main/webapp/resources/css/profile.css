@@ -159,13 +159,14 @@ label{
 
 div.polaroid {
   	margin-top: 20px;
- 	margin-left: 17%;
+ 	margin-left: 250px;
   	width: 55%;
   	height: auto;
   	background-color: white;
   	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   	margin-bottom: 30px;
   	padding-bottom:50px;
+  	min-width: 400px;
 }
 
 .last {
@@ -217,7 +218,7 @@ div.polaroid {
 .favourites div.polaroid-property {
 	margin-top: 12px;
 	margin-left: 1%;
-	width: 35%;
+	width: 100%;
 	float:left;
 	height: auto;
 	background-color: white;
@@ -332,7 +333,8 @@ h4 {
 
 .more-info {
 	height: 20px;
-	margin-top: -10px;	
+	margin-top: -10px;
+	width: 123%;
 }
 
 .more-info-title {
@@ -372,3 +374,98 @@ h4 {
 }
 
 /* End of style */
+
+/* No results style */
+
+#no-results {
+	margin-left: 10px;
+}
+
+#no-results-title {
+	padding-top: 20px;
+	color: #FD8907;
+}
+
+#no-results-info {
+	font-size: 18px !important;
+	color: #666 !important;
+	margin-bottom: 0;
+	margin-top: 2px;
+	
+}
+
+#no-results-link {
+	color: #FD8907;
+	font-style: italic;
+	margin-left: 5px;
+	font-size: 18px !important;
+	
+}
+
+#info-and-link {
+	display:flex;
+	margin-top: 15px !important;
+}
+
+/* End of style */
+
+/* Style pagination */
+
+.page-nums-container {
+	margin-left: 250px !important;
+	text-align: center;
+}
+
+.page-nums {
+	margin-top: 20px;
+	display:inline-block;
+	height: 70px;
+}
+
+.page-nums a {
+    color: #FD8907;
+    border: none;
+    float: center;
+    padding: 8px 16px;
+    transition: background-color .3s;
+    cursor: pointer;
+}
+
+.page-nums a:hover {
+	outline:none;
+	color: #FD8907;
+	text-decoration: none;
+	background-color: #ddd;
+}
+
+.page-nums a:focus {
+	outline:none;
+	background-color: #c6c6c6;
+	color: white;
+}
+
+/* Style the active/current link */
+.page-nums a.active {
+    background-color: #aeaeae;
+    color: white;
+}
+
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {
+	background-color: #a5a5a5;
+} 
+
+/* End of style */
+
+/* List of publications */
+
+.section_publications {
+	margin-left: 240px;
+	width: 78%;
+	height: 100%;
+}
+
+#list-of-publications {
+	display: inline-block;
+	width: 100%;
+}
