@@ -83,6 +83,10 @@
             </c:if>
         </nav>
         
+       	<div class="breadcrumb">
+			<a href="javascript:history.back()"><spring:message code="details.goBack"/></a>
+		</div>
+        
         <div id="cols">
          <div id="left-col">   
          <div class="polaroid">       
