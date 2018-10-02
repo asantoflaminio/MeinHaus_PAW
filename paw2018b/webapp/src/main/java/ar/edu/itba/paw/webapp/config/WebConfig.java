@@ -32,7 +32,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import ar.edu.itba.paw.FileUploadDao;
-import ar.edu.itba.paw.services.FileUploadImple;
+import ar.edu.itba.paw.persistence.FileUpload;
 
 @EnableWebMvc
 @ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
@@ -65,7 +65,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	@Autowired
 	@Bean(name = "fileUploadDao")
 	public FileUploadDao getUserDao(SessionFactory sessionFactory) {
-	    return new FileUploadImple(sessionFactory);
+	    return new FileUpload(sessionFactory);
 	}
 
 	@Bean(name = "multipartResolver")
