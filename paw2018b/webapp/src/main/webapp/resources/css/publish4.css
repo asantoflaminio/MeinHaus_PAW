@@ -100,6 +100,9 @@ label {
 
 .error{
   color: red;
+  font-size: 14px;
+  margin-left: 7px;
+  margin-top: 1px;
 }
 
 .signup-list-item {
@@ -161,32 +164,29 @@ label {
 }
 
 .upload-pic {
+	width: 80%;
 }
 
 .file-submit {
 	height: 35px !important;
-    width: 300px !important;
-    padding: 5px !important;
+    width: 310px !important;
     font-size: 15px !important;
     margin-right: 10px !important;
     margin-top: 10px !important;
-    margin-bottom: 20px !important;
-    background-color:red;
+    margin-bottom: 10px !important;
+}
+
+tr td input.file-submit {
+	color: #999;
+	font-style: italic;
 }
 
 input[type="file"] {
 	width: 80%;
-    color: white;
-    margin: 8px 0;
+    margin: 0 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #FD8907;
     margin-left: 10px;
-    float: right;
-}
-
-tr td input.file-submit {
-  text-decoration: none; 
-  color: #ffffff; 
+    float: left;
 }

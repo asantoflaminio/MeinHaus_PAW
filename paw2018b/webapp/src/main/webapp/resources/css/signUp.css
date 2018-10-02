@@ -169,5 +169,12 @@ div.polaroid-member {
 
 .error{
   color: red;
+  font-size: 14px;
+  margin-left: 7px;
+  margin-top: 1px;
+}
+
+.signin-error {
+	margin-left: 17px;
 }
 /* End of style */

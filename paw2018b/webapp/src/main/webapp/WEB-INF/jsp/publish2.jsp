@@ -96,6 +96,7 @@
 				     <form:label for="description" path="description"><spring:message code="publish2.description"/></form:label><br>
 				     <spring:message code="publish2.placeholderDescription" var="description"/>    		 
 		    		 <form:input path="description" placeholder="${description}"/><br>
+		    		 <form:errors path="description" cssClass="error" element="p"/>
 		    	</div>
 				<div class="signup-list-item">
 		    		 <label for="PROPERTY TYPE"><spring:message code="publish2.propertyType"/></label>	

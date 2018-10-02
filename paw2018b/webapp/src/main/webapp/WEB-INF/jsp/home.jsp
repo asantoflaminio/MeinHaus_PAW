@@ -80,9 +80,10 @@
         
         <header>
             <div class="header" style="background-image:url(<c:url value='/resources/pics/background5.png'/>)">
-                <c:if test="${logIn == 'true'}">
+<!--                <c:if test="${logIn == 'true'}">
                    <p><spring:message code="signUp.signInError"/></p>
                 </c:if>
+-->
                 <div class="title">
                     <h1><spring:message code="home.title"/></h1>
                 </div>

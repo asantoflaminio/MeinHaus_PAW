@@ -136,7 +136,7 @@
                         </div>
                         <c:set var = "logIn" scope = "session" value = "${error}"/>	
                         <c:if test="${logIn == 'true'}">
-                        	<p><spring:message code="signUp.signInError"/></p>
+                        	<p class="error signin-error"><spring:message code="signUp.signInError"/></p>
                         </c:if>
                         <div class="check_box">
                             <label><input type="checkbox" name="j_rememberme" /><spring:message code="nav.rememberMe"/></label>
