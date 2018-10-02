@@ -143,7 +143,7 @@
 						<h3><spring:message code="list.filters"/></h3>
 					</div>
 						<div id="filters-list">
-					  		<div class="filters-list-item"><spring:message code="list.location"/> <img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
+<!--					  		<div class="filters-list-item"><spring:message code="list.location"/> <img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
 					  			<div class="expandible">
 					  				<div class="check_box">
                             			<label><input type="checkbox"/>Belgrano</label>
@@ -161,6 +161,7 @@
                         				<input type="button" class="apply-btn" value="APLICAR"/>
 					  				</div>
 					  			</div>
+-->
 					  		<div class="filters-list-item"><spring:message code="list.price"/><img src="<c:url value="/resources/pics/arrow_up.png" />" alt="Arrow Up" onclick="expand(this);" class="arrow-up-filters"></img></div>
 					  			<div class="expandible">
 					  				<form>
