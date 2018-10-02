@@ -3,7 +3,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-
 <!DOCTYPE html>
 <html lang="en">
     
@@ -101,9 +100,10 @@
 
 		   <div class="search">
 		   	  <spring:message code="list.placeholderSearch" var="title"/>
+		   	  <spring:message code="list.searchBtn" var="searchbtn"/>
 		      <form:input path="search" type="text" class="searchTerm" placeholder="${title}" value="${list.placeholderSearch}"/>
 		      <form:errors path="search" cssClass="error" element="p"/>
-		       <input type="submit" id="search-btn">
+		      <input type="submit" id="search-btn" value="${searchbtn}">
 		   </div>
            </form:form>
            

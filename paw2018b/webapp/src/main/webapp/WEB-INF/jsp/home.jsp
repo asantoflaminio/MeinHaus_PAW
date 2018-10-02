@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -104,20 +105,20 @@
                         <div class="row justify-content-center">
                             <div class="col-12 col-md-10 col-lg-8">
                                 <form id="card" class="card card-sm">
-                                    <div class="card-body row no-gutters align-items-center">
+                                    <div class="card-body row no-gutters">
                                         <div class="col-auto">
                                             <i class="fas fa-search h4 text-body"></i>
                                         </div>
                                         <!--end of col-->
                                         <div class="col">
-         
                                         	<spring:message code="home.placeholderSearch" var="search"/>
 	                                    	<form:input path="search" class="form-control form-control-lg" type="search" id="input_search" placeholder="${search}"/>
 	                                    	<form:errors path="search" cssClass="error" element="p"/>
 	                                   	</div>
                                         <!--end of col-->
                                         <div class="col-auto">
-                                            <input id="searchbutton" class="btn btn-lg btn-success rounded" type="submit">
+                                            <spring:message code="home.searchBtn" var="searchbtn"/>
+                                            <input id="searchbutton" class="btn btn-lg btn-success rounded" type="submit" value="${searchbtn}">
                                         </div>
                                         <!--end of col-->
                                     </div>

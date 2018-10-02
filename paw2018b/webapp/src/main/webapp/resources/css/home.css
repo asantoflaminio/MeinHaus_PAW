@@ -300,6 +300,9 @@ div.card-body.row.no-gutters.align-items-center {
 
 .error{
   color: red;
+  font-size: 14px;
+  margin-left: 7px;
+  margin-top: 1px;
 }
 
 
