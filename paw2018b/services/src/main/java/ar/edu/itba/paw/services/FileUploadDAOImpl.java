@@ -1,4 +1,4 @@
-package ar.edu.itba.paw.persistence;
+package ar.edu.itba.paw.services;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import ar.edu.itba.paw.models.UploadFile;
 @Repository
 public class FileUploadDAOImpl implements FileUploadDao {
     
-	@Autowired(required=false) 
+	@Autowired
     private SessionFactory sessionFactory;
      
     public FileUploadDAOImpl() {

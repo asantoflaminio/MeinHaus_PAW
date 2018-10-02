@@ -51,7 +51,6 @@ public class UserJdbcDaoTest {
 	public void testCreate() {
 		JdbcTestUtils.deleteFromTables(jdbcTemplate, "users");
 		final User user = userDao.create(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER);
-		String email = "'" + EMAIL + "'";
 		
 		Assert.assertNotNull(user);
 		Assert.assertEquals(FIRSTNAME, user.getFirstName());
