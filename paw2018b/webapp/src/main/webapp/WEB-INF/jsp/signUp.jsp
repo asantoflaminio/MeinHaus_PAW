@@ -86,14 +86,7 @@
                         	<spring:message code="signUp.placeholderLastName" var="lastName"/>
                         	<form:input class="sign-up-input" path="lastName" type="text" placeholder="${lastName}" name="lastName"/>
                         	<form:errors path="lastName" cssClass="error" element="p"/>
-                        </div>
-						<div class="signup-list-item">
-                        	<label><spring:message code="signUp.account"/></label>
-                        	<div class="acc-type-box">
-                        		<input class="signup-radio-1" type="radio" name="acc-type" value="Buyer"><spring:message code="signUp.buyer"/><br>
-                        		<input class="signup-radio-2" type="radio" name="acc-type" value="Seller"><spring:message code="signUp.seller"/><br>
-                        	</div>   	
-                        </div>						
+                        </div>					
                         <div class="signup-list-item">
                         	<form:label path="email"><spring:message code="signUp.email"/></form:label>
                         	<spring:message code="signUp.placeholderEmail" var="email"/>
