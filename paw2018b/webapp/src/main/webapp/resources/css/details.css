@@ -310,6 +310,7 @@ input[type=text] {
     -webkit-border-radius:8px;
     opacity: 0.7;
     display:inline-block;
+    margin-bottom: 10px;
 }
 
 #msg-sent {
@@ -348,6 +349,7 @@ input[type=text] {
 /* Style the list */
 .breadcrumb {
     background-color: #eee !important;
+    margin-bottom: 10px !important;
 }
 
 /* Add a color to all links inside the list */

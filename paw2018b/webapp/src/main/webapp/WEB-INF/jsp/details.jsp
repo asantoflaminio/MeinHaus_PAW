@@ -83,6 +83,15 @@
        	<div class="breadcrumb">
 			<a href="javascript:history.back()"><spring:message code="details.goBack"/></a>
 		</div>
+		
+		<c:set var = "sentVar" scope = "session" value = "${sent}"/>
+        <c:if test="${sentVar == 'true'}">
+		  <div class="notice" id="divMessageSent">
+            <div class="msg-sent-container">
+              <p id='msg-sent'><spring:message code="details.msgSent"/></p> 
+            </div>
+          </div>
+        </c:if>
         
         <div id="cols">
          <div id="left-col">   
@@ -177,15 +186,7 @@
 		    <p class="agency_text"><c:out value="${description}"/></p>
 		  </div>
 		</div>
-		
-		<c:set var = "sentVar" scope = "session" value = "${sent}"/>
-        <c:if test="${sentVar == 'true'}">
-		  <div class="notice" id="divMessageSent">
-            <div class="msg-sent-container">
-              <p id='msg-sent'><spring:message code="details.msgSent"/></p> 
-            </div>
-          </div>
-        </c:if>
+	
 		
          <footer>
 
