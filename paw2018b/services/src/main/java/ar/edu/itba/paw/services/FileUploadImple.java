@@ -8,15 +8,15 @@ import ar.edu.itba.paw.FileUploadDao;
 import ar.edu.itba.paw.models.UploadFile;
 
 @Repository
-public class FileUploadDAOImpl implements FileUploadDao {
+public class FileUploadImple implements FileUploadDao {
     
 	@Autowired
     private SessionFactory sessionFactory;
      
-    public FileUploadDAOImpl() {
+    public FileUploadImple() {
     }
  
-    public FileUploadDAOImpl(SessionFactory sessionFactory) {
+    public FileUploadImple(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
  
