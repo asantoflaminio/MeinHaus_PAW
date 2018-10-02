@@ -55,10 +55,6 @@
                         <div class="sign_b">
                             <input type="submit" class="btn" value="<spring:message code="nav.buttonSignIn"/>" >
                         </div>
-                        <div class="line_separator"></div>
-                        <div class="password_label">
-                            <label><spring:message code="nav.forgotPassword"/></label>
-                        </div>
                 </div>
                 </form>
             </div>
