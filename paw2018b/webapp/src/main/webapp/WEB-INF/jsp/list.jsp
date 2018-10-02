@@ -102,9 +102,9 @@
 		   	  <spring:message code="list.placeholderSearch" var="title"/>
 		   	  <spring:message code="list.searchBtn" var="searchbtn"/>
 		      <form:input path="search" type="text" class="searchTerm" placeholder="${title}" value="${list.placeholderSearch}"/>
-		      <form:errors path="search" cssClass="error" element="p"/>
 		      <input type="submit" id="search-btn" value="${searchbtn}">
 		   </div>
+		   	  <form:errors path="search" cssClass="error" element="p"/>
            </form:form>
            
 		</div>
