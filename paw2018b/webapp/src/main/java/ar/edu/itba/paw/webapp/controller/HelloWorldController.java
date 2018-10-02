@@ -1,36 +1,15 @@
 package ar.edu.itba.paw.webapp.controller;
 
-import java.awt.Image;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.RandomAccessFile;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import javax.imageio.ImageIO;
-import javax.mail.Message;
-import javax.mail.Message.RecipientType;
 import javax.mail.MessagingException;
-import javax.mail.Multipart;
 import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -38,28 +17,18 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.MailSender;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.MimeBodyPart;
 
 import ar.edu.itba.paw.models.Publication;
 import ar.edu.itba.paw.models.UploadFile;
@@ -73,13 +42,12 @@ import ar.edu.itba.webapp.form.FirstPublicationForm;
 import ar.edu.itba.webapp.form.FourthPublicationForm;
 import ar.edu.itba.webapp.form.HomeSearchForm;
 import ar.edu.itba.webapp.form.MessageForm;
-import ar.edu.itba.webapp.form.ProfileForm;
 import ar.edu.itba.webapp.form.SecondPublicationForm;
 import ar.edu.itba.webapp.form.ThirdPublicationForm;
 
 @Controller
 @RequestMapping("/meinHaus/")
-@ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
+@ComponentScan({ "ar.edu.itba.paw.webapp.controller","ar.edu.itba.paw.webapp.form", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
 public class HelloWorldController {
 	
 	@Autowired
