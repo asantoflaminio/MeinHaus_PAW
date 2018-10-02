@@ -91,7 +91,7 @@
 		        <p id="photos-title"><spring:message code="publish4.imageFormat"/></p>
 		            <table border="0">
 		                <tr>
-		                    <td  class="upload-pic"><input class="file-submit" type="file" name="fileUpload" size="50" multiple="multiple" accept=".jpg"/></td>
+		                    <td  class="upload-pic"><input class="file-submit" type="file" name="fileUpload" size="50" multiple="multiple" accept=".jpg, .jpeg"/></td>
 		                </tr>
 		                <!-- <tr>
 		                    <td class="upload-pic"><input type="file" name="fileUpload" size="50" /></td>

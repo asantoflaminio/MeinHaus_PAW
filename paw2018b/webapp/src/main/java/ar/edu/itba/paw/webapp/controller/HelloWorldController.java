@@ -325,7 +325,8 @@ public class HelloWorldController {
 		
 		if (fileUpload != null && fileUpload.length > 0) {
             for (CommonsMultipartFile aFile : fileUpload){
-                  
+            	
+                
                 System.out.println("Saving file: " + aFile.getOriginalFilename());
                  
                 //hay que chequear q si o si sea jpg o el formato q queramos
@@ -336,12 +337,12 @@ public class HelloWorldController {
                 uploadFile.setPublicationId(Long.toString(aux.getPublicationid())); 
                 
                 uploadFile.setData(aFile.getBytes());
-                
+               
                 final long limit = 20 * 1024 * 1024; //20MB
                 
                 System.out.println("I'm about to save with id: " + uploadFile.getId());
                 if(aFile.getSize() < limit && uploadFile.getData().length > 0) {
-                	if(aFile.getOriginalFilename().contains(".jpg")) {
+                	if(aFile.getContentType().equals("image/jpeg")) {
                 		fileUploadImpl.save(uploadFile); 
                 	}else {
                 		System.out.println("Sth went wrong with file format");
