@@ -5,8 +5,8 @@ import javax.validation.constraints.Size;
 
 public class SecondPublicationForm extends FirstPublicationForm {
 	
-	@Size(min = 1, max = 60)
-	@Pattern(regexp = "[-a-zA-Z0-9,.!?:%;()$\r\n ]+")
+	@Size(min = 1, max = 2500)
+	@Pattern(regexp = "[-a-zA-ZÀ-ÿ0-9,.!?:%;()$\r\n ]+")
 	private String description;
 	
 	public String getDescription() {

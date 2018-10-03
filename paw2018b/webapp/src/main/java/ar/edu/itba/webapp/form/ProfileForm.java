@@ -15,7 +15,7 @@ public class ProfileForm {
 	@Pattern(regexp = "[a-zA-Z]+")
 	private String lastName;
 	
-	@Size(min = 3, max = 30)
+	@Size(min = 3, max = 250)
 	@Email
 	private String email;
 	
