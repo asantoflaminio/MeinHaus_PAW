@@ -67,7 +67,6 @@ function fav(heart){
 
 /* Remove search filters */
 function deleteFilter(filter){
-	alert("asd")
 	filter.parentElement.style.display = "none";
 	var filterId = filter.parentElement.getAttribute("id")
 	if(filterId == "filterPrice"){
