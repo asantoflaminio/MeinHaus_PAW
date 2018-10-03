@@ -17,21 +17,21 @@ public class ExceptionController {
 	
 	public ModelAndView forbidden() {
     	final ModelAndView mav = new ModelAndView("errorPage");
-    	mav.addObject("error", "Forbidden");
+    	mav.addObject("status","406");
         return mav;
 	}
 	
     @RequestMapping(value="500")
     public ModelAndView internalServerError(){
     	final ModelAndView mav = new ModelAndView("errorPage");
-    	mav.addObject("error", "Internal server error");
+    	mav.addObject("status","500");
         return mav;
     }
     
     @RequestMapping(value="404")
     public ModelAndView notFoundPage(){
     	final ModelAndView mav = new ModelAndView("errorPage");
-    	mav.addObject("error", "Page not found");
+    	mav.addObject("status","404");
         return mav;
     }
     
@@ -39,7 +39,7 @@ public class ExceptionController {
     @ExceptionHandler(Exception.class)
     public ModelAndView globalException() {
     	final ModelAndView mav = new ModelAndView("errorPage");
-    	mav.addObject("error", "Page not found");
+    	mav.addObject("status","-1");
         return mav;
     }
 	
