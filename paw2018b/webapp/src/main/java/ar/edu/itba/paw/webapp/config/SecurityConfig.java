@@ -86,7 +86,7 @@ public class SecurityConfig {
 	    @Bean
 	    public AuthenticationFailureHandler failureHandler() {
 	        SimpleUrlAuthenticationFailureHandler handler = new SimpleUrlAuthenticationFailureHandler();
-	        handler.setDefaultFailureUrl("/meinHaus/home?errorLogin=true");
+	        handler.setDefaultFailureUrl("/meinHaus/home?error=true");
 	        return handler;
 	    }
 		
