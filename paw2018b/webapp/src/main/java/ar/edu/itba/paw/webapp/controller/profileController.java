@@ -58,6 +58,10 @@ public class profileController {
 		mav.addObject("emailValue",user.getEmail());
 		mav.addObject("phoneNumberValue",user.getPhoneNumber());
 		mav.addObject("publications", publications);
+		if(error == "errorOnForm") {
+			mav.addObject("stayInData", "yes");
+		}else {
+		}
 		mav.addObject("error",error);
 		mav.addObject("page",page);
 		return mav;
@@ -72,8 +76,10 @@ public class profileController {
 		String oldEmail = authentication.getName();
 		if(user != null && ! form.getEmail().equals(oldEmail))
 			return profile(form,passForm,"email",page);
-		else if(errors.hasErrors())
-			return profile(form,passForm,null,page);
+		else if(errors.hasErrors()) {
+			return profile(form,passForm,"errorOnForm",page);
+		}
+			
 	
 		us.editData(form.getFirstName(), form.getLastName(), form.getEmail(), form.getPhoneNumber(), oldEmail);
 		if(! oldEmail.equals(form.getEmail())) {
@@ -94,8 +100,11 @@ public class profileController {
 
 		if(! user.getPassword().equals(passForm.getPasswordOld()))
 			return profile(form,passForm,"password",page);
-		else if(errors.hasErrors())
-			return profile(form,passForm,null,page);
+		else if(errors.hasErrors()) {
+			System.out.println("ok so you made sth wrong");
+			return profile(form,passForm,"errorOnForm",page);
+		}
+			
 		
 		us.editPassword(passForm.getPasswordOld(), passForm.getPasswordNew(), oldEmail);
 		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/profile");

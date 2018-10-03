@@ -22,15 +22,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
 	
-		<c:set var = "errorVar" scope = "session" value = "${error}"/>
-		<body onload="showPublications();">
-		<!--  
-        <c:if test="${errorVar == 'null'}">
-	    	<body onload="showPublications();">
-	    </c:if>
-	    <c:if test="${errorVar != 'null'}">
-	    	<body onload="showData();">
-	    </c:if>-->
+		<c:set var = "stayVar" scope = "session" value = "${stayInData}"/>
+		<!-- <body onload="showPublications();"> -->
+		<c:choose>
+		   <c:when test="${stayVar == 'yes'}"><body onload="showData();"></c:when> 
+		   <c:otherwise><body onload="showPublications();"></c:otherwise>    
+		</c:choose>
+
         <nav>
         	<a href="./home">
            		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
