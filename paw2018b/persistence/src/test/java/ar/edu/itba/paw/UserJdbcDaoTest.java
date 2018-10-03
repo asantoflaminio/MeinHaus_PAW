@@ -25,7 +25,7 @@ import ar.edu.itba.paw.persistence.UserJdbcDao;
 public class UserJdbcDaoTest {
 	
 	private static final long USERID = 1;
-	private static final long INVALIDUSERID = -1;
+	private static final long NONEXISTENTUSERID = -1;
 	private static final String FIRSTNAME = "TestFirstName";
 	private static final String NEWFIRSTNAME = "TestNewFirstName";
 	private static final String LASTNAME = "TestLastName";
@@ -81,8 +81,9 @@ public class UserJdbcDaoTest {
 	
 	@Test
 	public void testFindByNonExistentId() {
-		final User user = userDao.findById(INVALIDUSERID);
-		String userid = "'" + INVALIDUSERID + "'";
+		final User user = userDao.findById(NONEXISTENTUSERID);
+		String userid = "'" + NONEXISTENTUSERID + "'";
+		
 		Assert.assertNull(user);
 		Assert.assertEquals(0, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "userid = " + userid));
 	}

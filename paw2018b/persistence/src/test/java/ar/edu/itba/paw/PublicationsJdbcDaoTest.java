@@ -26,11 +26,14 @@ import ar.edu.itba.paw.persistence.PublicationJdbcDao;
 @Transactional
 public class PublicationsJdbcDaoTest {
 
+	private static final long USERID = 1;
+	private static final long PUBLICATIONID = 1;
+	private static final long NONEXISTENTPUBLICATIONID = -1;
 	private static final String TITLE = "TestTitle";
 	private static final String ADDRESS = "TestAddress";
-	private static final String NEIGHBORHOOD = "TestNeighborhood";
-	private static final String CITY = "TestCity";
-	private static final String PROVINCE = "TestProvince";
+	//private static final String NEIGHBORHOOD = "TestNeighborhood";
+	//private static final String CITY = "TestCity";
+	//private static final String PROVINCE = "TestProvince";
 	private static final String OPERATION = "TestOperation";
 	private static final String PRICE = "4242412";
 	private static final String DESCRIPTION = "TestDescription";
@@ -39,8 +42,6 @@ public class PublicationsJdbcDaoTest {
 	private static final String BATHROOMS = "1";
 	private static final String FLOORSIZE = "50";
 	private static final String PARKING = "1";
-	private static final long USERID = 1;
-	private static final long PUBLICATIONID = 1;
 	
 	@Autowired
 	private DataSource ds;
@@ -75,19 +76,39 @@ public class PublicationsJdbcDaoTest {
 	}
 	
 	@Test
+	public void testFindByUserId() {
+		final List<Publication> publications = pbDao.findByUserId(USERID);
+		String userid = "'" + USERID + "'";
+	
+		Assert.assertNotNull(publications);
+		Assert.assertEquals(publications.size(), JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "publications", "userid = " + userid));
+	}
+	
+	@Test
+	public void testFindById() {
+		final Publication pb = pbDao.findById(PUBLICATIONID);
+		final Publication nonexistentpb = pbDao.findById(NONEXISTENTPUBLICATIONID);
+		String publicationid = "'" + PUBLICATIONID + "'";
+		String nonexistentpublicationid = "'" + NONEXISTENTPUBLICATIONID + "'";
+		
+		Assert.assertNotNull(pb);
+		Assert.assertNull(nonexistentpb);
+		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "publications", "publicationid = " + publicationid));
+		Assert.assertEquals(0, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "publications", "publicationid = " + nonexistentpublicationid));
+	}
+	
+	@Test
 	public void testFindAll() {
 		List<Publication> publications = pbDao.findAll(OPERATION);
 		Assert.assertEquals(publications.size(), JdbcTestUtils.countRowsInTable(jdbcTemplate, "publications"));
 	}
 
-	
 	@Test
 	public void testFindSearchFiltering() {
 		String operation1 = "TestOperation";
 		String address1 = "TestAdress1";
 		String price1 = "4350000";
 		String bedrooms1 = "2";
-	
 		List<Publication> publications1 = pbDao.findSearchFiltering(operation1, address1, price1, bedrooms1);
 		
 		Assert.assertEquals(publications1.size(), JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "publications", "operation = '" + operation1
@@ -99,5 +120,13 @@ public class PublicationsJdbcDaoTest {
 		pbDao.deleteById(PUBLICATIONID);
 		String pbid = "'" + PUBLICATIONID + "'";
 		Assert.assertEquals(0, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "publications", "publicationid = " + pbid));
+	}
+	
+	@Test
+	public void testDeleteNonExistentPublication() {
+		int before = JdbcTestUtils.countRowsInTable(jdbcTemplate,"publications");
+		pbDao.deleteById(NONEXISTENTPUBLICATIONID);
+		int after = JdbcTestUtils.countRowsInTable(jdbcTemplate,"publications");
+		Assert.assertEquals(before, after);
 	}
 }

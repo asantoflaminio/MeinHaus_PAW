@@ -124,7 +124,6 @@ public class PublicationJdbcDao implements PublicationDao{
 
 	public void deleteById(long publicationid) {
 		jdbcTemplate.update("DELETE FROM publications WHERE publicationid = ?", publicationid);
-		
 	}
 	
 	

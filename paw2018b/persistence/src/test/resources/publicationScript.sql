@@ -46,10 +46,10 @@ VALUES (3, 'TestTitle', 'TestAddress2', 'TestNeighborhood', 'TestCity' ,'TestPro
 	
 INSERT INTO publications(publicationid, title, address, neighborhood, city, province, operation, price, description, 
 	propertyType, bedrooms, bathrooms, floorSize, parking, userid)
-VALUES (4,'TestTitle','TestAddress2', 'TestNeighborhood', 'TestCity' ,'TestProvince' , 'TestOperation',430210,'TestDescription',
+VALUES (4,'TestTitle','TestAddress2', 'TestNeighborhood', 'TestCity' ,'TestProvince' , 'TestOperation', 430210,'TestDescription',
 	'TestType', 2, 1, 50, 1, 1)
 	
 INSERT INTO publications(publicationid, title, address, neighborhood, city, province, operation, price, description, 
 	propertyType, bedrooms, bathrooms, floorSize, parking, userid)
-VALUES (5,'TestTitle','TestAddress2', 'TestNeighborhood', 'TestCity' ,'TestProvince' , 'TestOperation',4350000,'TestDescription',
+VALUES (5,'TestTitle','TestAddress2', 'TestNeighborhood', 'TestCity' ,'TestProvince' , 'TestOperation', 4350000,'TestDescription',
 	'TestType', 5, 1, 50, 1, 1)
