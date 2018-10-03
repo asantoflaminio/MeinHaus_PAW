@@ -4,10 +4,10 @@ import javax.validation.constraints.Size;
 
 public class PasswordForm {
 	
-	@Size(min = 6, max = 30)
+	@Size(min = 6, max = 70)
 	private String passwordOld;
 	
-	@Size(min = 6, max = 30)
+	@Size(min = 6, max = 70)
 	private String passwordNew;
 
 	public String getPasswordOld() {

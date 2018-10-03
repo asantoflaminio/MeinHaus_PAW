@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.itba.paw.interfaces.UserDao;
 import ar.edu.itba.paw.interfaces.UserService;
@@ -22,11 +23,16 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserDao userDaoInt;
 	
+	//@Autowired
+	//private PasswordEncoder passwordEncoder;
+	
+	
 	private final static int SHORT_STRING_MIN_LENGTH = 3;
 	private final static int SHORT_STRING_MAX_LENGTH = 30;
-	private final static int EMAIL_MAX_LENGTH = 30;
+	private final static int EMAIL_MAX_LENGTH = 250;
 	private final static int LONG_STRING_MIN_LENGTH = 6;
 	private final static int LONG_STRING_MAX_LENGTH = 30;
+	private final static int LONG_STRING_MAX_LENGTH_PASS = 70;
 	private final static String PASSWORD = "correct";
 	
 	private static final String LETTERSANDSPACESREGEX = "[a-zA-Z ]+";
@@ -75,8 +81,8 @@ public class UserServiceImpl implements UserService{
         return userDaoInt.findById(userid);
 	}
 
-	public User findByUsername(String username) {
-		return userDaoInt.findByUsername(username);
+	public User findByUsername(String email) {
+		return userDaoInt.findByUsername(email);
 	}
 
 	public boolean validate(String firstName, String lastName, String email, String password, String phoneNumber) {
@@ -114,7 +120,7 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	public boolean validatePassword(String password) {
-		if(password.length() > LONG_STRING_MAX_LENGTH || password.length() < LONG_STRING_MIN_LENGTH)
+		if(password.length() > LONG_STRING_MAX_LENGTH_PASS || password.length() < LONG_STRING_MIN_LENGTH)
 			return false;
 		return true;
 	}
