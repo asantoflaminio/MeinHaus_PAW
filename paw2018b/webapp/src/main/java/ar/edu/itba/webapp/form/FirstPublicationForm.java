@@ -10,7 +10,7 @@ public class FirstPublicationForm {
 	private String title;
 	
 	@Size(min = 3, max = 140)
-	@Pattern(regexp = "[a-zA-Z0-9 ]+")
+	@Pattern(regexp = "[a-zA-Z0-9, ]+")
 	private String address;
 	
 	@Size(min = 3, max = 20)

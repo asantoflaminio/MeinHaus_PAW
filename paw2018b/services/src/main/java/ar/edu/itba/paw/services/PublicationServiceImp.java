@@ -14,9 +14,10 @@ import ar.edu.itba.paw.models.Publication;
 public class PublicationServiceImp implements PublicationService{
 	
 	private final static int FIRST_FORM_MIN_LENGTH = 3;
-	private final static int FIRST_FORM_MAX_LENGTH = 20;
+	private final static int FIRST_FORM_MAX_LENGTH = 40;
+	private final static int FIRST_FORM_MAX_LENGTH_ADDRESS = 140;
 	private final static int SECOND_FORM_MIN_LENGTH = 1;
-	private final static int SECOND_FORM_MAX_LENGTH = 180;
+	private final static int SECOND_FORM_MAX_LENGTH = 2500;
 	private final static int THIRD_FORM_MIN_LENGTH = 1;
 	private final static int THIRD_FORM_MAX_LENGTH = 3;
 	
@@ -67,16 +68,18 @@ public class PublicationServiceImp implements PublicationService{
 		
 		final String numbersRegex = "[0-9]+";
 		final String lettesNumersAndSpacesRegex = "[a-zA-Z0-9 ]+";
+		final String lettesNumersAndSpacesRegexComma = "[a-zA-Z0-9, ]+";
+		final String descriptionRegex = "[-a-zA-Z0-9,.!?:%;()$\r\n ]+";
 		
 		
 		System.out.println("analizando");
 		if(title.length() > FIRST_FORM_MAX_LENGTH || title.length() < FIRST_FORM_MIN_LENGTH)
 			return false;
 		System.out.println("analizando");
-		if(address.length() > FIRST_FORM_MAX_LENGTH || address.length() < FIRST_FORM_MIN_LENGTH)
+		if(address.length() > FIRST_FORM_MAX_LENGTH_ADDRESS|| address.length() < FIRST_FORM_MIN_LENGTH)
 			return false;
 		
-		if(! title.matches(lettesNumersAndSpacesRegex) || ! address.matches(lettesNumersAndSpacesRegex))
+		if(! title.matches(lettesNumersAndSpacesRegex) || ! address.matches(lettesNumersAndSpacesRegexComma))
 			return false;
 		System.out.println("analizando");
 		if(price.length() > FIRST_FORM_MAX_LENGTH || price.length() < FIRST_FORM_MIN_LENGTH)
@@ -91,7 +94,7 @@ public class PublicationServiceImp implements PublicationService{
 		if(description.length() > SECOND_FORM_MAX_LENGTH || description.length() < SECOND_FORM_MIN_LENGTH)
 			return false;
 		System.out.println("analizando");
-		if(! description.matches(lettesNumersAndSpacesRegex))
+		if(! description.matches(descriptionRegex))
 			return false;
 		
 		if(! propertyType.equals("House") && ! propertyType.equals("Apartment"))
