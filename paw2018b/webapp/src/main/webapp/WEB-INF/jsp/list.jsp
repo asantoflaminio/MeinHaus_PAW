@@ -281,8 +281,19 @@
 		       
 	        </section>
 	        
-	        <c:set var = "maxPageDouble" scope = "session" value = "${listLength/maxLength + listLength%maxLength}"/>
-	        <fmt:formatNumber var="maxPage" value="${maxPageDouble -(maxPageDouble%1)}" maxFractionDigits="0" />
+
+			<c:set var = "maxPageDouble" scope = "session" value = "${listLength/maxLength}"/>
+	        <fmt:formatNumber var="maxPageInteger" value="${maxPageDouble}" maxFractionDigits="0" />
+	        
+	        <c:if test="${maxPageDouble == maxPageInteger}">
+	        	<c:set var = "maxPage" scope = "session" value = "${listLength/maxLength}"/>
+	        </c:if>
+	        
+	        <c:if test="${maxPageDouble != maxPageInteger}">
+	        	<c:set var = "maxPage" scope = "session" value = "${(listLength/maxLength) + 1}"/>
+	        </c:if>
+
+
 	        <c:if test="${page == maxPage}">
 	       		<c:set var = "nextPage" scope = "session" value = "${maxPage}"/>
 	       	</c:if>
