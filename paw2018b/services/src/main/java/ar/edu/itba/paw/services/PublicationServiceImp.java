@@ -73,7 +73,7 @@ public class PublicationServiceImp implements PublicationService{
 		final String numbersRegex = "[0-9]+";
 		final String lettesNumersAndSpacesRegex = "[a-zA-Z0-9 ]+";
 		final String lettesNumersAndSpacesRegexComma = "[a-zA-Z0-9, ]+";
-		final String descriptionRegex = "[-a-zA-ZÀ-ÿ0-9,.!?:%;()$\r\n ]+";
+		final String descriptionRegex = "[a-zA-Z0-9 ]+";
 		
 		if(title.length() > FIRST_FORM_MAX_LENGTH || title.length() < FIRST_FORM_MIN_LENGTH) {
 			LOGGER.debug("Title length is wrong");
