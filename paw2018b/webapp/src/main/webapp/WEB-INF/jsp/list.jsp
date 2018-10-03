@@ -234,7 +234,7 @@
 	        <section id="publications">
 	        
 	        	<c:set var = "listLength" scope = "session" value = "${fn:length(publications)}"/>
-	        	<c:set var = "maxLength" scope = "session" value = "2"/>
+	        	<c:set var = "maxLength" scope = "session" value = "10"/>
 	        	<c:set var = "page" scope = "session" value = "${page}"/>
 	        	<c:set var = "init" scope = "session" value = "${(page - 1) * maxLength}"/>
 	        	<c:set var = "current" scope = "session" value = "1"/>
