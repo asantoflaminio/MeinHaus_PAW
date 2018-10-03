@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -85,7 +87,7 @@
 		</div>
 		
 		<c:set var = "sentVar" scope = "session" value = "${sent}"/>
-        <c:if test="${sentVar == 'true'}">
+        <c:if test="${fn:escapeXml(sentVar)} == 'true'}">
 		  <div class="notice" id="divMessageSent">
             <div class="msg-sent-container">
               <p id='msg-sent'><spring:message code="details.msgSent"/></p> 
@@ -98,12 +100,11 @@
          <div class="polaroid">       
           <div class="w3-content w3-display-container" style="max-width:800px">
            	<div class="size_div">
-				  <!-- <img class="mySlides" src="<c:url value="/meinHaus/images/${publicationid}" />" > -->
 				  <c:set var = "current" scope = "session" value = "1"/>
 				  <c:set var = "maxLength" scope = "session" value = "${amountImages}"/>
 				  <c:forEach var="row" varStatus="status" items="${myImages}" step="1" begin="0">
 	        		<c:if test = "${current <= maxLength}">
-						  <img class="mySlides" src="<c:url value="/meinHaus/imagesByUpload/${row.id}" />" >
+						  <img class="mySlides" src="<c:url value="/meinHaus/imagesByUpload/${fn:escapeXml(row.id)}" />" >
 				  	</c:if>
 				</c:forEach>
            	</div>
@@ -111,7 +112,7 @@
 			  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
 			    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
 			    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
-			    <c:forEach var = "i" begin = "1" end = "${amountImages}">
+			    <c:forEach var = "i" begin = "1" end = "${${fn:escapeXml(amountImages)}}">
 			         <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(${i})"></span>
 			    </c:forEach>
 			  </div>
@@ -149,7 +150,7 @@
 		     	<p class="tel-text"><spring:message code="details.tel"/></p>
 		     	<p class="tel-num"><c:out value="${phoneNumber}"/></p>
 		     </div>
-		     <c:url value="/meinHaus/detailsSend?publicationid=${publicationid}" var="postPath"/>
+		     <c:url value="/meinHaus/detailsSend?publicationid=${fn:escapeXml(publicationid)}" var="postPath"/>
 			<form:form modelAttribute="MessageForm" action="${postPath}" method="post">
 		     	<div class="fillers">
 				     <form:label cssClass="contact-title" path="name"><spring:message code="details.name"/></form:label>
@@ -168,7 +169,7 @@
 		    		 <form:input id="message" path="message" placeholder="${detailsMessage}"/>
 		    		 <form:errors path="message" cssClass="error" element="p"/>
 		    		 
-		    		 <input type="hidden" value=${sellerEmail} name="emailSeller">
+		    		 <input type="hidden" value=${fn:escapeXml(sellerEmail)} name="emailSeller">
 		    		 
 		    		 <spring:message code="details.contactButton" var="submitValue"/>
 		    		 <input class="button-contact" type="submit" value=${submitValue}>
