@@ -80,8 +80,20 @@
             </div>
             </c:if>
         </nav>
-        
-        
+                
+				<div id="popup">
+        			<div id="popup-nav">
+        				<p id="popup-nav-title">Delete</p>
+        				<button id="popup-nav-close">X</button>
+        			</div>
+        			<div id="popup-body">
+        				<p id="popup-body-msg">Are you sure you want to delete this publication?</p>
+        			</div>
+        			<div id="popup-btn">
+        				<button id="accept">Delete</button>
+        				<button id="cancel">Cancel</button>
+        			</div>
+       			</div>                
         <aside>
       		<div class="leftcol">
 	       		<ul>
@@ -176,6 +188,9 @@
 		
 		<section>
 			<div id="Publications">
+			
+
+       			
 				<h2 class="title_section"><spring:message code="profile.publications" /></h2> 
 				<div class="section_publications">
 		        	<div class="favourites" id="list-of-publications">	        		
