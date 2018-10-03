@@ -76,12 +76,12 @@ public class PublicationServiceImp implements PublicationService{
 		final String descriptionRegex = "[-a-zA-ZÀ-ÿ0-9,.!?:%;()$\r\n ]+";
 		
 		if(title.length() > FIRST_FORM_MAX_LENGTH || title.length() < FIRST_FORM_MIN_LENGTH) {
-			LOGGER.info("Title length is wrong");
+			LOGGER.debug("Title length is wrong");
 			return false;
 		}
 		
 		if(address.length() > FIRST_FORM_MAX_LENGTH_ADDRESS|| address.length() < FIRST_FORM_MIN_LENGTH) {
-			LOGGER.info("Address length is wrong");
+			LOGGER.debug("Address length is wrong");
 			return false;
 		}
 		
@@ -92,7 +92,7 @@ public class PublicationServiceImp implements PublicationService{
 			return false;
 		
 		if(! price.matches(numbersRegex)) {
-			LOGGER.info("Price format is wrong");
+			LOGGER.debug("Price format is wrong");
 			return false;
 		}
 		
@@ -100,7 +100,7 @@ public class PublicationServiceImp implements PublicationService{
 			return false;
 		
 		if(description.length() > SECOND_FORM_MAX_LENGTH || description.length() < SECOND_FORM_MIN_LENGTH) {
-			LOGGER.info("Description length is wrong");
+			LOGGER.debug("Description length is wrong");
 			return false;
 		}
 		

@@ -95,11 +95,11 @@ public class UserServiceImpl implements UserService{
 	
 	public boolean validateFirstName(String firstName) {
 		if(firstName.length() > SHORT_STRING_MAX_LENGTH || firstName.length() < SHORT_STRING_MIN_LENGTH) {
-			LOGGER.info("First name length is wrong");
+			LOGGER.debug("First name length is wrong");
 			return false;
 		}
 		if(! firstName.matches(LETTERSANDSPACESREGEX)) {
-			LOGGER.info("First name length is wrong");
+			LOGGER.debug("First name length is wrong");
 			return false;
 		}
 		return true;
@@ -108,11 +108,11 @@ public class UserServiceImpl implements UserService{
 	
 	public boolean validateLastName(String lastName) {
 		if(lastName.length() > SHORT_STRING_MAX_LENGTH || lastName.length() < SHORT_STRING_MIN_LENGTH) {
-			LOGGER.info("Last name length is wrong");
+			LOGGER.debug("Last name length is wrong");
 			return false;
 		}
 		if(! lastName.matches(LETTERSANDSPACESREGEX)) {
-			LOGGER.info("Last name length is wrong");
+			LOGGER.debug("Last name length is wrong");
 			return false;
 		}
 		return true;
@@ -120,13 +120,13 @@ public class UserServiceImpl implements UserService{
 	
 	public boolean validateEmail(String email) {
 		if(email.length() > EMAIL_MAX_LENGTH || email.length() < SHORT_STRING_MIN_LENGTH) {
-			LOGGER.info("Email length is wrong");
+			LOGGER.debug("Email length is wrong");
 			return false;
 		}
 		
 		Matcher matcher = EMAILREGEX.matcher(email);
 		if(! matcher.find()) {
-			LOGGER.info("Email format is wrong");
+			LOGGER.debug("Email format is wrong");
 			return false;
 		}	
 		return true;
@@ -134,7 +134,7 @@ public class UserServiceImpl implements UserService{
 	
 	public boolean validatePassword(String password) {
 		if(password.length() > LONG_STRING_MAX_LENGTH_PASS || password.length() < LONG_STRING_MIN_LENGTH) {
-			LOGGER.info("Password length is wrong");
+			LOGGER.debug("Password length is wrong");
 			return false;
 		}
 		return true;
@@ -142,11 +142,11 @@ public class UserServiceImpl implements UserService{
 	
 	public boolean validatePhone(String phoneNumber) {
 		if(phoneNumber.length() > LONG_STRING_MAX_LENGTH || phoneNumber.length() < LONG_STRING_MIN_LENGTH) {
-			LOGGER.info("Phone number length is wrong");
+			LOGGER.debug("Phone number length is wrong");
 			return false;
 		}
 		if(! phoneNumber.matches(NUMBERSREGEX)) {
-			LOGGER.info("Phone number format is wrong");
+			LOGGER.debug("Phone number format is wrong");
 			return false;
 		}
 		return true;
