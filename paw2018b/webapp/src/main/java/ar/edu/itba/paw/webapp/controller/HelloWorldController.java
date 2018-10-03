@@ -208,8 +208,10 @@ public class HelloWorldController {
 		}
 		final String sent = "true";
 		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/details");
+		Publication p = ps.findById(Long.parseLong(publicationid));
+		String propInfo = p.getTitle() + " - " + p.getAddress();
 		
-		ms.sendEmail(email,form.getEmail(), form.getMessage());
+		ms.sendEmail(email,form.getEmail(), form.getMessage(), propInfo);
 		
 		mav.addObject("publicationid",publicationid);
 		mav.addObject("sent",sent);
