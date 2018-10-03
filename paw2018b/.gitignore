@@ -16,6 +16,12 @@
 log/
 target/
 
+### STS ###
+.apt_generated
+.factorypath
+.project
+.springBeans
+
 paw2018b/interfaces/\.classpath
 
 paw2018b/interfaces/\.project
