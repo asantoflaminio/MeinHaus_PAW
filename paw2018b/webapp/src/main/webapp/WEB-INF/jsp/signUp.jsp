@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,7 +95,7 @@
                         	<form:input class="sign-up-input" path="email" type="text" placeholder="${email}" name="email"/>
                         	<form:errors path="email" cssClass="error" element="p"/>
                         	<c:set var = "signUp" scope = "session" value = "${error}"/>	
-                        	<c:if test="${signUp == 'emailTaken'}">
+                        	<c:if test="${fn:escapeXml(signUp) == 'emailTaken'}">
                         		<p class="error"><spring:message code="signUp.emailTaken"/></p>
                          	</c:if>
                         </div>
@@ -136,7 +137,7 @@
                         	<input class="sign-up-input" type="password" placeholder="${password}" name="j_password"/>
                         </div>
                         <c:set var = "logIn" scope = "session" value = "${error}"/>	
-                        <c:if test="${logIn == 'true'}">
+                        <c:if test="${fn:escapeXml(logIn) == 'true'}">
                         	<p class="error signin-error"><spring:message code="signUp.signInError"/></p>
                         </c:if>
                         <div class="check_box">
