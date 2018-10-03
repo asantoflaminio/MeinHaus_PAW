@@ -7,7 +7,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import ar.edu.itba.paw.UserService;
+import ar.edu.itba.paw.interfaces.UserService;
 import ar.edu.itba.paw.models.User;
 
 import org.springframework.security.core.GrantedAuthority;

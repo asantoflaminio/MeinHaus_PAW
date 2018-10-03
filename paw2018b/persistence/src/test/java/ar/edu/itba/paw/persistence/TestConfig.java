@@ -10,7 +10,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
-@ComponentScan({ "ar.edu.itba.paw.persistence", })
+@ComponentScan({"ar.edu.itba.paw.persistence"})
 @Configuration
 public class TestConfig {
 	
