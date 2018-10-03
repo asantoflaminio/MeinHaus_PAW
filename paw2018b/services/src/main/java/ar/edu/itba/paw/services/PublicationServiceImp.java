@@ -72,28 +72,28 @@ public class PublicationServiceImp implements PublicationService{
 		final String descriptionRegex = "[-a-zA-ZÀ-ÿ0-9,.!?:%;()$\r\n ]+";
 		
 		
-		System.out.println("analizando");
+	
 		if(title.length() > FIRST_FORM_MAX_LENGTH || title.length() < FIRST_FORM_MIN_LENGTH)
 			return false;
-		System.out.println("analizando");
+		
 		if(address.length() > FIRST_FORM_MAX_LENGTH_ADDRESS|| address.length() < FIRST_FORM_MIN_LENGTH)
 			return false;
 		
 		if(! title.matches(lettesNumersAndSpacesRegex) || ! address.matches(lettesNumersAndSpacesRegexComma))
 			return false;
-		System.out.println("analizando");
+		
 		if(price.length() > FIRST_FORM_MAX_LENGTH || price.length() < FIRST_FORM_MIN_LENGTH)
 			return false;
 		
 		if(! price.matches(numbersRegex))
 			return false;
-		System.out.println("analizando");
+		
 		if(! operation.equals("FSale") && ! operation.equals("FRent"))
 			return false;
 		
 		if(description.length() > SECOND_FORM_MAX_LENGTH || description.length() < SECOND_FORM_MIN_LENGTH)
 			return false;
-		System.out.println("analizando");
+		
 		if(! description.matches(descriptionRegex))
 			return false;
 		
@@ -115,8 +115,6 @@ public class PublicationServiceImp implements PublicationService{
 		if(! bedrooms.matches(numbersRegex) || ! bathrooms.matches(numbersRegex) || ! floorSize.matches(numbersRegex)
 			|| ! parking.matches(numbersRegex))
 			return false;
-		
-		System.out.println("Pasa el validate del back");
 		
 		return true;
 	}
