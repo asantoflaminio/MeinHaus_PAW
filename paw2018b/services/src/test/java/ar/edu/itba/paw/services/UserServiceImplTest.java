@@ -42,8 +42,6 @@ public class UserServiceImplTest {
     	Mockito.reset(userDao);
     	
     	Mockito.when(userDao.create(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER)).thenReturn(new User(USERID, FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER));
-     //   Mockito.when(userDao.findByUsername(EMAIL)).thenReturn(new User(USERID, FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER));
-       // Mockito.when(userDao.findByUsername(NONEXISTENTEMAIL)).thenReturn(null);
     }
     
 	@Test 
@@ -74,7 +72,6 @@ public class UserServiceImplTest {
 		Mockito.when(userDao.findById(NONEXISTENTUSERID)).thenReturn(null);
 		
 		User userByID = userDao.findById(NONEXISTENTUSERID);
-		User user = userService.create(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER);
         User u1 = userService.findById(NONEXISTENTUSERID);
 		Assert.assertNull(userByID);
         Assert.assertNull(u1);
@@ -90,12 +87,5 @@ public class UserServiceImplTest {
 		Assert.assertNull(user2);
 		Assert.assertNull(user3);
 	}
-	/*
-	@Test
-	public void testValidateEmail() {
-		User user1 = userService.create(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER);
-		User user2 = userService.create(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER);
-		Assert.assertNull(user1);
-		Assert.assertNull(user2);
-	}	*/
+	
 }
