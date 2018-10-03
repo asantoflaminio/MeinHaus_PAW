@@ -3,10 +3,11 @@ package ar.edu.itba.paw.webapp.config;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
 import java.util.concurrent.TimeUnit;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -15,6 +16,10 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -42,8 +47,8 @@ public class SecurityConfig {
 		.usernameParameter("j_username")
 		.passwordParameter("j_password")
 		.loginPage("/meinHaus/home")
-		.defaultSuccessUrl("/meinHaus/home", false)
-		.failureUrl("/meinHaus/home?error=true")
+		.successHandler(successHandler())
+		.failureHandler(failureHandler())
 		.and().rememberMe().rememberMeParameter("j_rememberme")
 		.userDetailsService(userDetailsService)
 		.key(encryptKey(randomAlphaNumeric(Math.round(Math.random()*10+1))))
@@ -69,6 +74,22 @@ public class SecurityConfig {
 			return encryptedString;
 		}
 		
+		
+	    @Bean
+	    public AuthenticationSuccessHandler successHandler() {
+	        SimpleUrlAuthenticationSuccessHandler handler = new SimpleUrlAuthenticationSuccessHandler();
+	        handler.setUseReferer(true);
+	        return handler;
+	    }
+	    
+		
+	    @Bean
+	    public AuthenticationFailureHandler failureHandler() {
+	        SimpleUrlAuthenticationFailureHandler handler = new SimpleUrlAuthenticationFailureHandler();
+	        handler.setDefaultFailureUrl("/meinHaus/home?errorLogin=true");
+	        return handler;
+	    }
+		
 
 		
 		public static String randomAlphaNumeric(long count) {
@@ -81,6 +102,7 @@ public class SecurityConfig {
 			}
 			return builder.toString();
 		}
+
 	}
 	
 	@Configuration

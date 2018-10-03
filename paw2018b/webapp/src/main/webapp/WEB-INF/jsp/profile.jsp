@@ -21,14 +21,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
-	
-		<c:set var = "stayVar" scope = "session" value = "${stayInData}"/>
-		<!-- <body onload="showPublications();"> -->
-		<c:choose>
-		   <c:when test="${stayVar == 'yes'}"><body onload="showData();"></c:when> 
-		   <c:otherwise><body onload="showPublications();"></c:otherwise>    
-		</c:choose>
 
+
+		<body onload="selectContainer('${option}')">
         <nav>
         	<a href="./home">
            		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
@@ -277,7 +272,7 @@
 						<div class="page-nums">
 								<a class="page-number" href="profile?page=${previousPage}">&laquo;</a>
 							<c:set var="counter" value="1"/>
-							<c:forEach begin="1" end="${listLength/maxLength + listLength%maxLength}" varStatus="loop">
+							<c:forEach begin="1" end="${maxPage}" varStatus="loop">
 								<a class="page-number" href="profile?page=${counter}">${counter}</a>
 								<c:set var="counter" value="${counter+1}"/>
 							</c:forEach>

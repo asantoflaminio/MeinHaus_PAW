@@ -46,7 +46,8 @@ public class profileController {
 	
 	@RequestMapping("profile")
 	public ModelAndView profile(@ModelAttribute("ProfileForm") final ProfileForm form, @ModelAttribute("PasswordForm") final PasswordForm passForm,
-								@RequestParam(value = "error", required=false) String error, @RequestParam(value = "page", defaultValue = "1") String page) {
+								@RequestParam(value = "error", required=false) String error, @RequestParam(value = "page", defaultValue = "1") String page,
+								@RequestParam(value = "option", defaultValue = "myPublications") String option) {
 		final ModelAndView mav = new ModelAndView("profile");
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String oldEmail = authentication.getName();
@@ -58,10 +59,7 @@ public class profileController {
 		mav.addObject("emailValue",user.getEmail());
 		mav.addObject("phoneNumberValue",user.getPhoneNumber());
 		mav.addObject("publications", publications);
-		if(error == "errorOnForm") {
-			mav.addObject("stayInData", "yes");
-		}else {
-		}
+		mav.addObject("option", option);
 		mav.addObject("error",error);
 		mav.addObject("page",page);
 		return mav;
@@ -75,9 +73,9 @@ public class profileController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String oldEmail = authentication.getName();
 		if(user != null && ! form.getEmail().equals(oldEmail))
-			return profile(form,passForm,"email",page);
+			return profile(form,passForm,"email",page,"myDetails");
 		else if(errors.hasErrors()) {
-			return profile(form,passForm,"errorOnForm",page);
+			return profile(form,passForm,"errorOnForm",page,"myDetails");
 		}
 			
 	
@@ -88,6 +86,7 @@ public class profileController {
 			SecurityContextHolder.getContext().setAuthentication(auth);
 		}
 		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/profile");
+		mav.addObject("option", "myDetails");
 		return mav; 
 	}
 	
@@ -99,15 +98,16 @@ public class profileController {
 		User user = us.findByUsername(oldEmail);
 
 		if(! user.getPassword().equals(passForm.getPasswordOld()))
-			return profile(form,passForm,"password",page);
+			return profile(form,passForm,"password",page,"myDetails");
 		else if(errors.hasErrors()) {
 			System.out.println("ok so you made sth wrong");
-			return profile(form,passForm,"errorOnForm",page);
+			return profile(form,passForm,"errorOnForm",page,"myDetails");
 		}
 			
 		
 		us.editPassword(passForm.getPasswordOld(), passForm.getPasswordNew(), oldEmail);
 		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/profile");
+		mav.addObject("option", "myDetails");
 		return mav; 
 	}
 	
@@ -117,6 +117,7 @@ public class profileController {
 		ps.deleteById(pubid);
 		imageServiceImp.deleteById(pubid);
 		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/profile");
+		mav.addObject("option", "myPublications");
 		return mav; 
 	}
 	

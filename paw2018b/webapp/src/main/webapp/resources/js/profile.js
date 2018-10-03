@@ -1,3 +1,12 @@
+function selectContainer(option){
+	if(option == "myPublications"){
+		showPublications()
+	}
+	else{
+		showData();
+	}
+}
+
 function showData() {
     // Declare variables
     var dat, pub, fav;

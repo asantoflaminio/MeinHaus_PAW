@@ -327,7 +327,7 @@
 						<div class="page-nums">
 								<a class="page-number" href="list?operation=${operation}&address=${address}&page=${previousPage}&price=${price}&bedrooms=${bedrooms}">&laquo;</a>
 							<c:set var="counter" value="1"/>
-							<c:forEach begin="1" end="${listLength/maxLength + listLength%maxLength}" varStatus="loop">
+							<c:forEach begin="1" end="${maxPage}" varStatus="loop">
 								<a class="page-number" href="list?operation=${operation}&address=${address}&page=${counter}&price=${price}&bedrooms=${bedrooms}">${counter}</a>
 								<c:set var="counter" value="${counter+1}"/>
 							</c:forEach>
