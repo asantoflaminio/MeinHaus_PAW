@@ -26,7 +26,6 @@ import ar.edu.itba.paw.persistence.PublicationJdbcDao;
 @Transactional
 public class PublicationsJdbcDaoTest {
 
-
 	private static final String TITLE = "TestTitle";
 	private static final String ADDRESS = "TestAddress";
 	private static final String NEIGHBORHOOD = "TestNeighborhood";
@@ -55,7 +54,6 @@ public class PublicationsJdbcDaoTest {
 	public void setUp() {
 		jdbcTemplate = new JdbcTemplate(ds);
 	}
-	
 	
 	@Test
 	public void testCreate() {

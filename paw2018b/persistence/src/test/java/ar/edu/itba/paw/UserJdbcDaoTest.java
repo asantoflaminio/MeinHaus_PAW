@@ -48,7 +48,7 @@ public class UserJdbcDaoTest {
 	}
 	
 	@Test
-	public void testCreate() {
+	public void testCreateUser() {
 		JdbcTestUtils.deleteFromTables(jdbcTemplate, "users");
 		final User user = userDao.create(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER);
 		
@@ -71,7 +71,16 @@ public class UserJdbcDaoTest {
 	}
 	
 	@Test
-	public void testFindByInvalidId() {
+	public void testFindById() {
+		final User user = userDao.findById(USERID);
+		String userid = "'" + USERID + "'";
+		
+		Assert.assertNotNull(user);
+		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "userid = " + userid));
+	}
+	
+	@Test
+	public void testFindByNonExistentId() {
 		final User user = userDao.findById(INVALIDUSERID);
 		String userid = "'" + INVALIDUSERID + "'";
 		Assert.assertNull(user);
@@ -89,6 +98,7 @@ public class UserJdbcDaoTest {
 		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "firstname = " + newfirstname + " AND userid= " + userid));
 	}
 	
+	/*
 	@Test
 	public void testEditPassword() {
 		userDao.editPassword(NEWPASSWORD, USERID);
@@ -98,6 +108,6 @@ public class UserJdbcDaoTest {
 		
 		Assert.assertEquals(0, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "password = " + password + " AND userid= " + userid));
 		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "password = " + newpassword + " AND userid= " + userid));
-	}
+	}*/
 	
 }

@@ -86,16 +86,6 @@ public class UserJdbcDao implements UserDao{
 		jdbcTemplate.update(  "UPDATE users "
 				+ "SET password = ? "
 				+ "WHERE userid = ?",newPassword,userid);
-		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
