@@ -32,7 +32,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import ar.edu.itba.paw.FileUploadDao;
-import ar.edu.itba.paw.persistence.FileUpload;
+import ar.edu.itba.persistence.FileUpload;
 
 @EnableWebMvc
 @ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
