@@ -90,13 +90,13 @@
 				<div class="signup-list-item">
 				     <form:label for="title" path="title"><spring:message code="publish.title"/></form:label>
 				     <spring:message code="publish.placeholderTitle" var="title"/>
-		    		 <form:input type="text" id="title" name="title" path="title" placeholder="${title}"/>
+		    		 <form:input type="text" id="title" name="title" path="title" autocomplete="off" placeholder="${title}"/>
 		    		 <form:errors path="title" cssClass="error" element="p"/>
 		    	</div>
 		    	<div class="signup-list-item">
 		    		 <form:label for="address" path="address"><spring:message code="publish.address"/></form:label>
 		    		 <spring:message code="publish.placeholderAddress" var="address"/>
-		    		 <form:input type="text" id="address" name="address" path="address" placeholder="${address}"/>
+		    		 <form:input type="text" id="address" name="address" path="address" autocomplete="off" placeholder="${address}"/>
 		    		 <form:errors path="address" cssClass="error" element="p"/>
 		    	</div>
 				<div class="signup-list-item">
@@ -109,7 +109,7 @@
 				<div class="signup-list-item">
 		    		 <form:label for="price" path="price"><spring:message code="publish.price"/></form:label>
 		    		 <spring:message code="publish.placeholderPrice" var="price"/>
-		    		 <form:input type="text" id="price" path="price" name="price" placeholder="${price}" />
+		    		 <form:input type="text" id="price" path="price" name="price" autocomplete="off" placeholder="${price}" />
 		    		 <form:errors path="price" cssClass="error" element="p"/>
 		    	</div>
 		    		 <spring:message code="publish.submitPublish" var="submitValue"/>

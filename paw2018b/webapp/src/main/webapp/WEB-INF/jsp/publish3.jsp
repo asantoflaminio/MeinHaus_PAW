@@ -97,25 +97,25 @@
 				<div class="signup-list-item">
 				     <form:label for="bedrooms" path="bedrooms"><spring:message code="publish3.bedrooms"/></form:label>	
 				     <spring:message code="publish3.placeholderBedrooms" var="bedrooms"/>	    		 
-		    		 <form:input type="text" id="bedrooms" path="bedrooms" name="bedrooms" placeholder="${bedrooms}"/>
+		    		 <form:input type="text" id="bedrooms" path="bedrooms" name="bedrooms" autocomplete="off" placeholder="${bedrooms}"/>
 		    		 <form:errors path="bedrooms" cssClass="error" element="p"/>
 		    	</div>
 				<div class="signup-list-item">
 		    		 <form:label for="bathrooms" path="bathrooms"><spring:message code="publish3.bathrooms"/></form:label>	
 		    		 <spring:message code="publish3.placeholderBathrooms" var="bathrooms"/>	 
-		    		 <form:input type="text" id="bathrooms" path="bathrooms" name="bathrooms" placeholder="${bathrooms}"/>
+		    		 <form:input type="text" id="bathrooms" path="bathrooms" name="bathrooms" autocomplete="off" placeholder="${bathrooms}"/>
 		    		 <form:errors path="bathrooms" cssClass="error" element="p"/>
 		    	</div>
 				<div class="signup-list-item">
 		    		 <form:label for="floor_size" path="floorSize"><spring:message code="publish3.floorSize"/></form:label>	 
 		    		 <spring:message code="publish3.placeholderFloorSize" var="floorSize"/>	 
-		    		 <form:input type="text" id="floor_size" path="floorSize" name="floor_size" placeholder="${floorSize}"/>
+		    		 <form:input type="text" id="floor_size" path="floorSize" name="floor_size" autocomplete="off" placeholder="${floorSize}"/>
 		    		 <form:errors path="floorSize" cssClass="error" element="p"/>
 		    	</div>
 				<div class="signup-list-item">
 		    		 <form:label for="parking" path="parking"><spring:message code="publish3.parking"/></form:label>	 
 		    		 <spring:message code="publish3.placeholderParking" var="parking"/>	 
-		    		 <input type="text" id="parking" name="parking" path="parking" placeholder="${parking}">
+		    		 <input type="text" id="parking" name="parking" path="parking" autocomplete="off" placeholder="${parking}">
 		    		 <form:errors path="parking" cssClass="error" element="p"/>
 		    	</div>
 		    		 <spring:message code="publish3.submitPublish" var="submitValue"/>
