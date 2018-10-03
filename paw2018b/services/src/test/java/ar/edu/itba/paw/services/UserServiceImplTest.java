@@ -1,5 +1,5 @@
 package ar.edu.itba.paw.services;
-
+/*
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -93,10 +93,11 @@ public class UserServiceImplTest {
 		
     }
 	
-	/*
+	
 	@Test
 	public void testValidate() {
 		User user = userService.create(INVALIDFIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER);
 		Assert.assertNull(user);
-	}*/
-}
+	}
+
+}*/
