@@ -5,8 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.edu.itba.paw.ImageDao;
-import ar.edu.itba.paw.PublicationDao;
+import ar.edu.itba.paw.interfaces.ImageDao;
 import ar.edu.itba.paw.models.UploadFile;
 
 @Service

@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-import ar.edu.itba.paw.PublicationDao;
-import ar.edu.itba.paw.PublicationService;
+import ar.edu.itba.paw.interfaces.PublicationDao;
+import ar.edu.itba.paw.interfaces.PublicationService;
 import ar.edu.itba.paw.models.Publication;
 
 @Service

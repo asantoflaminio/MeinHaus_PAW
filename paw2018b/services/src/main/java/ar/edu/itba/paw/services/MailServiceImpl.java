@@ -17,7 +17,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.util.AlternativeJdkIdGenerator;
 
-import ar.edu.itba.paw.MailService;
+import ar.edu.itba.paw.interfaces.MailService;
 import ar.edu.itba.paw.models.Mail;
 
 @Service()
