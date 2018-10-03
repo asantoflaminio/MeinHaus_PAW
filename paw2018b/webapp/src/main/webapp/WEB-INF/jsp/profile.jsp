@@ -22,8 +22,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
 	
-	
-    <body>
+		<c:set var = "errorVar" scope = "session" value = "${error}"/>
+		<body onload="showPublications();">
+		<!--  
+        <c:if test="${errorVar == 'null'}">
+	    	<body onload="showPublications();">
+	    </c:if>
+	    <c:if test="${errorVar != 'null'}">
+	    	<body onload="showData();">
+	    </c:if>-->
         <nav>
         	<a href="./home">
            		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
@@ -85,9 +92,9 @@
         <aside>
       		<div class="leftcol">
 	       		<ul>
+	       		  <li id="pub"><a href="#" onclick="showPublications();"><spring:message code="profile.optionPublications"/></a></li>
 		          <li id="dat"><a href="#" onclick="showData();"><spring:message code="profile.optionData"/></a></li>
-		          <li id="pub"><a href="#" onclick="showPublications();"><spring:message code="profile.optionPublications"/></a></li>
-		          <li id="fav"><a href="#" onclick="showFavourites();"><spring:message code="profile.optionFavourites"/></a></li>
+		          <!-- <li id="fav"><a href="#" onclick="showFavourites();"><spring:message code="profile.optionFavourites"/></a></li> -->
 	        	</ul>
       		</div>
 		</aside>
