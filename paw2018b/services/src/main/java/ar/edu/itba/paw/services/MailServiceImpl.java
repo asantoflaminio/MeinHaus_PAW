@@ -113,7 +113,7 @@ public class MailServiceImpl implements MailService {
 	}
 	
 	
-	public void sendEmail(String to,String from, String body, String info) throws AddressException, MessagingException {
+	public void sendEmail (String to,String from, String body, String info) throws AddressException, MessagingException {
 		
 		String message = prepareMessage(body,from, info);
 

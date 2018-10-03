@@ -14,10 +14,10 @@ import ar.edu.itba.paw.models.Publication;
 public class PublicationServiceImp implements PublicationService{
 	
 	private final static int FIRST_FORM_MIN_LENGTH = 3;
-	private final static int FIRST_FORM_MAX_LENGTH = 40;
-	private final static int FIRST_FORM_MAX_LENGTH_ADDRESS = 140;
+	private final static int FIRST_FORM_MAX_LENGTH = 30;
+	private final static int FIRST_FORM_MAX_LENGTH_ADDRESS = 30;
 	private final static int SECOND_FORM_MIN_LENGTH = 1;
-	private final static int SECOND_FORM_MAX_LENGTH = 2500;
+	private final static int SECOND_FORM_MAX_LENGTH = 60;
 	private final static int THIRD_FORM_MIN_LENGTH = 1;
 	private final static int THIRD_FORM_MAX_LENGTH = 3;
 	
