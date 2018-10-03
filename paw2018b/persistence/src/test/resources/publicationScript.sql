@@ -9,14 +9,14 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS publications (
 	publicationid 	INTEGER IDENTITY PRIMARY KEY,
-	title 			varchar(30) NOT NULL,
-	address 		varchar(30) NOT NULL,
-	neighborhood		varchar(30) NOT NULL,
+	title 			varchar(50) NOT NULL,
+	address 		varchar(140) NOT NULL,
+	neighborhood	varchar(30) NOT NULL,
 	city			varchar(30) NOT NULL,
 	province		varchar(30) NOT NULL,
 	operation 		varchar(30) NOT NULL,
 	price 			integer NOT NULL,
-	description 	varchar(60) NOT NULL,
+	description 	varchar(2500) NOT NULL,
 	propertyType 	varchar(30) NOT NULL,
 	bedrooms 		integer NOT NULL,
 	bathrooms 		integer NOT NULL,

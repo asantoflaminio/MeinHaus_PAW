@@ -15,11 +15,11 @@ public class SignUpForm {
 	@Pattern(regexp = "[a-zA-Z ]+")
 	private String lastName;
 	
-	@Size(min = 3, max = 30)
+	@Size(min = 3, max = 250)
 	@Email
 	private String email;
 	
-	@Size(min = 6, max = 30)
+	@Size(min = 6, max = 70)
 	private String password;
 	
 	@Size(min = 6, max = 30)
