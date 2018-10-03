@@ -23,7 +23,7 @@
     </head>
 
 
-		<body onload="selectContainer('${option}')">
+		<body onload="selectContainer('${fn:escapeXml(option)}')">
         <nav>
         	<a href="./home">
            		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
@@ -112,11 +112,11 @@
 					</div>
 					<c:url value="/meinHaus/profileData" var="postPath"/>
 				 	<form:form modelAttribute="ProfileForm" action="${postPath}" method="post">
-				 	<c:set var = "name" scope = "session" value = "${firstNameValue}"/>
-				 	<c:set var = "surname" scope = "session" value = "${lastNameValue}"/>
-				 	<c:set var = "oldEmail" scope = "session" value = "${emailValue}"/>
-				 	<c:set var = "phone" scope = "session" value = "${phoneNumberValue}"/>
-				 	<c:set var = "errorForm" scope = "session" value = "${error}"/>
+				 	<c:set var = "name" scope = "session" value = "${fn:escapeXml(firstNameValue)}"/>
+				 	<c:set var = "surname" scope = "session" value = "${fn:escapeXml(lastNameValue)}"/>
+				 	<c:set var = "oldEmail" scope = "session" value = "${fn:escapeXml(emailValue)}"/>
+				 	<c:set var = "phone" scope = "session" value = "${fn:escapeXml(phoneNumberValue)}"/>
+				 	<c:set var = "errorForm" scope = "session" value = "${fn:escapeXml(error)}"/>
 						<div class="form">
 							<div class="editdata-list-item">
 	                        	<form:label path="firstName"><spring:message code="profile.firstName"/></form:label>
@@ -226,7 +226,7 @@
 									</div>				
 								</div>
 								<div class="more-info">
-									<a class="more-info-title" href="profileDelete?page=${page}&pubid=${row.publicationid}"><img class="delete" src="
+									<a class="more-info-title" href="profileDelete?page=${page}&pubid=${row.fn:escapeXml(publicationid)}"><img class="delete" src="
 	                        <c:url value="/resources/pics/trash.png" />
 	                        "><spring:message code="profile.delete"/> </a>
 								</div>		
