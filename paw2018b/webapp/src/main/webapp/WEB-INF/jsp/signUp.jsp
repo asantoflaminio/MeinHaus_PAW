@@ -26,7 +26,7 @@
            		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
             </a>
             <c:if test="${empty pageContext.request.userPrincipal}">
-            <div class="dropdown" id="sign_in">
+ <!--           <div class="dropdown" id="sign_in">
                 <a class="navbar_item" href="#"><spring:message code="nav.signIn"/></a>
                 <c:url value="/meinHaus/home" var="loginUrl" />
 				<form action="${loginUrl}" method="POST" class="form_login"  enctype="application/x-www-form-urlencoded">
@@ -55,6 +55,7 @@
             <div>
                 <a class="navbar_item" id="sign_up" href="./signUp"><spring:message code="nav.signUp"/></a>
             </div>
+-->
             </c:if>
             <c:if test="${not empty pageContext.request.userPrincipal}">
             <div>

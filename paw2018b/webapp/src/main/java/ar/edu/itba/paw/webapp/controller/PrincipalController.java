@@ -74,7 +74,6 @@ public class PrincipalController {
 	
 	@RequestMapping("home")
 	public ModelAndView home(@ModelAttribute("homeSearchForm") final HomeSearchForm form, @RequestParam(value = "error", required=false) String error) {
-		System.out.println("Home");
 		final ModelAndView mav = new ModelAndView("home");
 		mav.addObject("error",error);
 		return mav;
@@ -82,7 +81,6 @@ public class PrincipalController {
 	
 	@RequestMapping(value = "home",method = RequestMethod.POST)
 	public ModelAndView homeLogin() {
-		System.out.println("Me llamo login");
 		final ModelAndView mav = new ModelAndView("home");
 		return mav;
 	}
@@ -90,9 +88,7 @@ public class PrincipalController {
 	@RequestMapping(value = "homeSearch",method = RequestMethod.POST)
 	public ModelAndView homeSearch(@Valid @ModelAttribute("homeSearchForm") final HomeSearchForm form, final BindingResult errors,
 								   @RequestParam("oper") String operation) {
-		System.out.println("Me llamo list");
 		if(errors.hasErrors()) {
-			System.out.println("Tengo errores :c");
 			return home(form,null);
 		}
 		final ModelAndView mav = new ModelAndView("redirect:/meinHaus/list");
@@ -111,7 +107,6 @@ public class PrincipalController {
 			@RequestParam("address") String address, @RequestParam(value = "page", defaultValue="1") String page, 
 			@RequestParam(value = "price", required=false) String price,
 			@RequestParam(value = "bedrooms", required=false) String bedrooms) {
-		System.out.println("en List");
 		List<Publication> publications;
 		final ModelAndView mav = new ModelAndView("list");
 		if((price == null && bedrooms == null) || (price.equals("") && bedrooms.equals(""))) {
@@ -140,7 +135,6 @@ public class PrincipalController {
 			   						@RequestParam("oper") String operation, @RequestParam(value = "page", defaultValue="1") String page,
 			   						@RequestParam(value = "price", required=false) String price,
 			   						@RequestParam(value = "bedrooms", required=false) String bedrooms){
-		System.out.println("Bedrooms:" + bedrooms);
 		if (errors.hasErrors()) {
 			return list(form, operation,form.getSearch(),page,price,bedrooms);
 		}
@@ -166,7 +160,6 @@ public class PrincipalController {
 	@RequestMapping(value = "details", method = RequestMethod.GET)
 	public ModelAndView details(@ModelAttribute("MessageForm") final MessageForm form, @RequestParam("publicationid") String publicationid,
 								@RequestParam(value = "sent", required=false) String sent) {
-		System.out.println("Details");
 		final Publication pub = ps.findById(Integer.valueOf(publicationid));
 		final User user = us.findById(pub.getUserid());
 	    final ModelAndView mav = new ModelAndView("details");
@@ -201,9 +194,7 @@ public class PrincipalController {
 	@RequestMapping(value = "detailsSend", method = RequestMethod.POST)
 	public ModelAndView detailsMessage(@Valid @ModelAttribute("MessageForm") final MessageForm form, final BindingResult errors,
 									   @RequestParam("publicationid") String publicationid, @RequestParam("emailSeller") String email) throws AddressException, MessagingException{
-		System.out.println("Details send email: " + email);
 		if (errors.hasErrors()) {
-			System.out.println("Errors: " + errors.getErrorCount());
 			return details(form, publicationid,null);
 		}
 		final String sent = "true";
@@ -328,9 +319,6 @@ public class PrincipalController {
 		if (fileUpload != null && fileUpload.length > 0) {
             for (CommonsMultipartFile aFile : fileUpload){
             	
-                
-                System.out.println("Saving file: " + aFile.getOriginalFilename());
-                 
                 //hay que chequear q si o si sea jpg o el formato q queramos
                 UploadFile uploadFile = new UploadFile();
                 
@@ -342,7 +330,6 @@ public class PrincipalController {
                
                 final long limit = 20 * 1024 * 1024; //20MB
                 
-                System.out.println("I'm about to save with id: " + uploadFile.getId());
                 if(aFile.getSize() < limit && uploadFile.getData().length > 0) {
                 	if(aFile.getContentType().equals("image/jpeg")) {
                 		fileUploadImpl.save(uploadFile); 
@@ -362,7 +349,6 @@ public class PrincipalController {
 	
 	@ExceptionHandler({MultipartException.class})
 	public ModelAndView handleMaxSizeException(Exception excptn, HttpServletRequest request) {
-		System.out.println("I'm here");
 		return new ModelAndView("redirect:/meinHaus/home");
 	}
 	
@@ -392,7 +378,6 @@ public class PrincipalController {
             
         }catch(Exception ex){
             ex.printStackTrace();
-        	System.out.println("Sth went wrong");
             final HttpHeaders headers = new HttpHeaders();
             return new ResponseEntity<byte[]>(null, headers, HttpStatus.NOT_FOUND);
             //return null;
@@ -404,9 +389,7 @@ public class PrincipalController {
 
         try{ 
 
-        	UploadFile ufa = imageServiceImp.findByUploadId(uniqueId);
-        	System.out.println("ok my uploadId es " + uniqueId);
-            
+        	UploadFile ufa = imageServiceImp.findByUploadId(uniqueId);            
             if(ufa == null) {
             	String relativeWebPath = "/resources/pics/default.jpg";
             	InputStream input =  servletContext.getResourceAsStream(relativeWebPath);
@@ -424,7 +407,6 @@ public class PrincipalController {
             
         }catch(Exception ex){
             ex.printStackTrace();
-        	System.out.println("Sth went wrong");
             final HttpHeaders headers = new HttpHeaders();
             return new ResponseEntity<byte[]>(null, headers, HttpStatus.NOT_FOUND);
             //return null;
