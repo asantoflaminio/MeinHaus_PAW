@@ -226,7 +226,7 @@
 									</div>				
 								</div>
 								<div class="more-info">
-									<a class="more-info-title" href="profileDelete?page=${page}&pubid=${row.fn:escapeXml(publicationid)}"><img class="delete" src="
+									<a class="more-info-title" href="profileDelete?page=${page}&pubid=${fn:escapeXml(row.publicationid)}"><img class="delete" src="
 	                        <c:url value="/resources/pics/trash.png" />
 	                        "><spring:message code="profile.delete"/> </a>
 								</div>		
