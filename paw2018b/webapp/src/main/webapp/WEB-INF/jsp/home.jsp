@@ -132,11 +132,13 @@
                     </div>
                 </div>
                 </form:form>
-           		<div class="notice" id="divErrorSignIn">
-         		   <div class="msg-sent-container">
-            		  <p id='msg-sent'><spring:message code="signUp.signInError"/></p> 
-           		   </div>
-              </div>
+                <c:if test="${error == 'true'}">
+	           		<div class="notice" id="divErrorSignIn">
+	         		   <div class="msg-sent-container">
+	            		  <p id='msg-sent'><spring:message code="signUp.signInError"/></p> 
+	           		   </div>
+	              </div>
+	            </c:if>
             </div>
             
 

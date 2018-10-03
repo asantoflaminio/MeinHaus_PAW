@@ -58,3 +58,7 @@ function operation_sel(op){
 	console.log("I got: " + op.valueOf());
 	operation = op;
 }
+
+$(document).ready(function() {
+	$("#divErrorSignIn").delay(5000).hide(1000);
+});

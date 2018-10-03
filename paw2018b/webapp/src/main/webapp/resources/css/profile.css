@@ -484,7 +484,8 @@ h4 {
 	border: 1px solid #ccc;
 	height: 175px;
 	width: 200px;
-	background-color: white;	
+	background-color: white;
+	display: none;	
 }
 
 #popup-nav {
