@@ -7,7 +7,6 @@ CREATE TABLE IF NOT EXISTS users (
 	phoneNumber		varchar(30) NOT NULL
 );
 
-
 CREATE TABLE IF NOT EXISTS publications (
 	publicationid 	SERIAL PRIMARY KEY,
 	title 			varchar(50) NOT NULL,
@@ -25,7 +24,6 @@ CREATE TABLE IF NOT EXISTS publications (
 	parking 		integer NOT NULL,
 	userid 			integer REFERENCES users(userid)
 );
-
 
 CREATE TABLE IF NOT EXISTS images (
    upload_id integer NOT NULL,
