@@ -82,7 +82,7 @@
         
         <header>
             <div class="header" style="background-image:url(<c:url value='/resources/pics/background5.png'/>)">
-                <c:if test="${fn:escapeXml(errorLogin) == 'true'}">
+                <c:if test="${fn:escapeXml(error) == 'true'}">
                    <p><spring:message code="signUp.signInError"/></p>
                 </c:if>
 
