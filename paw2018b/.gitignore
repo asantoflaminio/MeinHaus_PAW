@@ -1,10 +1,20 @@
 /.metadata/
 /.recommenders/
 
+
+*.iml
+.DS_Store
+*.ini
+
 *.class
 .classpath
 .project
 .settings/target/
+.settings
+
+# Maven
+log/
+target/
 
 paw2018b/interfaces/\.classpath
 
