@@ -307,3 +307,32 @@ div.card-body.row.no-gutters.align-items-center {
 
 
 /* Closing style */
+
+/* Notice style */
+
+.notice{
+	text-align:center;
+	padding-top: 4%;
+}
+
+.msg-sent-container {
+    padding: 1px 5px 1px 5px;
+    background-color: black;
+    border-radius:8px;
+    -moz-border-radius:8px; 
+    -webkit-border-radius:8px;
+    opacity: 0.7;
+    display:inline-block;
+    margin-bottom: 10px;
+}
+
+#msg-sent {
+    color: white;
+    font-size: 12px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+/* End of style */

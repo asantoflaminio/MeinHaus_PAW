@@ -82,10 +82,12 @@
         
         <header>
             <div class="header" style="background-image:url(<c:url value='/resources/pics/background5.png'/>)">
-                <c:if test="${fn:escapeXml(error) == 'true'}">
+               
+                
+        <!--        <c:if test="${fn:escapeXml(error) == 'true'}">
                    <p><spring:message code="signUp.signInError"/></p>
                 </c:if>
-
+-->
                 <div class="title">
                     <h1><spring:message code="home.title"/></h1>
                 </div>
@@ -130,7 +132,14 @@
                     </div>
                 </div>
                 </form:form>
+           		<div class="notice" id="divErrorSignIn">
+         		   <div class="msg-sent-container">
+            		  <p id='msg-sent'><spring:message code="signUp.signInError"/></p> 
+           		   </div>
+              </div>
             </div>
+            
+
         </header>
         
         <section class="newest_homes">
