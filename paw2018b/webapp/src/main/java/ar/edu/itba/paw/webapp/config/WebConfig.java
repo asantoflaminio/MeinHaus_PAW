@@ -31,7 +31,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import ar.edu.itba.paw.FileUploadDao;
+import ar.edu.itba.paw.interfaces.FileUploadDao;
 import ar.edu.itba.persistence.FileUpload;
 
 @EnableWebMvc
