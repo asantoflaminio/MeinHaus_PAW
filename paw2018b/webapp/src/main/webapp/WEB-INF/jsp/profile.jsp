@@ -84,14 +84,14 @@
 				<div id="popup">
         			<div id="popup-nav">
         				<p id="popup-nav-title">Delete</p>
-        				<button id="popup-nav-close">X</button>
+        				<button id="popup-nav-close" onclick="closeDelete()">X</button>
         			</div>
         			<div id="popup-body">
         				<p id="popup-body-msg">Are you sure you want to delete this publication?</p>
         			</div>
         			<div id="popup-btn">
-        				<button id="accept">Delete</button>
-        				<button id="cancel">Cancel</button>
+        				<a id="accept">Delete</a>
+        				<button id="cancel" onclick="closeDelete()">Cancel</button>
         			</div>
        			</div>                
         <aside>
@@ -226,7 +226,7 @@
 									</div>				
 								</div>
 								<div class="more-info">
-									<a class="more-info-title" href="profileDelete?page=${page}&pubid=${fn:escapeXml(row.publicationid)}"><img class="delete" src="
+									<a class="more-info-title" href="#" onclick="showDelete(${row.publicationid}, ${page})"><img class="delete" src="
 	                        <c:url value="/resources/pics/trash.png" />
 	                        "><spring:message code="profile.delete"/> </a>
 								</div>		

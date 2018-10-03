@@ -3,29 +3,21 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
-    
+
     <head>
         <meta charset="UTF-8">
-        <title>MeinHaus</title>
-        <link rel="shortcut icon" href="
-        <c:url value="/resources/pics/favicon.ico" />
-        ">
-        <link rel="stylesheet" type="text/css" href="
-        <c:url value="/resources/css/details.css" />
-        ">
-        <link rel="stylesheet" type="text/css" href="
-        <c:url value="/resources/css/navbar.css" />
-        ">
-        <link rel="stylesheet" type="text/css" href="
-        <c:url value="/resources/css/footer.css" />
-        ">
-        <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
-                <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <title>Sign Up</title>
+        <link rel="shortcut icon" href="<c:url value="/resources/pics/favicon.ico" />">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/signUp.css" />">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/navbar.css" />">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/footer.css" />">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     </head>
 
     <body>
@@ -66,13 +58,7 @@
             </c:if>
             <c:if test="${not empty pageContext.request.userPrincipal}">
             <div>
-            	<div class="dropdown">
-            	    <a class="navbar_item" id="userName" href="#"><c:out value="${pageContext.request.userPrincipal.name}" /></a>
-           			<div class="dropdown-content" id="profile_dropdown">
-          				<a class="user_dropdown" href="./profile"><spring:message code="nav.myProfile"/></a>
-           			    <a class="user_dropdown" href="./logout"><spring:message code="nav.logOut"/></a>
-           			</div>
-           		</div>
+                <a class="navbar_item" id="userName" href="#"><c:out value="${pageContext.request.userPrincipal.name}" /></a>
             </div>
             <div>
                 <a class="navbar_item" id="publish" href="./publish"><spring:message code="nav.publish"/></a>
@@ -80,121 +66,92 @@
             </c:if>
         </nav>
         
-       	<div class="breadcrumb">
-			<a href="javascript:history.back()"><spring:message code="details.goBack"/></a>
-		</div>
-		
-		<c:set var = "sentVar" scope = "session" value = "${sent}"/>
-        <c:if test="${sentVar == 'true'}">
-		  <div class="notice" id="divMessageSent">
-            <div class="msg-sent-container">
-              <p id='msg-sent'><spring:message code="details.msgSent"/></p> 
-            </div>
-          </div>
-        </c:if>
         
-        <div id="cols">
-         <div id="left-col">   
-         <div class="polaroid">       
-          <div class="w3-content w3-display-container" style="max-width:800px">
-           	<div class="size_div">
-				  <!-- <img class="mySlides" src="<c:url value="/meinHaus/images/${publicationid}" />" > -->
-				  <c:set var = "current" scope = "session" value = "1"/>
-				  <c:set var = "maxLength" scope = "session" value = "${amountImages}"/>
-				  <c:forEach var="row" varStatus="status" items="${myImages}" step="1" begin="0">
-	        		<c:if test = "${current <= maxLength}">
-						  <img class="mySlides" src="<c:url value="/meinHaus/imagesByUpload/${row.id}" />" >
-				  	</c:if>
-				</c:forEach>
-           	</div>
-			  
-			  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
-			    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
-			    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
-			    <c:forEach var = "i" begin = "1" end = "${amountImages}">
-			         <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(${i})"></span>
-			    </c:forEach>
-			  </div>
-			</div>
-		  <div class="container">
-		    <p class="direction"><c:out value="${address}"/></p>
-		  </div>
-		</div>
-		
-		<div class="polaroid_overview">
-		  <div class="container4">
-		     <p class="polaroid_title"><spring:message code="details.overview"/></p>
-		     <p class="agency_text"><spring:message code="details.bedrooms"/><c:out value="${bedrooms}"/></p>
-		     <p class="agency_text"><spring:message code="details.bathrooms"/><c:out value="${bathrooms}"/></p>
-		     <p class="agency_text"><spring:message code="details.floorSize"/><c:out value="${floorSize}"/> m2</p>
-		     <p class="agency_text"><spring:message code="details.parking"/><c:out value="${parking}"/> <spring:message code="details.vehicles"/></p>
-		  </div>
-		</div>
-		</div>
-		
-		<div id="right-col">
-		<div class="polaroid_price">
-		  <div class="container2">
-		    <div class="price_text">
-		    	<p id="rent_sale" style="text-transform: uppercase"><spring:message code="details.price"/></p> 
-		    	<p id="price_tag"><c:out value="${price}"/></p>
-		  	</div>
-		  </div>
-		</div>
-		
-		<div class="polaroid_agency">
-		  <div class="container3">
-		     <p class="agency_text_contact"><spring:message code="details.contact"/></p>
-		     <div id="tel-container">
-		     	<p class="tel-text"><spring:message code="details.tel"/></p>
-		     	<p class="tel-num"><c:out value="${phoneNumber}"/></p>
-		     </div>
-		     <c:url value="/meinHaus/detailsSend?publicationid=${publicationid}" var="postPath"/>
-			<form:form modelAttribute="MessageForm" action="${postPath}" method="post">
-		     	<div class="fillers">
-				     <form:label cssClass="contact-title" path="name"><spring:message code="details.name"/></form:label>
-				     <spring:message code="details.placeholderName" var="detailsName"/>
-		    		 <form:input type="text" path="name" id="name" name="name" placeholder="${detailsName}" />
-		    		 <form:errors path="name" cssClass="error" element="p"/>
-		    		 
-		    		 
-		    		 <form:label cssClass="contact-title" path="email"><spring:message code="details.email"/></form:label>
-                     <spring:message code="details.placeholderEmail" var="detailsEmail"/>
-                     <form:input path="email" name="contactEmail" type="text" placeholder="${detailsEmail}"/>
-                     <form:errors path="email" cssClass="error" element="p"/>
-		    		 
-		    		 <form:label cssClass="contact-title" path="message" for="message"><spring:message code="details.message"/></form:label>
-		    		 <spring:message code="details.placeholderMessage" var="detailsMessage"/>
-		    		 <form:input id="message" path="message" placeholder="${detailsMessage}"/>
-		    		 <form:errors path="message" cssClass="error" element="p"/>
-		    		 
-		    		 <input type="hidden" value=${sellerEmail} name="emailSeller">
-		    		 
-		    		 <spring:message code="details.contactButton" var="submitValue"/>
-		    		 <input class="button-contact" type="submit" value=${submitValue}>
-	    		 </div>
-	    	</form:form>
-		  </div>
-		</div>
-		</div>
-		</div>
+	    <div class="polaroid">
+			<div class="signup-container">
+				<div id="signup-title">
+					<h3><spring:message code="signUp.title"/></h3>
+				</div>
+				<c:url value="/meinHaus/signUp/create" var="postPath"/>
+				 <form:form modelAttribute="signUpForm" action="${postPath}" method="post">
+					<div class="signup-list">
+						<div class="signup-list-item">
+                        	<form:label path="firstName"><spring:message code="signUp.firstName"/></form:label>
+                        	<spring:message code="signUp.placeholderFirstName" var="firstName"/>
+                        	<form:input class="sign-up-input" path="firstName" type="text" placeholder="${firstName}" name="firstName"/>
+                        	<form:errors path="firstName" cssClass="error" element="p"/>
+                        </div>
+						<div class="signup-list-item">
+                        	<form:label path="lastName"><spring:message code="signUp.lastName"/></form:label>
+                        	<spring:message code="signUp.placeholderLastName" var="lastName"/>
+                        	<form:input class="sign-up-input" path="lastName" type="text" placeholder="${lastName}" name="lastName"/>
+                        	<form:errors path="lastName" cssClass="error" element="p"/>
+                        </div>					
+                        <div class="signup-list-item">
+                        	<form:label path="email"><spring:message code="signUp.email"/></form:label>
+                        	<spring:message code="signUp.placeholderEmail" var="email"/>
+                        	<form:input class="sign-up-input" path="email" type="text" placeholder="${email}" name="email"/>
+                        	<form:errors path="email" cssClass="error" element="p"/>
+                        	<c:set var = "signUp" scope = "session" value = "${error}"/>	
+                        	<c:if test="${signUp == 'emailTaken'}">
+                        		<p class="error"><spring:message code="signUp.emailTaken"/></p>
+                         	</c:if>
+                        </div>
+                        <div class="signup-list-item">
+                        	<form:label path="password"><spring:message code="signUp.password"/></form:label>
+                        	<spring:message code="signUp.placeholderPassword" var="password"/>
+                        	<form:input class="sign-up-input" path="password" type="password" placeholder="${password}" name="password"/>
+                        	<form:errors path="password" cssClass="error" element="p"/>
 
-		
-		<div class="polaroid_des">
-		  <div class="container">
-		  	<p class="polaroid_title"><c:out value="${title}"/></p>
-		    <p class="agency_text"><c:out value="${description}"/></p>
-		  </div>
+                        </div>
+						<div class="signup-list-item">
+                        	<form:label path="phoneNumber"><spring:message code="signUp.phoneNumber"/></form:label>
+                        	<spring:message code="signUp.placeholderPhoneNumber" var="phoneNumber"/>
+                        	<form:input class="sign-up-input" path="phoneNumber" type="text" placeholder="${phoneNumber}" name="phoneNumber"/>
+                        	<form:errors path="phoneNumber" cssClass="error" element="p"/>
+                        </div>
+                        	<spring:message code="signUp.submitSignUp" var="signUpValue"/>
+                        	<input class="signup-submit" type="submit" value="${signUpValue}">
+					</div>
+                </form:form>
+			</div>
 		</div>
-	
+		
+
+		<div class="polaroid-member">
+			<div class="signup-container">
+				<div id="signup-title">
+					<h3><spring:message code="signUp.signInTitle"/></h3>
+				</div>
+					<div class="signup-list">
+						<c:url value="/meinHaus/signUp" var="signUpLogInUrl" />
+						<form action="${signUpLogInUrl}" method="POST" enctype="application/x-www-form-urlencoded">
+						<div class="signup-list-item">
+                        	<label><spring:message code="signUp.email"/></label>
+                        	<input class="sign-up-input" type="text" placeholder="${email}" name="j_username"/>
+                        </div>
+                        <div class="signup-list-item signup-list-item-last">
+                        	<label><spring:message code="signUp.password"/></label>
+                        	<input class="sign-up-input" type="password" placeholder="${password}" name="j_password"/>
+                        </div>
+                        <c:set var = "logIn" scope = "session" value = "${error}"/>	
+                        <c:if test="${logIn == 'true'}">
+                        	<p class="error signin-error"><spring:message code="signUp.signInError"/></p>
+                        </c:if>
+                        <div class="check_box">
+                            <label><input type="checkbox" name="j_rememberme" /><spring:message code="nav.rememberMe"/></label>
+                        </div>
+	                    <spring:message code="signUp.submitSignIn" var="signInValue"/>
+	                    <input class="signup-submit" type="submit" value="${signInValue}">  
+	                    </form>
+					</div>
+			</div>
+		</div>
 		
          <footer>
-
-		  
           <div id="footer">
               <p>Copyright &copy; 2018, MeinHaus. All rights reserved.</p>
           </div>
         </footer>
-        <script src="<c:url value="/resources/js/details.js" />"></script>
+
     </body>
-</html>

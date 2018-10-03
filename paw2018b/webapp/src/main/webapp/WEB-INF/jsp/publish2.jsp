@@ -1,11 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@	page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     
     <head>
-        <meta charset="UTF-8">
+   		 <META http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!-- <meta charset="UTF-8"> -->
         <title>MeinHaus</title>
         <link rel="shortcut icon" href="
         <c:url value="/resources/pics/favicon.ico" />
