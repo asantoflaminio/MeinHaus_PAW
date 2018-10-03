@@ -5,11 +5,11 @@ import javax.validation.constraints.Size;
 
 public class FirstPublicationForm {
 	
-	@Size(min = 3, max = 20)
+	@Size(min = 3, max = 40)
 	@Pattern(regexp = "[a-zA-Z0-9 ]+")
 	private String title;
 	
-	@Size(min = 3, max = 20)
+	@Size(min = 3, max = 140)
 	@Pattern(regexp = "[a-zA-Z0-9 ]+")
 	private String address;
 	
