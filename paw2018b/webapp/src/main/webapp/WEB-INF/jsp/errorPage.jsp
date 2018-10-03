@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,19 +75,19 @@
 		<div id="error-container">
  			<h1 id="error-title"><spring:message code="errorPage.title"/></h1>
  			
- 			<c:if test="${status == '404'}">
- 				<p id="error-status"><spring:message code="errorPage.messageStatus"/><c:out value="${status}"/> <spring:message code="errorPage.error404"/></p>
+ 			<c:if test="${fn:escapeXml(status) == '404'}">
+ 				<p id="error-status"><spring:message code="errorPage.messageStatus"/><c:out value="${fn:escapeXml(status)}"/> <spring:message code="errorPage.error404"/></p>
  			</c:if>
  			
- 			<c:if test="${status == '500'}">
- 				<p id="error-status"><spring:message code="errorPage.messageStatus"/><c:out value="${status}"/> <spring:message code="errorPage.error500"/></p>
+ 			<c:if test="${fn:escapeXml(status) == '500'}">
+ 				<p id="error-status"><spring:message code="errorPage.messageStatus"/><c:out value="${fn:escapeXml(status)}"/> <spring:message code="errorPage.error500"/></p>
  			</c:if>
  			
- 			<c:if test="${status == '406'}">
- 				<p id="error-status"><spring:message code="errorPage.messageStatus"/><c:out value="${status}"/> <spring:message code="errorPage.error406"/></p>
+ 			<c:if test="${fn:escapeXml(status) == '406'}">
+ 				<p id="error-status"><spring:message code="errorPage.messageStatus"/><c:out value="${fn:escapeXml(status)}"/> <spring:message code="errorPage.error406"/></p>
  			</c:if>
  			
- 			<c:if test="${status == '-1'}">
+ 			<c:if test="${fn:escapeXml(status) == '-1'}">
  				<p id="error-status"><spring:message code="errorPage.messageStatus"/><spring:message code="errorPage.globalError"/></p>
  			</c:if>
  			
