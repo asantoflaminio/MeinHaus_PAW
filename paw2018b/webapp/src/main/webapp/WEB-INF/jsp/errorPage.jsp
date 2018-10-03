@@ -75,7 +75,7 @@
  			<h1 id="error-title"><spring:message code="errorPage.title"/></h1>
  			
  			<c:if test="${status == '404'}">
- 				<p id="error-status"><spring:message code="errorPage.messageStatus"/><c:out value="${error}"/></p>
+ 				<p id="error-status"><spring:message code="errorPage.messageStatus"/><c:out value="${error}"/><spring:message code="errorPage.error404"/></p>
  			</c:if>
  			
   			<p id="error-message"><spring:message code="errorPage.message"/></p>
