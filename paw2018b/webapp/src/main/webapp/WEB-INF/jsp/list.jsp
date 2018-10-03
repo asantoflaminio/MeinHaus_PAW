@@ -74,7 +74,6 @@
             </c:if>
         </nav>
         
-        
         <div class="breadcrumb">
 	        <ul class="breadcrumb-list">
 			  <li><a href="home">Home</a></li>

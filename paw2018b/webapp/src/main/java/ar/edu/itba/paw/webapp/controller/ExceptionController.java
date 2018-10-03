@@ -34,6 +34,14 @@ public class ExceptionController {
     	mav.addObject("error", "Page not found");
         return mav;
     }
+    
+    @RequestMapping(value="GlobalError")
+    @ExceptionHandler(Exception.class)
+    public ModelAndView globalException() {
+    	final ModelAndView mav = new ModelAndView("errorPage");
+    	mav.addObject("error", "Page not found");
+        return mav;
+    }
 	
 	
 

@@ -73,6 +73,7 @@
 
 		<div id="error-container">
  			<h1 id="error-title"><spring:message code="errorPage.title"/></h1>
+ 			<p id="error-status"><spring:message code="errorPage.messageStatus"/></p>
   			<p id="error-message"><spring:message code="errorPage.message"/></p>
   		</div>
   		<div id="link1-container">
