@@ -1,15 +1,10 @@
 package ar.edu.itba.paw.webapp.controller;
 
-import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.http.HttpStatus;
 
 @ControllerAdvice
 @RequestMapping("/meinHaus/")

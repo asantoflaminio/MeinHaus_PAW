@@ -127,7 +127,10 @@ function filterPrice(price){
 			priceFilter.innerText = priceRadios[i].parentElement.innerText
 	}
 	priceFilter.insertBefore(childDelete, priceFilter.firstChild);
-	priceFilter.style.display = "inline-block";
+	if(price == "")
+		priceFilter.style.display = "none";
+	else
+		priceFilter.style.display = "inline-block";
 	document.getElementById("price").setAttribute("price",price);
 	
 	document.getElementById("searchPrice").setAttribute("value",price)
@@ -144,7 +147,10 @@ function filterBedroom(bedroom){
 			bedroomFilter.innerText = bedroomRadios[i].parentElement.innerText
 	}
 	bedroomFilter.insertBefore(childDelete, bedroomFilter.firstChild);
-	bedroomFilter.style.display = "inline-block";
+	if(bedroom == "")
+		bedroomFilter.style.display = "none";
+	else
+		bedroomFilter.style.display = "inline-block";
 	document.getElementById("bedroom").setAttribute("bedroom",bedroom);
 	document.getElementById("searchBedrooms").setAttribute("value",bedroom)
 	document.getElementById("filterBedroomsInput").setAttribute("value",bedroom)
@@ -178,7 +184,8 @@ function chargeParameters(address,operation,price,bedrooms){
 		}
 	}
 	bedroomFilter.insertBefore(childDelete, bedroomFilter.firstChild);
-	bedroomFilter.style.display = "inline-block";
+	if(bedrooms == "")
+		bedroomFilter.style.display = "none";
 	document.getElementById("bedroom").setAttribute("bedroom",bedrooms);
 	document.getElementById("searchBedrooms").setAttribute("value",bedrooms)
 	document.getElementById("filterBedroomsInput").setAttribute("value",bedrooms)
@@ -203,7 +210,8 @@ function chargeParameters(address,operation,price,bedrooms){
 
 	}
 	priceFilter.insertBefore(childDelete, priceFilter.firstChild);
-	priceFilter.style.display = "inline-block";
+	if(price == "")
+		priceFilter.style.display = "none";
 	document.getElementById("price").setAttribute("price",price);
 	document.getElementById("searchPrice").setAttribute("value",price)
 	document.getElementById("filterPriceInput").setAttribute("value",price)
@@ -220,66 +228,5 @@ function chargeParameters(address,operation,price,bedrooms){
 		rent.parentElement.classList.add("selected");
 		rent.parentElement.style.backgroundColor = "#fd8907";
 	}
-}
-
-
-function sortHighestPrice() {
-  var publications = document.querySelectorAll(".polaroid-property");
-  var sort = [];
-  var father = document.getElementById("publications");
-  var i, j, k;
-  var max = null;
-  while (father.firstChild) {
-   		father.removeChild(father.firstChild);
-  }
-  for(i = 0; i < publications.length; i++){
-  	max = null;
-  	for(j = 0; j < publications.length; j++){
-  		if(publications[j].getAttribute("visited") != "true"){
-	  		var price = parseInt(publications[j].getElementsByClassName("price-tag")[0].innerHTML.substring(1));
-	  		if(price > max || max == null){
-	  			max = price;
-	  			k = j;
-	  		}
-  		}
-  	}
-  	sort.push(k);
-  	publications[k].setAttribute("visited",true);
-  }
-  for(i = 0; i < sort.length; i++){
-  	publications[i].setAttribute("visited",false);
-  	father.appendChild(publications[sort[i]]);
-  }
-}
-
-function sortLowestPrice() {
-  var publications = document.querySelectorAll(".polaroid-property");
-  var sort = [];
-  var father = document.getElementById("publications");
-  var i, j, k;
-  var min = null;
-
-  while (father.firstChild) {
-   		father.removeChild(father.firstChild);
-  }
-  for(i = 0; i < publications.length; i++){
-  	min = null;
-  	for(j = 0; j < publications.length; j++){
-  		if(publications[j].getAttribute("visited") != "true"){
-	  		var price = parseInt(publications[j].getElementsByClassName("price-tag")[0].innerHTML.substring(1));
-	  		if(min == null || price < min){
-	  			min = price;
-	  			k = j;
-	  		}
-  		}
-  	}
-  	sort.push(k);
-  	publications[k].setAttribute("visited",true);
-  }
-  for(i = 0; i < sort.length; i++){
-  	publications[i].setAttribute("visited",false);
-  	father.appendChild(publications[sort[i]]);
-  }
-}
-
+}	
 

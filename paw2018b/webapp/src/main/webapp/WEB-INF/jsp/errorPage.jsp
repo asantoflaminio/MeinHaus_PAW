@@ -75,7 +75,19 @@
  			<h1 id="error-title"><spring:message code="errorPage.title"/></h1>
  			
  			<c:if test="${status == '404'}">
- 				<p id="error-status"><spring:message code="errorPage.messageStatus"/><c:out value="${error}"/><spring:message code="errorPage.error404"/></p>
+ 				<p id="error-status"><spring:message code="errorPage.messageStatus"/><c:out value="${status}"/> <spring:message code="errorPage.error404"/></p>
+ 			</c:if>
+ 			
+ 			<c:if test="${status == '500'}">
+ 				<p id="error-status"><spring:message code="errorPage.messageStatus"/><c:out value="${status}"/> <spring:message code="errorPage.error500"/></p>
+ 			</c:if>
+ 			
+ 			<c:if test="${status == '406'}">
+ 				<p id="error-status"><spring:message code="errorPage.messageStatus"/><c:out value="${status}"/> <spring:message code="errorPage.error406"/></p>
+ 			</c:if>
+ 			
+ 			<c:if test="${status == '-1'}">
+ 				<p id="error-status"><spring:message code="errorPage.messageStatus"/><spring:message code="errorPage.globalError"/></p>
  			</c:if>
  			
   			<p id="error-message"><spring:message code="errorPage.message"/></p>

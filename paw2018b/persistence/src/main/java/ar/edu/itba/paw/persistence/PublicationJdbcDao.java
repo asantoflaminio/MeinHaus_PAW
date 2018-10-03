@@ -98,7 +98,7 @@ public class PublicationJdbcDao implements PublicationDao{
 	
 	public List<Publication> findSearch(String operation, String search){
 		final String queryAddress = "%" + search + "%";
-		return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND address LIKE ?", ROW_MAPPER,operation,queryAddress);
+		return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND UPPER(address) LIKE UPPER(?)", ROW_MAPPER,operation,queryAddress);
 	}
 	
 	public List<Publication> findSearchFiltering(String operation, String address, String price, String bedrooms){
@@ -110,15 +110,15 @@ public class PublicationJdbcDao implements PublicationDao{
 			queryAddress = "%" + address + "%";
 		if(! price.equals("") && ! bedrooms.equals("")) {
 			System.out.print("Busco con todo: " + bedrooms + " " + price);
-			return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND address LIKE ? AND bedrooms = ? AND price <= ?", ROW_MAPPER,operation,queryAddress,Integer.valueOf(bedrooms),Integer.valueOf(price)	);
+			return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND UPPER(address) LIKE UPPER(?) AND bedrooms = ? AND price <= ?", ROW_MAPPER,operation,queryAddress,Integer.valueOf(bedrooms),Integer.valueOf(price)	);
 		}
 		else if(! price.equals("")) {
 			System.out.print("Busco con price: " + price);
-			return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND address LIKE ? AND price <= ?", ROW_MAPPER,operation,queryAddress,Integer.valueOf(price));
+			return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND UPPER(address) LIKE UPPER(?) AND price <= ?", ROW_MAPPER,operation,queryAddress,Integer.valueOf(price));
 		}
 		else {
 			System.out.print("Busco con bedrooms: " + bedrooms);
-			return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND address LIKE ? AND bedrooms = ?", ROW_MAPPER,operation,queryAddress,Integer.valueOf(bedrooms)	);
+			return jdbcTemplate.query("SELECT * FROM publications WHERE operation = ? AND UPPER(address) LIKE UPPER(?) AND bedrooms = ?", ROW_MAPPER,operation,queryAddress,Integer.valueOf(bedrooms)	);
 		}
 	}
 
