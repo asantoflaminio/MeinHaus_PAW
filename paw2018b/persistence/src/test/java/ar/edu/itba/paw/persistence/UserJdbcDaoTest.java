@@ -31,7 +31,6 @@ public class UserJdbcDaoTest {
 	private static final String LASTNAME = "TestLastName";
 	private static final String EMAIL = "test1@mail.com";
 	private static final String PASSWORD = "TestPassword";
-	private static final String NEWPASSWORD = "TestNewPassword";
 	private static final String PHONENUMBER = "1522334455";
 	
 	@Autowired
@@ -99,16 +98,5 @@ public class UserJdbcDaoTest {
 		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "firstname = " + newfirstname + " AND userid= " + userid));
 	}
 	
-	/*
-	@Test
-	public void testEditPassword() {
-		userDao.editPassword(NEWPASSWORD, USERID);
-		String password = "'" + PASSWORD + "'";
-		String newpassword = "'" + NEWPASSWORD + "'";
-		String userid = "'" + USERID + "'";
-		
-		Assert.assertEquals(0, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "password = " + password + " AND userid= " + userid));
-		Assert.assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "users", "password = " + newpassword + " AND userid= " + userid));
-	}*/
 	
 }
