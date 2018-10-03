@@ -22,7 +22,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
     
-    <body onload="chargeParameters('${address}','${operation}','${price}','${bedrooms}')">       
+    <body onload="chargeParameters('${fn:escapeXml(address)}','${fn:escapeXml(operation)}','${fn:escapeXml(price)}','${fn:escapeXml(bedrooms)}')">       
         <nav>
         	<a href="./home">
            		<img src="<c:url value="/resources/pics/Logo4.png" />" alt="Home" id="logo">
@@ -77,10 +77,10 @@
         <div class="breadcrumb">
 	        <ul class="breadcrumb-list">
 			  <li><a href="home">Home</a></li>
-  			  <c:if test="${address != 'all'}">  		
+  			  <c:if test="${fn:escapeXml(address) != 'all'}">  		
 			 	<li><c:out value="${address}"/></li>
 			  </c:if>
-  			  <c:if test="${address == 'all'}">  	
+  			  <c:if test="${fn:escapeXml(address) == 'all'}">  	
   			  	<li><spring:message code="list.all"/></li>
 			  </c:if>
 			</ul>
@@ -134,13 +134,13 @@
 
     	<div class="filters">
     		<ul id="applied-filters-list">
-  			<c:if test="${address != 'all'}">  		
+  			<c:if test="${fn:escapeXml(address) != 'all'}">  		
     		  <li class="applied-filters-list-item"><c:out value="${address}"/></li>
     		</c:if>
-    		<c:if test="${operation == 'FSale'}">  		
+    		<c:if test="${fn:escapeXml(operation) == 'FSale'}">  		
     		  <li class="applied-filters-list-item"><spring:message code="list.operationSale"/></li>
     		</c:if> 
-    		<c:if test="${operation == 'FRent'}">  		
+    		<c:if test="${fn:escapeXml(operation) == 'FRent'}">  		
     		  <li class="applied-filters-list-item"><spring:message code="list.operationRent"/></li>
     		</c:if> 
 			  <li class="applied-filters-list-item" id="filterPrice" ><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><spring:message code="list.noLimit"/></li>
@@ -267,17 +267,17 @@
 									</div>
 									<div class="column-2">
 										<h4><strong><c:out value = "${row.floorSize}"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
-										<c:if test="${operation == 'FSale'}">  		
+										<c:if test="${fn:escapeXml(operation) == 'FSale'}">  		
 							    		  <h4><spring:message code="list.operationSale"/></h4>
 							    		</c:if> 
-							    		<c:if test="${operation == 'FRent'}">  		
+							    		<c:if test="${fn:escapeXml(operation) == 'FRent'}">  		
 							    		  <h4><spring:message code="list.operationRent"/></h4>
 							    		</c:if> 
 										
 									</div>				
 								</div>
 								<div class="more-info">
-									<a class="more-info-title" href="details?publicationid=${row.publicationid}"><spring:message code="list.moreInfo"/> ></a>
+									<a class="more-info-title" href="details?publicationid=${fn:escapeXml(row.publicationid)}"><spring:message code="list.moreInfo"/> ></a>
 								</div>	
 							</div>
 						</div>
@@ -330,24 +330,24 @@
 	       		<c:if test="${listLength <= maxLength}">
 	 	      		<div class="page-nums-container">
 						<div class="page-nums">
-							<a class="page-number" href="list?operation=${operation}&address=${address}&page=${previousPage}&price=${price}&bedrooms=${bedrooms}">&laquo;</a>
+							<a class="page-number" href="list?operation=${fn:escapeXml(operation)}&address=${fn:escapeXml(address)}&page=${previousPage}&price=${fn:escapeXml(price)}&bedrooms=${fn:escapeXml(bedrooms)}">&laquo;</a>
 							<c:set var="counter" value="1"/>
-							<a class="page-number" href="list?operation=${operation}&address=${address}&page=${counter}&price=${price}&bedrooms=${bedrooms}">${counter}</a>
+							<a class="page-number" href="list?operation=${fn:escapeXml(operation)}&address=${fn:escapeXml(address)}&page=${counter}&price=${fn:escapeXml(price)}&bedrooms=${fn:escapeXml(bedrooms)}">${counter}</a>
 							<c:set var="counter" value="${counter+1}"/>
- 							<a class="page-number" href="list?operation=${operation}&address=${address}&page=${nextPage}&price=${price}&bedrooms=${bedrooms}">&raquo;</a>
+ 							<a class="page-number" href="list?operation=${fn:escapeXml(operation)}&address=${fn:escapeXml(address)}&page=${nextPage}&price=${fn:escapeXml(price)}&bedrooms=${fn:escapeXml(bedrooms)}">&raquo;</a>
 						</div>	        
 					</div>
 				</c:if>	        
 	       		<c:if test="${listLength > maxLength}">
 		        	<div class="page-nums-container">
 						<div class="page-nums">
-								<a class="page-number" href="list?operation=${operation}&address=${address}&page=${previousPage}&price=${price}&bedrooms=${bedrooms}">&laquo;</a>
+								<a class="page-number" href="list?operation=${fn:escapeXml(operation)}&address=${fn:escapeXml(address)}&page=${previousPage}&price=${fn:escapeXml(price)}&bedrooms=${fn:escapeXml(bedrooms)}">&laquo;</a>
 							<c:set var="counter" value="1"/>
 							<c:forEach begin="1" end="${maxPage}" varStatus="loop">
-								<a class="page-number" href="list?operation=${operation}&address=${address}&page=${counter}&price=${price}&bedrooms=${bedrooms}">${counter}</a>
+								<a class="page-number" href="list?operation=${fn:escapeXml(operation)}&address=${fn:escapeXml(address)}&page=${counter}&price=${fn:escapeXml(price)}&bedrooms=${fn:escapeXml(bedrooms)}">${counter}</a>
 								<c:set var="counter" value="${counter+1}"/>
 							</c:forEach>
- 							<a class="page-number" href="list?operation=${operation}&address=${address}&page=${nextPage}&price=${price}&bedrooms=${bedrooms}">&raquo;</a>
+ 							<a class="page-number" href="list?operation=${fn:escapeXml(operation)}&address=${fn:escapeXml(address)}&page=${nextPage}&price=${fn:escapeXml(price)}&bedrooms=${fn:escapeXml(bedrooms)}">&raquo;</a>
 						</div>	        
 					</div>
 				</c:if>	        
