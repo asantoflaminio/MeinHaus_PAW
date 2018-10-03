@@ -33,7 +33,7 @@ import ar.edu.itba.webapp.form.ProfileForm;
 @Controller
 @RequestMapping("/meinHaus/")
 @ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
-public class profileController {
+public class ProfileController {
 	
 	@Autowired
 	private UserServiceImpl us;
