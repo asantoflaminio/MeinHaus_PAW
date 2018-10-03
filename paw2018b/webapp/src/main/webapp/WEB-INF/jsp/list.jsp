@@ -127,7 +127,15 @@
 
     	<div class="filters">
     		<ul id="applied-filters-list">
+  			<c:if test="${address != 'all'}">  		
     		  <li class="applied-filters-list-item"><c:out value="${address}"/></li>
+    		</c:if>
+    		<c:if test="${operation == 'FSale'}">  		
+    		  <li class="applied-filters-list-item"><spring:message code="list.operationSale"/></li>
+    		</c:if> 
+    		<c:if test="${operation == 'FRent'}">  		
+    		  <li class="applied-filters-list-item"><spring:message code="list.operationRent"/></li>
+    		</c:if> 
 			  <li class="applied-filters-list-item"><c:out value="${operation}"/></li>
 			  <li class="applied-filters-list-item" id="filterPrice" ><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><spring:message code="list.noLimit"/></li>
 			  <li class="applied-filters-list-item" id="filterBedroom"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><spring:message code="list.noLimit"/></li>
