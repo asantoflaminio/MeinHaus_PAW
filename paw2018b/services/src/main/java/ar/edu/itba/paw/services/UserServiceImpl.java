@@ -75,8 +75,8 @@ public class UserServiceImpl implements UserService{
         return userDaoInt.findById(userid);
 	}
 
-	public User findByUsername(String username) {
-		return userDaoInt.findByUsername(username);
+	public User findByUsername(String email) {
+		return userDaoInt.findByUsername(email);
 	}
 
 	public boolean validate(String firstName, String lastName, String email, String password, String phoneNumber) {
