@@ -6,11 +6,28 @@
 .DS_Store
 *.ini
 
+### Eclipse ###
+
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
 *.class
 .classpath
 .project
 .settings/target/
 .settings
+
+# Locally stored "Eclipse launch configurations"
+*.launch
 
 # Maven
 log/
@@ -19,7 +36,6 @@ target/
 ### STS ###
 .apt_generated
 .factorypath
-.project
 .springBeans
 
 paw2018b/interfaces/\.classpath

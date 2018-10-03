@@ -1,5 +1,5 @@
 package ar.edu.itba.paw.services;
-/*
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -10,18 +10,16 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import ar.edu.itba.paw.interfaces.UserDao;
 import ar.edu.itba.paw.models.User;
-import ar.edu.itba.paw.persistence.TestConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = TestConfig.class)
 public class UserServiceImplTest {
-
+	
 	private static final long USERID = 1;
 	private static final long NONEXISTENTUSERID = 1;
 	private static final String FIRSTNAME = "TestFirstName";
@@ -30,20 +28,11 @@ public class UserServiceImplTest {
 	private static final String PASSWORD = "TestPassword";
 	private static final String PHONENUMBER = "1522334455";
 	
-	private static final String INVALIDFIRSTNAME = "TestFirstName12345!";
-	private static final String INVALIDLASTNAME = "TestLastName12345";
-	private static final String INVALIDEMAIL = "test1";
-	private static final String INVALIDPASSWORD = "TestPassword";
-	private static final String INVALIDPHONENUMBER = "1522334455";
-	
-	
     @InjectMocks
     private UserServiceImpl userService;
 	
     @Mock
     private UserDao userDao;
-    
-    private User user;
     
     @Rule
     public MockitoRule rule = MockitoJUnit.rule();
@@ -53,8 +42,6 @@ public class UserServiceImplTest {
     	Mockito.reset(userDao);
     	
     	Mockito.when(userDao.create(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER)).thenReturn(new User(USERID, FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER));
-     //   Mockito.when(userDao.findByUsername(EMAIL)).thenReturn(new User(USERID, FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER));
-       // Mockito.when(userDao.findByUsername(NONEXISTENTEMAIL)).thenReturn(null);
     }
     
 	@Test 
@@ -85,19 +72,20 @@ public class UserServiceImplTest {
 		Mockito.when(userDao.findById(NONEXISTENTUSERID)).thenReturn(null);
 		
 		User userByID = userDao.findById(NONEXISTENTUSERID);
-		User user = userService.create(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER);
         User u1 = userService.findById(NONEXISTENTUSERID);
 		Assert.assertNull(userByID);
         Assert.assertNull(u1);
         Assert.assertEquals(userByID,u1);
-		
     }
 	
-	
 	@Test
-	public void testValidate() {
-		User user = userService.create(INVALIDFIRSTNAME, LASTNAME, EMAIL, PASSWORD, PHONENUMBER);
-		Assert.assertNull(user);
+	public void testValidateInvalidFirstName() {
+		User user1 = userService.create("Helloworld1234", LASTNAME, EMAIL, PASSWORD, PHONENUMBER);
+		User user2 = userService.create("a", LASTNAME, EMAIL, PASSWORD, PHONENUMBER);
+		User user3 = userService.create("Thisisaverylongnameofapproximately100characters", LASTNAME, EMAIL, PASSWORD, PHONENUMBER);
+		Assert.assertNull(user1);
+		Assert.assertNull(user2);
+		Assert.assertNull(user3);
 	}
-
-}*/
+	
+}
