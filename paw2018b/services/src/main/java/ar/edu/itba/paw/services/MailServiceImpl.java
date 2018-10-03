@@ -1,27 +1,25 @@
 package ar.edu.itba.paw.services;
 
-import java.io.File;
-import java.io.IOException;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-import org.springframework.util.AlternativeJdkIdGenerator;
 
 import ar.edu.itba.paw.interfaces.MailService;
 import ar.edu.itba.paw.models.Mail;
 
 @Service()
 public class MailServiceImpl implements MailService {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 	
     @Autowired
     JavaMailSender mailSender;
@@ -124,6 +122,7 @@ public class MailServiceImpl implements MailService {
 		email.setContent(message, "text/html; charset=utf-8");
 		
 		mailSender.send(email);
+		LOGGER.trace("Sending email to {} from {} ", to, from);
 	}
  
 }

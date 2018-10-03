@@ -12,7 +12,7 @@ public class ProfileForm {
 	private String firstName;
 	
 	@Size(min = 3, max = 20)
-	@Pattern(regexp = "[a-zA-Z]+")
+	@Pattern(regexp = "[a-zA-Z ]+")
 	private String lastName;
 	
 	@Size(min = 3, max = 250)

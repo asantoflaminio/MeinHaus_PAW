@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService{
 			return false;
 		
 		userDaoInt.editData(firstName, lastName, email, phoneNumber,userDaoInt.findByUsername(oldEmail).getUserId());
-		LOGGER.debug("Editing data of user with email {}", email);
+		LOGGER.trace("Editing data of user with email {}", email);
 		return true;
 	}
 	
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService{
 			return "exception";
 		
 		userDaoInt.editPassword(newPassword, user.getUserId());
-		LOGGER.debug("Editing password of user with email {}", oldEmail);
+		LOGGER.trace("Editing password of user with email {}", oldEmail);
 		return "correct";
 	}
 	
@@ -74,7 +74,7 @@ public class UserServiceImpl implements UserService{
             throw new IllegalArgumentException("id must be positive");
         }
 		
-        LOGGER.debug("Looking up user with id {}", userid);
+        LOGGER.trace("Looking up user with id {}", userid);
         return userDaoInt.findById(userid);
 	}
 
@@ -88,7 +88,8 @@ public class UserServiceImpl implements UserService{
 				|| ! validatePassword(password) || ! validatePhone(phoneNumber))
 			return false;
 		
-		LOGGER.debug("All fields are valid. Creating user with email {} ", email);
+		LOGGER.debug("All fields are valid");
+		LOGGER.trace("Creating user with email {} ", email);
 		return true;
 	}
 	
