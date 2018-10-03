@@ -2,6 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -114,6 +115,7 @@
 				<h3 id="res-title"><spring:message code="list.resultsTitle"/></h3>
 			</div>
 			
+			<!-- 
 			<div class="results" id="order">
 				<select id="order-select">
 					<option value="Lowest price" onclick="sortLowestPrice()"><spring:message code="list.lowest"/></option>
@@ -123,6 +125,7 @@
 				</select>				
 				<h3 id="order-title"><spring:message code="list.orderTitle"/></h3>
 			</div>
+			-->
 		</div>
 
     	<div class="filters">
@@ -136,7 +139,6 @@
     		<c:if test="${operation == 'FRent'}">  		
     		  <li class="applied-filters-list-item"><spring:message code="list.operationRent"/></li>
     		</c:if> 
-			  <li class="applied-filters-list-item"><c:out value="${operation}"/></li>
 			  <li class="applied-filters-list-item" id="filterPrice" ><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><spring:message code="list.noLimit"/></li>
 			  <li class="applied-filters-list-item" id="filterBedroom"><img src="<c:url value="/resources/pics/delete.png" />" onclick="deleteFilter(this);" alt="Delete" class="delete-img"/><spring:message code="list.noLimit"/></li>
 			</ul>
@@ -233,7 +235,7 @@
 	        <section id="publications">
 	        
 	        	<c:set var = "listLength" scope = "session" value = "${fn:length(publications)}"/>
-	        	<c:set var = "maxLength" scope = "session" value = "10"/>
+	        	<c:set var = "maxLength" scope = "session" value = "2"/>
 	        	<c:set var = "page" scope = "session" value = "${page}"/>
 	        	<c:set var = "init" scope = "session" value = "${(page - 1) * maxLength}"/>
 	        	<c:set var = "current" scope = "session" value = "1"/>
@@ -261,7 +263,13 @@
 									</div>
 									<div class="column-2">
 										<h4><strong><c:out value = "${row.floorSize}"/></strong> <spring:message code="list.floorSizeMinus"/></h4>
-										<h4><c:out value = "${row.operation}"/></h4>
+										<c:if test="${operation == 'FSale'}">  		
+							    		  <h4><spring:message code="list.operationSale"/></h4>
+							    		</c:if> 
+							    		<c:if test="${operation == 'FRent'}">  		
+							    		  <h4><spring:message code="list.operationRent"/></h4>
+							    		</c:if> 
+										
 									</div>				
 								</div>
 								<div class="more-info">
@@ -273,6 +281,26 @@
 				</c:forEach>
 		       
 	        </section>
+	        
+	        <c:set var = "maxPageDouble" scope = "session" value = "${listLength/maxLength + listLength%maxLength}"/>
+	        <fmt:formatNumber var="maxPage" value="${maxPageDouble -(maxPageDouble%1)}" maxFractionDigits="0" />
+	        <c:if test="${page == maxPage}">
+	       		<c:set var = "nextPage" scope = "session" value = "${maxPage}"/>
+	       	</c:if>
+	       	
+	        <c:if test="${page != maxPage}">
+	      	  <c:if test="${listLength > maxLength}">
+	       		<c:set var = "nextPage" scope = "session" value = "${page + 1}"/>
+	       		<!--<h2>${maxPage}</h2>-->
+	       		</c:if>
+	       	</c:if>
+	       	
+	        <c:if test="${page == 1}">
+	       		<c:set var = "previousPage" scope = "session" value = "1"/>
+	       	</c:if>
+	        <c:if test="${page != 1}">
+	       		<c:set var = "previousPage" scope = "session" value = "${page - 1}"/>
+	       	</c:if>
 	        
 	        <c:if test="${listLength == 0}">	        
 	 	       <div id="no-results">
@@ -287,24 +315,24 @@
 	       		<c:if test="${listLength <= maxLength}">
 	 	      		<div class="page-nums-container">
 						<div class="page-nums">
-							<a class="page-number" href="#">&laquo;</a>
+							<a class="page-number" href="list?operation=${operation}&address=${address}&page=${previousPage}&price=${price}&bedrooms=${bedrooms}">&laquo;</a>
 							<c:set var="counter" value="1"/>
 							<a class="page-number" href="list?operation=${operation}&address=${address}&page=${counter}&price=${price}&bedrooms=${bedrooms}">${counter}</a>
 							<c:set var="counter" value="${counter+1}"/>
- 							<a class="page-number" href="#">&raquo;</a>
+ 							<a class="page-number" href="list?operation=${operation}&address=${address}&page=${nextPage}&price=${price}&bedrooms=${bedrooms}">&raquo;</a>
 						</div>	        
 					</div>
 				</c:if>	        
 	       		<c:if test="${listLength > maxLength}">
 		        	<div class="page-nums-container">
 						<div class="page-nums">
-								<a class="page-number" href="#">&laquo;</a>
+								<a class="page-number" href="list?operation=${operation}&address=${address}&page=${previousPage}&price=${price}&bedrooms=${bedrooms}">&laquo;</a>
 							<c:set var="counter" value="1"/>
 							<c:forEach begin="1" end="${listLength/maxLength + listLength%maxLength}" varStatus="loop">
 								<a class="page-number" href="list?operation=${operation}&address=${address}&page=${counter}&price=${price}&bedrooms=${bedrooms}">${counter}</a>
 								<c:set var="counter" value="${counter+1}"/>
 							</c:forEach>
- 							<a class="page-number" href="#">&raquo;</a>
+ 							<a class="page-number" href="list?operation=${operation}&address=${address}&page=${nextPage}&price=${price}&bedrooms=${bedrooms}">&raquo;</a>
 						</div>	        
 					</div>
 				</c:if>	        

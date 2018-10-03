@@ -234,7 +234,8 @@
 
 			</div>
 			
-			<fmt:formatNumber var="maxPage" value="${listLength/maxLength + listLength%maxLength}" maxFractionDigits="0" />
+			<c:set var = "maxPageDouble" scope = "session" value = "${listLength/maxLength + listLength%maxLength}"/>
+	        <fmt:formatNumber var="maxPage" value="${maxPageDouble -(maxPageDouble%1)}" maxFractionDigits="0" />
 	       	
 	       	<c:if test="${page == maxPage}">
 	       		<c:set var = "nextPage" scope = "session" value = "${maxPage}"/>

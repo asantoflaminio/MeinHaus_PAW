@@ -108,7 +108,7 @@ public class HelloWorldController {
 	
 	@RequestMapping("list")
 	public ModelAndView list(@ModelAttribute("homeSearchForm") final HomeSearchForm form, @RequestParam("operation") String operation,
-			@RequestParam("address") String address, @RequestParam(value = "page", required=false) String page, 
+			@RequestParam("address") String address, @RequestParam(value = "page", defaultValue="1") String page, 
 			@RequestParam(value = "price", required=false) String price,
 			@RequestParam(value = "bedrooms", required=false) String bedrooms) {
 		System.out.println("en List");
@@ -137,7 +137,7 @@ public class HelloWorldController {
 	
 	@RequestMapping(value = "list" ,method = RequestMethod.POST)
 	public ModelAndView listSearch(@Valid @ModelAttribute("homeSearchForm") final HomeSearchForm form, final BindingResult errors,
-			   						@RequestParam("oper") String operation, @RequestParam(value = "page", required=false) String page,
+			   						@RequestParam("oper") String operation, @RequestParam(value = "page", defaultValue="1") String page,
 			   						@RequestParam(value = "price", required=false) String price,
 			   						@RequestParam(value = "bedrooms", required=false) String bedrooms){
 		System.out.println("Bedrooms:" + bedrooms);
