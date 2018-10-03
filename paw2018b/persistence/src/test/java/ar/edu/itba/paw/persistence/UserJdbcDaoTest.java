@@ -1,4 +1,4 @@
-package ar.edu.itba.paw;
+package ar.edu.itba.paw.persistence;
 
 import org.junit.Assert;
 
