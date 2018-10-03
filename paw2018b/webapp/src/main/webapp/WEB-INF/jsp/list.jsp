@@ -77,7 +77,12 @@
         <div class="breadcrumb">
 	        <ul class="breadcrumb-list">
 			  <li><a href="home">Home</a></li>
-			  <li><c:out value="${address}"/></li>
+  			  <c:if test="${address != 'all'}">  		
+			 	<li><c:out value="${address}"/></li>
+			  </c:if>
+  			  <c:if test="${address == 'all'}">  	
+  			  	<li><spring:message code="list.all"/></li>
+			  </c:if>
 			</ul>
 		</div>
         
