@@ -114,9 +114,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	public static DataSource dataSource() {
 		final SimpleDriverDataSource ds = new SimpleDriverDataSource();
 		ds.setDriverClass(org.postgresql.Driver.class);
+		
 		ds.setUrl("jdbc:postgresql://localhost/postgres");
 		ds.setUsername("postgres");
-		ds.setPassword("Bvma141511");
+		ds.setPassword("3296");
+		
+//		ds.setUrl("jdbc:postgresql://localhost/paw-2018b-10");
+//		ds.setUsername("paw-2018b-10");
+//		ds.setPassword("eWAh0kb4x");
 		return ds;
 	}
 	
@@ -136,8 +141,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
  
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
-        mailSender.setUsername("zonaprops@gmail.com");
-        mailSender.setPassword("Bvma141511");
+        mailSender.setUsername("meinhauspaw@gmail.com");
+        mailSender.setPassword("pawgrupo10");
  
         Properties javaMailProperties = new Properties();
         javaMailProperties.put("mail.smtp.starttls.enable", "true");
