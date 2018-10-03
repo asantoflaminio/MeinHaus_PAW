@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -81,10 +82,10 @@
         
         <header>
             <div class="header" style="background-image:url(<c:url value='/resources/pics/background5.png'/>)">
-<!--                <c:if test="${logIn == 'true'}">
+                <c:if test="${fn:escapeXml(errorLogin) == 'true'}">
                    <p><spring:message code="signUp.signInError"/></p>
                 </c:if>
--->
+
                 <div class="title">
                     <h1><spring:message code="home.title"/></h1>
                 </div>
