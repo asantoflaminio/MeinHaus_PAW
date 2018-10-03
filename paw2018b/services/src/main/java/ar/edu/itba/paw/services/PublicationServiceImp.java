@@ -2,6 +2,8 @@ package ar.edu.itba.paw.services;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -12,6 +14,8 @@ import ar.edu.itba.paw.models.Publication;
 
 @Service
 public class PublicationServiceImp implements PublicationService{
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 	
 	private final static int FIRST_FORM_MIN_LENGTH = 3;
 	private final static int FIRST_FORM_MAX_LENGTH = 50;
@@ -71,13 +75,15 @@ public class PublicationServiceImp implements PublicationService{
 		final String lettesNumersAndSpacesRegexComma = "[a-zA-Z0-9, ]+";
 		final String descriptionRegex = "[-a-zA-ZÀ-ÿ0-9,.!?:%;()$\r\n ]+";
 		
-		
-	
-		if(title.length() > FIRST_FORM_MAX_LENGTH || title.length() < FIRST_FORM_MIN_LENGTH)
+		if(title.length() > FIRST_FORM_MAX_LENGTH || title.length() < FIRST_FORM_MIN_LENGTH) {
+			LOGGER.info("Title length is wrong");
 			return false;
+		}
 		
-		if(address.length() > FIRST_FORM_MAX_LENGTH_ADDRESS|| address.length() < FIRST_FORM_MIN_LENGTH)
+		if(address.length() > FIRST_FORM_MAX_LENGTH_ADDRESS|| address.length() < FIRST_FORM_MIN_LENGTH) {
+			LOGGER.info("Address length is wrong");
 			return false;
+		}
 		
 		if(! title.matches(lettesNumersAndSpacesRegex) || ! address.matches(lettesNumersAndSpacesRegexComma))
 			return false;
@@ -85,14 +91,18 @@ public class PublicationServiceImp implements PublicationService{
 		if(price.length() > FIRST_FORM_MAX_LENGTH || price.length() < FIRST_FORM_MIN_LENGTH)
 			return false;
 		
-		if(! price.matches(numbersRegex))
+		if(! price.matches(numbersRegex)) {
+			LOGGER.info("Price format is wrong");
 			return false;
+		}
 		
 		if(! operation.equals("FSale") && ! operation.equals("FRent"))
 			return false;
 		
-		if(description.length() > SECOND_FORM_MAX_LENGTH || description.length() < SECOND_FORM_MIN_LENGTH)
+		if(description.length() > SECOND_FORM_MAX_LENGTH || description.length() < SECOND_FORM_MIN_LENGTH) {
+			LOGGER.info("Description length is wrong");
 			return false;
+		}
 		
 		if(! description.matches(descriptionRegex))
 			return false;
@@ -116,6 +126,7 @@ public class PublicationServiceImp implements PublicationService{
 			|| ! parking.matches(numbersRegex))
 			return false;
 		
+		LOGGER.debug("The publication with title {} of user {} is valid", title, userid);
 		return true;
 	}
 

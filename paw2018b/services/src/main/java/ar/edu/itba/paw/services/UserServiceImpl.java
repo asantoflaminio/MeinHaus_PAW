@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService{
 			return false;
 		
 		userDaoInt.editData(firstName, lastName, email, phoneNumber,userDaoInt.findByUsername(oldEmail).getUserId());
-		LOGGER.trace("Editing data of user with email {}", email);
+		LOGGER.debug("Editing data of user with email {}", email);
 		return true;
 	}
 	
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService{
 			return "exception";
 		
 		userDaoInt.editPassword(newPassword, user.getUserId());
-		LOGGER.trace("Editing password of user with email {}", oldEmail);
+		LOGGER.debug("Editing password of user with email {}", oldEmail);
 		return "correct";
 	}
 	
@@ -74,12 +74,12 @@ public class UserServiceImpl implements UserService{
             throw new IllegalArgumentException("id must be positive");
         }
 		
-        LOGGER.trace("Looking up user with id {}", userid);
+        LOGGER.debug("Looking up user with id {}", userid);
         return userDaoInt.findById(userid);
 	}
 
 	public User findByUsername(String email) {
-		LOGGER.trace("Looking up user with email {}", email);
+		LOGGER.debug("Looking up user with email {}", email);
 		return userDaoInt.findByUsername(email);
 	}
 
@@ -88,16 +88,17 @@ public class UserServiceImpl implements UserService{
 				|| ! validatePassword(password) || ! validatePhone(phoneNumber))
 			return false;
 		
+		LOGGER.debug("All fields are valid. Creating user with email {} ", email);
 		return true;
 	}
 	
 	public boolean validateFirstName(String firstName) {
 		if(firstName.length() > SHORT_STRING_MAX_LENGTH || firstName.length() < SHORT_STRING_MIN_LENGTH) {
-			LOGGER.debug("First name length is wrong");
+			LOGGER.info("First name length is wrong");
 			return false;
 		}
 		if(! firstName.matches(LETTERSANDSPACESREGEX)) {
-			LOGGER.debug("First name length is wrong");
+			LOGGER.info("First name length is wrong");
 			return false;
 		}
 		return true;
@@ -106,11 +107,11 @@ public class UserServiceImpl implements UserService{
 	
 	public boolean validateLastName(String lastName) {
 		if(lastName.length() > SHORT_STRING_MAX_LENGTH || lastName.length() < SHORT_STRING_MIN_LENGTH) {
-			LOGGER.debug("Last name length is wrong");
+			LOGGER.info("Last name length is wrong");
 			return false;
 		}
 		if(! lastName.matches(LETTERSANDSPACESREGEX)) {
-			LOGGER.debug("Last name length is wrong");
+			LOGGER.info("Last name length is wrong");
 			return false;
 		}
 		return true;
@@ -118,13 +119,13 @@ public class UserServiceImpl implements UserService{
 	
 	public boolean validateEmail(String email) {
 		if(email.length() > EMAIL_MAX_LENGTH || email.length() < SHORT_STRING_MIN_LENGTH) {
-			LOGGER.debug("Email length is wrong");
+			LOGGER.info("Email length is wrong");
 			return false;
 		}
 		
 		Matcher matcher = EMAILREGEX.matcher(email);
 		if(! matcher.find()) {
-			LOGGER.debug("Email format is wrong");
+			LOGGER.info("Email format is wrong");
 			return false;
 		}	
 		return true;
@@ -132,7 +133,7 @@ public class UserServiceImpl implements UserService{
 	
 	public boolean validatePassword(String password) {
 		if(password.length() > LONG_STRING_MAX_LENGTH_PASS || password.length() < LONG_STRING_MIN_LENGTH) {
-			LOGGER.debug("Password length is wrong");
+			LOGGER.info("Password length is wrong");
 			return false;
 		}
 		return true;
@@ -140,11 +141,11 @@ public class UserServiceImpl implements UserService{
 	
 	public boolean validatePhone(String phoneNumber) {
 		if(phoneNumber.length() > LONG_STRING_MAX_LENGTH || phoneNumber.length() < LONG_STRING_MIN_LENGTH) {
-			LOGGER.debug("Phone number length is wrong");
+			LOGGER.info("Phone number length is wrong");
 			return false;
 		}
 		if(! phoneNumber.matches(NUMBERSREGEX)) {
-			LOGGER.debug("Phone number format is wrong");
+			LOGGER.info("Phone number format is wrong");
 			return false;
 		}
 		return true;
