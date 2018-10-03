@@ -24,6 +24,7 @@ public class UserServiceImpl implements UserService{
 	
 	private final static int SHORT_STRING_MIN_LENGTH = 3;
 	private final static int SHORT_STRING_MAX_LENGTH = 30;
+	private final static int EMAIL_MAX_LENGTH = 254;
 	private final static int LONG_STRING_MIN_LENGTH = 6;
 	private final static int LONG_STRING_MAX_LENGTH = 30;
 	private final static String PASSWORD = "correct";
@@ -104,7 +105,7 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	public boolean validateEmail(String email) {
-		if(email.length() > SHORT_STRING_MAX_LENGTH || email.length() < SHORT_STRING_MIN_LENGTH)
+		if(email.length() > EMAIL_MAX_LENGTH || email.length() < SHORT_STRING_MIN_LENGTH)
 			return false;
 		Matcher matcher = EMAILREGEX.matcher(email);
 		if(! matcher.find())
