@@ -72,10 +72,14 @@ function deleteFilter(filter){
 	if(filterId == "filterPrice"){
 		document.getElementById("price").setAttribute("price","null");
 		document.getElementById("priceNull").checked = true;
+		document.getElementById("searchPrice").setAttribute("value","")
+		document.getElementById("filterPriceInput").setAttribute("value","")
 	}
 	else{
 		document.getElementById("bedroom").setAttribute("bedroom","null");
 		document.getElementById("bedroomNull").checked = true;
+		document.getElementById("searchBedrooms").setAttribute("value","")
+		document.getElementById("filterBedroomsInput").setAttribute("value","")
 	}
 	filterCondition()
 }
