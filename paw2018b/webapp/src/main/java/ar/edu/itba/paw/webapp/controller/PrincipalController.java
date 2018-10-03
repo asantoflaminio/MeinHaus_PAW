@@ -48,7 +48,7 @@ import ar.edu.itba.webapp.form.ThirdPublicationForm;
 @Controller
 @RequestMapping("/meinHaus/")
 @ComponentScan({ "ar.edu.itba.paw.webapp.controller","ar.edu.itba.paw.webapp.form", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence", "ar.edu.itba.paw.webapp.models" })
-public class HelloWorldController {
+public class PrincipalController {
 	
 	@Autowired
 	private UserServiceImpl us;
