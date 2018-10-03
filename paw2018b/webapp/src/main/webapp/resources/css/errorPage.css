@@ -31,6 +31,11 @@ body {
 	font-size: 18px;
 }
 
+#error-status {
+	color: #888;
+	font-size: 18px;
+}
+
 #error-link1 {
 	color: #FD8907;
 	font-style: italic;
