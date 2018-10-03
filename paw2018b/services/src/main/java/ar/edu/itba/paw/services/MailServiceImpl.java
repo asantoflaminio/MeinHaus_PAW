@@ -35,7 +35,7 @@ public class MailServiceImpl implements MailService {
         mailSender.send(message);
     }
 
-	public String prepareMessage(String message, String email) {
+	public String prepareMessage(String message, String email, String info) {
 		
 		final String html = "<!DOCTYPE html><html><body>"
 		    
@@ -79,6 +79,12 @@ public class MailServiceImpl implements MailService {
 							+										message
 							+									"</td>"
 							+								"</tr>"
+							+								"<tr>"
+							+									"<td style=\"padding: 20px 0 10px 0; color: #153643; font-family: 'Rubik', sans-serif; font-size: 15px; line-height: 20px;\">"
+							+										"Propiedad: "
+							+										"<td style=\"color: #153643; font-family: 'Rubik', sans-serif; font-size: 15px; line-height: 20px; padding-left:5px;\">" + info + "</td>"
+							+									"</td>"
+							+								"</tr>"
 							+							"</table>"
 							+						"</td>"
 							+					"</tr>"
@@ -105,9 +111,9 @@ public class MailServiceImpl implements MailService {
 	}
 	
 	
-	public void sendEmail(String to,String from, String body) throws AddressException, MessagingException {
+	public void sendEmail(String to,String from, String body, String info) throws AddressException, MessagingException {
 		
-		String message = prepareMessage(body,from);
+		String message = prepareMessage(body,from, info);
 
 		MimeMessage email = mailSender.createMimeMessage();
 		
